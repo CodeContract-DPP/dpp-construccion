@@ -28,6 +28,47 @@
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F3D7;</text></svg>">
 
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Ruta DPP Construccion — Guia para fabricantes de productos de construccion",
+  "description": "Guia paso a paso para implantar el Pasaporte Digital de Producto (DPP) en fabricantes de productos de construccion conforme al CPR 2024/3110 y ESPR 2024/1781.",
+  "url": "https://codecontract-dpp.github.io/dpp-construccion/",
+  "datePublished": "2026-04-19",
+  "dateModified": "2026-04-20",
+  "author": {
+    "@type": "Organization",
+    "name": "Code Contract S.L.",
+    "url": "https://codecontract.com",
+    "email": "eduardo@codecontract.io"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Code Contract S.L.",
+    "url": "https://codecontract.com"
+  },
+  "inLanguage": "es",
+  "about": [
+    { "@type": "Thing", "name": "Digital Product Passport", "sameAs": "https://en.wikipedia.org/wiki/Digital_product_passport" },
+    { "@type": "Legislation", "name": "CPR (UE) 2024/3110", "url": "https://eur-lex.europa.eu/eli/reg/2024/3110/oj/eng" },
+    { "@type": "Legislation", "name": "ESPR (UE) 2024/1781", "url": "https://eur-lex.europa.eu/eli/reg/2024/1781/oj" }
+  ],
+  "step": [
+    { "@type": "HowToStep", "name": "Conocer el marco regulatorio", "position": 1, "text": "Entender CPR 2024/3110, ESPR 2024/1781 y el Working Plan 2026-2029." },
+    { "@type": "HowToStep", "name": "Diagnostico interno y planificacion", "position": 2, "text": "Identificar familia de producto, realizar gap analysis, asignar responsables por departamento." },
+    { "@type": "HowToStep", "name": "Completar los datos obligatorios", "position": 3, "text": "Realizar ACV segun EN 15804+A2, obtener DAPs, preparar DoPC, evaluar REACH/SCIP." },
+    { "@type": "HowToStep", "name": "Digitalizar: construir el DPP", "position": 4, "text": "Estructurar datos en JSON-LD, implementar GS1 Digital Link, seleccionar plataforma DPP." },
+    { "@type": "HowToStep", "name": "Validar, publicar y mantener", "position": 5, "text": "Validar DPP contra esquema, publicar con data carrier, registrar en el Registro Central Art. 13." }
+  ],
+  "tool": [
+    { "@type": "SoftwareApplication", "name": "Trackline", "url": "https://trackline.codecontract.com", "applicationCategory": "BusinessApplication" },
+    { "@type": "SoftwareApplication", "name": "DPP Validator", "url": "https://codecontract-dpp.github.io/dpp-validator/", "applicationCategory": "DeveloperApplication" }
+  ]
+}
+</script>
+
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DKW5YSTNB0"></script>
 <script>
@@ -435,6 +476,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <h1>Ruta hacia el DPP de Productos de Construccion</h1>
   <p>Guia paso a paso para que un fabricante de productos de construccion cumpla con el Reglamento CPR 2024/3110 y tenga su Pasaporte Digital de Producto operativo</p>
   <div class="reg-badge">CPR (EU) 2024/3110 &middot; ESPR (EU) 2024/1781 &middot; Plan de Trabajo 2026-2029</div>
+  <div style="margin-top:14px; font-size:13px; opacity:0.85;">
+    Por <a href="https://codecontract.com" target="_blank" style="color:#fff; text-decoration:underline; font-weight:600;">Code Contract S.L.</a>
+    &middot; <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" target="_blank" style="color:#a3d9ff; text-decoration:none;">Ver ejemplo DPP</a>
+    &middot; <a href="https://codecontract-dpp.github.io/dpp-validator/" target="_blank" style="color:#a3d9ff; text-decoration:none;">Validador</a>
+    &middot; <a href="https://trackline.codecontract.com" target="_blank" style="color:#a3d9ff; text-decoration:none;">Trackline</a>
+  </div>
 </div>
 
 <!-- DOCUMENT STATUS -->
@@ -446,8 +493,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <p>Version de trabajo alineada con el CPR 2024/3110, ESPR 2024/1781 y el Plan de Trabajo COM(2025) 772 a abril de 2026.</p>
     </div>
     <div class="doc-status-version">
-      <strong>v1.1</strong>
-      19 abril 2026
+      <strong>v1.2</strong>
+      20 abril 2026
     </div>
   </div>
 </div>
@@ -471,7 +518,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="h-level h-guia">
         <div class="h-level-icon">&#x1F4D0;</div>
         <div class="h-level-title">Nivel 2: GUIA TECNICA</div>
-        <div class="h-level-desc">EN 15804+A2 (ACV), normas armonizadas, CIRPASS-2, Cobuilder, EPD Guide, GS1 Digital Link. Referencia de facto, no vinculante legalmente.</div>
+        <div class="h-level-desc">EN 15804+A2 (ACV), normas armonizadas, CIRPASS-2, EPD Guide, GS1 Digital Link. Referencia de facto, no vinculante legalmente.</div>
         <div class="h-level-badge">Recomendado</div>
       </div>
       <div class="hierarchy-arrow">&#x25B6;</div>
@@ -766,7 +813,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- LEGEND -->
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:#dbeafe"></div> LEY: Normativa oficial (CPR, ESPR, actos delegados)</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#d1fae5"></div> GUIA: Referencia tecnica (EN 15804, CIRPASS-2, Cobuilder)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#d1fae5"></div> GUIA: Referencia tecnica (EN 15804, CIRPASS-2, EPD Guide)</div>
   <div class="legend-item"><div class="legend-dot" style="background:#fef3c7"></div> SOLUCION: Implementacion propia</div>
   <div class="legend-item"><div class="legend-dot" style="background:#e9d5ff"></div> Recurso externo (terceros)</div>
 </div>
@@ -835,7 +882,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <div class="doc-group">
           <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
           <div class="doc-group-links">
-            <a href="https://cobuilder.com/en/digital-product-passport-dpp/" class="doc-link doc-guia" target="_blank">&#x1F517; Cobuilder &mdash; DPP para Construccion</a>
+            <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" class="doc-link doc-local" target="_blank">&#x1F517; DPP Construccion interactivo &mdash; Code Contract (ejemplo con datos reales)</a>
+            <a href="https://codecontract-dpp.github.io/dpp-validator/" class="doc-link doc-local" target="_blank">&#x1F517; Validador DPP &mdash; Code Contract</a>
             <a href="https://cirpass2.eu/" class="doc-link doc-guia" target="_blank">&#x1F517; CIRPASS-2 (piloto UE construccion)</a>
           </div>
         </div>
@@ -938,7 +986,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <div class="doc-group">
           <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
           <div class="doc-group-links">
-            <a href="mailto:adkady@gmail.com?subject=Consulta%20DPP%20Construccion%20-%20Mapping%20campos" class="doc-link doc-local">&#x1F4E9; Mapping campos DPP Construccion &mdash; solicitar a Code Contract</a>
+            <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/mapping-trackline-dpp.html" class="doc-link doc-local" target="_blank">&#x1F517; Mapping Trackline &#x2194; DPP Construccion &mdash; correspondencia de campos y flujo de datos</a>
           </div>
         </div>
       </div>
@@ -951,13 +999,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <div class="doc-group">
           <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
           <div class="doc-group-links">
-            <a href="mailto:adkady@gmail.com?subject=Consulta%20DPP%20Construccion%20-%20Mapa%20datos%20departamento" class="doc-link doc-local">&#x1F4E9; Mapa de datos por departamento &mdash; solicitar a Code Contract</a>
+            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Mapa%20datos%20departamento" class="doc-link doc-local">&#x1F4E9; Mapa de datos por departamento &mdash; solicitar a Code Contract</a>
           </div>
         </div>
         <div class="doc-group">
           <div class="doc-group-label" style="color:#6b21a8;">HERRAMIENTA DE ARRANQUE:</div>
           <div class="doc-group-links">
-            <a href="mailto:adkady@gmail.com?subject=Consulta%20DPP%20Construccion%20-%20Pack%20practico%20Excel" class="doc-link doc-local">&#x1F4E9; Pack practico Excel: Checklist DPP + Marco 10 pasos + Mapa de datos + Timeline + Glosario &mdash; solicitar a Code Contract</a>
+            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Pack%20practico%20Excel" class="doc-link doc-local">&#x1F4E9; Pack practico Excel: Checklist DPP + Marco 10 pasos + Mapa de datos + Timeline + Glosario &mdash; solicitar a Code Contract</a>
           </div>
         </div>
       </div>
@@ -1058,7 +1106,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <div class="doc-group">
           <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
           <div class="doc-group-links">
-            <a href="https://cobuilder.com/en/knowledge/article/dpp-workflows-take-shape/" class="doc-link doc-guia" target="_blank">&#x1F517; Cobuilder &mdash; Workflows DPP (CIRPASS-2)</a>
+            <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/?product=suelo-radiante" class="doc-link doc-local" target="_blank">&#x1F517; Ejemplo DPP suelo radiante multicapa &mdash; Code Contract</a>
             <a href="https://cirpassproject.eu/wp-content/uploads/2024/03/CIRPASS-A-study-on-DPP-costs-and-benefits-for-SMEs-v1.0-1.pdf" class="doc-link doc-guia" target="_blank">&#x1F517; CIRPASS &mdash; Costes DPP para PYMEs</a>
           </div>
         </div>
@@ -1129,13 +1177,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <div class="doc-group">
           <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
           <div class="doc-group-links">
-            <a href="https://cobuilder.com/en/digital-product-passport-dpp/digital-product-passports-for-construction-what-the-eus-2026-2029-cpr-working-plan-means-for-stakeholders/" class="doc-link doc-guia" target="_blank">&#x1F517; Cobuilder &mdash; Plan CPR 2026-2029 para stakeholders</a>
+            <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/?product=ventana-aluminio" class="doc-link doc-local" target="_blank">&#x1F517; Ejemplo DPP ventana aluminio RPT &mdash; Code Contract</a>
+            <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/?product=suelo-radiante" class="doc-link doc-local" target="_blank">&#x1F517; Ejemplo DPP suelo radiante multicapa &mdash; Code Contract</a>
           </div>
         </div>
         <div class="doc-group">
           <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
           <div class="doc-group-links">
-            <a href="mailto:adkady@gmail.com?subject=Consulta%20DPP%20Construccion%20-%20Modelo%20datos" class="doc-link doc-local">&#x1F4E9; Modelo de datos DPP Construccion &mdash; solicitar a Code Contract</a>
+            <a href="https://codecontract-dpp.github.io/dpp-validator/" class="doc-link doc-local" target="_blank">&#x1F517; Validador DPP &mdash; Code Contract</a>
+            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Modelo%20datos" class="doc-link doc-local">&#x1F4E9; Modelo de datos DPP Construccion &mdash; solicitar a Code Contract</a>
           </div>
         </div>
       </div>
@@ -1168,7 +1218,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <div class="doc-group">
           <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
           <div class="doc-group-links">
-            <a href="mailto:adkady@gmail.com?subject=Consulta%20DPP%20Construccion%20-%20Control%20acceso%20roles" class="doc-link doc-local">&#x1F4E9; Control de acceso por roles DPP &mdash; solicitar a Code Contract</a>
+            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Control%20acceso%20roles" class="doc-link doc-local">&#x1F4E9; Control de acceso por roles DPP &mdash; solicitar a Code Contract</a>
           </div>
         </div>
       </div>
@@ -1177,15 +1227,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x2601;&#xFE0F;</div>
       <div class="step-content">
         <h3>Seleccionar plataforma DPP</h3>
-        <p>Tres opciones de arquitectura: <strong>Centralizada (PaaS):</strong> Cobuilder, Circularise, Bluestone PIM &mdash; menor inversion IT, mas rapido. <strong>Descentralizada (self-hosted):</strong> mayor control, mayor esfuerzo IT. <strong>Hibrida (recomendada por CIRPASS-2):</strong> metadatos en Registro EU, datos completos en plataforma propia o proveedor. Para PYMEs se recomienda PaaS.</p>
+        <p>Tres opciones de arquitectura: <strong>Centralizada (PaaS):</strong> plataforma especializada como Trackline (Code Contract) &mdash; menor inversion IT, mas rapido. <strong>Descentralizada (self-hosted):</strong> mayor control, mayor esfuerzo IT. <strong>Hibrida (recomendada por CIRPASS-2):</strong> metadatos en Registro EU, datos completos en plataforma propia o proveedor. Para PYMEs se recomienda PaaS.</p>
         <div class="doc-group">
-          <div class="doc-group-label" style="color:#6b21a8;">PLATAFORMAS:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
           <div class="doc-group-links">
-            <a href="https://cobuilder.com/en/digital-product-passport-dpp/" class="doc-link doc-external" target="_blank">&#x1F517; Cobuilder</a>
-            <a href="https://www.circularise.com/" class="doc-link doc-external" target="_blank">&#x1F517; Circularise</a>
-            <a href="https://www.bluestonepim.com/blog/dpp-for-construction" class="doc-link doc-external" target="_blank">&#x1F517; Bluestone PIM</a>
+            <a href="https://trackline.codecontract.com" class="doc-link doc-interno" target="_blank">&#x1F517; Trackline by Code Contract &mdash; Orquestacion y trazabilidad DPP</a>
+            <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" class="doc-link doc-local" target="_blank">&#x1F517; Ver ejemplo DPP Construccion interactivo</a>
           </div>
         </div>
+
+
       </div>
     </div>
     <div class="step">
@@ -1270,6 +1321,148 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   </div>
 </div>
 
+</div>
+
+<!-- ============================================================ -->
+<!-- GLOSARIO -->
+<!-- ============================================================ -->
+<div class="faq-box" style="margin-bottom:24px;">
+  <div class="faq">
+    <div class="faq-title">&#x1F4D6; Glosario rapido</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F4CB;</span>
+        <span><strong>DPP</strong> &mdash; Pasaporte Digital de Producto</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a">
+        <p>Registro digital estructurado que acompana a un producto a lo largo de todo su ciclo de vida. Contiene datos de identificacion, composicion, prestaciones, impacto ambiental, trazabilidad y fin de vida. Obligatorio en la UE por el ESPR 2024/1781.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F3D7;&#xFE0F;</span>
+        <span><strong>CPR</strong> &mdash; Construction Products Regulation</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Reglamento (UE) 2024/3110 de Productos de Construccion. Sustituye al anterior CPR 305/2011. Establece la Declaracion de Prestaciones (DoPC), el marcado CE, los sistemas de evaluacion AVS y la obligacion de DPP para productos de construccion.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x2699;&#xFE0F;</span>
+        <span><strong>ESPR</strong> &mdash; Ecodesign for Sustainable Products Regulation</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Reglamento (UE) 2024/1781 de Ecodiseno para Productos Sostenibles. Marco horizontal que establece los requisitos del DPP, el Registro Central (Art. 13) y los requisitos de sostenibilidad para productos comercializados en la UE.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F4C4;</span>
+        <span><strong>DoPC</strong> &mdash; Declaracion de Prestaciones de Construccion</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Documento obligatorio del CPR que declara las prestaciones esenciales de un producto de construccion frente a las caracteristicas armonizadas. En el nuevo CPR 2024/3110 incluye tambien caracteristicas ambientales predeterminadas. Es la base documental del marcado CE.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F30D;</span>
+        <span><strong>DAP / EPD</strong> &mdash; Declaracion Ambiental de Producto</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Documento verificado por tercero independiente que cuantifica el impacto ambiental de un producto a lo largo de su ciclo de vida (ACV). Para construccion se rige por la norma EN 15804+A2. Incluye indicadores como GWP (huella de carbono), consumo energetico, agotamiento de recursos, etc.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F52C;</span>
+        <span><strong>ACV / LCA</strong> &mdash; Analisis de Ciclo de Vida</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Metodologia para evaluar el impacto ambiental de un producto desde la extraccion de materias primas (A1) hasta el fin de vida (C4) y los beneficios por reciclaje (D). Normas: ISO 14040/14044 y EN 15804+A2 para construccion.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x2697;&#xFE0F;</span>
+        <span><strong>SVHC</strong> &mdash; Substances of Very High Concern</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Sustancias extremadamente preocupantes identificadas por ECHA bajo el Reglamento REACH. Si un producto contiene SVHCs por encima del 0,1% en peso, el fabricante debe comunicar informacion para su uso seguro (REACH art. 33) y notificar a la base de datos SCIP.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F6E1;&#xFE0F;</span>
+        <span><strong>AVS</strong> &mdash; Assessment and Verification of Stability of performance</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Sistema de evaluacion y verificacion de la estabilidad de prestaciones del nuevo CPR 2024/3110. Hay varios niveles (1+, 1, 2+, 3, 3+, 4). El AVS 3+ es nuevo y especifico para caracteristicas ambientales predeterminadas: el fabricante realiza el ACV/DAP y un organismo notificado valida las declaraciones.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F510;</span>
+        <span><strong>RBAC</strong> &mdash; Role-Based Access Control</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Control de acceso basado en roles. El DPP tiene distintos niveles de acceso: datos publicos (consumidor), datos de cadena de suministro (recicladores, instaladores) y datos confidenciales (autoridades, organismos notificados). El CPR 2024/3110 Art. 77 define estos niveles.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F3ED;</span>
+        <span><strong>FPC</strong> &mdash; Factory Production Control</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Control de produccion en fabrica. Sistema documentado de control de calidad interno que el fabricante debe mantener para garantizar la estabilidad de las prestaciones declaradas. Es un requisito del CPR para el marcado CE y genera datos que alimentan el DPP.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F4F2;</span>
+        <span><strong>GS1 Digital Link</strong> &mdash; Identificador unico resoluble</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Estandar GS1 (ISO/IEC 18975) que permite codificar la identidad de un producto en una URL web resoluble. Formato: <code>https://[dominio]/01/[GTIN]/10/[lote]/21/[serie]</code>. Es el data carrier recomendado por el CPR para enlazar producto fisico con DPP digital, codificado en QR, Data Matrix o NFC.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F4CA;</span>
+        <span><strong>GWP</strong> &mdash; Global Warming Potential (huella de carbono)</span>
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        <p>Indicador ambiental que mide la contribucion al calentamiento global de un producto, expresado en kg CO2 equivalente. Es el indicador principal de la DAP/EPD. Se desglosa por modulos: A1-A3 (produccion), A4-A5 (transporte y construccion), B1-B7 (uso), C1-C4 (fin de vida), D (beneficios por reciclaje).</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- ============================================================ -->
@@ -1379,6 +1572,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     </div>
     <div class="cta-links">
       <a href="https://trackline.codecontract.com" class="cta-link cta-link-primary" target="_blank">&#x1F517; Acceder a Trackline</a>
+      <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Ver ejemplo DPP Construccion</a>
+      <a href="https://codecontract-dpp.github.io/dpp-validator/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Validador DPP</a>
       <a href="https://codecontract.com" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Code Contract S.L.</a>
     </div>
   </div>
@@ -1389,10 +1584,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <a href="https://eur-lex.europa.eu/eli/reg/2024/3110/oj/eng" target="_blank">CPR (EU) 2024/3110</a> &middot;
   <a href="https://eur-lex.europa.eu/eli/reg/2024/1781/oj" target="_blank">ESPR (EU) 2024/1781</a> &middot;
   <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52025DC0772" target="_blank">Plan de Trabajo COM(2025) 772</a> &middot;
-  <a href="https://cobuilder.com/en/digital-product-passport-dpp/" target="_blank">Cobuilder DPP</a> &middot;
   <a href="https://cirpass2.eu/" target="_blank">CIRPASS-2</a> &middot;
-  <a href="https://epd.guide/" target="_blank">EPD Guide</a><br>
-  Elaborado por Code Contract S.L. &middot; v1.1 &middot; 19 abril 2026<br>
+  <a href="https://epd.guide/" target="_blank">EPD Guide</a> &middot;
+  <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" target="_blank">Ejemplo DPP Construccion</a> &middot;
+  <a href="https://codecontract-dpp.github.io/dpp-validator/" target="_blank">Validador DPP</a> &middot;
+  <a href="https://trackline.codecontract.com" target="_blank">Trackline</a><br>
+  Elaborado por Code Contract S.L. &middot; v1.2 &middot; 20 abril 2026<br>
   <em style="color:#b0b0b0">Nota: este documento no constituye asesoramiento juridico. Consultar siempre el texto oficial del reglamento y los actos delegados vigentes.</em>
 </div>
 
