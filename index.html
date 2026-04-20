@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ruta DPP Construccion — Guia para fabricantes de productos de construccion</title>
 <meta name="description" content="Guia paso a paso para implantar el Pasaporte Digital de Producto (DPP) en fabricantes de productos de construccion. Reglamento CPR 2024/3110, ESPR 2024/1781, Working Plan 2026-2029. Por Code Contract.">
-<meta name="keywords" content="DPP, pasaporte digital producto, construccion, CPR 2024/3110, ESPR, fabricantes, hormigon, ventanas, acero, suelos, ceramica, DAP, EPD, EN 15804, GS1 Digital Link, CIRPASS-2">
+
 <meta name="author" content="Code Contract S.L.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://codecontract-dpp.github.io/dpp-construccion/">
@@ -41,13 +41,13 @@
   "author": {
     "@type": "Organization",
     "name": "Code Contract S.L.",
-    "url": "https://codecontract.com",
+    "url": "https://codecontract.io",
     "email": "eduardo@codecontract.io"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Code Contract S.L.",
-    "url": "https://codecontract.com"
+    "url": "https://codecontract.io"
   },
   "inLanguage": "es",
   "about": [
@@ -63,7 +63,7 @@
     { "@type": "HowToStep", "name": "Validar, publicar y mantener", "position": 5, "text": "Validar DPP contra esquema, publicar con data carrier, registrar en el Registro Central Art. 13." }
   ],
   "tool": [
-    { "@type": "SoftwareApplication", "name": "Trackline", "url": "https://trackline.codecontract.com", "applicationCategory": "BusinessApplication" },
+    { "@type": "SoftwareApplication", "name": "Trackline", "url": "https://trackline.codecontract.io", "applicationCategory": "BusinessApplication" },
     { "@type": "SoftwareApplication", "name": "DPP Validator", "url": "https://codecontract-dpp.github.io/dpp-validator/", "applicationCategory": "DeveloperApplication" }
   ]
 }
@@ -361,37 +361,54 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   max-width: 1100px; margin: 0 auto; padding: 0 20px 32px;
 }
 .cta-box {
-  background: white; border-radius: 16px; border: 2px solid #1f4e79;
-  padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  background: linear-gradient(135deg, #1a365d 0%, #16423c 100%); border-radius: 16px;
+  padding: 40px; box-shadow: 0 8px 32px rgba(26,54,93,0.25); color: white;
 }
-.cta-box h2 { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-.cta-box > p { font-size: 14px; color: #4b5563; margin-bottom: 20px; max-width: 700px; }
+.cta-box h2 { font-size: 24px; font-weight: 800; color: white; margin-bottom: 12px; }
+.cta-box > p { font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 800px; line-height: 1.7; }
 .cta-steps {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px; margin-bottom: 20px;
+  gap: 16px; margin-bottom: 24px;
 }
 .cta-step {
-  background: var(--bg); border-radius: 12px; padding: 16px;
-  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px;
+  border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(4px);
 }
 .cta-step-num {
-  font-size: 11px; font-weight: 700; color: #1f4e79;
+  font-size: 11px; font-weight: 700; color: #a3d9ff;
   text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
 }
-.cta-step h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-.cta-step p { font-size: 12px; color: var(--gray); }
+.cta-step h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: white; }
+.cta-step p { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.5; }
+.cta-contact {
+  background: rgba(255,255,255,0.12); border-radius: 12px; padding: 24px;
+  border: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px;
+  display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+}
+.cta-contact-info { flex: 1; min-width: 220px; }
+.cta-contact-info h4 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 4px; }
+.cta-contact-info .cta-role { font-size: 13px; color: #a3d9ff; font-weight: 600; margin-bottom: 8px; }
+.cta-contact-info .cta-detail { font-size: 13px; color: rgba(255,255,255,0.85); margin-bottom: 2px; }
+.cta-contact-info .cta-detail a { color: #a3d9ff; text-decoration: none; }
+.cta-contact-info .cta-detail a:hover { text-decoration: underline; }
+.cta-contact-cta { text-align: center; }
+.cta-contact-cta a {
+  display: inline-block; background: white; color: #1a365d; font-size: 14px; font-weight: 700;
+  padding: 12px 28px; border-radius: 10px; text-decoration: none; transition: all 0.15s;
+}
+.cta-contact-cta a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 .cta-links {
-  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; padding-top: 16px;
-  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 .cta-link {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 13px; font-weight: 600; padding: 8px 16px;
   border-radius: 8px; text-decoration: none; transition: all 0.15s;
 }
-.cta-link:hover { filter: brightness(0.95); transform: translateY(-1px); }
-.cta-link-primary { background: #1f4e79; color: white; }
-.cta-link-secondary { background: #dbeafe; color: #1f4e79; }
+.cta-link:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.cta-link-primary { background: white; color: #1a365d; }
+.cta-link-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
 
 /* FAMILY CARDS */
 .families-box {
@@ -477,10 +494,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <p>Guia paso a paso para que un fabricante de productos de construccion cumpla con el Reglamento CPR 2024/3110 y tenga su Pasaporte Digital de Producto operativo</p>
   <div class="reg-badge">CPR (EU) 2024/3110 &middot; ESPR (EU) 2024/1781 &middot; Plan de Trabajo 2026-2029</div>
   <div style="margin-top:14px; font-size:13px; opacity:0.85;">
-    Por <a href="https://codecontract.com" target="_blank" style="color:#fff; text-decoration:underline; font-weight:600;">Code Contract S.L.</a>
+    Por <a href="https://codecontract.io" target="_blank" style="color:#fff; text-decoration:underline; font-weight:600;">Code Contract S.L.</a>
     &middot; <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" target="_blank" style="color:#a3d9ff; text-decoration:none;">Ver ejemplo DPP</a>
     &middot; <a href="https://codecontract-dpp.github.io/dpp-validator/" target="_blank" style="color:#a3d9ff; text-decoration:none;">Validador</a>
-    &middot; <a href="https://trackline.codecontract.com" target="_blank" style="color:#a3d9ff; text-decoration:none;">Trackline</a>
+    &middot; <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/mapping-trackline-dpp.html" target="_blank" style="color:#a3d9ff; text-decoration:none;">Mapping Trackline</a>
+    &middot; <a href="https://trackline.codecontract.io" target="_blank" style="color:#a3d9ff; text-decoration:none;">Trackline</a>
   </div>
 </div>
 
@@ -524,7 +542,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="hierarchy-arrow">&#x25B6;</div>
       <div class="h-level h-solucion">
         <div class="h-level-icon">&#x1F6E0;&#xFE0F;</div>
-        <div class="h-level-title">Nivel 3: SOLUCION PROPIA</div>
+        <div class="h-level-title">Nivel 3: SOLUCION CODE CONTRACT</div>
         <div class="h-level-desc">Implementacion especifica: Trackline, plataforma DPP, mappings de datos, control de acceso, integracion ERP/PLM. Propuesta de Code Contract.</div>
         <div class="h-level-badge">Implementacion</div>
       </div>
@@ -548,7 +566,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
           <td class="tl-date-cell" style="color:#2e7d4f">Dic 2024</td>
           <td>
             <div class="tl-milestone">Publicacion del CPR (UE) 2024/3110 en el DOUE</div>
-            <div class="tl-publisher">Art. 91 CPR</div>
+            <div class="tl-publisher">Art. 96 CPR (entrada en vigor y aplicacion)</div>
           </td>
           <td class="tl-publisher">Parlamento Europeo y Consejo</td>
           <td><span class="tl-status-badge tl-past">En vigor</span></td>
@@ -572,13 +590,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
           <td><span class="tl-status-badge tl-past">Publicado</span></td>
         </tr>
         <tr>
-          <td class="tl-date-cell" style="color:#d97706">Ene 2026</td>
+          <td class="tl-date-cell" style="color:#2e7d4f">Ene 2026</td>
           <td>
             <div class="tl-milestone">Aplicacion de la mayoria de disposiciones CPR (8 enero). Fase 1 Anexo II: GWP obligatorio</div>
             <div class="tl-publisher">Caracteristicas ambientales a-d (incluye huella de carbono GWP-total, GWP-fossil, GWP-bio, GWP-luluc)</div>
           </td>
           <td class="tl-publisher">Fabricantes (declaracion) + Organismos notificados (AVS 3+)</td>
-          <td><span class="tl-status-badge tl-upcoming">Proximo</span></td>
+          <td><span class="tl-status-badge tl-past">En vigor</span></td>
         </tr>
         <tr>
           <td class="tl-date-cell" style="color:#d97706">Jul 2026</td>
@@ -594,9 +612,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr>
           <td class="tl-date-cell" style="color:#dc2626">2027-2028</td>
           <td>
-            <div class="tl-milestone">DPP obligatorio para productos Oleada 1 (18 meses tras registro)</div>
-            <div class="tl-publisher">Hormigon prefabricado, acero estructural, acero de refuerzo</div>
-            <div style="font-size:11px; color:#dc2626; font-weight:600; margin-top:4px;">&#x26A0; El DPP debe estar accesible via data carrier Y cargado en el Registro antes de la primera comercializacion</div>
+            <div class="tl-milestone">DPP obligatorio para productos Oleada 1 &mdash; condicionado a la adopcion de actos delegados por familia de producto (Art. 75(1) CPR)</div>
+            <div class="tl-publisher">Hormigon prefabricado, acero estructural, acero de refuerzo (sujeto a confirmacion en acto delegado)</div>
+            <div style="font-size:11px; color:#dc2626; font-weight:600; margin-top:4px;">&#x26A0; Cuando aplique: el DPP debera estar accesible via data carrier y cargado en el Registro antes de la primera comercializacion</div>
           </td>
           <td class="tl-publisher">Fabricantes (DPP completo + data carrier) + Comision (actos delegados por familia)</td>
           <td><span class="tl-status-badge tl-future">Critico</span>
@@ -880,19 +898,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <h3>Entender la arquitectura tecnica del DPP de Construccion</h3>
         <p>Como funciona el sistema: data carrier (QR, Data Matrix, NFC) &rarr; identificador unico (GS1 Digital Link) &rarr; acceso al DPP &rarr; Registro central EU. La Comision estudio tres modelos (centralizado, federado, descentralizado); el modelo de proveedor autorizado fue recomendado.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
             <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" class="doc-link doc-local" target="_blank">&#x1F517; DPP Construccion interactivo &mdash; Code Contract (ejemplo con datos reales)</a>
             <a href="https://codecontract-dpp.github.io/dpp-validator/" class="doc-link doc-local" target="_blank">&#x1F517; Validador DPP &mdash; Code Contract</a>
-            <a href="https://cirpass2.eu/" class="doc-link doc-guia" target="_blank">&#x1F517; CIRPASS-2 (piloto UE construccion)</a>
           </div>
         </div>
         <div class="doc-group">
           <div class="doc-group-label" style="color:#6b21a8;">REFERENCIAS EXTERNAS:</div>
           <div class="doc-group-links">
+            <a href="https://cirpass2.eu/" class="doc-link doc-guia" target="_blank">&#x1F517; CIRPASS-2 (piloto UE construccion)</a>
             <a href="https://www.gs1.org/standards/gs1-digital-link" class="doc-link doc-external" target="_blank">&#x1F517; GS1 Digital Link (ISO/IEC 18975)</a>
-            <a href="https://eclass.eu/" class="doc-link doc-external" target="_blank">&#x1F517; ECLASS (clasificacion productos)</a>
-            <a href="https://www.buildingsmart.org/standards/bsi-standards/bsdd/" class="doc-link doc-external" target="_blank">&#x1F517; bSDD (buildingSMART Data Dictionary)</a>
           </div>
         </div>
       </div>
@@ -901,11 +917,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x1F4A1;</div>
       <div class="step-content">
         <h3>Entender el valor de negocio</h3>
-        <p>No solo es cumplimiento: el DPP aporta ventaja competitiva (transparencia ambiental), acceso al mercado UE, compatibilidad con certificaciones verdes (BREEAM, LEED, DGNB) y preparacion para la economia circular. Los productos sin DPP conforme no podran comercializarse en la UE.</p>
+        <p>No solo es cumplimiento: el DPP aporta ventaja competitiva (transparencia ambiental), acceso al mercado UE, compatibilidad con certificaciones verdes (BREEAM, LEED, DGNB) y preparacion para la economia circular. A medida que se adopten los actos delegados por familia de producto, los fabricantes afectados necesitaran un DPP conforme para acceder al mercado UE.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
+          <div class="doc-group-label" style="color:#6b21a8;">REFERENCIAS EXTERNAS:</div>
           <div class="doc-group-links">
-            <a href="https://op.europa.eu/en/publication-detail/-/publication/cf329d5e-3464-11f0-8a44-01aa75ed71a1/language-en" class="doc-link doc-guia" target="_blank">&#x1F517; Estudio viabilidad DPP CPR (EU Publications)</a>
+            <a href="https://op.europa.eu/en/publication-detail/-/publication/cf329d5e-3464-11f0-8a44-01aa75ed71a1/language-en" class="doc-link doc-external" target="_blank">&#x1F517; Estudio viabilidad DPP para productos de construccion &mdash; Oficina de Publicaciones UE (2025)</a>
             <a href="https://ecochain.com/blog/cpr-regulation-why-manufacturers-cant-afford-to-ignore-it/" class="doc-link doc-external" target="_blank">&#x1F517; Ecochain &mdash; Guia CPR para fabricantes</a>
           </div>
         </div>
@@ -971,9 +987,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
           </div>
         </div>
         <div class="doc-group">
-          <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
-            <a href="https://epd.guide/standards-and-schemas/construction-digital-product-passports-explained-fast" class="doc-link doc-guia" target="_blank">&#x1F517; EPD Guide &mdash; DPP Construccion explicado</a>
+            <a href="mailto:eduardo@codecontract.io?subject=Solicitud%20Checklist%20Auditoria%20DPP%20Construccion" class="doc-link doc-local">&#x1F4E9; Checklist auditoria Anexo II + V (Excel) &mdash; solicitar a Code Contract</a>
           </div>
         </div>
       </div>
@@ -984,7 +1000,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <h3>Clasificar cada campo por estado</h3>
         <p>Marcar cada dato como: <strong>Disponible</strong> (en ERP/PLM, verificado), <strong>Parcial</strong> (dato generico, no por producto), <strong>Falta</strong> (no existe, requiere recogida), <strong>Proveedor</strong> (depende de DAP/datos de proveedor upstream). Priorizar por fase del Anexo II.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
             <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/mapping-trackline-dpp.html" class="doc-link doc-local" target="_blank">&#x1F517; Mapping Trackline &#x2194; DPP Construccion &mdash; correspondencia de campos y flujo de datos</a>
           </div>
@@ -997,15 +1013,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <h3>Identificar responsables por departamento</h3>
         <p>&iquest;Quien genera cada dato? <strong>Produccion:</strong> BOM, energia, residuos, lote, planta. <strong>Calidad:</strong> ensayos, FPC, liberacion. <strong>Compras:</strong> DAPs proveedores, contenido reciclado, SVHC. <strong>I+D:</strong> especificaciones, configuraciones. <strong>IT:</strong> integracion, GS1. <strong>Sostenibilidad:</strong> ACV, DAPs. <strong>Legal:</strong> DoPC, vigilancia, REACH. <strong>Comercial:</strong> fichas producto, BIM. <strong>Logistica:</strong> remesas, destino, trazabilidad.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
-            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Mapa%20datos%20departamento" class="doc-link doc-local">&#x1F4E9; Mapa de datos por departamento &mdash; solicitar a Code Contract</a>
-          </div>
-        </div>
-        <div class="doc-group">
-          <div class="doc-group-label" style="color:#6b21a8;">HERRAMIENTA DE ARRANQUE:</div>
-          <div class="doc-group-links">
-            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Pack%20practico%20Excel" class="doc-link doc-local">&#x1F4E9; Pack practico Excel: Checklist DPP + Marco 10 pasos + Mapa de datos + Timeline + Glosario &mdash; solicitar a Code Contract</a>
+            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Pack%20practico%20Excel" class="doc-link doc-local">&#x1F4E9; Pack practico: Mapa de datos por departamento + Checklist + Timeline + Glosario &mdash; solicitar a Code Contract</a>
           </div>
         </div>
       </div>
@@ -1175,17 +1185,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <h3>Estructurar datos en formato DPP</h3>
         <p>Convertir tus datos en el formato requerido. DoPC en formato electronico no editable. Datos ambientales en ILCD+EPD (XML). DPP en JSON-LD (Schema.org) para interoperabilidad. Integrar con ERP/PLM como fuente unica de verdad.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
             <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/?product=ventana-aluminio" class="doc-link doc-local" target="_blank">&#x1F517; Ejemplo DPP ventana aluminio RPT &mdash; Code Contract</a>
             <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/?product=suelo-radiante" class="doc-link doc-local" target="_blank">&#x1F517; Ejemplo DPP suelo radiante multicapa &mdash; Code Contract</a>
-          </div>
-        </div>
-        <div class="doc-group">
-          <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
-          <div class="doc-group-links">
             <a href="https://codecontract-dpp.github.io/dpp-validator/" class="doc-link doc-local" target="_blank">&#x1F517; Validador DPP &mdash; Code Contract</a>
-            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Modelo%20datos" class="doc-link doc-local">&#x1F4E9; Modelo de datos DPP Construccion &mdash; solicitar a Code Contract</a>
+            <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/mapping-trackline-dpp.html" class="doc-link doc-local" target="_blank">&#x1F517; Modelo de datos completo &mdash; ver Mapping Trackline</a>
           </div>
         </div>
       </div>
@@ -1216,9 +1221,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <h3>Implementar control de acceso por roles (RBAC)</h3>
         <p>El DPP tiene acceso diferenciado (Art. 77 CPR): <strong>datos publicos</strong> (consumidor, especificador), <strong>datos cadena de suministro</strong> (recicladores, instaladores), <strong>datos confidenciales</strong> (autoridades, organismos notificados). Implementar RBAC + firmas digitales para integridad de datos.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
-            <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Control%20acceso%20roles" class="doc-link doc-local">&#x1F4E9; Control de acceso por roles DPP &mdash; solicitar a Code Contract</a>
+            <span class="doc-link doc-local" style="cursor:default;">&#x1F510; RBAC integrado en Trackline &mdash; ver demo en la seccion Proximos pasos</span>
           </div>
         </div>
       </div>
@@ -1229,9 +1234,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <h3>Seleccionar plataforma DPP</h3>
         <p>Tres opciones de arquitectura: <strong>Centralizada (PaaS):</strong> plataforma especializada como Trackline (Code Contract) &mdash; menor inversion IT, mas rapido. <strong>Descentralizada (self-hosted):</strong> mayor control, mayor esfuerzo IT. <strong>Hibrida (recomendada por CIRPASS-2):</strong> metadatos en Registro EU, datos completos en plataforma propia o proveedor. Para PYMEs se recomienda PaaS.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
-            <a href="https://trackline.codecontract.com" class="doc-link doc-interno" target="_blank">&#x1F517; Trackline by Code Contract &mdash; Orquestacion y trazabilidad DPP</a>
+            <a href="https://trackline.codecontract.io" class="doc-link doc-interno" target="_blank">&#x1F517; Trackline by Code Contract &mdash; Orquestacion y trazabilidad DPP</a>
             <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" class="doc-link doc-local" target="_blank">&#x1F517; Ver ejemplo DPP Construccion interactivo</a>
           </div>
         </div>
@@ -1245,9 +1250,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <h3>Registrar evidencia (trazabilidad blockchain)</h3>
         <p>Opcional: registrar datos verificados en blockchain para evidencia inmutable. No es un requisito legal, sino una capa adicional de confianza y trazabilidad. Especialmente valioso para contenido reciclado, origen de materias primas y datos de cadena de suministro.</p>
         <div class="doc-group">
-          <div class="doc-group-label dg-solucion">SOLUCION PROPIA:</div>
+          <div class="doc-group-label dg-solucion">SOLUCION CODE CONTRACT:</div>
           <div class="doc-group-links">
-            <a href="https://trackline.codecontract.com" class="doc-link doc-interno" target="_blank">&#x1F517; Trackline by Code Contract</a>
+            <a href="https://trackline.codecontract.io" class="doc-link doc-interno" target="_blank">&#x1F517; Trackline by Code Contract</a>
           </div>
         </div>
       </div>
@@ -1546,35 +1551,48 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ============================================================ -->
 <div class="cta-section">
   <div class="cta-box">
-    <h2>&#x1F6E0;&#xFE0F; Proximos pasos: implementacion con Trackline</h2>
-    <p>Trackline es la plataforma de Code Contract que permite operativizar todo el recorrido descrito en esta guia. Asi se traduce cada fase en acciones concretas:</p>
+    <h2>&#x1F680; Como trabajamos: implementacion con Trackline</h2>
+    <p>Trackline es la plataforma de Code Contract que orquesta todo el ciclo del DPP de construccion. Desde la auditoria inicial de datos hasta la publicacion del pasaporte digital con trazabilidad completa. Asi funciona el proceso:</p>
     <div class="cta-steps">
       <div class="cta-step">
         <div class="cta-step-num">Paso 1</div>
         <h4>Mapeo de datos</h4>
-        <p>Cargar los campos del DPP (Anexo II + V) en Trackline, asignar responsables por departamento y conectar con las fuentes de datos internas (ERP, PLM, laboratorio).</p>
+        <p>Cargamos los campos del DPP (Anexo II + V) en Trackline. Asignamos responsables por departamento (produccion, calidad, compras, sostenibilidad) y conectamos con tus fuentes de datos internas: ERP, PLM, laboratorio.</p>
       </div>
       <div class="cta-step">
         <div class="cta-step-num">Paso 2</div>
         <h4>Recopilacion y evidencia</h4>
-        <p>Cada dato queda registrado con su evidencia: quien lo aporto, cuando, documento soporte. DAPs de proveedores, informes de ensayo, certificados. Trazabilidad completa.</p>
+        <p>Trackline solicita la documentacion a cada proveedor de datos (DoPC, DAP/EPD, informes de ensayo, declaraciones REACH). Cada dato queda registrado con su evidencia: quien lo aporto, cuando, y con que documento soporte.</p>
       </div>
       <div class="cta-step">
         <div class="cta-step-num">Paso 3</div>
         <h4>Generacion del DPP</h4>
-        <p>Trackline genera el DPP en formato estandar con DoPC electronica, datos ambientales ACV y metadatos de estado. Enlace a evidencias y DAPs verificadas.</p>
+        <p>Trackline genera el DPP en formato JSON-LD estandar con DoPC electronica, indicadores ambientales EN 15804+A2, conformidad REACH/SCIP y metadatos de estado verificados. Todo enlazado a las evidencias originales.</p>
       </div>
       <div class="cta-step">
         <div class="cta-step-num">Paso 4</div>
         <h4>Publicacion y registro</h4>
-        <p>Generar data carrier (QR/NFC con GS1 Digital Link), publicar el visor web del DPP y cargar identificadores en el Registro DPP de Construccion cuando este operativo.</p>
+        <p>Generamos el data carrier (QR con GS1 Digital Link), publicamos el visor web del DPP y preparamos los identificadores para el Registro DPP de Construccion (Art. 13 ESPR) cuando este operativo.</p>
+      </div>
+    </div>
+    <div class="cta-contact">
+      <div class="cta-contact-info">
+        <h4>Eduardo Rico</h4>
+        <div class="cta-role">Business Developer &mdash; Code Contract</div>
+        <div class="cta-detail">&#x1F4DE; <a href="tel:+34643851164">+34 643 85 11 64</a></div>
+        <div class="cta-detail">&#x1F4E7; <a href="mailto:eduardo@codecontract.io">eduardo@codecontract.io</a></div>
+        <div class="cta-detail">&#x1F310; <a href="https://www.codecontract.io" target="_blank">www.codecontract.io</a></div>
+      </div>
+      <div class="cta-contact-cta">
+        <a href="mailto:eduardo@codecontract.io?subject=Consulta%20DPP%20Construccion%20-%20Implementacion%20Trackline">Solicitar una demo</a>
       </div>
     </div>
     <div class="cta-links">
-      <a href="https://trackline.codecontract.com" class="cta-link cta-link-primary" target="_blank">&#x1F517; Acceder a Trackline</a>
-      <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Ver ejemplo DPP Construccion</a>
+      <a href="https://trackline.codecontract.io" class="cta-link cta-link-primary" target="_blank">&#x1F517; Acceder a Trackline</a>
+      <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/mapping-trackline-dpp.html" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Mapping Trackline &#x2194; DPP</a>
+      <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Ver ejemplo DPP</a>
       <a href="https://codecontract-dpp.github.io/dpp-validator/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Validador DPP</a>
-      <a href="https://codecontract.com" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Code Contract S.L.</a>
+      <a href="https://codecontract.io" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Code Contract S.L.</a>
     </div>
   </div>
 </div>
@@ -1588,7 +1606,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <a href="https://epd.guide/" target="_blank">EPD Guide</a> &middot;
   <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" target="_blank">Ejemplo DPP Construccion</a> &middot;
   <a href="https://codecontract-dpp.github.io/dpp-validator/" target="_blank">Validador DPP</a> &middot;
-  <a href="https://trackline.codecontract.com" target="_blank">Trackline</a><br>
+  <a href="https://trackline.codecontract.io" target="_blank">Trackline</a><br>
   Elaborado por Code Contract S.L. &middot; v1.2 &middot; 20 abril 2026<br>
   <em style="color:#b0b0b0">Nota: este documento no constituye asesoramiento juridico. Consultar siempre el texto oficial del reglamento y los actos delegados vigentes.</em>
 </div>
