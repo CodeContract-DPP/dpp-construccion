@@ -21,7 +21,7 @@ HTML estatico, sin dependencias externas. Compatible con cualquier navegador mod
 
 ## Autor
 
-Code Contract — adkady@gmail.com
+Code Contract — eduardo@codecontract.io
 
 ## Licencia
 
