@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía EPD/DAP — Declaración Ambiental de Producto | Code Contract</title>
+<meta name="description" content="Guía paso a paso para que un fabricante de productos de construcción obtenga su Declaración Ambiental de Producto (EPD/DAP) verificada según EN 15804+A2 e ISO 14025, y la conecte con su huella de Alcance 3. CPR 2024/3110, compra pública verde, CSRD. Por Code Contract.">
+<meta name="keywords" content="EPD, DAP, declaración ambiental de producto, EN 15804, ISO 14025, ACV, LCA, PCR, construcción, hormigón, acero, CPR 2024/3110, Alcance 3, huella de carbono, compra pública verde, CSRD">
+<meta name="author" content="Code Contract S.L.">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guía EPD/DAP — Declaración Ambiental de Producto">
+<meta property="og:description" content="Cómo obtener una EPD verificada (EN 15804+A2) y conectarla con tu Alcance 3. Proceso paso a paso, marco legal y FAQ.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Code Contract - EPD">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x267B;&#xFE0F;</text></svg>">
+
+<style>
+:root {
+  --dark: #1a1a2e;
+  --green: #2e7d4f;
+  --green-light: #e8f5ee;
+  --blue: #2563eb;
+  --blue-light: #eff6ff;
+  --amber: #d97706;
+  --amber-light: #fffbeb;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --purple: #7c3aed;
+  --purple-light: #f5f3ff;
+  --teal: #0d9488;
+  --teal-light: #f0fdfa;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f8fafc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
+
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #1f4e79 100%);
+  color: white; padding: 40px 20px 32px; text-align: center;
+}
+.header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+.header p { font-size: 15px; opacity: 0.85; max-width: 760px; margin: 0 auto; }
+.header .reg-badge {
+  display: inline-block; margin-top: 16px;
+  background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+}
+
+.doc-status-bar {
+  max-width: 1100px; margin: -20px auto 0; padding: 0 20px; position: relative; z-index: 2;
+}
+.doc-status {
+  background: white; border: 2px solid var(--amber); border-radius: 12px;
+  padding: 16px 20px; display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.doc-status-icon {
+  width: 44px; height: 44px; border-radius: 10px; background: var(--amber-light);
+  display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+}
+.doc-status-text { flex: 1; }
+.doc-status-text h3 { font-size: 14px; font-weight: 700; color: var(--amber); }
+.doc-status-text p { font-size: 12px; color: var(--gray); margin-top: 2px; }
+.doc-status-version {
+  font-size: 11px; color: var(--gray); text-align: right; white-space: nowrap;
+}
+.doc-status-version strong { color: #1f2937; display: block; font-size: 12px; }
+
+.deadline-banner {
+  background: linear-gradient(90deg, #1f4e79, #2e75b6);
+  color: white; text-align: center; padding: 14px 20px;
+  font-size: 15px; font-weight: 600; margin-top: 20px;
+}
+.deadline-banner span { font-size: 20px; margin-right: 8px; }
+
+/* WHAT IS / INTRO */
+.intro-box { max-width: 1100px; margin: 24px auto 0; padding: 0 20px; }
+.intro {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 22px 26px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.intro h3 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.intro p { font-size: 13.5px; color: #4b5563; margin-bottom: 8px; }
+.intro p:last-child { margin-bottom: 0; }
+.intro strong { color: #1f2937; }
+
+/* WHY / MOTIVATION */
+.why-box { max-width: 1100px; margin: 24px auto 0; padding: 0 20px; }
+.why {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.why h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 16px; text-align: center; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.why-card { border-radius: 12px; padding: 16px; border: 1px solid var(--border); }
+.why-card .why-icon { font-size: 24px; margin-bottom: 6px; }
+.why-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+.why-card p { font-size: 12px; color: var(--gray); line-height: 1.5; }
+.why-card .why-law { display:inline-block; margin-top:8px; font-size:10px; font-weight:700; padding:3px 10px; border-radius:10px; }
+.why-1 { background: var(--red-light); } .why-1 h4 { color: var(--red); } .why-1 .why-law { background:#fee2e2; color:var(--red); }
+.why-2 { background: var(--blue-light); } .why-2 h4 { color: var(--blue); } .why-2 .why-law { background:#dbeafe; color:var(--blue); }
+.why-3 { background: var(--green-light); } .why-3 h4 { color: var(--green); } .why-3 .why-law { background:#d1fae5; color:#065f46; }
+
+/* HIERARCHY */
+.hierarchy-box { max-width: 1100px; margin: 24px auto 0; padding: 0 20px; }
+.hierarchy {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.hierarchy h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 14px; text-align: center; }
+.hierarchy-levels { display: flex; gap: 0; align-items: stretch; }
+.h-level { flex: 1; padding: 14px 16px; text-align: center; position: relative; }
+.h-level:not(:last-child)::after {
+  content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: var(--border);
+}
+.h-level-icon { font-size: 24px; margin-bottom: 6px; }
+.h-level-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.h-level-desc { font-size: 11px; color: var(--gray); line-height: 1.4; }
+.h-level-badge {
+  display: inline-block; margin-top: 8px; font-size: 10px; font-weight: 700;
+  padding: 3px 10px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.h-ley .h-level-title { color: #1d4ed8; }
+.h-ley .h-level-badge { background: #dbeafe; color: #1d4ed8; }
+.h-guia .h-level-title { color: #065f46; }
+.h-guia .h-level-badge { background: #d1fae5; color: #065f46; }
+.h-solucion .h-level-title { color: #92400e; }
+.h-solucion .h-level-badge { background: #fef3c7; color: #92400e; }
+.hierarchy-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px; font-size: 18px; color: var(--border);
+}
+.hierarchy-note {
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid #f3f4f6;
+  font-size: 11px; color: var(--gray); text-align: center; line-height: 1.5;
+}
+
+/* TIMELINE */
+.impl-timeline { max-width: 1100px; margin: 24px auto 0; padding: 0 20px; }
+.impl-timeline-box {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.impl-timeline-box h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 16px; text-align: center; }
+.tl-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.tl-table th {
+  text-align: left; padding: 8px 10px; font-weight: 700; color: var(--gray);
+  border-bottom: 2px solid var(--border); font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.tl-table td { padding: 10px; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+.tl-table tr:last-child td { border-bottom: none; }
+.tl-date-cell { font-weight: 700; white-space: nowrap; }
+.tl-milestone { font-weight: 600; color: #1f2937; }
+.tl-publisher { color: var(--gray); font-size: 11px; }
+.tl-status-badge {
+  display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 8px;
+  border-radius: 8px; text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap;
+}
+.tl-past { background: var(--green-light); color: var(--green); }
+.tl-upcoming { background: var(--amber-light); color: var(--amber); }
+.tl-future { background: var(--red-light); color: var(--red); }
+.impl-timeline-note {
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid #f3f4f6;
+  font-size: 11px; color: var(--gray); text-align: center; line-height: 1.5;
+}
+
+/* LIFE CYCLE MODULES */
+.modules-box { max-width: 1100px; margin: 24px auto 0; padding: 0 20px; }
+.modules {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.modules h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; text-align: center; }
+.modules > p { font-size: 12px; color: var(--gray); text-align: center; margin-bottom: 16px; }
+.mod-stages { display: flex; gap: 10px; flex-wrap: wrap; }
+.mod-stage { flex: 1; min-width: 150px; border-radius: 12px; padding: 12px 14px; border: 1px solid var(--border); }
+.mod-stage h4 { font-size: 12px; font-weight: 800; margin-bottom: 8px; }
+.mod-row { font-size: 11px; color: #4b5563; margin-bottom: 3px; }
+.mod-code { font-weight: 700; }
+.mod-mandatory { background: var(--green-light); } .mod-mandatory h4 { color: var(--green); }
+.mod-optional { background: var(--bg); } .mod-optional h4 { color: var(--gray); }
+.mod-d { background: var(--purple-light); } .mod-d h4 { color: var(--purple); }
+.modules-note { margin-top: 14px; padding-top: 12px; border-top: 1px solid #f3f4f6; font-size: 11px; color: var(--gray); text-align: center; line-height: 1.5; }
+
+.section-title { max-width: 1100px; margin: 36px auto 0; padding: 0 20px; }
+.section-title h2 { font-size: 20px; font-weight: 800; color: var(--dark); text-align: center; }
+.section-title p { font-size: 13px; color: var(--gray); text-align: center; margin-top: 4px; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+
+/* PHASES */
+.phase {
+  margin-bottom: 18px; background: white; border-radius: 16px;
+  border: 1px solid var(--border); overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.phase-header { padding: 20px 24px; display: flex; align-items: center; gap: 16px; cursor: pointer; user-select: none; }
+.phase-header:hover { background: #fafbfc; }
+.phase-number {
+  width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800; color: white; flex-shrink: 0;
+}
+.phase-info { flex: 1; }
+.phase-info h2 { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.phase-info p { font-size: 13px; color: var(--gray); margin-top: 2px; }
+.phase-deadline { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+.phase-chevron { font-size: 14px; color: var(--gray); transition: transform 0.2s; }
+.phase-header.collapsed .phase-chevron { transform: rotate(-90deg); }
+.phase-body { border-top: 1px solid var(--border); }
+.phase-body.hidden { display: none; }
+
+.phase-green .phase-number { background: var(--green); }
+.phase-green .phase-deadline { background: var(--green-light); color: var(--green); }
+.phase-blue .phase-number { background: var(--blue); }
+.phase-blue .phase-deadline { background: var(--blue-light); color: var(--blue); }
+.phase-amber .phase-number { background: var(--amber); }
+.phase-amber .phase-deadline { background: var(--amber-light); color: var(--amber); }
+.phase-red .phase-number { background: var(--red); }
+.phase-red .phase-deadline { background: var(--red-light); color: var(--red); }
+.phase-purple .phase-number { background: var(--purple); }
+.phase-purple .phase-deadline { background: var(--purple-light); color: var(--purple); }
+.phase-teal .phase-number { background: var(--teal); }
+.phase-teal .phase-deadline { background: var(--teal-light); color: var(--teal); }
+
+.step { padding: 16px 24px; border-bottom: 1px solid #f3f4f6; display: flex; align-items: flex-start; gap: 16px; }
+.step:last-child { border-bottom: none; }
+.step-icon {
+  width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; background: #f9fafb; border: 1px solid var(--border);
+}
+.step-content { flex: 1; min-width: 0; }
+.step-content h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.step-content p { font-size: 13px; color: #4b5563; }
+.step-content ul { margin: 6px 0 0 18px; }
+.step-content li { font-size: 12.5px; color: #4b5563; margin-bottom: 3px; }
+
+.doc-group { margin-top: 10px; }
+.doc-group-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; padding-left: 2px; }
+.dg-ley { color: #1d4ed8; }
+.dg-guia { color: #065f46; }
+.dg-solucion { color: #92400e; }
+.doc-group-links { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.doc-link {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600;
+  padding: 4px 10px; border-radius: 6px; text-decoration: none; transition: all 0.15s;
+}
+.doc-link:hover { filter: brightness(0.95); transform: translateY(-1px); }
+.doc-normativa { background: #dbeafe; color: #1d4ed8; }
+.doc-guia { background: #d1fae5; color: #065f46; }
+.doc-external { background: #e9d5ff; color: #6b21a8; }
+
+/* SCOPE 3 SECTION */
+.scope3-box { max-width: 1100px; margin: 0 auto; padding: 0 20px 8px; }
+.scope3-intro {
+  background: linear-gradient(135deg, #1f4e79 0%, #2e75b6 100%);
+  color: white; border-radius: 16px 16px 0 0; padding: 28px 32px; text-align: center;
+}
+.scope3-intro h2 { font-size: 22px; margin-bottom: 8px; }
+.scope3-intro p { font-size: 14px; opacity: 0.9; max-width: 720px; margin: 0 auto; }
+.scope3-body {
+  background: white; border: 1px solid var(--border); border-top: none;
+  border-radius: 0 0 16px 16px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.scope3-dirs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.dir-card { border-radius: 12px; padding: 18px; border: 1px solid var(--border); }
+.dir-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+.dir-card p { font-size: 12.5px; color: #4b5563; line-height: 1.5; }
+.dir-in { background: var(--green-light); } .dir-in h4 { color: var(--green); }
+.dir-out { background: var(--blue-light); } .dir-out h4 { color: var(--blue); }
+.methods-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.methods-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.methods-table th { text-align: left; padding: 8px 10px; font-weight: 700; color: var(--gray); border-bottom: 2px solid var(--border); font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.methods-table td { padding: 10px; border-bottom: 1px solid #f3f4f6; vertical-align: top; font-size: 12.5px; }
+.methods-table tr:last-child td { border-bottom: none; }
+.m-prec { font-weight: 700; white-space: nowrap; }
+.m-low { color: var(--red); } .m-mid { color: var(--amber); } .m-high { color: var(--green); }
+.scope3-key {
+  margin-top: 18px; background: var(--amber-light); border: 1px solid #fde68a; border-radius: 12px;
+  padding: 14px 18px; font-size: 13px; color: #78350f; line-height: 1.55;
+}
+
+/* FAMILY CARDS */
+.families-box { max-width: 1100px; margin: 24px auto 0; padding: 0 20px; }
+.families {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.families h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; text-align: center; }
+.families > p { font-size: 12px; color: var(--gray); text-align: center; margin-bottom: 16px; }
+.families-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.fam-card { border-radius: 10px; padding: 14px; border: 1px solid var(--border); cursor: pointer; transition: all 0.15s; position: relative; background:#fff; }
+.fam-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); transform: translateY(-1px); }
+.fam-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.fam-card .fam-norm { font-size: 11px; color: var(--gray); margin-bottom: 4px; }
+.fam-card .fam-pcr { font-size: 11px; color: #065f46; font-weight: 600; }
+.fam-card .fam-detail { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f3f4f6; font-size: 11px; color: #4b5563; line-height: 1.5; }
+.fam-card.expanded .fam-detail { display: block; }
+.fam-card .fam-expand { font-size: 10px; color: var(--blue); font-weight: 600; margin-top: 6px; }
+
+/* FAQ */
+.faq-box { max-width: 1100px; margin: 24px auto 0; padding: 0 20px 32px; }
+.faq { background: white; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.faq-title { padding: 20px 24px; font-size: 18px; font-weight: 700; color: var(--dark); text-align: center; border-bottom: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid #f3f4f6; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { padding: 16px 24px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; font-size: 14px; font-weight: 600; color: #1f2937; }
+.faq-q:hover { background: #fafbfc; }
+.faq-q .faq-icon { font-size: 18px; color: var(--blue); flex-shrink: 0; }
+.faq-q .faq-chevron { margin-left: auto; font-size: 12px; color: var(--gray); transition: transform 0.2s; }
+.faq-q.collapsed .faq-chevron { transform: rotate(-90deg); }
+.faq-a { padding: 0 24px 16px 54px; font-size: 13px; color: #4b5563; line-height: 1.6; }
+.faq-a.hidden { display: none; }
+
+/* CTA */
+.cta-section { max-width: 1100px; margin: 0 auto; padding: 0 20px 32px; }
+.cta-box { background: white; border-radius: 16px; border: 2px solid #1f4e79; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.cta-box h2 { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+.cta-box > p { font-size: 14px; color: #4b5563; margin-bottom: 20px; max-width: 720px; }
+.cta-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.cta-step { background: var(--bg); border-radius: 12px; padding: 16px; border: 1px solid var(--border); }
+.cta-step-num { font-size: 11px; font-weight: 700; color: #1f4e79; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.cta-step h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.cta-step p { font-size: 12px; color: var(--gray); }
+.cta-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+.cta-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 8px; text-decoration: none; transition: all 0.15s; }
+.cta-link:hover { filter: brightness(0.95); transform: translateY(-1px); }
+.cta-link-primary { background: #1f4e79; color: white; }
+.cta-link-secondary { background: #dbeafe; color: #1f4e79; }
+
+.footer { text-align: center; padding: 24px 20px 40px; font-size: 12px; color: var(--gray); }
+.footer a { color: var(--blue); text-decoration: none; }
+
+@media (max-width: 760px) {
+  .header h1 { font-size: 22px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .scope3-dirs { grid-template-columns: 1fr; }
+  .phase-header { flex-wrap: wrap; }
+  .step { flex-direction: column; }
+  .hierarchy-levels { flex-direction: column; gap: 12px; }
+  .h-level:not(:last-child)::after { display: none; }
+  .hierarchy-arrow { transform: rotate(90deg); }
+  .doc-status { flex-wrap: wrap; }
+  .tl-table { font-size: 11px; }
+  .cta-steps { grid-template-columns: 1fr; }
+  .families-grid { grid-template-columns: 1fr 1fr; }
+  .mod-stage { min-width: 100%; }
+}
+.pack-nav { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; align-items:center;
+  background:#fff; border:1px solid var(--border); border-radius:12px; padding:10px 16px;
+  max-width:880px; margin:-16px auto 24px; box-shadow:0 2px 6px rgba(0,0,0,.07); position:relative; z-index:2; }
+.pack-nav .pn-label { font-size:11px; font-weight:700; color:#94a3b8; letter-spacing:.07em; text-transform:uppercase; margin-right:6px; }
+.pack-nav a { font-size:13px; font-weight:600; color:#475569; text-decoration:none; padding:6px 14px; border-radius:8px; }
+.pack-nav a:hover { background:#f1f5f9; }
+.pack-nav a.active { background:#1a1a2e; color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Guía EPD/DAP — Declaración Ambiental de Producto</h1>
+  <p>Guía paso a paso para que un fabricante de productos de construcción obtenga su Declaración Ambiental de Producto (EPD/DAP) verificada según EN 15804+A2 e ISO 14025 — y la conecte con su huella de carbono de Alcance 3.</p>
+  <div class="reg-badge">ISO 14025 &middot; EN 15804+A2 &middot; CPR (UE) 2024/3110</div>
+</div>
+
+<style>
+.docnav{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:12px 14px;max-width:920px;margin:18px auto 24px;box-shadow:0 2px 6px rgba(0,0,0,.07);position:relative;z-index:5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.docnav .dn-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#fff;background:#1a1a2e;text-decoration:none;padding:0 14px;border-radius:10px;}
+.docnav .dn-home:hover{background:#33334d;}
+.docnav .dn-grp{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:6px 10px 6px 12px;border:1px solid;}
+.docnav .dn-grp .dn-name{font-size:12px;font-weight:700;}
+.docnav .dn-grp a{font-size:12.5px;font-weight:600;background:#fff;text-decoration:none;padding:5px 11px;border-radius:8px;border:1px solid;}
+.docnav .dpp{background:#eff6ff;border-color:#bfdbfe;}
+.docnav .dpp .dn-name{color:#1d4ed8;}
+.docnav .dpp a{color:#1d4ed8;border-color:#bfdbfe;}
+.docnav .dpp a:hover{background:#dbeafe;}
+.docnav .dpp a.active{background:#2563eb;border-color:#2563eb;color:#fff;}
+.docnav .ddpc{background:#fffbeb;border-color:#fde68a;}
+.docnav .ddpc .dn-name{color:#92400e;}
+.docnav .ddpc a{color:#92400e;border-color:#fde68a;}
+.docnav .ddpc a:hover{background:#fef3c7;}
+.docnav .ddpc a.active{background:#d97706;border-color:#d97706;color:#fff;}
+.docnav .epd{background:#e8f5ee;border-color:#b7e0c6;}
+.docnav .epd .dn-name{color:#2e7d4f;}
+.docnav .epd a{color:#2e7d4f;border-color:#b7e0c6;}
+.docnav .epd a:hover{background:#d1ebd9;}
+.docnav .epd a.active{background:#2e7d4f;border-color:#2e7d4f;color:#fff;}
+@media (max-width:640px){.docnav{gap:8px;padding:10px;}}
+</style>
+<div class="docnav">
+  <a href="00_index.html" class="dn-home">&#x1F3E0; Índice</a>
+  <span class="dn-grp dpp">
+    <span class="dn-name">&#x1F3D7;&#xFE0F; DPP</span>
+    <a href="01_guia-construccion.html">Guía</a>
+    <a href="01_mapping-trackline-dpp.html">Mapping</a>
+  </span>
+  <span class="dn-grp ddpc">
+    <span class="dn-name">&#x1F9FE; DdPC</span>
+    <a href="02_guia-ddpc-digital.html">Guía</a>
+    <a href="02_mapping-trackline-ddpc.html">Mapping</a>
+  </span>
+  <span class="dn-grp epd">
+    <span class="dn-name">&#x267B;&#xFE0F; EPD/DAP</span>
+    <a href="03_guia-epd-construccion.html" class="active">Guía</a>
+    <a href="03_mapping-trackline-epd.html">Mapping</a>
+  </span>
+</div>
+
+<!-- DOCUMENT STATUS -->
+<div class="doc-status-bar">
+  <div class="doc-status">
+    <div class="doc-status-icon">&#x1F7E1;</div>
+    <div class="doc-status-text">
+      <h3>Estado del documento: EN REVISIÓN &mdash; actualizado jun 2026</h3>
+      <p>Versión de trabajo alineada con EN 15804+A2, ISO 14025 y la legislación vigente (CPR 2024/3110, CSRD/ESRS post-Omnibus, CBAM definitivo) a junio de 2026.</p>
+    </div>
+    <div class="doc-status-version">
+      <strong>v1.3</strong>
+      junio 2026
+    </div>
+  </div>
+</div>
+
+<div class="deadline-banner">
+  <span>&#x23F0;</span> Desde el 8 de enero de 2026, el CPR (UE) 2024/3110 empieza a exigir <strong>progresivamente</strong> información ambiental de ciclo de vida en la Declaración de Prestaciones y Conformidad de los productos cubiertos por especificaciones técnicas armonizadas, empezando por los indicadores climáticos del Anexo II (GWP). Una EPD conforme a EN 15804+A2 aporta una base técnica sólida para preparar esa información, aunque no la sustituye automáticamente.
+</div>
+
+<!-- WHAT IS AN EPD -->
+<div class="intro-box">
+  <div class="intro">
+    <h3>&#x267B;&#xFE0F; ¿Qué es una EPD (Declaración Ambiental de Producto)?</h3>
+    <p>Una <strong>EPD</strong> &mdash; en español <strong>DAP</strong>, Declaración Ambiental de Producto &mdash; es un documento estandarizado y <strong>verificado por una tercera parte independiente</strong> que comunica el desempeño ambiental de un producto a lo largo de su ciclo de vida, de forma transparente y comparable.</p>
+    <p>Es una declaración ambiental de <strong>Tipo III</strong> según <strong>ISO 14025</strong>. Se basa en un <strong>Análisis de Ciclo de Vida (ACV / LCA)</strong> (ISO 14040/14044) y, para productos de construcción, sigue las reglas comunes de la norma europea <strong>EN 15804+A2</strong>. Las reglas de cálculo concretas de cada tipo de producto las fijan las <strong>PCR</strong> (Product Category Rules).</p>
+    <p>La EPD <strong>no es una etiqueta de "producto verde"</strong>: no establece umbrales que aprobar. Es una ficha de datos ambientales objetiva, normalmente con una <strong>validez de 5 años</strong>, registrada y publicada por un <em>program operator</em> (por ejemplo, The International EPD System).</p>
+  </div>
+</div>
+
+<!-- WHY -->
+<div class="why-box">
+  <div class="why">
+    <h3>¿Por qué sacar una EPD? Tres motivos: comercial, de cadena de valor y normativo</h3>
+    <div class="why-grid">
+      <div class="why-card why-1">
+        <div class="why-icon">&#x1F4C9;</div>
+        <h4>Requisito comercial</h4>
+        <p>En España, Francia o Países Bajos hay licitaciones de obra pública que piden DAP/EPD o datos ambientales equivalentes. <strong>Según el pliego, no disponer de una EPD verificada puede impedir acreditar el requisito o reducir tu puntuación</strong> (deben admitirse medios de prueba equivalentes).</p>
+        <span class="why-law">Compra pública verde &middot; Ley 7/2021 &middot; CTE</span>
+      </div>
+      <div class="why-card why-2">
+        <div class="why-icon">&#x1F517;</div>
+        <h4>Efecto cadena (Alcance 3)</h4>
+        <p>Clientes sujetos a reporting, o integrados en cadenas de suministro de grandes empresas, pueden pedir datos ambientales de producto para su <strong>Alcance 3</strong>. Tu EPD puede aportar datos ambientales verificados para el inventario de carbono de tus clientes.</p>
+        <span class="why-law">CSRD / ESRS E1 &middot; CSDDD</span>
+      </div>
+      <div class="why-card why-3">
+        <div class="why-icon">&#x2696;&#xFE0F;</div>
+        <h4>Cumplimiento normativo</h4>
+        <p>El nuevo CPR introduce progresivamente la obligación de declarar prestaciones ambientales de ciclo de vida para productos cubiertos por especificaciones técnicas armonizadas, según el calendario del Reglamento. El ACV que sustenta una EPD puede servir de base técnica para preparar esa información, siempre que se adapte al formato, alcance y requisitos aplicables.</p>
+        <span class="why-law">CPR (UE) 2024/3110 &middot; CBAM</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HIERARCHY -->
+<div class="hierarchy-box">
+  <div class="hierarchy">
+    <h3>Tres niveles de documentación (de mayor a menor rango)</h3>
+    <div class="hierarchy-levels">
+      <div class="h-level h-ley">
+        <div class="h-level-icon">&#x2696;&#xFE0F;</div>
+        <div class="h-level-title">Nivel 1: LEY</div>
+        <div class="h-level-desc">CPR (UE) 2024/3110, CSRD/ESRS E1, CBAM, compra pública verde (Ley 7/2021, LCSP). Su aplicación depende del producto, la empresa y el contrato. Publicado en diarios oficiales.</div>
+        <div class="h-level-badge">Marco aplicable</div>
+      </div>
+      <div class="hierarchy-arrow">&#x25B6;</div>
+      <div class="h-level h-guia">
+        <div class="h-level-icon">&#x1F4D0;</div>
+        <div class="h-level-title">Nivel 2: NORMA / GUÍA</div>
+        <div class="h-level-desc">ISO 14025, ISO 14040/14044, EN 15804+A2, PCR del producto, GPI del program operator. Define cómo se hace y verifica la EPD.</div>
+        <div class="h-level-badge">Metodológico</div>
+      </div>
+      <div class="hierarchy-arrow">&#x25B6;</div>
+      <div class="h-level h-solucion">
+        <div class="h-level-icon">&#x1F6E0;&#xFE0F;</div>
+        <div class="h-level-title">Nivel 3: IMPLEMENTACIÓN</div>
+        <div class="h-level-desc">Software de ACV, recopilación de datos primarios, verificador acreditado, plataforma de gestión de datos y evidencias. Tu ejecución.</div>
+        <div class="h-level-badge">Ejecución</div>
+      </div>
+    </div>
+    <div class="hierarchy-note">
+      Cada documento enlazado en esta guía está marcado con su nivel: <span style="color:#1d4ed8;font-weight:700">LEY</span> (azul), <span style="color:#065f46;font-weight:700">NORMA/GUÍA</span> (verde). Los enlaces morados son recursos externos de terceros.
+    </div>
+  </div>
+</div>
+
+<!-- LIFE CYCLE MODULES -->
+<div class="modules-box">
+  <div class="modules">
+    <h3>Los módulos del ciclo de vida (EN 15804+A2)</h3>
+    <p>Una EPD de construcción declara los impactos por etapas del ciclo de vida. En las EPD conforme a EN 15804+A2 suele exigirse declarar como mínimo <strong>A1&ndash;A3 + C1&ndash;C4 + D</strong>, conforme a la PCR y al program operator aplicables (de la cuna a la puerta con opciones).</p>
+    <div class="mod-stages">
+      <div class="mod-stage mod-mandatory">
+        <h4>Producto (obligatorio)</h4>
+        <div class="mod-row"><span class="mod-code">A1</span> &middot; Suministro de materias primas</div>
+        <div class="mod-row"><span class="mod-code">A2</span> &middot; Transporte a fábrica</div>
+        <div class="mod-row"><span class="mod-code">A3</span> &middot; Fabricación</div>
+      </div>
+      <div class="mod-stage mod-optional">
+        <h4>Construcción</h4>
+        <div class="mod-row"><span class="mod-code">A4</span> &middot; Transporte a obra</div>
+        <div class="mod-row"><span class="mod-code">A5</span> &middot; Instalación</div>
+        <h4 style="margin-top:8px">Uso</h4>
+        <div class="mod-row"><span class="mod-code">B1&ndash;B7</span> &middot; Uso, mant., reparación, energía y agua</div>
+      </div>
+      <div class="mod-stage mod-mandatory">
+        <h4>Fin de vida (obligatorio)</h4>
+        <div class="mod-row"><span class="mod-code">C1</span> &middot; Demolición</div>
+        <div class="mod-row"><span class="mod-code">C2</span> &middot; Transporte</div>
+        <div class="mod-row"><span class="mod-code">C3</span> &middot; Procesado de residuos</div>
+        <div class="mod-row"><span class="mod-code">C4</span> &middot; Eliminación</div>
+      </div>
+      <div class="mod-stage mod-d">
+        <h4>Más allá del sistema</h4>
+        <div class="mod-row"><span class="mod-code">D</span> &middot; Beneficios y cargas (reutilización, reciclaje, recuperación de energía)</div>
+      </div>
+    </div>
+    <div class="modules-note">
+      EN 15804+A2 amplió los indicadores de impacto a <strong>13 categorías</strong> e introdujo el desglose del cambio climático en <strong>GWP-total, GWP-fósil, GWP-biogénico y GWP-uso del suelo</strong>. El indicador <strong>GWP-GHG</strong> es además obligatorio bajo las GPI del program operator.
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="impl-timeline">
+  <div class="impl-timeline-box">
+    <h3>Calendario normativo que afecta a las EPD de construcción</h3>
+    <table class="tl-table">
+      <thead>
+        <tr><th>Fecha</th><th>Hito</th><th>Qué supone</th><th>Estado</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tl-date-cell" style="color:#2e7d4f">2019</td>
+          <td><div class="tl-milestone">Publicación de EN 15804+A2</div><div class="tl-publisher">+ corrigendum AC:2021</div></td>
+          <td class="tl-publisher">Reglas base actuales para EPD de construcción (13 indicadores).</td>
+          <td><span class="tl-status-badge tl-past">Vigente</span></td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#2e7d4f">Ene 2025</td>
+          <td><div class="tl-milestone">Entrada en vigor del nuevo CPR (UE) 2024/3110</div><div class="tl-publisher">Sustituye al CPR 305/2011</div></td>
+          <td class="tl-publisher">Marco que liga producto de construcción + información ambiental de ciclo de vida.</td>
+          <td><span class="tl-status-badge tl-past">En vigor</span></td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#2e7d4f">Abr 2025</td>
+          <td><div class="tl-milestone">PCR de construcción (EN 15804+A2): v2.0.0 (abr 2025) &rarr; v2.0.1 vigente</div><div class="tl-publisher">The International EPD System</div></td>
+          <td class="tl-publisher">Verificar siempre la versión vigente en el program operator. Actualmente: PCR 2019:14 v2.0.1.</td>
+          <td><span class="tl-status-badge tl-past">Vigente</span></td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#d97706">8 ene 2026</td>
+          <td><div class="tl-milestone">Aplicación de la mayoría del CPR (8 enero) &mdash; Fase 1 ambiental</div><div class="tl-publisher">GWP (huella de carbono) obligatorio</div></td>
+          <td class="tl-publisher">La declaración ambiental basada en EN 15804 empieza a ser exigible por fases.</td>
+          <td><span class="tl-status-badge tl-past">Vigente</span></td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#d97706">Ene 2026</td>
+          <td><div class="tl-milestone">CBAM entra en periodo definitivo</div><div class="tl-publisher">Reg. (UE) 2025/2083 &middot; de minimis 50 t/año</div></td>
+          <td class="tl-publisher">Cemento, acero, aluminio importados: régimen definitivo. El de minimis de 50 t/año excluye a muchos pequeños importadores; el calendario de certificados tiene reglas propias para las emisiones de 2026.</td>
+          <td><span class="tl-status-badge tl-past">Vigente</span></td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#dc2626">8 ene 2027</td>
+          <td><div class="tl-milestone">Aplicación del régimen sancionador del CPR (<a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R3110" target="_blank" style="color:#2e75b6">art. 92</a>)</div><div class="tl-publisher">Los Estados miembros concretan las sanciones</div></td>
+          <td class="tl-publisher">El CPR prevé sanciones efectivas, proporcionadas y disuasorias por incumplimientos del Reglamento; el art. 92 se aplica desde el 8 ene 2027.</td>
+          <td><span class="tl-status-badge tl-future">Próximo</span></td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#7c3aed">9 ene 2030</td>
+          <td><div class="tl-milestone">Fase 2 ambiental del CPR (<a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R3110" target="_blank" style="color:#2e75b6">Anexo II, e&ndash;m</a>)</div><div class="tl-publisher">Más indicadores: ODP, AP, EP, POCP, ADP, WDP...</div></td>
+          <td class="tl-publisher">La declaración ambiental se amplía más allá del GWP.</td>
+          <td><span class="tl-status-badge tl-future">Futuro</span></td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#7c3aed">9 ene 2032</td>
+          <td><div class="tl-milestone">Fase 3: declaración ambiental completa (<a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R3110" target="_blank" style="color:#2e75b6">Anexo II, a&ndash;s</a>)</div><div class="tl-publisher">Set completo de indicadores EN 15804+A2</div></td>
+          <td class="tl-publisher">Mayor alineación entre los indicadores de EPD y la información ambiental obligatoria del CPR.</td>
+          <td><span class="tl-status-badge tl-future">Futuro</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="impl-timeline-note">
+      Las fechas de las fases ambientales del Anexo II del CPR son fijas en el reglamento. El paquete <strong>Omnibus</strong> (2025&ndash;2026) modificó CSRD, CSDDD y CBAM: revisar umbrales y plazos vigentes antes de tomar decisiones.
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PROCESO PASO A PASO ===================== -->
+<div class="section-title">
+  <h2>El proceso EPD, paso a paso</h2>
+  <p>Las 7 fases para pasar de "no tengo nada" a una EPD verificada, registrada y publicada</p>
+</div>
+
+<div class="container">
+
+  <!-- FASE 1 -->
+  <div class="phase phase-green">
+    <div class="phase-header" onclick="toggle(this)">
+      <div class="phase-number">1</div>
+      <div class="phase-info">
+        <h2>Definir producto y alcance</h2>
+        <p>Qué producto declaras, su unidad y qué módulos del ciclo de vida cubres</p>
+      </div>
+      <div class="phase-deadline">Punto de partida</div>
+      <div class="phase-chevron">&#x25BE;</div>
+    </div>
+    <div class="phase-body">
+      <div class="step">
+        <div class="step-icon">&#x1F4E6;</div>
+        <div class="step-content">
+          <h3>Delimitar el producto y la unidad declarada/funcional</h3>
+          <p>Define exactamente qué declaras (un producto, una media de gama, un grupo) y la <strong>unidad declarada</strong> (p. ej. 1 m³ de hormigón, 1 m² de ventana, 1 t de acero) o <strong>unidad funcional</strong> si declaras prestaciones en uso.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x1F4CF;</div>
+        <div class="step-content">
+          <h3>Decidir el alcance (módulos) y los límites del sistema</h3>
+          <p>En EPD de construcción conforme a EN 15804+A2 normalmente se exige declarar como mínimo <strong>A1&ndash;A3 + C1&ndash;C4 + D</strong>, conforme a la PCR/program operator aplicable. Decide si añades A4&ndash;A5 y B. Define límites del sistema, reglas de corte y calidad de datos.</p>
+          <div class="doc-group">
+            <div class="doc-group-label dg-guia">Norma / Guía</div>
+            <div class="doc-group-links">
+              <a class="doc-link doc-guia" href="https://www.environdec.com/services/what-is-epd" target="_blank">&#x1F4D0; Qué es una EPD &mdash; EPD International</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="phase phase-blue">
+    <div class="phase-header collapsed" onclick="toggle(this)">
+      <div class="phase-number">2</div>
+      <div class="phase-info">
+        <h2>Seleccionar la PCR aplicable</h2>
+        <p>Las reglas de cálculo y reporte específicas de tu categoría de producto</p>
+      </div>
+      <div class="phase-deadline">Reglas del juego</div>
+      <div class="phase-chevron">&#x25BE;</div>
+    </div>
+    <div class="phase-body hidden">
+      <div class="step">
+        <div class="step-icon">&#x1F4DC;</div>
+        <div class="step-content">
+          <h3>Encontrar la PCR de tu producto</h3>
+          <p>La <strong>PCR (Product Category Rules)</strong> define cómo se calcula y reporta la EPD para tu categoría: indicadores, escenarios de fin de vida, reglas de cálculo. En construcción, la PCR núcleo es la <strong>"Construction products (EN 15804+A2)" (PCR 2019:14, v2.0.1 vigente)</strong>, complementada por <strong>c-PCR</strong> específicas (hormigón, acero, ventanas...).</p>
+          <div class="doc-group">
+            <div class="doc-group-label dg-guia">Norma / Guía</div>
+            <div class="doc-group-links">
+              <a class="doc-link doc-guia" href="https://www.environdec.com/pcr/the-pcr" target="_blank">&#x1F4D0; Biblioteca de PCR &mdash; EPD International</a>
+              <a class="doc-link doc-normativa" href="https://standards.iteh.ai/catalog/standards/cen/c98127b4-8dc2-48a4-9338-3e1366b16669/en-15804-2012a2-2019" target="_blank">&#x2696;&#xFE0F; EN 15804+A2</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x2753;</div>
+        <div class="step-content">
+          <h3>Si no existe PCR para tu producto</h3>
+          <p>Puede ser necesario <strong>desarrollar una nueva PCR</strong> (o una c-PCR) a través del program operator, con un proceso de consulta abierta. Es más largo: tenlo en cuenta en la planificación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="phase phase-amber">
+    <div class="phase-header collapsed" onclick="toggle(this)">
+      <div class="phase-number">3</div>
+      <div class="phase-info">
+        <h2>Realizar el ACV / LCA</h2>
+        <p>El análisis de ciclo de vida: el corazón técnico de la EPD</p>
+      </div>
+      <div class="phase-deadline">El núcleo</div>
+      <div class="phase-chevron">&#x25BE;</div>
+    </div>
+    <div class="phase-body hidden">
+      <div class="step">
+        <div class="step-icon">&#x1F4CA;</div>
+        <div class="step-content">
+          <h3>Recopilar datos primarios</h3>
+          <p>Reúne los datos reales de tu producción:</p>
+          <ul>
+            <li>Materias primas y su origen (recetas, formulaciones)</li>
+            <li>Consumos de energía y agua de fábrica</li>
+            <li>Transportes (entrada de materias primas y, si aplica, A4)</li>
+            <li>Residuos, mermas y subproductos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x1F5C3;&#xFE0F;</div>
+        <div class="step-content">
+          <h3>Modelar el ACV con datos de fondo</h3>
+          <p>Completa con bases de datos de ciclo de vida (ecoinvent, EF, etc.) y, cuando estén disponibles, <strong>EPD/DAP de tus proveedores</strong> para tus materias primas. El cálculo sigue ISO 14040/14044 y la PCR.</p>
+          <div class="doc-group">
+            <div class="doc-group-label dg-guia">Norma / Guía</div>
+            <div class="doc-group-links">
+              <a class="doc-link doc-normativa" href="https://www.iso.org/standard/37456.html" target="_blank">&#x2696;&#xFE0F; ISO 14040</a>
+              <a class="doc-link doc-normativa" href="https://www.iso.org/standard/38498.html" target="_blank">&#x2696;&#xFE0F; ISO 14044</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x1F4A1;</div>
+        <div class="step-content">
+          <h3>Consejo: reutiliza este trabajo para tu Alcance 3</h3>
+          <p>El inventario de materias primas, energía y transportes que recopilas aquí es <strong>exactamente</strong> el tipo de dato que necesitas para tu huella de carbono de organización (Alcance 3). Diséñalo una sola vez y aprovéchalo para ambos fines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="phase phase-purple">
+    <div class="phase-header collapsed" onclick="toggle(this)">
+      <div class="phase-number">4</div>
+      <div class="phase-info">
+        <h2>Redactar el documento EPD</h2>
+        <p>Compilar los resultados en el formato de reporte estandarizado</p>
+      </div>
+      <div class="phase-deadline">Documentación</div>
+      <div class="phase-chevron">&#x25BE;</div>
+    </div>
+    <div class="phase-body hidden">
+      <div class="step">
+        <div class="step-icon">&#x1F4C4;</div>
+        <div class="step-content">
+          <h3>Compilar la EPD y el informe de ACV de fondo</h3>
+          <p>Los resultados del ACV (los <strong>13 indicadores</strong> de impacto, con el GWP desglosado) se vuelcan en el formato de EPD que exige la PCR/GPI, junto con la información técnica del producto y los escenarios declarados.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x2705;</div>
+        <div class="step-content">
+          <h3>Información mínima obligatoria</h3>
+          <p>Identificación del producto y fabricante, unidad declarada, módulos cubiertos, resultados por indicador, escenarios de fin de vida, PCR utilizada, vigencia y datos del verificador.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x1F9EA;</div>
+        <div class="step-content">
+          <h3>Declaración de contenido (no olvidar)</h3>
+          <p>La plantilla oficial de EPD incluye una sección obligatoria de <strong>declaración de contenido</strong>: la lista de <strong>materiales</strong> del producto (% en masa) y las <strong>sustancias químicas</strong>, incluyendo las sustancias de la <strong>lista de candidatas REACH (SVHC)</strong> presentes por encima del <strong>0,1% en peso</strong>. En construcción suele requerir datos de proveedores (fichas de seguridad, declaraciones), así que conviene pedirlo desde el inicio del proyecto.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x1F4CA;</div>
+        <div class="step-content">
+          <h3>Calidad de datos y herramientas</h3>
+          <p>La EPD declara además la <strong>cuota de datos primarios</strong> (% de datos primarios en los resultados de GWP-GHG para A1&ndash;A3) y el <strong>software y bases de datos de ACV</strong> empleados (o si se usó una herramienta pre-verificada).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 5 -->
+  <div class="phase phase-teal">
+    <div class="phase-header collapsed" onclick="toggle(this)">
+      <div class="phase-number">5</div>
+      <div class="phase-info">
+        <h2>Verificación independiente</h2>
+        <p>El paso que da credibilidad: revisión por una tercera parte</p>
+      </div>
+      <div class="phase-deadline">Clave de confianza</div>
+      <div class="phase-chevron">&#x25BE;</div>
+    </div>
+    <div class="phase-body hidden">
+      <div class="step">
+        <div class="step-icon">&#x1F50D;</div>
+        <div class="step-content">
+          <h3>Verificación por un tercero independiente</h3>
+          <p>Un <strong>verificador independiente aprobado por el program operator</strong>, o una <strong>entidad de certificación acreditada</strong> (según el esquema del programa), revisa que el ACV y la EPD cumplen la PCR, las GPI y las normas aplicables, y que los datos son creíbles, consistentes y transparentes. Es lo que distingue a la EPD de una autodeclaración.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x1F501;</div>
+        <div class="step-content">
+          <h3>Verificación individual vs. de proceso</h3>
+          <p>Puede ser <strong>verificación EPD individual</strong> o, para fabricantes con muchos productos, <strong>verificación de proceso (process certification)</strong>, que permite generar EPDs de forma más ágil sobre un sistema ya verificado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 6 -->
+  <div class="phase phase-green">
+    <div class="phase-header collapsed" onclick="toggle(this)">
+      <div class="phase-number">6</div>
+      <div class="phase-info">
+        <h2>Registro y publicación</h2>
+        <p>Tu EPD pasa a ser pública y consultable</p>
+      </div>
+      <div class="phase-deadline">Salida pública</div>
+      <div class="phase-chevron">&#x25BE;</div>
+    </div>
+    <div class="phase-body hidden">
+      <div class="step">
+        <div class="step-icon">&#x1F4E4;</div>
+        <div class="step-content">
+          <h3>Registrar y publicar a través del program operator</h3>
+          <p>Una vez verificada, se envía al <strong>program operator</strong> (p. ej. The International EPD System), que la procesa, le asigna un <strong>número de registro</strong> (formato <em>EPD-IES-XXXXXXX</em>) y la publica en su portal público.</p>
+          <div class="doc-group">
+            <div class="doc-group-label dg-guia">Recurso</div>
+            <div class="doc-group-links">
+              <a class="doc-link doc-external" href="https://www.environdec.com/" target="_blank">&#x1F517; Portal EPD International</a>
+              <a class="doc-link doc-external" href="https://www.eco-platform.org/" target="_blank">&#x1F517; ECO Platform</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 7 -->
+  <div class="phase phase-blue">
+    <div class="phase-header collapsed" onclick="toggle(this)">
+      <div class="phase-number">7</div>
+      <div class="phase-info">
+        <h2>Validez y mantenimiento</h2>
+        <p>Una EPD no es para siempre: gestiona su ciclo de vida</p>
+      </div>
+      <div class="phase-deadline">5 años</div>
+      <div class="phase-chevron">&#x25BE;</div>
+    </div>
+    <div class="phase-body hidden">
+      <div class="step">
+        <div class="step-icon">&#x1F4C5;</div>
+        <div class="step-content">
+          <h3>Vigencia y recertificación</h3>
+          <p>La validez típica es de <strong>5 años</strong>. Antes de caducar hay que revisar y, si procede, renovar. Si cambia el producto, la receta o el proceso de forma significativa, la EPD debe actualizarse antes.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">&#x26A0;&#xFE0F;</div>
+        <div class="step-content">
+          <h3>Errores comunes a evitar</h3>
+          <ul>
+            <li>Publicar datos demasiado agregados para clientes que piden trazabilidad por planta u obra.</li>
+            <li>No prever la actualización cuando cambian recetas o proveedores.</li>
+            <li>No reutilizar el ACV para la huella de Alcance 3 (duplicar esfuerzo).</li>
+            <li>Confundir EPD genérica de sector con EPD específica de tu producto.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== EPD <-> ALCANCE 3 ===================== -->
+<div class="scope3-box">
+  <div class="scope3-intro">
+    <h2>&#x1F517; EPD &harr; Huella de carbono de Alcance 3</h2>
+    <p>El punto que más confunde: aclaramos las dos direcciones de la relación y cómo encajan las EPD en el cálculo del Alcance 3.</p>
+  </div>
+  <div class="scope3-body">
+    <div class="scope3-dirs">
+      <div class="dir-card dir-in">
+        <h4>&#x2B07;&#xFE0F; EPD que RECIBES de proveedores</h4>
+        <p>Son <strong>datos de entrada para TU Alcance 3</strong> (categoría 1, bienes y servicios adquiridos). Cambias un factor de emisión medio por el dato real y verificado del producto que compras. <strong>Ayuda directa.</strong></p>
+      </div>
+      <div class="dir-card dir-out">
+        <h4>&#x2B06;&#xFE0F; EPD que TÚ PRODUCES</h4>
+        <p>Sirve sobre todo a <strong>tus clientes</strong> para su propio Alcance 3 (tu producto es un "bien adquirido" para ellos). Para ti, el valor está en el <strong>ACV</strong> que haces para producirla, que reutilizas en tu inventario.</p>
+      </div>
+    </div>
+
+    <div class="methods-title">¿Necesitas EPD para calcular tu Alcance 3? No. Pero mejoran mucho la precisión:</div>
+    <table class="methods-table">
+      <thead>
+        <tr><th>Método</th><th>Cómo se calcula</th><th>¿Usa EPD?</th><th>Precisión</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Basado en gasto</strong><br><span style="color:#6b7280;font-size:11px">spend-based</span></td>
+          <td>Gasto (&euro;) &times; factor de emisión medio del sector</td>
+          <td>No</td>
+          <td class="m-prec m-low">Baja</td>
+        </tr>
+        <tr>
+          <td><strong>Basado en actividad</strong><br><span style="color:#6b7280;font-size:11px">average-data</span></td>
+          <td>Cantidad física (kg, m³) &times; factor genérico de base de datos</td>
+          <td>No</td>
+          <td class="m-prec m-mid">Media</td>
+        </tr>
+        <tr>
+          <td><strong>Datos de proveedor</strong><br><span style="color:#6b7280;font-size:11px">supplier-specific</span></td>
+          <td>Dato real y verificado del producto concreto &mdash; <strong>aquí entra la EPD</strong></td>
+          <td>Sí</td>
+          <td class="m-prec m-high">Alta</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="scope3-key">
+      <strong>En una frase:</strong> ni tener ni sacar EPD es <em>necesario</em> para calcular el Alcance 3, pero las <strong>EPD de proveedores</strong> lo hacen más preciso y creíble, y hacer <strong>tu propia EPD</strong> te genera de paso datos útiles a través del ACV. En construcción, donde los materiales pesan tanto en la categoría 1, esta conexión es especialmente potente &mdash; y es justo lo que tus clientes (sujetos a CSRD/ESRS E1) te van a pedir.
+    </div>
+  </div>
+</div>
+
+<!-- FAMILY CARDS -->
+<div class="families-box">
+  <div class="families">
+    <h3>Guía rápida por familia de producto</h3>
+    <p>Haz clic en cada familia para ver su PCR de referencia y notas. (Verifica siempre la versión vigente de cada PCR en el program operator.)</p>
+    <div class="families-grid">
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F3D7;&#xFE0F; Hormigón</h4>
+        <div class="fam-norm">UNE-EN 206</div>
+        <div class="fam-pcr">PCR: c-PCR-003 (EN 16757)</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto:</strong> alta variabilidad por planta, receta y suministro. La EPD puede ser por familia de mezcla o específica por planta.<br>
+          <strong>Dato clave:</strong> origen del cemento (su EPD), áridos, aditivos. Conecta con CBAM si el cemento es importado.
+        </div>
+      </div>
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F9F1; Cemento</h4>
+        <div class="fam-norm">UNE-EN 197-1</div>
+        <div class="fam-pcr">PCR: c-PCR cemento</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Input crítico</strong> para el hormigón y de alta huella de carbono. Muy afectado por el GWP de la Fase 1 del CPR y por CBAM en importaciones.
+        </div>
+      </div>
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F529; Acero estructural / refuerzo</h4>
+        <div class="fam-norm">Serie EN 1090 / EN 10080</div>
+        <div class="fam-pcr">PCR: c-PCR prEN 17662 (en aprobación)</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto:</strong> integrar acería + transformador + taller. Distinguir ruta de horno (alto horno vs. arco eléctrico) cambia mucho el GWP. Producto cubierto por CBAM.
+        </div>
+      </div>
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1FA9F; Ventanas y puertas</h4>
+        <div class="fam-norm">EN 14351-1</div>
+        <div class="fam-pcr">PCR: c-PCR ventanas/puertas</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Producto ensamblado:</strong> marco (aluminio/PVC/madera), vidrio, herrajes, sellantes. Requiere EPD/datos de varios componentes. Relevante REACH/SCIP por sustancias.
+        </div>
+      </div>
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F9CA; Aislamiento</h4>
+        <div class="fam-norm">EN 13162&ndash;13171</div>
+        <div class="fam-pcr">PCR: c-PCR aislamiento</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          Prioridad en la Oleada de Renovación UE. Importante declarar fase de uso (B) y fin de vida según el material (lana mineral, EPS, XPS, PUR...).
+        </div>
+      </div>
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F9F1; Cerámica / baldosas</h4>
+        <div class="fam-norm">EN 14411</div>
+        <div class="fam-pcr">PCR: c-PCR cerámica</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          Proceso intensivo en energía térmica (hornos). El mix energético de fábrica pesa mucho en A3. Buen candidato a mejoras de GWP.
+        </div>
+      </div>
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F517; Aluminio (perfilería)</h4>
+        <div class="fam-norm">EN 15088 / EN 14351</div>
+        <div class="fam-pcr">PCR: c-PCR aluminio</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          GWP muy dependiente del % de reciclado y del mix eléctrico de la fundición. Producto cubierto por CBAM en importación.
+        </div>
+      </div>
+
+      <div class="fam-card" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1FAB5; Madera / derivados</h4>
+        <div class="fam-norm">EN 13986 / EN 14080</div>
+        <div class="fam-pcr">PCR: c-PCR madera</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          Atención al <strong>carbono biogénico</strong> (GWP-bio) y a las reglas de cálculo del almacenamiento de carbono. Origen certificado (FSC/PEFC) como dato adicional.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-box">
+  <div class="faq">
+    <div class="faq-title">Preguntas frecuentes</div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x2753;</span>
+        ¿EPD y DAP son lo mismo?
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        Sí. <strong>EPD</strong> (Environmental Product Declaration) y <strong>DAP</strong> (Declaración Ambiental de Producto) son el mismo concepto: una declaración ambiental de Tipo III según ISO 14025. "DAP" es simplemente el término en español; en España también verás "DAPcons" (programa sectorial de construcción).
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F4B0;</span>
+        ¿Cuánto cuesta y cuánto tarda sacar una EPD?
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        Depende mucho de la complejidad del producto, de si existe PCR y de la calidad de tus datos. El grueso del esfuerzo y del coste está en el <strong>ACV</strong> y en la <strong>verificación</strong>. Tener los datos primarios bien organizados (materias primas, energía, transportes) es lo que más reduce tiempo y coste. Una verificación de proceso amortiza el coste si vas a declarar muchos productos.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F517;</span>
+        ¿Necesito EPD para calcular mi Alcance 3?
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        No. El Alcance 3 se puede calcular sin ninguna EPD (con métodos basados en gasto o en datos medios de actividad). Pero las <strong>EPD de tus proveedores</strong> elevan mucho la precisión y la credibilidad de tu inventario, sobre todo en la categoría 1 (bienes adquiridos), que en construcción suele ser la más relevante. Ver la sección "EPD &harr; Alcance 3".
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F4C5;</span>
+        ¿Cuánto dura una EPD?
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        Normalmente <strong>5 años</strong> desde su publicación. Antes de caducar hay que revisarla y renovarla. Si el producto, la receta o el proceso cambian de forma significativa durante ese periodo, la EPD debe actualizarse antes de la fecha de caducidad.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F3ED;</span>
+        ¿Una EPD genérica de sector me vale, o necesito la mía propia?
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        Una <strong>EPD genérica/sectorial</strong> (de asociación) puede servir como referencia, pero cada vez más clientes y licitaciones piden la <strong>EPD específica de tu producto</strong>, porque refleja tu desempeño real y te permite diferenciarte (y mejorar) frente a la media del sector. Para datos de Alcance 3 de tus clientes, la específica es mucho más valiosa.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x2696;&#xFE0F;</span>
+        ¿Mi EPD me sirve para cumplir el nuevo CPR 2024/3110?
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        En gran medida sí. El CPR exige declarar el comportamiento ambiental basado en información de ciclo de vida, <strong>alineado con EN 15804</strong>, por fases (GWP desde 2026, más indicadores en 2030 y declaración completa en 2032). El ACV que sustenta una EPD puede servir como base técnica para preparar la información ambiental exigida por el CPR, siempre que se adapte al formato, alcance y requisitos aplicables. La EPD no es legalmente idéntica a la declaración del CPR y no la sustituye automáticamente, pero te adelanta gran parte del trabajo.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)">
+        <span class="faq-icon">&#x1F310;</span>
+        ¿Qué program operator elijo?
+        <span class="faq-chevron">&#x25BE;</span>
+      </div>
+      <div class="faq-a hidden">
+        Hay varios reconocidos (The International EPD System / EPD International, y operadores nacionales como DAPcons en España, entre otros), todos bajo ISO 14025 y, en construcción, EN 15804. Muchos están integrados en <strong>ECO Platform</strong>, lo que facilita el reconocimiento mutuo en Europa. Elige según el mercado de tus clientes y el reconocimiento que exigen tus licitaciones.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-box">
+    <h2>&#x1F6E0;&#xFE0F; Próximos pasos: del dato a la EPD (y al Alcance 3)</h2>
+    <p>El cuello de botella de una EPD casi nunca es la metodología: es <strong>tener los datos primarios organizados, trazables y con evidencia</strong>. Y esos mismos datos son los que necesitas para tu huella de Alcance 3. Así se traduce esta guía en acciones:</p>
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="cta-step-num">Paso 1</div>
+        <h4>Mapeo de datos</h4>
+        <p>Identificar los campos que pide la PCR/EN 15804+A2 y asignar responsables y fuentes internas (ERP, laboratorio, compras).</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">Paso 2</div>
+        <h4>Recopilación y evidencia</h4>
+        <p>Cada dato con su evidencia: DAP de proveedores, facturas de energía, informes de ensayo. Trazabilidad completa.</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">Paso 3</div>
+        <h4>ACV + verificación</h4>
+        <p>Calcular el ACV con esos datos y llevarlo a verificación. Reutilizar el inventario para el Alcance 3.</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">Paso 4</div>
+        <h4>Registro y reutilización</h4>
+        <p>Publicar la EPD y apoyarte en el inventario del ACV como base técnica para preparar la información ambiental que el CPR exija en cada fase, en el formato y alcance aplicables.</p>
+      </div>
+    </div>
+    <div class="cta-links">
+      <a href="https://codecontract.io" class="cta-link cta-link-primary" target="_blank">&#x1F517; Code Contract S.L.</a>
+      <a href="https://www.environdec.com/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; EPD International</a>
+      <a href="https://epd.guide/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; EPD Guide</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <strong>Fuentes oficiales:</strong>
+  <a href="https://www.iso.org/standard/38131.html" target="_blank">ISO 14025</a> &middot;
+  <a href="https://standards.iteh.ai/catalog/standards/cen/c98127b4-8dc2-48a4-9338-3e1366b16669/en-15804-2012a2-2019" target="_blank">EN 15804+A2</a> &middot;
+  <a href="https://eur-lex.europa.eu/eli/reg/2024/3110/oj/eng" target="_blank">CPR (UE) 2024/3110</a> &middot;
+  <a href="https://www.environdec.com/" target="_blank">The International EPD System</a> &middot;
+  <a href="https://www.eco-platform.org/" target="_blank">ECO Platform</a><br>
+  <strong>Guía EPD Construcción</strong> &mdash; v1.3 &middot; actualizada junio 2026 &middot; Elaborada por Code Contract S.L.<br>
+  <details style="max-width:640px;margin:10px auto 0;font-size:11px;color:#9ca3af;text-align:left">
+    <summary style="cursor:pointer;color:#6b7280">Registro de cambios</summary>
+    <div style="margin-top:6px;line-height:1.6">
+      <strong>v1.3</strong> (jun 2026): precisión normativa &mdash; título de motivos reformulado (comercial / cadena de valor / normativo); aportación de la EPD al Alcance 3 del cliente matizada; mínimo de módulos remitido a la PCR/program operator; &ldquo;convergencia plena&rdquo; 2032 &rarr; &ldquo;mayor alineación&rdquo;; enlaces a artículos del CPR (art. 92, Anexo II); frase ACV&harr;CPR de la FAQ y CTA final (Paso 4) reformuladas para no sugerir equivalencia EPD = CPR; fechas de las fases del CPR precisadas al día (8 ene 2026/2027, 9 ene 2030/2032); fichas de familia: PCR de hormigón (c-PCR-003) y acero (c-PCR prEN 17662) precisadas tras contraste con la documentación oficial.<br>
+      <strong>v1.2</strong> (jun 2026): banner y tarjetas del CPR reformulados (obligación progresiva); badge &ldquo;Marco aplicable&rdquo;; PCR 2019:14 v2.0.1; badges del timeline ene-2026 a vigente.<br>
+      <strong>v1.1</strong>: nota de declaración de contenido REACH/SVHC y calidad de datos.
+    </div>
+  </details>
+  <em style="color:#b0b0b0">Nota: este documento no constituye asesoramiento jurídico ni metodológico vinculante. Consultar siempre el texto oficial de las normas, las PCR vigentes y los actos delegados aplicables. La legislación de huella de carbono (CSRD, CSDDD, CBAM) fue modificada por el paquete Omnibus 2025&ndash;2026; verificar umbrales y plazos vigentes.</em>
+</div>
+
+<script>
+function toggle(header) {
+  header.classList.toggle('collapsed');
+  header.nextElementSibling.classList.toggle('hidden');
+}
+function toggleFaq(q) {
+  q.classList.toggle('collapsed');
+  q.nextElementSibling.classList.toggle('hidden');
+}
+</script>
+</body>
+</html>

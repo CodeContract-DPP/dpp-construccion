@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía DdPC Digital — Declaración de Prestaciones y de Conformidad | Code Contract</title>
+<meta name="description" content="Guía paso a paso para que un fabricante de productos de construcción cumpla con el Reglamento CPR (UE) 2024/3110 y tenga su DdPC digital operativa. De la obligación de hoy al DPP de mañana. Por Code Contract.">
+<meta name="keywords" content="DdPC, declaración de prestaciones y conformidad, DPP, CPR 2024/3110, ESPR 2024/1781, eIDAS 2, Anexo II, Anexo V, GWP, EN 15804, REACH, EVCP 3+, machine-readable, Code Contract, Trackline">
+<meta name="author" content="Code Contract S.L.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://codecontract-dpp.github.io/dpp-construccion-demos/guia-ddpc-digital.html">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://codecontract-dpp.github.io/dpp-construccion-demos/guia-ddpc-digital.html">
+<meta property="og:title" content="Guía DdPC Digital — Declaración de Prestaciones y de Conformidad">
+<meta property="og:description" content="De la DdP clásica a la DdPC digital conforme al CPR 2024/3110. Contenido obligatorio, indicadores ambientales, firma eIDAS 2 e implementación en 10 pasos.">
+<meta property="og:image" content="https://codecontract-dpp.github.io/dpp-construccion/og-image.png">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Code Contract - DPP">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Guía DdPC Digital — Declaración de Prestaciones y de Conformidad">
+<meta name="twitter:description" content="De la obligación de hoy al DPP de mañana. CPR 2024/3110, Anexo II/V, eIDAS 2 y 10 pasos de implementación.">
+<meta name="twitter:image" content="https://codecontract-dpp.github.io/dpp-construccion/og-image.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4DC;</text></svg>">
+
+<style>
+:root {
+  --dark: #1a1a2e;
+  --green: #2e7d4f;
+  --green-light: #e8f5ee;
+  --blue: #2563eb;
+  --blue-light: #eff6ff;
+  --amber: #d97706;
+  --amber-light: #fffbeb;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --purple: #7c3aed;
+  --purple-light: #f5f3ff;
+  --teal: #0d9488;
+  --teal-light: #f0fdfa;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f8fafc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
+
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #1f4e79 100%);
+  color: white; padding: 40px 20px 32px; text-align: center;
+}
+.header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+.header p { font-size: 15px; opacity: 0.8; max-width: 700px; margin: 0 auto; }
+.header .reg-badge {
+  display: inline-block; margin-top: 16px;
+  background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+}
+
+.doc-status-bar {
+  max-width: 1100px; margin: -20px auto 0; padding: 0 20px; position: relative; z-index: 2;
+}
+.doc-status {
+  background: white; border: 2px solid var(--amber); border-radius: 12px;
+  padding: 16px 20px; display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.doc-status-icon {
+  width: 44px; height: 44px; border-radius: 10px; background: var(--amber-light);
+  display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+}
+.doc-status-text { flex: 1; }
+.doc-status-text h3 { font-size: 14px; font-weight: 700; color: var(--amber); }
+.doc-status-text p { font-size: 12px; color: var(--gray); margin-top: 2px; }
+.doc-status-version {
+  font-size: 11px; color: var(--gray); text-align: right; white-space: nowrap;
+}
+.doc-status-version strong { color: #1f2937; display: block; font-size: 12px; }
+
+.deadline-banner {
+  background: linear-gradient(90deg, #1f4e79, #2e75b6);
+  color: white; text-align: center; padding: 14px 20px;
+  font-size: 15px; font-weight: 600; margin-top: 20px;
+}
+.deadline-banner span { font-size: 20px; margin-right: 8px; }
+
+.hierarchy-box {
+  max-width: 1100px; margin: 24px auto 0; padding: 0 20px;
+}
+.hierarchy {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.hierarchy h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 14px; text-align: center; }
+.hierarchy-levels {
+  display: flex; gap: 0; align-items: stretch;
+}
+.h-level {
+  flex: 1; padding: 14px 16px; text-align: center; position: relative;
+}
+.h-level:not(:last-child)::after {
+  content: ''; position: absolute; right: 0; top: 20%; height: 60%;
+  width: 1px; background: var(--border);
+}
+.h-level-icon { font-size: 24px; margin-bottom: 6px; }
+.h-level-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.h-level-desc { font-size: 11px; color: var(--gray); line-height: 1.4; }
+.h-level-badge {
+  display: inline-block; margin-top: 8px; font-size: 10px; font-weight: 700;
+  padding: 3px 10px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.h-ley .h-level-title { color: #1d4ed8; }
+.h-ley .h-level-badge { background: #dbeafe; color: #1d4ed8; }
+.h-guia .h-level-title { color: #065f46; }
+.h-guia .h-level-badge { background: #d1fae5; color: #065f46; }
+.h-solucion .h-level-title { color: #92400e; }
+.h-solucion .h-level-badge { background: #fef3c7; color: #92400e; }
+.hierarchy-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px; font-size: 18px; color: var(--border);
+}
+.hierarchy-note {
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid #f3f4f6;
+  font-size: 11px; color: var(--gray); text-align: center; line-height: 1.5;
+}
+
+.impl-timeline {
+  max-width: 1100px; margin: 24px auto 0; padding: 0 20px;
+}
+.impl-timeline-box {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.impl-timeline-box h3 {
+  font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 16px; text-align: center;
+}
+.tl-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.tl-table th {
+  text-align: left; padding: 8px 10px; font-weight: 700; color: var(--gray);
+  border-bottom: 2px solid var(--border); font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-table td { padding: 10px; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+.tl-table tr:last-child td { border-bottom: none; }
+.tl-date-cell { font-weight: 700; white-space: nowrap; }
+.tl-milestone { font-weight: 600; color: #1f2937; }
+.tl-publisher { color: var(--gray); font-size: 11px; }
+.tl-status-badge {
+  display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 8px;
+  border-radius: 8px; text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap;
+}
+.tl-past { background: var(--green-light); color: var(--green); }
+.tl-upcoming { background: var(--amber-light); color: var(--amber); }
+.tl-future { background: var(--red-light); color: var(--red); }
+.tl-da-note {
+  font-size: 10px; color: var(--amber); font-style: italic; margin-top: 2px;
+}
+.impl-timeline-note {
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid #f3f4f6;
+  font-size: 11px; color: var(--gray); text-align: center; line-height: 1.5;
+}
+
+/* WAVES OVERVIEW */
+.waves-box {
+  max-width: 1100px; margin: 24px auto 0; padding: 0 20px;
+}
+.waves {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.waves h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 16px; text-align: center; }
+.waves-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+.wave-card {
+  border-radius: 12px; padding: 16px; border: 1px solid var(--border);
+  text-align: center;
+}
+.wave-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+.wave-card .wave-year { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+.wave-card p { font-size: 11px; color: var(--gray); line-height: 1.4; }
+.wave-1 { background: #fef2f2; }
+.wave-1 h4 { color: var(--red); }
+.wave-1 .wave-year { color: var(--red); }
+.wave-2 { background: var(--amber-light); }
+.wave-2 h4 { color: var(--amber); }
+.wave-2 .wave-year { color: var(--amber); }
+.wave-3 { background: var(--blue-light); }
+.wave-3 h4 { color: var(--blue); }
+.wave-3 .wave-year { color: var(--blue); }
+.wave-4 { background: var(--purple-light); }
+.wave-4 h4 { color: var(--purple); }
+.wave-4 .wave-year { color: var(--purple); }
+
+.legend {
+  max-width: 1100px; margin: 20px auto 0; padding: 0 20px;
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray);
+  background: white; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border);
+}
+.legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+
+.phase {
+  margin-bottom: 32px; background: white; border-radius: 16px;
+  border: 1px solid var(--border); overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.phase-header {
+  padding: 20px 24px; display: flex; align-items: center; gap: 16px;
+  cursor: pointer; user-select: none;
+}
+.phase-header:hover { background: #fafbfc; }
+.phase-number {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800; color: white; flex-shrink: 0;
+}
+.phase-info { flex: 1; }
+.phase-info h2 { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.phase-info p { font-size: 13px; color: var(--gray); margin-top: 2px; }
+.phase-deadline {
+  font-size: 12px; font-weight: 700; padding: 4px 12px;
+  border-radius: 20px; white-space: nowrap;
+}
+.phase-status {
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 8px;
+  text-transform: uppercase; letter-spacing: 0.3px;
+}
+.ps-complete { background: var(--green-light); color: var(--green); }
+.ps-partial { background: var(--amber-light); color: var(--amber); }
+.ps-pending { background: var(--red-light); color: var(--red); }
+.phase-chevron { font-size: 14px; color: var(--gray); transition: transform 0.2s; }
+.phase-header.collapsed .phase-chevron { transform: rotate(-90deg); }
+.phase-body { border-top: 1px solid var(--border); }
+.phase-body.hidden { display: none; }
+
+.phase-green .phase-number { background: var(--green); }
+.phase-green .phase-deadline { background: var(--green-light); color: var(--green); }
+.phase-blue .phase-number { background: var(--blue); }
+.phase-blue .phase-deadline { background: var(--blue-light); color: var(--blue); }
+.phase-amber .phase-number { background: var(--amber); }
+.phase-amber .phase-deadline { background: var(--amber-light); color: var(--amber); }
+.phase-red .phase-number { background: var(--red); }
+.phase-red .phase-deadline { background: var(--red-light); color: var(--red); }
+.phase-purple .phase-number { background: var(--purple); }
+.phase-purple .phase-deadline { background: var(--purple-light); color: var(--purple); }
+.phase-teal .phase-number { background: var(--teal); }
+.phase-teal .phase-deadline { background: var(--teal-light); color: var(--teal); }
+
+.step {
+  padding: 16px 24px; border-bottom: 1px solid #f3f4f6;
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.step:last-child { border-bottom: none; }
+.step-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; background: #f9fafb; border: 1px solid var(--border);
+}
+.step-content { flex: 1; min-width: 0; }
+.step-content h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.step-content p { font-size: 13px; color: #4b5563; }
+
+.doc-group { margin-top: 10px; }
+.doc-group-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  margin-bottom: 4px; padding-left: 2px;
+}
+.dg-ley { color: #1d4ed8; }
+.dg-guia { color: #065f46; }
+.dg-solucion { color: #92400e; }
+.doc-group-links { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.doc-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 600; padding: 4px 10px;
+  border-radius: 6px; text-decoration: none; transition: all 0.15s;
+}
+.doc-link:hover { filter: brightness(0.95); transform: translateY(-1px); }
+.doc-normativa { background: #dbeafe; color: #1d4ed8; }
+.doc-guia { background: #d1fae5; color: #065f46; }
+.doc-interno { background: #fef3c7; color: #92400e; }
+.doc-external { background: #e9d5ff; color: #6b21a8; }
+.doc-local { background: linear-gradient(135deg, #ede9fe, #e0e7ff); color: #4c1d95; cursor: pointer; border: 1px dashed #7c3aed; }
+.doc-local:hover { filter: brightness(0.95); transform: translateY(-1px); }
+
+.result-box {
+  background: linear-gradient(135deg, #1f4e79 0%, #2e75b6 100%);
+  color: white; border-radius: 16px; padding: 32px;
+  text-align: center; margin-top: 8px;
+}
+.result-box h2 { font-size: 22px; margin-bottom: 8px; }
+.result-box p { font-size: 14px; opacity: 0.85; max-width: 600px; margin: 0 auto 20px; }
+.result-items {
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+}
+.result-item {
+  background: rgba(255,255,255,0.15); padding: 10px 18px;
+  border-radius: 10px; font-size: 13px; font-weight: 600;
+}
+
+.cta-section {
+  max-width: 1100px; margin: 0 auto; padding: 0 20px 32px;
+}
+.cta-box {
+  background: white; border-radius: 16px; border: 2px solid #1f4e79;
+  padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.cta-box h2 { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+.cta-box > p { font-size: 14px; color: #4b5563; margin-bottom: 20px; max-width: 700px; }
+.cta-steps {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px; margin-bottom: 20px;
+}
+.cta-step {
+  background: var(--bg); border-radius: 12px; padding: 16px;
+  border: 1px solid var(--border);
+}
+.cta-step-num {
+  font-size: 11px; font-weight: 700; color: #1f4e79;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
+}
+.cta-step h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.cta-step p { font-size: 12px; color: var(--gray); }
+.cta-links {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.cta-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; padding: 8px 16px;
+  border-radius: 8px; text-decoration: none; transition: all 0.15s;
+}
+.cta-link:hover { filter: brightness(0.95); transform: translateY(-1px); }
+.cta-link-primary { background: #1f4e79; color: white; }
+.cta-link-secondary { background: #dbeafe; color: #1f4e79; }
+
+/* FAMILY CARDS */
+.families-box {
+  max-width: 1100px; margin: 24px auto 0; padding: 0 20px;
+}
+.families {
+  background: white; border-radius: 14px; border: 1px solid var(--border);
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.families h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; text-align: center; }
+.families > p { font-size: 12px; color: var(--gray); text-align: center; margin-bottom: 16px; }
+.families-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;
+}
+.fam-card {
+  border-radius: 10px; padding: 14px; border: 1px solid var(--border);
+  cursor: pointer; transition: all 0.15s; position: relative;
+}
+.fam-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); transform: translateY(-1px); }
+.fam-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.fam-card .fam-wave { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px; display: inline-block; margin-bottom: 6px; }
+.fam-card .fam-norm { font-size: 11px; color: var(--gray); margin-bottom: 4px; }
+.fam-card .fam-risk { font-size: 11px; color: #b91c1c; font-weight: 600; }
+.fam-card .fam-detail { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f3f4f6; font-size: 11px; color: #4b5563; line-height: 1.5; }
+.fam-card.expanded .fam-detail { display: block; }
+.fam-card .fam-expand { font-size: 10px; color: var(--blue); font-weight: 600; margin-top: 6px; }
+.fw-1 .fam-wave { background: #fef2f2; color: var(--red); }
+.fw-2 .fam-wave { background: var(--amber-light); color: var(--amber); }
+.fw-3 .fam-wave { background: var(--blue-light); color: var(--blue); }
+.fw-4 .fam-wave { background: var(--purple-light); color: var(--purple); }
+
+/* FAQ SECTION */
+.faq-box {
+  max-width: 1100px; margin: 0 auto; padding: 0 20px 32px;
+}
+.faq {
+  background: white; border-radius: 16px; border: 1px solid var(--border);
+  overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.faq-title {
+  padding: 20px 24px; font-size: 18px; font-weight: 700; color: var(--dark);
+  text-align: center; border-bottom: 1px solid var(--border);
+}
+.faq-item { border-bottom: 1px solid #f3f4f6; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  padding: 16px 24px; display: flex; align-items: center; gap: 12px;
+  cursor: pointer; user-select: none; font-size: 14px; font-weight: 600; color: #1f2937;
+}
+.faq-q:hover { background: #fafbfc; }
+.faq-q .faq-icon { font-size: 18px; color: var(--blue); flex-shrink: 0; }
+.faq-q .faq-chevron { margin-left: auto; font-size: 12px; color: var(--gray); transition: transform 0.2s; }
+.faq-q.collapsed .faq-chevron { transform: rotate(-90deg); }
+.faq-a {
+  padding: 0 24px 16px 54px; font-size: 13px; color: #4b5563; line-height: 1.6;
+}
+.faq-a.hidden { display: none; }
+
+.footer {
+  text-align: center; padding: 24px 20px 40px; font-size: 12px; color: var(--gray);
+}
+.footer a { color: var(--blue); text-decoration: none; }
+
+@media (max-width: 640px) {
+  .header h1 { font-size: 22px; }
+  .phase-header { flex-wrap: wrap; }
+  .step { flex-direction: column; }
+  .hierarchy-levels { flex-direction: column; gap: 12px; }
+  .h-level:not(:last-child)::after { display: none; }
+  .hierarchy-arrow { transform: rotate(90deg); }
+  .doc-status { flex-wrap: wrap; }
+  .tl-table { font-size: 11px; }
+  .cta-steps { grid-template-columns: 1fr; }
+  .waves-grid { grid-template-columns: 1fr 1fr; }
+  .families-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* === SPEC-PACK-DPP: nav del pack === */
+.pack-nav { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; align-items:center;
+  background:#fff; border:1px solid var(--border); border-radius:12px; padding:10px 16px;
+  max-width:880px; margin:-16px auto 24px; box-shadow:0 2px 6px rgba(0,0,0,.07); position:relative; z-index:2; }
+.pack-nav .pn-label { font-size:11px; font-weight:700; color:#94a3b8; letter-spacing:.07em; text-transform:uppercase; margin-right:6px; }
+.pack-nav a { font-size:13px; font-weight:600; color:#475569; text-decoration:none; padding:6px 14px; border-radius:8px; }
+.pack-nav a:hover { background:#f1f5f9; }
+.pack-nav a.active { background:#1a1a2e; color:#fff; }
+/* === SPEC-PACK-DPP: tarjeta-puente al mapping === */
+.bridge-card { display:block; background:linear-gradient(135deg,#eff6ff,#f5f3ff); border:2px solid #2563eb;
+  border-radius:12px; padding:18px 24px; margin:22px auto; max-width:1060px; text-decoration:none; transition:box-shadow .15s; }
+.bridge-card:hover { box-shadow:0 6px 16px rgba(37,99,235,.18); }
+.bridge-card .bc-title { font-size:15px; font-weight:700; color:#1d4ed8; }
+.bridge-card .bc-sub { font-size:13px; color:#475569; margin-top:4px; }
+</style>
+
+<!-- Estilos suplementarios coherentes con el pack (mismas variables) -->
+<style>
+.section { background:#fff; border:1px solid var(--border); border-radius:14px;
+  max-width:1100px; margin:24px auto 0; padding:26px 30px; box-shadow:0 1px 3px rgba(0,0,0,.05); }
+.section > h2 { font-size:20px; font-weight:800; color:var(--dark); margin-bottom:6px; display:flex; align-items:baseline; gap:10px; }
+.section > h2 .sec-num { font-size:13px; font-weight:800; color:#fff; background:var(--dark);
+  border-radius:8px; padding:3px 9px; letter-spacing:.02em; }
+.section h3 { font-size:15px; font-weight:700; color:var(--dark); margin:20px 0 8px; }
+.section h4 { font-size:13px; font-weight:700; color:var(--dark); margin:14px 0 4px; }
+.section p { font-size:13.5px; color:#374151; margin:8px 0; }
+.section ul { margin:8px 0 8px 20px; }
+.section li { font-size:13.5px; color:#374151; margin:5px 0; }
+.lead { font-size:14.5px !important; color:#4b5563 !important; }
+
+.data-table { width:100%; border-collapse:collapse; font-size:12px; margin:12px 0; }
+.data-table th { background:#f8fafc; text-align:left; padding:9px 10px; font-weight:700;
+  color:var(--gray); border-bottom:2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:.03em; }
+.data-table td { padding:9px 10px; border-bottom:1px solid #f3f4f6; vertical-align:top; color:#374151; }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table .grp td { background:#1a1a2e; color:#fff; font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+.tbl-wrap { overflow-x:auto; }
+.tag-new { display:inline-block; background:var(--amber-light); color:var(--amber); font-size:10px; font-weight:800;
+  padding:1px 7px; border-radius:6px; letter-spacing:.03em; }
+.tag-legacy { display:inline-block; background:#f1f5f9; color:#64748b; font-size:10px; font-weight:700; padding:1px 7px; border-radius:6px; }
+
+.callout { border-left:4px solid var(--gray); border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:13px; }
+.callout strong { font-weight:700; }
+.callout.amber { background:var(--amber-light); border-color:var(--amber); }
+.callout.green { background:var(--green-light); border-color:var(--green); }
+.callout.blue  { background:var(--blue-light);  border-color:var(--blue); }
+.callout.red   { background:var(--red-light);   border-color:var(--red); }
+.callout.purple{ background:var(--purple-light);border-color:var(--purple); }
+
+.twocol { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0; }
+.cmp-card { border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+.cmp-card.before { background:#fafafa; }
+.cmp-card.after  { background:var(--green-light); border-color:#bbe3cc; }
+.cmp-card h4 { font-size:13px; font-weight:800; margin-bottom:10px; }
+.cmp-card.before h4 { color:var(--gray); }
+.cmp-card.after h4 { color:var(--green); }
+.cmp-card ul { list-style:none; margin:0; padding:0; }
+.cmp-card li { font-size:12.5px; padding:4px 0 4px 20px; position:relative; }
+.cmp-card.before li::before { content:"–"; position:absolute; left:4px; color:#9ca3af; font-weight:700; }
+.cmp-card.after li::before  { content:"\2713"; position:absolute; left:2px; color:var(--green); font-weight:700; }
+
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:14px 0; }
+.icard { border:1px solid var(--border); border-radius:12px; padding:15px 16px; background:#fff; }
+.icard .ic-ico { font-size:22px; margin-bottom:6px; }
+.icard h4 { font-size:13px; font-weight:800; color:var(--dark); margin-bottom:4px; }
+.icard p { font-size:12px; color:#4b5563; margin:0; }
+.icard.b-a { border-top:3px solid var(--blue); }
+.icard.b-b { border-top:3px solid var(--green); }
+.icard.b-c { border-top:3px solid var(--teal); }
+.icard.b-d { border-top:3px solid var(--amber); }
+
+.flow { display:flex; align-items:stretch; gap:10px; flex-wrap:wrap; margin:16px 0; }
+.flow-card { flex:1; min-width:180px; border:1px solid var(--border); border-radius:12px; padding:14px 16px; text-align:center; }
+.flow-card .fc-sub { font-size:11px; color:var(--gray); }
+.flow-card .fc-pct { font-size:26px; font-weight:800; margin:6px 0; }
+.flow-card .fc-tag { font-size:11px; font-weight:700; }
+.flow-card.l1 { background:#fafafa; } .flow-card.l1 .fc-pct{ color:#9ca3af; } .flow-card.l1 .fc-tag{ color:#9ca3af; }
+.flow-card.l2 { background:var(--green-light); border-color:#bbe3cc; } .flow-card.l2 .fc-pct{ color:var(--green); } .flow-card.l2 .fc-tag{ color:var(--green); }
+.flow-card.l3 { background:var(--blue-light); border-color:#bfdbfe; } .flow-card.l3 .fc-pct{ color:var(--blue); } .flow-card.l3 .fc-tag{ color:var(--blue); }
+.flow-arrow { align-self:center; font-size:22px; color:#cbd5e1; font-weight:700; }
+
+.impl-step { border:1px solid var(--border); border-radius:12px; padding:14px 16px 14px 56px; position:relative; margin:10px 0; background:#fff; }
+.impl-step .is-num { position:absolute; left:14px; top:14px; width:30px; height:30px; border-radius:50%;
+  background:var(--dark); color:#fff; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; }
+.impl-step h4 { font-size:13.5px; font-weight:700; color:var(--dark); margin-bottom:4px; }
+.impl-step p { font-size:12.5px; color:#4b5563; margin:0 0 8px; }
+.impl-step .is-meta { display:flex; gap:8px; flex-wrap:wrap; }
+.impl-step .is-pill { font-size:10.5px; font-weight:700; padding:2px 9px; border-radius:8px; }
+.is-pill.lead { background:var(--blue-light); color:var(--blue); }
+.is-pill.out  { background:var(--green-light); color:var(--green); }
+
+.gap-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:14px 0; }
+.gap-card { border-radius:12px; padding:14px 16px; }
+.gap-card h4 { font-size:13px; font-weight:800; margin-bottom:4px; }
+.gap-card p { font-size:12px; margin:0; }
+.gap-card.g { background:var(--green-light); } .gap-card.g h4{ color:var(--green); }
+.gap-card.a { background:var(--amber-light); } .gap-card.a h4{ color:var(--amber); }
+.gap-card.r { background:var(--red-light); } .gap-card.r h4{ color:var(--red); }
+
+.checklist { margin:10px 0; }
+.chk { display:flex; gap:12px; align-items:flex-start; padding:11px 14px; border:1px solid var(--border);
+  border-radius:10px; margin:8px 0; background:#fff; }
+.chk .chk-box { font-size:18px; color:var(--green); line-height:1.3; }
+.chk div p { margin:0; font-size:12.5px; color:#4b5563; }
+.chk div strong { color:var(--dark); font-size:13px; }
+
+.toc { background:#fff; border:1px solid var(--border); border-radius:14px; max-width:1100px;
+  margin:24px auto 0; padding:18px 24px; }
+.toc h3 { font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:var(--gray); margin-bottom:10px; }
+.toc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:4px 18px; }
+.toc-grid a { font-size:13px; color:#475569; text-decoration:none; padding:5px 8px; border-radius:7px; display:block; }
+.toc-grid a:hover { background:#f1f5f9; color:var(--dark); }
+
+.fam-detail strong { color:var(--dark); }
+@media (max-width:640px){ .twocol,.gap-cards{ grid-template-columns:1fr; } .flow{ flex-direction:column; } .flow-arrow{ transform:rotate(90deg); } }
+
+/* Secciones plegables */
+.sec-toggle { cursor:pointer; user-select:none; display:flex; align-items:center; gap:10px; }
+.sec-toggle:hover { opacity:.72; }
+.sec-chevron { margin-left:auto; padding-left:14px; font-size:13px; color:var(--gray); transition:transform .2s; flex-shrink:0; }
+.sec-toggle.collapsed .sec-chevron { transform:rotate(-90deg); }
+.sec-body.hidden { display:none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Guía DdPC Digital — Declaración de Prestaciones y de Conformidad</h1>
+  <p>Guía paso a paso para que un fabricante de productos de construcción cumpla con el Reglamento CPR (UE) 2024/3110 y tenga su DdPC digital operativa. De la obligación de hoy al DPP de mañana.</p>
+  <div class="reg-badge">CPR (UE) 2024/3110 &middot; ESPR (UE) 2024/1781 &middot; eIDAS 2 &middot; Plan de Trabajo 2026-2029</div>
+</div>
+
+<style>
+.docnav{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:12px 14px;max-width:920px;margin:18px auto 24px;box-shadow:0 2px 6px rgba(0,0,0,.07);position:relative;z-index:5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.docnav .dn-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#fff;background:#1a1a2e;text-decoration:none;padding:0 14px;border-radius:10px;}
+.docnav .dn-home:hover{background:#33334d;}
+.docnav .dn-grp{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:6px 10px 6px 12px;border:1px solid;}
+.docnav .dn-grp .dn-name{font-size:12px;font-weight:700;}
+.docnav .dn-grp a{font-size:12.5px;font-weight:600;background:#fff;text-decoration:none;padding:5px 11px;border-radius:8px;border:1px solid;}
+.docnav .dpp{background:#eff6ff;border-color:#bfdbfe;}
+.docnav .dpp .dn-name{color:#1d4ed8;}
+.docnav .dpp a{color:#1d4ed8;border-color:#bfdbfe;}
+.docnav .dpp a:hover{background:#dbeafe;}
+.docnav .dpp a.active{background:#2563eb;border-color:#2563eb;color:#fff;}
+.docnav .ddpc{background:#fffbeb;border-color:#fde68a;}
+.docnav .ddpc .dn-name{color:#92400e;}
+.docnav .ddpc a{color:#92400e;border-color:#fde68a;}
+.docnav .ddpc a:hover{background:#fef3c7;}
+.docnav .ddpc a.active{background:#d97706;border-color:#d97706;color:#fff;}
+.docnav .epd{background:#e8f5ee;border-color:#b7e0c6;}
+.docnav .epd .dn-name{color:#2e7d4f;}
+.docnav .epd a{color:#2e7d4f;border-color:#b7e0c6;}
+.docnav .epd a:hover{background:#d1ebd9;}
+.docnav .epd a.active{background:#2e7d4f;border-color:#2e7d4f;color:#fff;}
+@media (max-width:640px){.docnav{gap:8px;padding:10px;}}
+</style>
+<div class="docnav">
+  <a href="00_index.html" class="dn-home">&#x1F3E0; Índice</a>
+  <span class="dn-grp dpp">
+    <span class="dn-name">&#x1F3D7;&#xFE0F; DPP</span>
+    <a href="01_guia-construccion.html">Guía</a>
+    <a href="01_mapping-trackline-dpp.html">Mapping</a>
+  </span>
+  <span class="dn-grp ddpc">
+    <span class="dn-name">&#x1F9FE; DdPC</span>
+    <a href="02_guia-ddpc-digital.html" class="active">Guía</a>
+    <a href="02_mapping-trackline-ddpc.html">Mapping</a>
+  </span>
+  <span class="dn-grp epd">
+    <span class="dn-name">&#x267B;&#xFE0F; EPD/DAP</span>
+    <a href="03_guia-epd-construccion.html">Guía</a>
+    <a href="03_mapping-trackline-epd.html">Mapping</a>
+  </span>
+</div>
+
+<!-- DOCUMENT STATUS -->
+<div class="doc-status-bar">
+  <div class="doc-status">
+    <div class="doc-status-icon">&#x1F7E1;</div>
+    <div class="doc-status-text">
+      <h3>Estado del documento: EN REVISIÓN — actualizado mayo 2026</h3>
+      <p>Versión de trabajo alineada con el CPR 2024/3110, ESPR 2024/1781, Reg. Delegado 2024/2769 (EVCP 3+), eIDAS 2 (UE 2024/1183) y el Plan de Trabajo CPR 2026-2029 (COM(2025) 772 final).</p>
+    </div>
+    <div class="doc-status-version">
+      <strong>v5.6</strong>
+      19 mayo 2026
+    </div>
+  </div>
+</div>
+
+<div class="deadline-banner">
+  <span>&#x23F0;</span> CPR 2024/3110 aplicable desde el <strong>8 enero 2026</strong> (régimen transitorio por familia). Fase 1 ambiental (GWP, letras a-d) exigible cuando la DdPC lo sea. Régimen sancionador desde el <strong>8 enero 2027</strong>.
+</div>
+
+<!-- HIERARCHY -->
+<div class="hierarchy-box">
+  <div class="hierarchy">
+    <h3>Tres niveles de documentación (de mayor a menor rango)</h3>
+    <div class="hierarchy-levels">
+      <div class="h-level h-ley">
+        <div class="h-level-icon">&#x2696;&#xFE0F;</div>
+        <div class="h-level-title">Nivel 1: LEY</div>
+        <div class="h-level-desc">Reglamento CPR (UE) 2024/3110, ESPR (UE) 2024/1781, Reg. Delegado 2024/2769, eIDAS 2. Obligatorio, no negociable. Publicado en el Diario Oficial de la UE.</div>
+        <div class="h-level-badge">Obligatorio</div>
+      </div>
+      <div class="hierarchy-arrow">&#x25B6;</div>
+      <div class="h-level h-guia">
+        <div class="h-level-icon">&#x1F4D0;</div>
+        <div class="h-level-title">Nivel 2: GUÍA TÉCNICA</div>
+        <div class="h-level-desc">EN 15804+A2, normas armonizadas, CIRPASS-2, EPD Guide, GS1 Digital Link, UNE 41316. Referencia de facto, no vinculante legalmente.</div>
+        <div class="h-level-badge">Recomendado</div>
+      </div>
+      <div class="hierarchy-arrow">&#x25B6;</div>
+      <div class="h-level h-solucion">
+        <div class="h-level-icon">&#x1F6E0;&#xFE0F;</div>
+        <div class="h-level-title">Nivel 3: SOLUCIÓN PROPIA</div>
+        <div class="h-level-desc">Implementación específica: Trackline, mappings de datos, control de acceso, integración ERP/PLM, firma eIDAS. Propuesta de Code Contract.</div>
+        <div class="h-level-badge">Implementación</div>
+      </div>
+    </div>
+    <div class="hierarchy-note">
+      Esta guía distingue entre <span style="color:#1d4ed8;font-weight:700">obligación legal</span>, <span style="color:#065f46;font-weight:700">referencia técnica</span> y <span style="color:#92400e;font-weight:700">propuesta operativa</span> de Code Contract. Nota terminológica: se emplea <strong>hTS</strong> (especificación técnica armonizada) para el nuevo marco 2024/3110; <strong>hEN</strong> se reserva para las normas armonizadas heredadas del Reglamento 305/2011 durante el periodo transitorio.
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>Contenido</h3>
+  <div class="toc-grid">
+    <a href="#resumen">0. Resumen ejecutivo</a>
+    <a href="#que-es">1. Qué es la DdPC</a>
+    <a href="#schema65">2. El esquema del 65%</a>
+    <a href="#contenido">3. Contenido obligatorio (Anexo V)</a>
+    <a href="#ambiental">4. Indicadores ambientales (Anexo II)</a>
+    <a href="#calendario">5. Calendario de obligaciones</a>
+    <a href="#pdf-no-vale">6. Por qué el PDF aislado ya no basta</a>
+    <a href="#eidas">7. Firma y archivo (eIDAS 2)</a>
+    <a href="#familias">8. Guía por familias de producto</a>
+    <a href="#pasos">9. Implementación en 10 pasos</a>
+    <a href="#auditoria">10. Auditoría de datos (gap analysis)</a>
+    <a href="#checklist">11. Checklist de preparación</a>
+    <a href="#trackline">12. Cómo Trackline cubre cada fase</a>
+    <a href="#faq">13. Preguntas frecuentes</a>
+    <a href="#enlaces">14. Enlaces y recursos</a>
+  </div>
+</div>
+
+<!-- 0. RESUMEN -->
+<div class="section" id="resumen">
+  <h2><span class="sec-num">0</span> Resumen ejecutivo</h2>
+  <p class="lead">El Reglamento (UE) 2024/3110 sustituye al CPR 305/2011 e introduce la <strong>Declaración de Prestaciones y de Conformidad (DdPC)</strong>. El CPR es aplicable desde el <strong>8 de enero de 2026</strong>, pero con régimen transitorio: la DdPC sustituirá progresivamente a la DdP para productos cubiertos por especificaciones técnicas armonizadas (hTS) revisadas bajo el nuevo marco.</p>
+  <p>No es un cambio de nombre: cuando aplique, añade indicadores ambientales (GWP), información REACH, formato <em>machine-readable</em> y firma del representante autorizado del fabricante (siendo recomendable la firma electrónica cualificada eIDAS 2 como buena práctica).</p>
+  <div class="callout amber"><strong>Régimen sancionador (art. 92 CPR):</strong> entra en vigor el 8 de enero de 2027. A día de hoy no existe norma sancionadora española específica para el nuevo CPR; como hipótesis de referencia podría apoyarse en la Ley 21/1992 de Industria (hasta 100.000.000 € en infracciones muy graves, cierre de establecimiento y prohibición de contratar con AA.PP. hasta 5 años), hasta que España notifique a la Comisión su régimen sancionador nacional específico antes de diciembre de 2026.</div>
+  <div class="callout green"><strong>La clave:</strong> una DdPC digital bien estructurada cubre aproximadamente el <strong>~65%</strong> del contenido del futuro Pasaporte Digital de Producto (DPP). Quien resuelve hoy la DdPC llega al DPP con un último kilómetro, no con una maratón. El ~65% es una <em>estimación funcional propia</em> de Code Contract basada en el solapamiento de datos exigidos por la DdPC y los previstos para el DPP — no es un porcentaje definido por el Reglamento.</div>
+  <p><strong>El camino más eficiente:</strong> DdP &rarr; DdPC digital &rarr; DPP. No saltar directamente al DPP cuando llegue la obligación.</p>
+</div>
+
+<!-- 1. QUE ES -->
+<div class="section" id="que-es">
+  <h2><span class="sec-num">1</span> Qué es la DdPC y qué cambia frente a la DdP</h2>
+  <p>La DdPC (Declaración de Prestaciones y de Conformidad) es el documento central del CPR 2024/3110, definida en el <strong>art. 15</strong> y el <strong>Anexo V</strong>. Sustituirá progresivamente a la antigua DdP del Reglamento 305/2011 a medida que la Comisión publique las hTS revisadas. Cuando existan requisitos de producto aplicables conforme al <strong>art. 7</strong> y a los actos correspondientes, la DdPC deberá declarar y evidenciar su cumplimiento — durabilidad, reciclabilidad, contenido reciclado, reparabilidad u otros.</p>
+  <div class="twocol">
+    <div class="cmp-card before">
+      <h4>ANTES — DdP (CPR 305/2011)</h4>
+      <ul>
+        <li>PDF estático, se genera una vez</li>
+        <li>Solo prestaciones técnicas declaradas</li>
+        <li>Sin datos ambientales integrados</li>
+        <li>Sin información REACH obligatoria</li>
+        <li>No conectable a ningún sistema digital</li>
+        <li>Formato libre (papel o electrónico)</li>
+        <li>Responsabilidad limitada a prestaciones</li>
+      </ul>
+    </div>
+    <div class="cmp-card after">
+      <h4>AHORA — DdPC (CPR 2024/3110)</h4>
+      <ul>
+        <li>Formato machine-readable obligatorio</li>
+        <li>Prestaciones + declaración de conformidad</li>
+        <li>Indicadores ambientales Anexo II (GWP...)</li>
+        <li>FDS (art. 31 REACH) + SVHC (art. 33)</li>
+        <li>Base del futuro DPP (arts. 75-80)</li>
+        <li>Versionable, trazable, con firma electrónica</li>
+        <li>Responsabilidad legal plena por conformidad</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout amber"><strong>Atención:</strong> la DdPC no es solo un cambio de nombre. No todos los requisitos del art. 7 son automáticamente exigibles para todas las familias desde el primer día; dependerá de la hTS revisada o del acto delegado aplicable a cada producto. Cuando aplique, eleva el estándar probatorio y convierte la custodia documental auditable en un activo crítico.</div>
+
+  <h3>Artículos clave del CPR 2024/3110 para la DdPC</h3>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Artículo</th><th>Contenido</th><th>Relevancia DdPC</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Art. 6</strong></td><td>Requisitos básicos de las obras de construcción</td><td>Define los 7 requisitos básicos que los productos deben satisfacer</td></tr>
+      <tr><td><strong>Art. 7</strong></td><td>Requisitos de los productos de construcción</td><td>Durabilidad, reciclabilidad, contenido reciclado, reparabilidad — base de la parte de conformidad</td></tr>
+      <tr><td><strong>Art. 13</strong></td><td>Declaración de prestaciones y de conformidad (regla general)</td><td>Establece la regla general de emisión de la DdPC antes de la comercialización</td></tr>
+      <tr><td><strong>Art. 14</strong></td><td>Excepciones a la obligación de elaborar la DdPC</td><td>Supuestos en que la DdPC no es exigible (productos a medida, microempresas, etc.)</td></tr>
+      <tr><td><strong>Art. 15</strong></td><td>Contenido de la DdPC</td><td>Define los bloques obligatorios: prestaciones + conformidad + ambiental + REACH</td></tr>
+      <tr><td><strong>Art. 22</strong></td><td>Obligaciones de los fabricantes</td><td>Refuerza la obligación de elaborar la DdPC, conservar documentación y garantizar conformidad</td></tr>
+      <tr><td><strong>Anexo II</strong></td><td>19 características ambientales predeterminadas</td><td>GWP (Fase 1), indicadores adicionales (Fases 2 y 3)</td></tr>
+      <tr><td><strong>Anexo V</strong></td><td>Modelo y contenido de la DdPC</td><td>Formato y campos obligatorios</td></tr>
+      <tr><td><strong>Arts. 75-80</strong></td><td>Pasaporte Digital de Producto</td><td>La DdPC es la base del DPP — mismos datos, distinta infraestructura</td></tr>
+      <tr><td><strong>Art. 92</strong></td><td>Régimen sancionador</td><td>Sanciones efectivas, proporcionales y disuasorias. EE.MM. notifican antes del 8-dic-2026. Aplicable desde 8-ene-2027</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- 2. ESQUEMA 65% -->
+<div class="section" id="schema65">
+  <h2><span class="sec-num">2</span> El esquema del 65%: DdP &rarr; DdPC &rarr; DPP</h2>
+  <p>El Pasaporte Digital de Producto suena lejano — su acto delegado aún no se ha publicado. Pero la DdPC es obligatoria <em>ahora</em>. Y una DdPC bien hecha cubre la mayor parte del trabajo del DPP.</p>
+  <div class="flow">
+    <div class="flow-card l1">
+      <div class="fc-sub">DdP clásica · CPR 305/2011</div>
+      <div class="fc-pct">~15%</div>
+      <div class="fc-sub">del contenido DPP</div>
+      <div class="fc-tag">Insuficiente</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-card l2">
+      <div class="fc-sub">DdPC digital · CPR 2024/3110</div>
+      <div class="fc-pct">~65%</div>
+      <div class="fc-sub">del contenido DPP</div>
+      <div class="fc-tag">Obligatorio ya</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-card l3">
+      <div class="fc-sub">DPP completo · Arts. 75-80</div>
+      <div class="fc-pct">100%</div>
+      <div class="fc-sub">último kilómetro</div>
+      <div class="fc-tag">Pendiente acto delegado</div>
+    </div>
+  </div>
+  <h3>Qué aporta cada capa</h3>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Capa</th><th>Contenido</th><th>% del DPP</th></tr></thead>
+    <tbody>
+      <tr><td><strong>DdP clásica</strong></td><td>Prestaciones técnicas básicas (mecánicas, fuego, térmicas, acústicas)</td><td>~15%</td></tr>
+      <tr><td><strong>DdPC añade</strong></td><td>Conformidad art. 7 (durabilidad, reciclabilidad, reparabilidad) + indicadores ambientales Anexo II + REACH (FDS + SVHC) + formato machine-readable + firma electrónica</td><td>+50%</td></tr>
+      <tr><td><strong>DPP añade</strong></td><td>Identificadores únicos (producto/operador/instalación) + data carrier físico (QR/RFID GS1) + niveles de acceso diferenciados + conexión Registro Central UE + documentación técnica complementaria</td><td>+35%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout green"><strong>Conclusión clave:</strong> la DdPC es la parte difícil — recopilar, estructurar y validar datos técnicos y ambientales. El DPP añade infraestructura digital (identificadores, QR, registro) que se monta rápido si el dato base ya está limpio. <strong>Quien hace bien la DdPC hoy, tiene el 65% del DPP resuelto.</strong></div>
+</div>
+
+<!-- 3. CONTENIDO ANEXO V -->
+<div class="section" id="contenido">
+  <h2><span class="sec-num">3</span> Contenido obligatorio de la DdPC (Anexo V)</h2>
+  <p>Según el art. 15 y el Anexo V del CPR 2024/3110, la DdPC debe incluir cuatro bloques principales.</p>
+  <div class="cards">
+    <div class="icard b-a"><div class="ic-ico">&#x2699;&#xFE0F;</div><h4>Bloque A · Prestaciones técnicas</h4><p>Las mismas que la DdP clásica: resistencia mecánica, reacción al fuego, aislamiento térmico, acústico, etc. Según las características esenciales de cada norma armonizada.</p></div>
+    <div class="icard b-b"><div class="ic-ico">&#x2705;</div><h4>Bloque B · Conformidad <span class="tag-new">NUEVO</span></h4><p>Declaración de cumplimiento de los requisitos del art. 7 <em>cuando sean aplicables</em>: durabilidad, reciclabilidad, contenido reciclado, reparabilidad. Su exigibilidad depende de la hTS revisada o del acto delegado.</p></div>
+    <div class="icard b-c"><div class="ic-ico">&#x1F331;</div><h4>Bloque C · Ambiental <span class="tag-new">NUEVO</span></h4><p>Indicadores del Anexo II en 3 fases: GWP desde 2026, indicadores intermedios desde 2030, set completo desde 2032. Calculados según EN 15804+A2.</p></div>
+    <div class="icard b-d"><div class="ic-ico">&#x26A0;&#xFE0F;</div><h4>Bloque D · REACH <span class="tag-new">NUEVO</span></h4><p>FDS conforme al art. 31 REACH para sustancias o mezclas; información SVHC conforme al art. 33 cuando un artículo contenga sustancias candidatas &gt;0,1% p/p. Vinculada a cada referencia, no como anexo genérico.</p></div>
+  </div>
+
+  <h3>Propuesta de modelado operativo del Anexo V para una DdPC digital</h3>
+  <p>La siguiente tabla es <strong>nuestra propuesta de modelado operativo</strong> — no una transcripción literal del anexo — estructurada en 4 bloques temáticos · 12 campos · 17 subcampos identificables. Las novedades respecto a la antigua DdP están marcadas con <span class="tag-new">NUEVO</span>.</p>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Campo</th><th>Descripción</th><th>Estado</th><th>Fuente típica</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="4">B1 · Identificación y categorización (Campos 1a–5)</td></tr>
+      <tr><td><strong>1a</strong></td><td>Identificación única del tipo de producto</td><td><span class="tag-legacy">Legacy</span></td><td>ERP / PLM · nomenclatura interna</td></tr>
+      <tr><td><strong>1b</strong></td><td>Números de serie o lote</td><td><span class="tag-legacy">Legacy</span></td><td>FPC · control de producción</td></tr>
+      <tr><td><strong>1c</strong></td><td>Identificadores únicos vinculados al DPP (URI persistente)</td><td><span class="tag-new">NUEVO</span></td><td>Sistema de identificación del producto</td></tr>
+      <tr><td><strong>2</strong></td><td>Categoría según hTS o DEE aplicable</td><td><span class="tag-legacy">Legacy</span></td><td>Norma técnica armonizada vigente</td></tr>
+      <tr><td><strong>3</strong></td><td>Uso previsto del producto en obra</td><td><span class="tag-legacy">Legacy</span></td><td>Especificación técnica + manual</td></tr>
+      <tr><td><strong>4</strong></td><td>Dimensiones nominales, grados y variantes</td><td><span class="tag-legacy">Legacy</span></td><td>Ficha técnica · catálogo</td></tr>
+      <tr><td><strong>5</strong></td><td>Vida útil estimada (durabilidad declarada)</td><td><span class="tag-new">NUEVO</span></td><td>Ensayos durabilidad · ACV · datos de campo</td></tr>
+      <tr class="grp"><td colspan="4">B2 · Agentes económicos (Campos 6–8)</td></tr>
+      <tr><td><strong>6</strong></td><td>Datos completos del fabricante</td><td><span class="tag-legacy">Legacy</span></td><td>Registro mercantil · Legal / Comercial</td></tr>
+      <tr><td><strong>7</strong></td><td>Representante autorizado UE (si fabricante extra-UE)</td><td><span class="tag-legacy">Legacy</span></td><td>Mandato firmado / poder notarial</td></tr>
+      <tr><td><strong>8</strong></td><td>Identificación del Organismo Notificado (NB) o TAB</td><td><span class="tag-legacy">Legacy</span></td><td>Certificado del organismo · nº NANDO</td></tr>
+      <tr class="grp"><td colspan="4">B3 · Prestaciones y conformidad (Campos 9a–11)</td></tr>
+      <tr><td><strong>9a</strong></td><td>Características esenciales declaradas</td><td><span class="tag-legacy">Legacy</span></td><td>ITT · ensayos de tipo · cálculos</td></tr>
+      <tr><td><strong>9b</strong></td><td>Niveles, clases o umbrales</td><td><span class="tag-legacy">Legacy</span></td><td>Resultados de ensayo conforme a hTS</td></tr>
+      <tr><td><strong>9c</strong></td><td>Uso de NULL / NPD (Not Performance Determined)</td><td><span class="tag-legacy">Legacy</span></td><td>Justificación documental si la hTS lo autoriza</td></tr>
+      <tr><td><strong>9d</strong></td><td>Desempeño ambiental: GWP-total/fossil/biogenic/luluc + Anexo II</td><td><span class="tag-new">NUEVO</span></td><td>ACV EN 15804+A2 · EPD · EVCP 3+</td></tr>
+      <tr><td><strong>10</strong></td><td>Conformidad con requisitos del producto (Anexos I, III, IV)</td><td><span class="tag-new">NUEVO</span></td><td>Expediente técnico — durabilidad, reciclabilidad, reparabilidad</td></tr>
+      <tr><td><strong>11</strong></td><td>Referencia a documentación técnica e informes NB/TAB</td><td><span class="tag-legacy">Legacy</span></td><td>Expediente · conservación 10 años</td></tr>
+      <tr class="grp"><td colspan="4">B4 · Firma y validación (Campos 12a–12d)</td></tr>
+      <tr><td><strong>12a</strong></td><td>Lugar de emisión</td><td><span class="tag-legacy">Legacy</span></td><td>Sede administrativa</td></tr>
+      <tr><td><strong>12b</strong></td><td>Fecha de emisión</td><td><span class="tag-legacy">Legacy</span></td><td>Sistema de gestión documental</td></tr>
+      <tr><td><strong>12c</strong></td><td>Identidad del firmante (cargo y nombre)</td><td><span class="tag-legacy">Legacy</span></td><td>Persona con poder de representación</td></tr>
+      <tr><td><strong>12d</strong></td><td>Firma del representante autorizado (QES eIDAS 2 recomendable)</td><td><span class="tag-legacy">Legacy</span></td><td>Persona facultada · opcional QES de TSP autorizado</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout amber"><strong>Las 4 novedades que más duelen:</strong> los subcampos <strong>1c (UID al DPP)</strong>, <strong>5 (vida útil)</strong>, <strong>9d (GWP desglosado)</strong> y <strong>10 (conformidad req. producto)</strong> son los que requieren mayor esfuerzo de recopilación y los que más valor aportan al futuro DPP. La firma cualificada (12d) es buena práctica recomendable, no obligación adicional.</div>
+
+  <h3>Otros elementos previstos en el Anexo V</h3>
+  <p>Además de los 12 campos modelados arriba, el Anexo V contempla — entre otros — los siguientes elementos cuando proceda:</p>
+  <ul>
+    <li><strong>Código único del tipo de producto</strong> y, cuando esté disponible, <strong>número de lote o de serie</strong>.</li>
+    <li><strong>Categoría de producto</strong>, <strong>usos previstos</strong>, <strong>dimensiones</strong> o <strong>clasificación</strong>.</li>
+    <li><strong>Componentes esenciales</strong> cuando proceda.</li>
+    <li><strong>Vida útil estimada media y mínima</strong>, <strong>variantes</strong>, e incluso <strong>fecha y lugar de última desinstalación</strong> si el producto ya estuvo instalado en una obra (productos reutilizados).</li>
+    <li><strong>Permalinks / data carriers / documentación asociada:</strong> registros del fabricante en bases de datos de la UE, información REACH cuando proceda, información general del producto, instrucciones de uso y seguridad conforme al <strong>Anexo IV</strong>.</li>
+  </ul>
+</div>
+
+<!-- 4. AMBIENTAL ANEXO II -->
+<div class="section" id="ambiental">
+  <h2><span class="sec-num">4</span> Indicadores ambientales del Anexo II (3 fases)</h2>
+  <p>El Anexo II establece 19 características ambientales predeterminadas que se incorporan progresivamente a la DdPC. Para productos que ya deban emitir DdPC bajo el nuevo CPR: indicadores <strong>a–d</strong> desde el 8 enero 2026; <strong>e–m</strong> desde el 9 enero 2030; <strong>n–s</strong> desde el 9 enero 2032.</p>
+
+  <h3>Fase 1 — desde 8 enero 2026 (letras a-d)</h3>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Letra</th><th>Indicador</th><th>Unidad</th><th>Módulos ACV</th></tr></thead>
+    <tbody>
+      <tr><td>a</td><td>GWP-total (calentamiento global total)</td><td>kg CO&#8322; eq.</td><td>A1-A3 (oblig.), C1-C4, D (si disponible)</td></tr>
+      <tr><td>b</td><td>GWP-fossil (origen fósil)</td><td>kg CO&#8322; eq.</td><td>A1-A3</td></tr>
+      <tr><td>c</td><td>GWP-biogenic (origen biogénico)</td><td>kg CO&#8322; eq.</td><td>A1-A3</td></tr>
+      <tr><td>d</td><td>GWP-luluc (uso del suelo)</td><td>kg CO&#8322; eq.</td><td>A1-A3</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Fase 2 — desde 9 enero 2030 (letras e-m)</h3>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Letra</th><th>Indicador</th><th>Unidad</th></tr></thead>
+    <tbody>
+      <tr><td>e</td><td>ODP — Agotamiento de la capa de ozono</td><td>kg CFC-11 eq.</td></tr>
+      <tr><td>f</td><td>AP — Acidificación</td><td>mol H+ eq.</td></tr>
+      <tr><td>g</td><td>EP-freshwater — Eutrofización agua dulce</td><td>kg P eq.</td></tr>
+      <tr><td>h</td><td>EP-marine — Eutrofización marina</td><td>kg N eq.</td></tr>
+      <tr><td>i</td><td>EP-terrestrial — Eutrofización terrestre</td><td>mol N eq.</td></tr>
+      <tr><td>j</td><td>POCP — Formación de ozono fotoquímico</td><td>kg NMVOC eq.</td></tr>
+      <tr><td>k</td><td>ADP-minerals — Recursos abióticos (minerales)</td><td>kg Sb eq.</td></tr>
+      <tr><td>l</td><td>ADP-fossil — Recursos abióticos (fósiles)</td><td>MJ</td></tr>
+      <tr><td>m</td><td>WDP — Uso de agua</td><td>m&#179; world eq.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Fase 3 — desde 9 enero 2032 (letras n-s)</h3>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Letra</th><th>Indicador</th><th>Unidad</th></tr></thead>
+    <tbody>
+      <tr><td>n</td><td>PM — Emisión de partículas</td><td>incidencia de enfermedad</td></tr>
+      <tr><td>o</td><td>IRP — Radiación ionizante</td><td>kBq U235 eq.</td></tr>
+      <tr><td>p</td><td>ETP-fw — Ecotoxicidad agua dulce</td><td>CTUe</td></tr>
+      <tr><td>q</td><td>HTP-c — Toxicidad humana (cáncer)</td><td>CTUh</td></tr>
+      <tr><td>r</td><td>HTP-nc — Toxicidad humana (no cáncer)</td><td>CTUh</td></tr>
+      <tr><td>s</td><td>SQP — Calidad del suelo</td><td>puntos adimensionales</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout blue"><strong>Cómo se calculan:</strong> mediante ACV (Análisis de Ciclo de Vida). El art. 15 remite a la metodología que concrete la Comisión; en la práctica, la <strong>EN 15804:2012+A2:2019</strong> es la referencia técnica principal. Módulos habituales: A1-A3 (fabricación) y C1-C4 (fin de vida); el módulo D es informativo.</div>
+  <div class="callout green"><strong>Sistema EVCP 3+ (Reg. Delegado UE 2024/2769):</strong> aplica específicamente a las características ambientales. A diferencia del EVCP 3 clásico, el organismo notificado <em>no realiza ensayos</em>: valida el modelo ACV (datos de entrada, hipótesis, cálculos). El fabricante mantiene FPC y datos primarios. La capacidad de validación en España está en transición (ENAC acreditando laboratorios para EN 15804+A2 y EF 3.1).</div>
+
+  <h3>Software ACV recomendado</h3>
+  <div class="cards">
+    <div class="icard"><h4>SimaPro</h4><p>Software profesional. Bases de datos ecoinvent, ELCD. Ampliamente usado en DAPs de construcción.</p></div>
+    <div class="icard"><h4>GaBi / Sphera</h4><p>Suite completa con bases de datos propias. Fuerte en industria de materiales de construcción.</p></div>
+    <div class="icard"><h4>openLCA</h4><p>Gratuito y open source. Compatible con ecoinvent y bases públicas. Buena opción para PYMEs.</p></div>
+    <div class="icard"><h4>One Click LCA</h4><p>SaaS especializado en construcción. Genera DAPs directamente. Integración con BIM.</p></div>
+  </div>
+</div>
+
+<!-- 5. CALENDARIO -->
+<div class="impl-timeline" id="calendario">
+  <div class="impl-timeline-box">
+    <h3>5. Calendario de obligaciones de la DdPC</h3>
+    <table class="tl-table">
+      <thead><tr><th>Fecha</th><th>Hito</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td class="tl-date-cell" style="color:#2e7d4f">Dic 2024</td><td><div class="tl-milestone">Publicación del CPR (UE) 2024/3110 en el DOUE (art. 91)</div></td><td><span class="tl-status-badge tl-past">En vigor</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#2e7d4f">7 ene 2025</td><td><div class="tl-milestone">Entrada en vigor del CPR 2024/3110</div><div class="tl-publisher">Artículos generales y de desarrollo de normas</div></td><td><span class="tl-status-badge tl-past">En vigor</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#2e7d4f">Dic 2025</td><td><div class="tl-milestone">Plan de Trabajo CPR 2026-2029 (COM(2025) 772 final)</div><div class="tl-publisher">Prioridades de estandarización para las 36 familias del Anexo VII</div></td><td><span class="tl-status-badge tl-past">Publicado</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#d97706">8 ene 2026</td><td><div class="tl-milestone">Aplicación general de la mayoría de disposiciones</div><div class="tl-publisher">La DdPC sustituye progresivamente a la DdP. Fase 1 Anexo II: GWP a-d obligatorios cuando la DdPC sea exigible</div></td><td><span class="tl-status-badge tl-upcoming">En curso</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#dc2626">8 ene 2027</td><td><div class="tl-milestone">Régimen sancionador activo (art. 92 CPR)</div><div class="tl-publisher">Referencia provisional Ley 21/1992: leves hasta 60.000 €, graves hasta 6.000.000 €, muy graves hasta 100.000.000 €</div></td><td><span class="tl-status-badge tl-future">Crítico</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#7c3aed">Pendiente</td><td><div class="tl-milestone">Acto delegado del DPP de construcción (Art. 75)</div><div class="tl-publisher">Sin fecha cierta. La obligación de DPP aplicará 18 meses tras la entrada en vigor del acto delegado</div></td><td><span class="tl-status-badge tl-future">Pendiente</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#7c3aed">1 ene 2028</td><td><div class="tl-milestone">GWP obligatorio en edificios nuevos &gt;1.000 m&#178; en España (CTE DB-HSA)</div><div class="tl-publisher">Factor de corrección fc que premia DAP/EPD verificadas frente a datos genéricos (pendiente texto definitivo)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#7c3aed">9 ene 2030</td><td><div class="tl-milestone">Fase 2 Anexo II: indicadores ambientales e-m obligatorios</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#7c3aed">8 ene 2031</td><td><div class="tl-milestone">Los EADs heredados del 305/2011 dejan de aplicarse</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#7c3aed">9 ene 2032</td><td><div class="tl-milestone">Fase 3: declaración ambiental completa (19 indicadores a-s)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#7c3aed">8 ene 2040</td><td><div class="tl-milestone">Fin del periodo de coexistencia: se derogan los últimos artículos del 305/2011 (art. 94)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
+      </tbody>
+    </table>
+    <div class="impl-timeline-note">
+      Las fechas del Anexo II (fases ambientales) son fijas en el reglamento. La obligación de DPP depende de actos delegados que la Comisión publicará progresivamente.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Estado del ecosistema de normas armonizadas (a mayo 2026)</h3>
+  <p>A día de hoy prácticamente todas las normas vigentes son las hEN heredadas del 305/2011. El Plan de Trabajo CPR 2026-2029 organiza la revisión de las 36 familias del Anexo VII en tres fases:</p>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Fase</th><th>Horizonte</th><th>Familias prioritarias</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fase 1 — prioritarias (9)</strong></td><td>2026-2028</td><td>Prefabricados de hormigón, productos metálicos estructurales, acero de armar/pretensar, puertas/ventanas y herrajes, cementos/cales/aglomerantes, aislamiento térmico (SATE/ETICS), vidrio plano/perfilado/bloques</td></tr>
+      <tr><td><strong>Fase 2 — intermedias (6)</strong></td><td>2028-2031</td><td>Áridos, fachadas ligeras (curtain walling), madera estructural y tableros, hormigón/mortero/grout, albañilería</td></tr>
+      <tr><td><strong>Fase 3 — de cola (21)</strong></td><td>2031-2035</td><td>Carreteras, pavimentos, kits prefabricados, yeso, apoyos estructurales, cubiertas (incl. fotovoltaica), aguas residuales, adhesivos y sellantes, cortafuegos, fijaciones, membranas, geotextiles, sanitarios, tuberías, cables, chimeneas, escaleras</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout amber"><strong>Ventana de oportunidad:</strong> entre la publicación de la hTS revisada para una familia y el final del periodo de coexistencia (típicamente ~12 meses) hay un margen estrecho para preparar DdPC digital, EPD/DAP, conexión de cadena y firma. Quien empiece después del DOUE va a contrarreloj. Quien monte la infraestructura ahora tiene margen real.</div>
+</div>
+
+<!-- 6. PDF NO BASTA -->
+<div class="section" id="pdf-no-vale">
+  <h2><span class="sec-num">6</span> Por qué el PDF aislado ya no basta</h2>
+  <p>El <strong>art. 16 CPR 2024/3110</strong> permite suministrar la DdPC por medios electrónicos, incluida una web del fabricante, siempre que sea <em>inmodificable, legible por humanos y máquinas, descargable, gratuita y disponible de forma continua</em>. El PDF no está prohibido — pero un PDF <strong>aislado</strong> (sin estructura de datos legible por máquina, sin versionado trazable, sin enlace al producto vía UID) no cumple varios requisitos. La cuestión no es "PDF sí o no", sino <strong>"PDF como pieza de un sistema documental digital, o PDF a secas".</strong></p>
+  <div class="cards">
+    <div class="icard"><div class="ic-ico">&#x1F916;</div><h4>Machine-readable</h4><p>Un sistema debe poder leer, interpretar y procesar los datos automáticamente. Un PDF es legible por personas, no por máquinas de forma estructurada.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F512;</div><h4>Inmutable + trazable</h4><p>Solo versiones trazables, nunca modificación retroactiva. Cada cambio registrado: qué, cuándo, quién. Un PDF se edita sin dejar rastro.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F4C5;</div><h4>Accesible 10+ años</h4><p>Disponibilidad continua online durante la vida útil del producto. SLA recomendado &ge;99,9%. Un PDF en una web puede desaparecer.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F517;</div><h4>Integrable con DPP</h4><p>La DdPC es la base del futuro DPP. Si está en PDF, no se conecta al Registro Central europeo ni a sistemas BIM/ERP.</p></div>
+    <div class="icard"><div class="ic-ico">&#x270D;&#xFE0F;</div><h4>Firma electrónica cualificada</h4><p>Validez legal transfronteriza en la UE mediante servicios cualificados eIDAS 2. Un PDF firmado no garantiza conservación a largo plazo.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F501;</div><h4>Conectada a ERP/BIM</h4><p>Los datos deben fluir hacia ERP/PLM del fabricante y BIM/prescripción de sus clientes. Un PDF es un callejón sin salida digital.</p></div>
+  </div>
+  <div class="callout blue"><strong>Existe ya un esquema XML normalizado:</strong> la norma <strong>UNE 41316:2020 ("Smart CE marking")</strong> define un esquema XML para la DdPC digital que distingue secciones mandatadas y adicionales, con identificadores GUID por característica y soporte para firma electrónica. Es la referencia técnica de partida para construir DdPC machine-readable conforme al art. 16. La Comisión elaborará directrices europeas equivalentes (Art. 76).</div>
+</div>
+
+<!-- 7. eIDAS -->
+<div class="section" id="eidas">
+  <h2><span class="sec-num">7</span> Firma, sellado y archivo: la capa eIDAS 2</h2>
+  <p>El Reglamento eIDAS 2 (UE) 2024/1183, en vigor desde octubre 2024, proporciona exactamente los servicios que el CPR 2024 necesita para la DdPC digital:</p>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Requisito CPR 2024</th><th>Servicio eIDAS cualificado</th></tr></thead>
+    <tbody>
+      <tr><td>Firma de la DdPC por responsable técnico + sello de empresa</td><td>Firma electrónica cualificada (arts. 25-29) + sello electrónico cualificado (arts. 35-40)</td></tr>
+      <tr><td>Integridad e inmutabilidad del contenido</td><td>Sello cualificado + hash SHA-256 + sello de tiempo cualificado (arts. 41-42)</td></tr>
+      <tr><td>Trazabilidad del ciclo de versiones</td><td>Servicio cualificado de archivo electrónico (arts. 45 decies-undecies)</td></tr>
+      <tr><td>Conservación 10+ años</td><td>Servicio de conservación de firmas (art. 34), LTV con PAdES-A o XAdES-A</td></tr>
+      <tr><td>Disponibilidad continua</td><td>SLA QTSP &ge;99,9%, redundancia geográfica</td></tr>
+      <tr><td>Reconocimiento transfronterizo UE</td><td>Inscripción en Trusted List europea (TSL)</td></tr>
+      <tr><td>Notificaciones probatorias</td><td>Entrega electrónica certificada cualificada (arts. 43-44)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>Arquitectura técnica de firma</h3>
+  <p>El flujo completo: captura de datos (ERP/PLM) &rarr; estructuración (machine-readable) &rarr; sellado (hash + timestamp RFC 3161) &rarr; firma cualificada (responsable + sello empresa) &rarr; inmutabilidad (archivo cualificado) &rarr; conservación LTV (renovación automática) &rarr; interoperabilidad (APIs con DPP, BIM, ERP) &rarr; acceso con QR y control de roles.</p>
+  <div class="callout amber"><strong>Importante:</strong> el CPR exige que la DdPC esté firmada por una persona facultada del fabricante (Anexo V, campo 12). El uso de firma cualificada (QES), sello, sello de tiempo y archivo cualificado bajo eIDAS 2 <strong>no es obligatorio per se</strong>, pero es <strong>buena práctica recomendable</strong> para reforzar el valor probatorio, la integridad y la conservación a largo plazo, especialmente para validez transfronteriza en los 27 EE.MM.</div>
+</div>
+
+<!-- 8. FAMILIAS -->
+<div class="families-box" id="familias">
+  <div class="families">
+    <h3>8. Guía rápida por familia de producto</h3>
+    <p>La fase indica cuándo se espera la hTS revisada bajo el nuevo CPR, según el Plan de Trabajo CPR 2026-2029. Haz clic en cada familia para ver el detalle.</p>
+    <div class="families-grid">
+
+      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F3D7;&#xFE0F; Prefabricados de hormigón</h4>
+        <span class="fam-wave">Fase 1</span>
+        <div class="fam-norm">UNE-EN 13225 / EN 13369</div>
+        <div class="fam-risk">&#x26A0; Datos de familia vs pieza/lote</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> separar datos de familia vs pieza/lote. Variabilidad por planta, receta y suministro. El GWP depende fuertemente del tipo de cemento.<br>
+          <strong>Datos ambientales:</strong> GWP-total dominado por el clínker (60-80% de la huella). Contenido reciclado variable. DAP de cemento del proveedor imprescindible.<br>
+          <strong>REACH:</strong> bajo riesgo SVHC salvo aditivos específicos (desmoldeantes, acelerantes).<br>
+          <strong>Fuente:</strong> ERP (dosificación), laboratorio (ensayos), proveedor (DAP cemento, áridos).
+        </div>
+      </div>
+
+      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F529; Productos metálicos estructurales</h4>
+        <span class="fam-wave">Fase 1</span>
+        <div class="fam-norm">Serie EN 1090</div>
+        <div class="fam-risk">&#x26A0; Cadena larga acería&rarr;taller</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> cadena larga (acería &rarr; transformador &rarr; taller). La DdPC del producto final debe integrar datos de toda la cadena.<br>
+          <strong>Datos ambientales:</strong> GWP muy distinto entre horno eléctrico (EAF, ~0,4 kg CO&#8322;/kg) y alto horno (BF-BOF, ~2,0 kg CO&#8322;/kg). El contenido reciclado es diferenciador clave.<br>
+          <strong>REACH:</strong> recubrimientos (galvanizado, pintura) pueden contener SVHC (cromatos, zinc, plomo).<br>
+          <strong>Fuente:</strong> DAP del acerista, certificados de taller, FPC, trazabilidad de coladas.
+        </div>
+      </div>
+
+      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F529; Acero de armar / pretensar</h4>
+        <span class="fam-wave">Fase 1</span>
+        <div class="fam-norm">EN 10080 / Código Estructural</div>
+        <div class="fam-risk">&#x26A0; Trazabilidad de remesas</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> en España el Código Estructural ya exige trazabilidad de remesas. La DdPC formaliza y digitaliza lo que muchas acerías ya documentan en papel.<br>
+          <strong>Datos ambientales:</strong> acerías españolas (Celsa, Sidenor) ya tienen DAPs verificadas. Verificar vigencia.<br>
+          <strong>REACH:</strong> bajo riesgo salvo recubrimientos epoxi en armaduras especiales.<br>
+          <strong>Fuente:</strong> DAP de acería, remesas, certificados de conformidad, trazabilidad de colada.
+        </div>
+      </div>
+
+      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F9F1; Cementos, cales y aglomerantes</h4>
+        <span class="fam-wave">Fase 1</span>
+        <div class="fam-norm">UNE-EN 197-1</div>
+        <div class="fam-risk">&#x26A0; Alto impacto CO&#8322;</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> alto impacto CO&#8322; (8% emisiones globales). El sector ya tiene DAPs maduras. Posible intervención ESPR adicional.<br>
+          <strong>Datos ambientales:</strong> GWP-total varía mucho por tipo: CEM I (~800 kg CO&#8322;/t) vs CEM III (~350 kg CO&#8322;/t). El contenido de clínker es la variable dominante.<br>
+          <strong>REACH:</strong> Cromo VI regulado (Cr(VI) &lt;2 ppm). Ya cubierto por normativa existente.<br>
+          <strong>Fuente:</strong> DAPs de OFICEMEN/cementeras, control de producción, bases sectoriales.
+        </div>
+      </div>
+
+      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1FA9F; Puertas, ventanas y herrajes</h4>
+        <span class="fam-wave">Fase 1</span>
+        <div class="fam-norm">UNE-EN 14351-1</div>
+        <div class="fam-risk">&#x26A0; Explosión de variantes</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> explosión de variantes por configuración (marco, vidrio, dimensiones, herrajes). Necesidad de DdPC paramétrica o por familias representativas.<br>
+          <strong>Datos ambientales:</strong> GWP dominado por el vidrio (40-60%) y el marco (aluminio &gt;&gt; PVC &gt; madera).<br>
+          <strong>REACH:</strong> alto riesgo SVHC: sellantes (isocianatos), gomas (ftalatos), perfiles PVC (estabilizantes), vidrio de capa.<br>
+          <strong>Fuente:</strong> ERP (configurador), proveedor vidrio (DAP), proveedor perfiles (DAP), laboratorio.
+        </div>
+      </div>
+
+      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F9F9; Aislamiento térmico (SATE/ETICS)</h4>
+        <span class="fam-wave">Fase 1</span>
+        <div class="fam-norm">EN 13162 a EN 13171</div>
+        <div class="fam-risk">&#x26A0; Diversidad de materiales</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> diversidad de materiales (EPS, XPS, lana mineral, PUR/PIR, corcho, celulosa), cada uno con PCR y perfil ambiental distinto.<br>
+          <strong>Datos ambientales:</strong> GWP variable: EPS (~3,5 kg CO&#8322;/m&#178; a R=1), lana mineral (~2), PUR (~4,5). Contenido reciclado y reciclabilidad como diferenciadores.<br>
+          <strong>REACH:</strong> retardantes de llama (HBCD prohibido), gases de expansión. Alta relevancia SVHC.<br>
+          <strong>Fuente:</strong> proveedor materia prima (DAP), producción (energía), laboratorio (lambda, fuego).
+        </div>
+      </div>
+
+      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1FA9E; Vidrio plano, perfilado y bloques</h4>
+        <span class="fam-wave">Fase 1</span>
+        <div class="fam-norm">EN 572 / EN 1279 / EN 12150</div>
+        <div class="fam-risk">&#x26A0; Múltiples transformaciones</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> cadena con múltiples transformaciones (float &rarr; templado/laminado &rarr; IGU). Vínculo estrecho con ventanas.<br>
+          <strong>Datos ambientales:</strong> GWP elevado por el horno float (~0,9-1,2 kg CO&#8322;/kg). Cullet (reciclado) como variable dominante. Low-E reduce GWP de uso.<br>
+          <strong>REACH:</strong> bajo riesgo en producto base; atención a recubrimientos metálicos y selladores en IGU.<br>
+          <strong>Fuente:</strong> DAP del fabricante float, proveedor capa, laboratorio, consumo energético de planta.
+        </div>
+      </div>
+
+      <div class="fam-card fw-2" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F332; Madera estructural y tableros</h4>
+        <span class="fam-wave">Fase 2</span>
+        <div class="fam-norm">EN 14081 / EN 14080 / EN 13986</div>
+        <div class="fam-risk">&#x26A0; Cadena de custodia</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> trazabilidad de origen y cadena de custodia (FSC, PEFC). El GWP biogénico es negativo pero depende del origen y manejo forestal.<br>
+          <strong>Datos ambientales:</strong> GWP-biogenic negativo (beneficio climático). Alta reciclabilidad, contenido reciclado bajo.<br>
+          <strong>REACH:</strong> tratamientos preservantes (CCA prohibido), adhesivos (formaldehído, isocianatos).<br>
+          <strong>Fuente:</strong> certificación forestal, proveedor adhesivo (FDS), producción, laboratorio.
+        </div>
+      </div>
+
+      <div class="fam-card fw-3" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F6CB;&#xFE0F; Pavimentos (resilientes/laminados)</h4>
+        <span class="fam-wave">Fase 3</span>
+        <div class="fam-norm">UNE-EN 14041</div>
+        <div class="fam-risk">&#x26A0; Química compleja + muchos SKUs</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> química compleja (PVC, poliuretano, adhesivos) + sistema de instalación. Agrupar por familia representativa.<br>
+          <strong>Datos ambientales:</strong> alto contenido polimérico &rarr; GWP significativo. Contenido reciclado post-consumo como diferenciador. VOC relevante para aire interior.<br>
+          <strong>REACH:</strong> alto riesgo: plastificantes (ftalatos), retardantes de llama, estabilizantes. Revisar Candidate List de ECHA.<br>
+          <strong>Fuente:</strong> formulación (I+D), proveedor resina (DAP), laboratorio (VOC, fuego, desgaste).
+        </div>
+      </div>
+
+      <div class="fam-card fw-3" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F9F1; Cerámica y azulejos</h4>
+        <span class="fam-wave">Fase 3</span>
+        <div class="fam-norm">UNE-EN 14411 / ISO 13006</div>
+        <div class="fam-risk">&#x26A0; Muchos SKUs, poca disciplina de datos</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> enorme número de SKUs estéticos, pocas familias técnicas. Agrupar por proceso (porcelánico, gres, pasta) y formato.<br>
+          <strong>Datos ambientales:</strong> GWP dominado por la cocción (gas natural). El sector de Castellón tiene DAPs sectoriales de ASCER.<br>
+          <strong>REACH:</strong> bajo riesgo en producto cocido; atención a esmaltes (plomo, cadmio históricos) y adhesivos.<br>
+          <strong>Fuente:</strong> DAPs sectoriales ASCER, consumos de planta, laboratorio ITC.
+        </div>
+      </div>
+
+      <div class="fam-card fw-3" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F6E0;&#xFE0F; Plásticos y polímeros</h4>
+        <span class="fam-wave">Fase 3</span>
+        <div class="fam-norm">Normas sectoriales (tuberías, láminas, perfiles)</div>
+        <div class="fam-risk">&#x26A0; Máximo riesgo SVHC</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Reto DdPC:</strong> gestión química compleja, fuerte solapamiento con REACH y SCIP. Posible intervención ESPR con contenido reciclado obligatorio.<br>
+          <strong>Datos ambientales:</strong> GWP alto por origen petroquímico. Contenido reciclado post-consumo como diferenciador crítico.<br>
+          <strong>REACH:</strong> máximo riesgo SVHC de todas las familias. Plastificantes, retardantes de llama, estabilizantes UV, pigmentos.<br>
+          <strong>Fuente:</strong> proveedor resina (DAP + FDS), formulación (I+D), base SCIP, laboratorio.
+        </div>
+      </div>
+
+    </div>
+    <div class="impl-timeline-note">
+      <strong>Régimen transitorio:</strong> mientras la Comisión no publique la hTS revisada para una familia, el fabricante sigue operando bajo el 305/2011 con DdP. Pero la DdPC para las familias de Fase 1 es inminente. Quien prepare su infraestructura digital ahora podrá reutilizarla para las fases siguientes.
+    </div>
+  </div>
+</div>
+
+<!-- 9. 10 PASOS -->
+<div class="section" id="pasos">
+  <h2><span class="sec-num">9</span> Implementación de la DdPC en 10 pasos</h2>
+  <p>Guía operativa para pasar de la DdP clásica a la DdPC digital conforme al CPR 2024/3110. Cada paso indica quién lidera y qué se produce.</p>
+
+  <div class="impl-step"><div class="is-num">1</div><h4>Clasificar la cartera de productos</h4><p>Identificar en qué familia del Anexo VII está cada producto, en qué fase del Plan de Trabajo entra la hTS, y priorizar por impacto comercial y volumen. Agrupar productos que comparten base técnica.</p><div class="is-meta"><span class="is-pill lead">Lidera: Comercial + Calidad</span><span class="is-pill out">Mapa de productos por familia/fase</span></div></div>
+  <div class="impl-step"><div class="is-num">2</div><h4>Auditar las DdP existentes</h4><p>Revisar qué datos ya se tienen y compararlos campo a campo con los 12 bloques del Anexo V. Resultado: mapa de brechas rojo/ámbar/verde por producto y campo.</p><div class="is-meta"><span class="is-pill lead">Lidera: Calidad + IT</span><span class="is-pill out">Informe de gap analysis (sección 10)</span></div></div>
+  <div class="impl-step"><div class="is-num">3</div><h4>Obtener datos ambientales (ACV / DAP)</h4><p>Calcular el GWP por producto siguiendo EN 15804+A2. Si no hay DAP propia, iniciar el proceso con un programa reconocido (EPD International, IBU, GlobalEPD, DAPcons). Solicitar DAPs de proveedores críticos.</p><div class="is-meta"><span class="is-pill lead">Lidera: Sostenibilidad / I+D</span><span class="is-pill out">DAP verificada o ACV A1-A3 + C1-C4</span></div></div>
+  <div class="impl-step"><div class="is-num">4</div><h4>Inventariar información REACH</h4><p>Mapear SVHC &gt;0,1% p/p en artículos (art. 33) consultando la Candidate List de ECHA, y FDS para sustancias o mezclas (art. 31). Vincular a cada referencia, no como anexo genérico.</p><div class="is-meta"><span class="is-pill lead">Lidera: Compras + I+D</span><span class="is-pill out">Inventario SVHC/FDS por referencia</span></div></div>
+  <div class="impl-step"><div class="is-num">5</div><h4>Preparar la declaración de conformidad (art. 7)</h4><p>Documentar y evidenciar durabilidad (ensayos de envejecimiento, vida útil), reciclabilidad (% por material), contenido reciclado (% pre/post-consumo) y reparabilidad (piezas, instrucciones).</p><div class="is-meta"><span class="is-pill lead">Lidera: I+D + Calidad</span><span class="is-pill out">Ficha de conformidad art. 7 por tipo</span></div></div>
+  <div class="impl-step"><div class="is-num">6</div><h4>Estructurar datos en formato machine-readable</h4><p>Convertir todo en formato estructurado y procesable. La DdPC es un dataset con campos definidos. Recomendado: JSON-LD (Schema.org) e XML (ILCD+EPD). Integrar con ERP/PLM como fuente única de verdad.</p><div class="is-meta"><span class="is-pill lead">Lidera: IT + Calidad</span><span class="is-pill out">Modelo de datos DdPC + mapping ERP</span></div></div>
+  <div class="impl-step"><div class="is-num">7</div><h4>Implementar firma y sello electrónico cualificado</h4><p><em>Recomendado (no obligatorio):</em> certificados QES para el responsable técnico y sello de empresa conforme eIDAS 2, con sellado de tiempo RFC 3161 y QTSP en la Trusted List. Refuerza el valor probatorio.</p><div class="is-meta"><span class="is-pill lead">Lidera: IT + Legal</span><span class="is-pill out">Certificados activos + flujo de firma</span></div></div>
+  <div class="impl-step"><div class="is-num">8</div><h4>Garantizar archivo inmutable a 10+ años</h4><p>Contratar servicio cualificado de archivo electrónico con conservación LTV, renovación automática de firmas y SLA recomendado &ge;99,9%. Debe garantizar la conservación incluso en caso de insolvencia del proveedor.</p><div class="is-meta"><span class="is-pill lead">Lidera: IT + Legal</span><span class="is-pill out">Contrato de archivo cualificado + SLA</span></div></div>
+  <div class="impl-step"><div class="is-num">9</div><h4>Piloto con productos representativos</h4><p>Producir una DdPC completa end-to-end para 1-3 productos (uno por familia prioritaria). Poblar todos los campos del Anexo V, firmar, archivar, probar acceso. Lección CIRPASS-2: con ERP maduro, piloto en 8-12 semanas.</p><div class="is-meta"><span class="is-pill lead">Lidera: Calidad + IT + Sostenibilidad</span><span class="is-pill out">1-3 DdPC completas + lecciones</span></div></div>
+  <div class="impl-step"><div class="is-num">10</div><h4>Despliegue y preparación DPP</h4><p>Extender la DdPC a toda la cartera prioritaria, integrar con ERP/PLM, formar al equipo y preparar infraestructura DPP (identificadores únicos, data carriers QR/RFID GS1, GTINs). Cuando llegue el acto delegado, el último 35% se monta sobre la DdPC ya operativa.</p><div class="is-meta"><span class="is-pill lead">Lidera: Dirección + todos</span><span class="is-pill out">DdPC operativa + infraestructura DPP-ready</span></div></div>
+
+  <div class="callout green"><strong>Tiempo estimado total:</strong> con ERP maduro y datos parcialmente disponibles, 3-6 meses para el piloto y 6-12 meses para despliegue completo. Sin ERP o con datos muy dispersos, 12-18 meses. La clave es empezar por el gap analysis (paso 2) para dimensionar el esfuerzo real.</div>
+</div>
+
+<!-- 10. AUDITORIA -->
+<div class="section" id="auditoria">
+  <h2><span class="sec-num">10</span> Auditoría de datos: gap analysis Anexo II + Anexo V</h2>
+  <p>Antes de implementar la DdPC, necesitas saber dónde estás. El gap analysis cruza cada campo requerido por los Anexos II y V con tu información real, y produce un mapa rojo/ámbar/verde por campo y familia.</p>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Campo DdPC</th><th>Estado típico PYME</th><th>Estado típico gran empresa</th><th>Prioridad</th></tr></thead>
+    <tbody>
+      <tr><td>Prestaciones técnicas (hTS)</td><td>Disponible</td><td>Disponible</td><td>Baja (ya existe)</td></tr>
+      <tr><td>Sistema EVCP / ON</td><td>Disponible</td><td>Disponible</td><td>Baja</td></tr>
+      <tr><td>GWP (Fase 1 Anexo II)</td><td>Falta</td><td>Parcial (DAP genérica)</td><td>Crítica (oblig. 2026)</td></tr>
+      <tr><td>Conformidad art. 7</td><td>Falta</td><td>Parcial</td><td>Alta</td></tr>
+      <tr><td>REACH - FDS</td><td>Existe pero no vinculada</td><td>Existe pero no por producto</td><td>Alta</td></tr>
+      <tr><td>REACH - SVHC</td><td>No verificado</td><td>Parcial</td><td>Alta</td></tr>
+      <tr><td>Formato machine-readable</td><td>No (PDF)</td><td>No (PDF)</td><td>Crítica</td></tr>
+      <tr><td>Firma electrónica cualificada</td><td>No</td><td>Firma simple</td><td>Alta</td></tr>
+      <tr><td>Archivo 10+ años</td><td>No</td><td>No</td><td>Alta</td></tr>
+      <tr><td>Indicadores Fase 2 (e-m)</td><td>Falta</td><td>Falta</td><td>Media (2030)</td></tr>
+      <tr><td>Indicadores Fase 3 (n-s)</td><td>Falta</td><td>Falta</td><td>Baja (2032)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>Cómo leer tu propio gap analysis</h3>
+  <div class="gap-cards">
+    <div class="gap-card g"><h4>&#x1F7E2; Verde: disponible</h4><p>El dato existe, está verificado, en un sistema accesible (ERP/PLM) y es específico por producto-tipo. Listo para incluir en la DdPC.</p></div>
+    <div class="gap-card a"><h4>&#x1F7E0; Ámbar: parcial</h4><p>El dato existe pero es genérico, está desactualizado, no está estructurado, o depende de un proveedor que aún no lo ha facilitado.</p></div>
+    <div class="gap-card r"><h4>&#x1F534; Rojo: falta</h4><p>El dato no existe. Requiere generación nueva: ACV, solicitar DAP, verificar sustancias, implementar sistema. Máximo esfuerzo.</p></div>
+  </div>
+  <h3>Responsables por departamento</h3>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th>Departamento</th><th>Datos que genera/gestiona</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Producción</strong></td><td>BOM, consumo energético, residuos, lote, planta de fabricación</td></tr>
+      <tr><td><strong>Calidad</strong></td><td>Ensayos, FPC, certificados ON, liberación de producto</td></tr>
+      <tr><td><strong>Compras</strong></td><td>DAPs de proveedores, contenido reciclado por material, FDS, SVHC upstream</td></tr>
+      <tr><td><strong>I+D</strong></td><td>Especificaciones, configuraciones, formulaciones, durabilidad</td></tr>
+      <tr><td><strong>IT</strong></td><td>Integración ERP/PLM, formato machine-readable, GS1, infraestructura digital</td></tr>
+      <tr><td><strong>Sostenibilidad</strong></td><td>ACV, DAPs propias, indicadores ambientales, contenido reciclado, reciclabilidad</td></tr>
+      <tr><td><strong>Legal</strong></td><td>DdPC, vigilancia regulatoria, REACH, firma cualificada, archivo</td></tr>
+      <tr><td><strong>Comercial</strong></td><td>Fichas de producto, catálogos, BIM, comunicación de datos ambientales</td></tr>
+      <tr><td><strong>Logística</strong></td><td>Remesas, destino, trazabilidad, data carriers (QR en producto)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout blue"><strong>Herramienta de arranque:</strong> Code Contract ofrece un Pack práctico Excel con Checklist DdPC, Marco 10 pasos, Mapa de datos por departamento, Timeline y Glosario. Solicítalo en <a href="mailto:eduardo@codecontract.io">eduardo@codecontract.io</a>.</div>
+</div>
+
+<!-- 11. CHECKLIST -->
+<div class="section" id="checklist">
+  <h2><span class="sec-num">11</span> Checklist de preparación</h2>
+  <div class="checklist">
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Clasificar la cartera de productos</strong><p>Identificar familia del Anexo VII y fase del Plan de Trabajo. Priorizar por volumen e impacto comercial.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Auditar las DdP existentes</strong><p>Revisar qué datos se tienen y qué falta para los 12 campos del Anexo V.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Evaluar datos ambientales (GWP)</strong><p>Comprobar disponibilidad de ACV/DAP conforme EN 15804+A2. Si no, iniciar con programa DAP reconocido.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Solicitar DAPs de proveedores críticos</strong><p>Cemento, acero, vidrio, resinas, aditivos. Establecer SLAs de datos con proveedores estratégicos.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Inventariar información REACH</strong><p>SVHC &gt;0,1% p/p en artículos (art. 33) con la Candidate List ECHA; FDS cuando proceda (art. 31).</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Documentar conformidad art. 7</strong><p>Evidenciar durabilidad, reciclabilidad, contenido reciclado y reparabilidad por producto-tipo.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Elegir plataforma de gestión DdPC</strong><p>Migrar de PDFs a un sistema que genere DdPC machine-readable, con versionado y trazabilidad.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Definir el flujo de firma</strong><p>Identificar persona facultada (lugar, fecha, cargo, nombre). Recomendado: QES eIDAS 2 + sello de empresa.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Garantizar archivo a 10+ años</strong><p>Servicio de archivo electrónico cualificado con conservación LTV y SLA recomendado &ge;99,9%.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Planificar integración ERP/BIM</strong><p>Evaluar cómo conectar los datos de la DdPC con SAP, PLM, BIM y prescripción.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Realizar piloto con 1-3 productos</strong><p>DdPC completa end-to-end, con todos los campos, firma y archivo. Documentar lecciones.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Formar al equipo</strong><p>Calidad, IT, Legal, Comercial y Sostenibilidad deben entender el nuevo marco documental.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Preparar infraestructura DPP</strong><p>Definir identificadores únicos, evaluar data carriers (QR/RFID GS1), pre-registrar GTINs.</p></div></div>
+    <div class="chk"><div class="chk-box">&#9744;</div><div><strong>Establecer vigilancia regulatoria</strong><p>Monitorizar actos delegados, nuevas hTS, actualizaciones de la Candidate List SVHC y fases del Plan de Trabajo.</p></div></div>
+  </div>
+</div>
+
+<!-- 12. TRACKLINE -->
+<div class="section" id="trackline">
+  <h2><span class="sec-num">12</span> Cómo Trackline cubre cada fase</h2>
+  <p>Trackline es la plataforma de Code Contract diseñada para cubrir el recorrido completo DdP &rarr; DdPC &rarr; DPP. No es un software genérico de gestión documental: está construida específicamente para los requisitos del CPR 2024/3110 y eIDAS 2.</p>
+  <div class="cards">
+    <div class="icard"><div class="ic-ico">&#x1F4E5;</div><h4>Estructuración de datos</h4><p>Importa tus DdP, DAPs y fichas técnicas. Estructura los datos por producto en formato machine-readable conforme al Anexo V. Mapping automático de campos.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F4C4;</div><h4>Generación DdPC digital</h4><p>Genera la DdPC conforme al art. 15, integrando prestaciones, conformidad, ambientales y REACH en un único expediente versionable.</p></div>
+    <div class="icard"><div class="ic-ico">&#x270D;&#xFE0F;</div><h4>Firma y sello cualificado</h4><p>Firma electrónica cualificada eIDAS 2, sello de empresa, sellado de tiempo RFC 3161. Refuerza el valor probatorio y el reconocimiento transfronterizo.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F5C4;&#xFE0F;</div><h4>Archivo inmutable 10+ años</h4><p>Servicio cualificado de archivo electrónico con conservación LTV, renovación automática de firmas y SLA recomendado &ge;99,9%.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F50E;</div><h4>Trazabilidad y versionado</h4><p>Cada cambio queda registrado con quién, cuándo y qué se modificó. Auditoría completa del ciclo de versiones de cada DdPC.</p></div>
+    <div class="icard"><div class="ic-ico">&#x1F680;</div><h4>Preparado para el DPP</h4><p>Cuando llegue el acto delegado, Trackline añade la capa DPP: identificadores únicos, QR/RFID GS1, niveles de acceso y conexión al Registro Central. El 65% ya está hecho.</p></div>
+  </div>
+  <div class="callout green"><strong>Precios:</strong> el precio de Trackline depende del número de productos, plantas y necesidades de integración. Solicita una propuesta a medida en <a href="mailto:eduardo@codecontract.io">eduardo@codecontract.io</a> con desglose por partidas (plataforma, firma/archivo, integraciones, formación) y opciones de despliegue.</div>
+</div>
+
+<!-- RESULT -->
+<div class="result-box">
+  <h2>&#x1F3AF; DdPC digital operativa</h2>
+  <p>Tu producto tiene una Declaración de Prestaciones y de Conformidad digital, machine-readable, conforme al CPR 2024/3110, con datos ambientales verificados, firma electrónica y archivo a largo plazo — y el 65% del futuro DPP ya resuelto.</p>
+  <div class="result-items">
+    <div class="result-item">&#x1F4C4; DdPC machine-readable</div>
+    <div class="result-item">&#x1F30D; Indicadores ambientales Anexo II</div>
+    <div class="result-item">&#x2697;&#xFE0F; REACH FDS + SVHC vinculados</div>
+    <div class="result-item">&#x270D;&#xFE0F; Firma + sello eIDAS 2</div>
+    <div class="result-item">&#x1F5C4;&#xFE0F; Archivo cualificado 10+ años</div>
+    <div class="result-item">&#x1F680; 65% del DPP resuelto</div>
+  </div>
+</div>
+
+<!-- 13. FAQ -->
+<div class="faq-box" id="faq">
+  <div class="faq">
+    <div class="faq-title">&#x2753; Preguntas frecuentes sobre la DdPC</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-icon">&#x1F4AC;</span> &iquest;Es obligatoria ya la DdPC? <span class="faq-chevron">&#x25BE;</span></div>
+      <div class="faq-a">Sí y no. El CPR 2024/3110 se aplica desde el 8 de enero de 2026, pero la DdPC solo es exigible para productos cuya hTS revisada haya sido publicada bajo el nuevo marco. Para productos que siguen con hEN del 305/2011, se mantiene la DdP. La transición está en marcha y las familias de Fase 1 (hormigón prefabricado, productos metálicos estructurales, cementos, etc.) son inminentes. La recomendación es prepararse ahora.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)"><span class="faq-icon">&#x1F4C4;</span> &iquest;Puedo seguir usando mi DdP actual? <span class="faq-chevron">&#x25BE;</span></div>
+      <div class="faq-a hidden">Sí, mientras tu producto esté cubierto por una hEN del 305/2011 que no haya sido sustituida. Pero tu DdP no cumple los nuevos requisitos (conformidad art. 7, ambientales, REACH, machine-readable). Cuando se publique la nueva hTS para tu familia, tendrás un plazo de transición para migrar. Si no estás preparado, ese plazo será insuficiente.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)"><span class="faq-icon">&#x1F30D;</span> &iquest;Qué pasa si no tengo DAP / datos de GWP? <span class="faq-chevron">&#x25BE;</span></div>
+      <div class="faq-a hidden">La Fase 1 del Anexo II (GWP, letras a-d) es exigible desde el 8 de enero de 2026 para productos cubiertos por una hTS revisada. Si no tienes DAP, debes iniciar el proceso con un programa reconocido (EPD International, IBU, GlobalEPD, DAPcons). El proceso completo (ACV + verificación + publicación) tarda 3-6 meses. Mientras, se pueden usar datos worst-case o promedios sectoriales como punto de partida, pero el ON los validará bajo EVCP 3+.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)"><span class="faq-icon">&#x1F517;</span> &iquest;Cuál es la diferencia entre DdPC y DPP? <span class="faq-chevron">&#x25BE;</span></div>
+      <div class="faq-a hidden">La DdPC es un documento: contiene prestaciones, conformidad, datos ambientales y REACH. El DPP es una infraestructura digital: añade identificadores únicos, data carrier físico (QR), niveles de acceso diferenciados y conexión al Registro Central europeo. La DdPC alimenta al DPP. Si haces bien la DdPC, tienes el 65% del DPP resuelto.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)"><span class="faq-icon">&#x2705;</span> &iquest;Necesito un Organismo Notificado para la DdPC? <span class="faq-chevron">&#x25BE;</span></div>
+      <div class="faq-a hidden">Depende del sistema EVCP aplicable a tu producto. Para las características ambientales predeterminadas (Anexo II) se aplica el sistema EVCP 3+: el fabricante recopila datos y calcula el ACV, y el organismo notificado valida el modelo (datos de entrada, hipótesis y cálculos) sin realizar ensayos. Para las prestaciones técnicas se mantiene el sistema EVCP que ya correspondía a tu familia según su norma armonizada.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)"><span class="faq-icon">&#x270D;&#xFE0F;</span> &iquest;Es obligatoria la firma electrónica cualificada (QES)? <span class="faq-chevron">&#x25BE;</span></div>
+      <div class="faq-a hidden">No. El CPR exige que la DdPC esté firmada por una persona facultada del fabricante (Anexo V, campo 12), pero no impone la firma cualificada eIDAS 2. La QES, el sello de empresa, el sello de tiempo y el archivo cualificado son buena práctica recomendable: refuerzan el valor probatorio, la integridad y la conservación a largo plazo, y dan reconocimiento transfronterizo en los 27 Estados miembros. Trackline los incorpora por defecto.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q collapsed" onclick="toggleFaq(this)"><span class="faq-icon">&#x1F4F0;</span> &iquest;Un PDF firmado en mi web cumple el art. 16? <span class="faq-chevron">&#x25BE;</span></div>
+      <div class="faq-a hidden">Solo parcialmente. El art. 16 permite el suministro electrónico si la DdPC es inmodificable, legible por humanos y máquinas, descargable, gratuita y disponible de forma continua. Un PDF aislado falla en "legible por máquinas de forma estructurada", en versionado trazable y en disponibilidad garantizada a largo plazo. El PDF puede formar parte de un sistema documental digital, pero no sustituye al dataset estructurado con versionado e integridad verificable.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-box">
+    <h2>&#x1F6E0;&#xFE0F; Próximos pasos: implementación con Trackline</h2>
+    <p>Así se traduce cada fase de esta guía en acciones concretas, con su estado de madurez (Hoy &#x2713; · En curso &#x2699; · Roadmap &#x1F52E;):</p>
+    <div class="cta-steps">
+      <div class="cta-step"><div class="cta-step-num">Hoy &#x2713;</div><h4>Mapeo de datos</h4><p>Cargar los campos de la DdPC (Anexo II + V) en Trackline, asignar responsables por departamento y conectar con las fuentes internas (ERP, PLM, laboratorio).</p></div>
+      <div class="cta-step"><div class="cta-step-num">Hoy &#x2713;</div><h4>Recopilación y evidencia</h4><p>Cada dato queda registrado con su evidencia: quién lo aportó, cuándo, documento soporte. DAPs, informes de ensayo, certificados. Trazabilidad completa.</p></div>
+      <div class="cta-step"><div class="cta-step-num">En curso &#x2699;</div><h4>Generación de la DdPC</h4><p>Trackline genera la DdPC en formato estándar con firma cualificada, datos ambientales ACV, REACH y metadatos de estado. Archivo inmutable automático.</p></div>
+      <div class="cta-step"><div class="cta-step-num">Roadmap &#x1F52E;</div><h4>Preparación DPP</h4><p>Generar data carrier (QR/NFC con GS1 Digital Link), preparar el visor web y pre-configurar la conexión al Registro DPP cuando esté operativo. Del 65% al 100%.</p></div>
+    </div>
+    <div class="cta-links">
+      <a href="https://web.codecontractplattform.com/" class="cta-link cta-link-primary" target="_blank">&#x1F517; Acceder a Trackline</a>
+      <a href="https://codecontract.io" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Code Contract S.L.</a>
+      <a href="https://codecontract-dpp.github.io/dpp-construccion/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Guía DPP Construcción</a>
+      <a href="https://codecontract-dpp.github.io/dpp-validator/" class="cta-link cta-link-secondary" target="_blank">&#x1F517; Validador DPP</a>
+      <a href="mailto:eduardo@codecontract.io" class="cta-link cta-link-secondary">&#x2709;&#xFE0F; Solicitar demo (20 min)</a>
+    </div>
+  </div>
+</div>
+
+<!-- 14. ENLACES -->
+<div class="section" id="enlaces">
+  <h2><span class="sec-num">14</span> Enlaces y recursos</h2>
+  <h3>Legislación (Nivel 1)</h3>
+  <ul>
+    <li><a href="https://eur-lex.europa.eu/eli/reg/2024/3110/oj/eng" target="_blank">CPR (UE) 2024/3110</a> — Reglamento de Productos de Construcción</li>
+    <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1781/oj" target="_blank">ESPR (UE) 2024/1781</a> — Ecodiseño para Productos Sostenibles (marco general del DPP)</li>
+    <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1183/oj" target="_blank">eIDAS 2 (UE) 2024/1183</a> — Identificación y servicios de confianza</li>
+    <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52025DC0772" target="_blank">Plan de Trabajo CPR 2026-2029</a> — COM(2025) 772 final</li>
+  </ul>
+  <h3>Guía técnica (Nivel 2)</h3>
+  <ul>
+    <li><a href="https://cirpass2.eu/" target="_blank">CIRPASS-2</a> — Piloto UE del DPP en construcción</li>
+    <li><a href="https://epd.guide/" target="_blank">EPD Guide</a> — Referencia para declaraciones ambientales</li>
+    <li><a href="https://www.gs1.org/standards/gs1-digital-link" target="_blank">GS1 Digital Link</a> (ISO/IEC 18975) — Identificadores y data carriers</li>
+    <li>EN 15804:2012+A2:2019 — Metodología ACV / DAP (referencia técnica principal)</li>
+    <li>UNE 41316:2020 — "Smart CE marking", esquema XML para DdPC digital</li>
+  </ul>
+  <h3>Química y residuos</h3>
+  <ul>
+    <li><a href="https://echa.europa.eu/candidate-list-table" target="_blank">Candidate List SVHC — ECHA</a> (art. 33 REACH)</li>
+    <li><a href="https://echa.europa.eu/scip-database" target="_blank">Base SCIP — ECHA</a></li>
+  </ul>
+  <h3>Solución propia (Nivel 3)</h3>
+  <ul>
+    <li><a href="https://web.codecontractplattform.com/" target="_blank">Trackline</a> — Plataforma DdPC &rarr; DPP de Code Contract</li>
+    <li><a href="https://codecontract.io" target="_blank">codecontract.io</a> — Code Contract S.L.</li>
+    <li>Pack práctico Excel (Checklist + 10 pasos + Mapa de datos + Timeline + Glosario): <a href="mailto:eduardo@codecontract.io">eduardo@codecontract.io</a></li>
+  </ul>
+</div>
+
+<div class="footer">
+  <strong>Fuentes oficiales:</strong>
+  <a href="https://eur-lex.europa.eu/eli/reg/2024/3110/oj/eng" target="_blank">CPR (UE) 2024/3110</a> &middot;
+  <a href="https://eur-lex.europa.eu/eli/reg/2024/1781/oj" target="_blank">ESPR (UE) 2024/1781</a> &middot;
+  <a href="https://eur-lex.europa.eu/eli/reg/2024/1183/oj" target="_blank">eIDAS 2 (UE) 2024/1183</a> &middot;
+  <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52025DC0772" target="_blank">Plan de Trabajo COM(2025) 772</a> &middot;
+  <a href="https://cirpass2.eu/" target="_blank">CIRPASS-2</a><br>
+  <strong>Guía DdPC Digital</strong> &mdash; v5.6 &middot; act. 19 mayo 2026 &middot; Elaborada por Code Contract S.L.<br>
+  <em style="color:#b0b0b0">Nota: este documento no constituye asesoramiento jurídico. Consultar siempre el texto oficial del reglamento y los actos delegados vigentes. El ~65% es una estimación funcional propia de Code Contract, no un porcentaje definido por el Reglamento.</em>
+</div>
+
+<script>
+function toggle(header) {
+  header.classList.toggle('collapsed');
+  header.nextElementSibling.classList.toggle('hidden');
+}
+function toggleFaq(q) {
+  q.classList.toggle('collapsed');
+  q.nextElementSibling.classList.toggle('hidden');
+}
+document.addEventListener('DOMContentLoaded', function () {
+  function makeCollapsible(container, heading, openByDefault) {
+    if (!heading) return;
+    var body = document.createElement('div');
+    body.className = 'sec-body';
+    var n = heading.nextSibling;
+    while (n) { var next = n.nextSibling; body.appendChild(n); n = next; }
+    container.appendChild(body);
+    heading.classList.add('sec-toggle');
+    var chev = document.createElement('span');
+    chev.className = 'sec-chevron';
+    chev.setAttribute('aria-hidden', 'true');
+    chev.textContent = '▾';
+    heading.appendChild(chev);
+    if (!openByDefault) { heading.classList.add('collapsed'); body.classList.add('hidden'); }
+    heading.addEventListener('click', function () {
+      heading.classList.toggle('collapsed');
+      body.classList.toggle('hidden');
+    });
+  }
+  document.querySelectorAll('.section').forEach(function (sec) {
+    var h = sec.querySelector(':scope > h2, :scope > h3');
+    makeCollapsible(sec, h, sec.id === 'resumen');
+  });
+  document.querySelectorAll('.impl-timeline .impl-timeline-box').forEach(function (box) {
+    makeCollapsible(box, box.querySelector(':scope > h3'), false);
+  });
+});
+</script>
+</body>
+</html>

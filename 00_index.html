@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasaporte Digital de Producto &amp; EPD — Code Contract</title>
+<meta name="description" content="Guías de Code Contract para fabricantes de productos de construcción: Declaración Ambiental de Producto (EPD/DAP, EN 15804+A2), Declaración de Prestaciones y Conformidad (DdPC, CPR 2024/3110) y Pasaporte Digital de Producto (DPP).">
+<meta name="author" content="Code Contract S.L.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pasaporte Digital de Producto & EPD — Code Contract">
+<meta property="og:description" content="Guía EPD de construcción, Guía DdPC Digital (CPR 2024/3110) y Guía DPP de construcción. Por Code Contract.">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x267B;&#xFE0F;</text></svg>">
+<style>
+:root {
+  --dark: #1a1a2e;
+  --green: #2e7d4f;
+  --green-light: #e8f5ee;
+  --blue: #2563eb;
+  --blue-light: #eff6ff;
+  --teal: #0d9488;
+  --teal-light: #f0fdfa;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f8fafc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
+
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #1f4e79 100%);
+  color: white; padding: 56px 20px 48px; text-align: center;
+}
+.header h1 { font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+.header p { font-size: 15px; opacity: 0.88; max-width: 760px; margin: 0 auto; }
+.header .reg-badge {
+  display: inline-block; margin-top: 18px;
+  background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 36px 20px 24px; }
+
+.section-label { font-size: 12px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+.card {
+  display: flex; flex-direction: column; text-decoration: none; color: inherit;
+  background: white; border: 1px solid var(--border); border-radius: 16px;
+  padding: 26px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.15s; height: 100%;
+}
+.card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.10); transform: translateY(-2px); }
+.card-icon {
+  width: 52px; height: 52px; border-radius: 13px; display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin-bottom: 14px;
+}
+.card-1 .card-icon { background: var(--green-light); }
+.card-2 .card-icon { background: var(--blue-light); }
+.card-3 .card-icon { background: var(--teal-light); }
+.card h2 { font-size: 18px; font-weight: 800; margin-bottom: 6px; color: var(--dark); }
+.card p { font-size: 13px; color: #4b5563; }
+.card .card-go { display: inline-block; margin-top: auto; padding-top: 14px; font-size: 13px; font-weight: 700; color: var(--blue); }
+
+.note { max-width: 1100px; margin: 8px auto 0; padding: 0 20px; }
+.note-box {
+  background: white; border: 1px solid var(--border); border-left: 4px solid var(--blue);
+  border-radius: 10px; padding: 16px 20px; font-size: 13px; color: #4b5563;
+}
+.note-box strong { color: #1f2937; }
+
+.footer { text-align: center; padding: 32px 20px 48px; font-size: 12px; color: var(--gray); }
+.footer a { color: var(--blue); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .header h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Pasaporte Digital de Producto &amp; EPD</h1>
+  <p>Guías de Code Contract para fabricantes de productos de construcción: de la Declaración Ambiental de Producto (EPD/DAP) a la nueva Declaración de Prestaciones y Conformidad (DdPC) y el Pasaporte Digital de Producto (DPP).</p>
+  <div class="reg-badge">ISO 14025 &middot; EN 15804+A2 &middot; CPR (UE) 2024/3110</div>
+</div>
+
+<style>
+.docnav{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:12px 14px;max-width:920px;margin:18px auto 24px;box-shadow:0 2px 6px rgba(0,0,0,.07);position:relative;z-index:5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.docnav .dn-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#fff;background:#1a1a2e;text-decoration:none;padding:0 14px;border-radius:10px;}
+.docnav .dn-home:hover{background:#33334d;}
+.docnav .dn-grp{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:6px 10px 6px 12px;border:1px solid;}
+.docnav .dn-grp .dn-name{font-size:12px;font-weight:700;}
+.docnav .dn-grp a{font-size:12.5px;font-weight:600;background:#fff;text-decoration:none;padding:5px 11px;border-radius:8px;border:1px solid;}
+.docnav .dpp{background:#eff6ff;border-color:#bfdbfe;}
+.docnav .dpp .dn-name{color:#1d4ed8;}
+.docnav .dpp a{color:#1d4ed8;border-color:#bfdbfe;}
+.docnav .dpp a:hover{background:#dbeafe;}
+.docnav .dpp a.active{background:#2563eb;border-color:#2563eb;color:#fff;}
+.docnav .ddpc{background:#fffbeb;border-color:#fde68a;}
+.docnav .ddpc .dn-name{color:#92400e;}
+.docnav .ddpc a{color:#92400e;border-color:#fde68a;}
+.docnav .ddpc a:hover{background:#fef3c7;}
+.docnav .ddpc a.active{background:#d97706;border-color:#d97706;color:#fff;}
+.docnav .epd{background:#e8f5ee;border-color:#b7e0c6;}
+.docnav .epd .dn-name{color:#2e7d4f;}
+.docnav .epd a{color:#2e7d4f;border-color:#b7e0c6;}
+.docnav .epd a:hover{background:#d1ebd9;}
+.docnav .epd a.active{background:#2e7d4f;border-color:#2e7d4f;color:#fff;}
+@media (max-width:640px){.docnav{gap:8px;padding:10px;}}
+</style>
+<div class="docnav">
+  <a href="00_index.html" class="dn-home">&#x1F3E0; Índice</a>
+  <span class="dn-grp dpp">
+    <span class="dn-name">&#x1F3D7;&#xFE0F; DPP</span>
+    <a href="01_guia-construccion.html">Guía</a>
+    <a href="01_mapping-trackline-dpp.html">Mapping</a>
+  </span>
+  <span class="dn-grp ddpc">
+    <span class="dn-name">&#x1F9FE; DdPC</span>
+    <a href="02_guia-ddpc-digital.html">Guía</a>
+    <a href="02_mapping-trackline-ddpc.html">Mapping</a>
+  </span>
+  <span class="dn-grp epd">
+    <span class="dn-name">&#x267B;&#xFE0F; EPD/DAP</span>
+    <a href="03_guia-epd-construccion.html">Guía</a>
+    <a href="03_mapping-trackline-epd.html">Mapping</a>
+  </span>
+</div>
+
+<style>
+.themes-wrap{max-width:1100px;margin:0 auto;padding:8px 20px 0;}
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;}
+.tcard{display:flex;flex-direction:column;background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:all .15s;}
+.tcard:hover{box-shadow:0 6px 20px rgba(0,0,0,.10);transform:translateY(-2px);}
+.tcard .tc-top{font-size:30px;line-height:1;margin-bottom:10px;}
+.tcard h2{font-size:18px;font-weight:800;margin:0 0 6px;}
+.tcard .tc-sub{font-size:13px;color:#4b5563;margin:0 0 18px;flex:1;line-height:1.55;}
+.tcard .tc-btns{display:flex;gap:10px;}
+.tcard .tc-btns a{flex:1;text-align:center;font-size:13px;font-weight:700;text-decoration:none;padding:10px 12px;border-radius:10px;}
+.t-dpp{border-top:4px solid #2563eb;} .t-dpp h2{color:#1d4ed8;} .t-dpp .tc-guia{background:#2563eb;color:#fff;} .t-dpp .tc-guia:hover{background:#1d4ed8;} .t-dpp .tc-map{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;} .t-dpp .tc-map:hover{background:#dbeafe;}
+.t-ddpc{border-top:4px solid #d97706;} .t-ddpc h2{color:#92400e;} .t-ddpc .tc-guia{background:#d97706;color:#fff;} .t-ddpc .tc-guia:hover{background:#b45f06;} .t-ddpc .tc-map{background:#fffbeb;color:#92400e;border:1px solid #fde68a;} .t-ddpc .tc-map:hover{background:#fef3c7;}
+.t-epd{border-top:4px solid #2e7d4f;} .t-epd h2{color:#2e7d4f;} .t-epd .tc-guia{background:#2e7d4f;color:#fff;} .t-epd .tc-guia:hover{background:#246340;} .t-epd .tc-map{background:#e8f5ee;color:#2e7d4f;border:1px solid #b7e0c6;} .t-epd .tc-map:hover{background:#d1ebd9;}
+@media (max-width:900px){.themes{grid-template-columns:1fr;}}
+</style>
+<div class="themes-wrap">
+  <div class="section-label">Guías y mappings por tema</div>
+  <div class="themes">
+
+    <div class="tcard t-dpp">
+      <div class="tc-top">&#x1F3D7;&#xFE0F;</div>
+      <h2>DPP Construcción</h2>
+      <p class="tc-sub">Pasaporte Digital de Producto de construcción: marco CPR/ESPR, las 4 oleadas del Plan de Trabajo 2026-2029 y la arquitectura técnica paso a paso.</p>
+      <div class="tc-btns">
+        <a class="tc-guia" href="01_guia-construccion.html">Guía</a>
+        <a class="tc-map" href="01_mapping-trackline-dpp.html">Mapping</a>
+      </div>
+    </div>
+
+    <div class="tcard t-ddpc">
+      <div class="tc-top">&#x1F9FE;</div>
+      <h2>DdPC Digital</h2>
+      <p class="tc-sub">Declaración de Prestaciones y Conformidad del CPR (UE) 2024/3110: contenido del Anexo V, indicadores ambientales por fases y firma eIDAS 2.</p>
+      <div class="tc-btns">
+        <a class="tc-guia" href="02_guia-ddpc-digital.html">Guía</a>
+        <a class="tc-map" href="02_mapping-trackline-ddpc.html">Mapping</a>
+      </div>
+    </div>
+
+    <div class="tcard t-epd">
+      <div class="tc-top">&#x267B;&#xFE0F;</div>
+      <h2>EPD / DAP</h2>
+      <p class="tc-sub">Declaración Ambiental de Producto verificada (EN 15804+A2 / ISO 14025), marco legal vigente y la relación EPD &harr; Alcance 3.</p>
+      <div class="tc-btns">
+        <a class="tc-guia" href="03_guia-epd-construccion.html">Guía</a>
+        <a class="tc-map" href="03_mapping-trackline-epd.html">Mapping</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.fit-wrap{max-width:1100px;margin:0 auto;padding:8px 20px 0;}
+.fit-grid{display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;}
+.fit-stack{flex:2;min-width:280px;display:flex;flex-direction:column;gap:6px;}
+.fit-layer{border-radius:12px;padding:12px 16px;border:2px solid;}
+.fit-layer h3{font-size:14px;font-weight:800;margin:0;}
+.fit-layer p{font-size:12.5px;color:#334155;margin:3px 0 0;line-height:1.45;}
+.fit-layer.dpp{background:#eff6ff;border-color:#2563eb;} .fit-layer.dpp h3{color:#1d4ed8;}
+.fit-layer.ddpc{background:#fffbeb;border-color:#d97706;} .fit-layer.ddpc h3{color:#92400e;}
+.fit-layer.epd{background:#e8f5ee;border-color:#2e7d4f;} .fit-layer.epd h3{color:#2e7d4f;}
+.fit-arrow{text-align:center;color:#94a3b8;font-size:13px;font-weight:600;line-height:1;}
+.fit-aside{flex:1;min-width:200px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;font-size:12.5px;color:#475569;line-height:1.6;}
+.tl{border-left:2px solid #e5e7eb;margin:0 0 0 10px;padding:0;}
+.tl-item{position:relative;padding:0 0 16px 22px;}
+.tl-item .dot{position:absolute;left:-7px;top:3px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;}
+.tl-item .d{font-size:12.5px;font-weight:700;color:#1a1a2e;}
+.tl-item .t{font-size:12.5px;color:#475569;}
+.gloss{max-width:1100px;margin:0 auto;padding:6px 20px 0;}
+.gloss details{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:0 18px;}
+.gloss summary{cursor:pointer;font-size:14px;font-weight:700;color:#1a1a2e;padding:14px 0;}
+.gloss .gg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 20px;padding:0 0 16px;font-size:12.5px;color:#475569;line-height:1.5;}
+.gloss .gg b{color:#1a1a2e;}
+</style>
+<div class="fit-wrap">
+  <div class="section-label">Cómo encajan EPD, DdPC y DPP</div>
+  <div class="fit-grid">
+    <div class="fit-stack">
+      <div class="fit-layer dpp"><h3>&#x1F3D7;&#xFE0F; DPP — Pasaporte Digital de Producto</h3><p>Lo integra todo: DdPC + REACH/SCIP + fin de vida + trazabilidad, con acceso por perfil. El formato se fijará por acto delegado.</p></div>
+      <div class="fit-arrow">&#x25B2; integra</div>
+      <div class="fit-layer ddpc"><h3>&#x1F9FE; DdPC — Declaración de Prestaciones y Conformidad</h3><p>Anexo V del CPR 2024/3110. Su <strong>punto 9c (sostenibilidad ambiental)</strong> se alimenta de la EPD.</p></div>
+      <div class="fit-arrow">&#x25B2; alimenta el 9c</div>
+      <div class="fit-layer epd"><h3>&#x267B;&#xFE0F; EPD / DAP — Declaración Ambiental</h3><p>Evidencia ambiental verificada (ACV, EN 15804+A2, PCR 2019:14).</p></div>
+    </div>
+    <div class="fit-aside"><strong style="color:#1a1a2e;">La idea en una frase</strong><br>La <span style="color:#2e7d4f;font-weight:700;">EPD</span> aporta la evidencia ambiental; la <span style="color:#92400e;font-weight:700;">DdPC</span> declara prestaciones y la integra; el <span style="color:#1d4ed8;font-weight:700;">DPP</span> lo empaqueta en el pasaporte. La EPD no sustituye a la DdPC ni al DPP: los alimenta.</div>
+  </div>
+</div>
+
+<div class="fit-wrap" style="padding-top:22px">
+  <div class="section-label">Línea de tiempo del CPR &middot; DPP</div>
+  <div class="tl">
+    <div class="tl-item"><span class="dot" style="background:#d97706"></span><span class="d">8 ene 2026</span> <span class="t">— CPR 2024/3110 aplicable</span></div>
+    <div class="tl-item"><span class="dot" style="background:#64748b"></span><span class="d">feb–mar 2026</span> <span class="t">— 1.os actos delegados: 2026/331 (reacción al fuego) y 2026/557 (resistencia)</span></div>
+    <div class="tl-item"><span class="dot" style="background:#2563eb"></span><span class="d">19 jul 2026</span> <span class="t">— Registro europeo de identificadores (ESPR art. 13)</span></div>
+    <div class="tl-item"><span class="dot" style="background:#d97706"></span><span class="d">8 dic 2026</span> <span class="t">— Los Estados notifican su régimen sancionador</span></div>
+    <div class="tl-item"><span class="dot" style="background:#d97706"></span><span class="d">8 ene 2027</span> <span class="t">— Sanciones (art. 92 CPR) aplican</span></div>
+    <div class="tl-item"><span class="dot" style="background:#2563eb"></span><span class="d">~2028</span> <span class="t">— Acero: previsión de primera familia con DPP obligatorio</span></div>
+    <div class="tl-item"><span class="dot" style="background:#2e7d4f"></span><span class="d">9 ene 2030</span> <span class="t">— DdPC fase 2 ambiental (indicadores e–m)</span></div>
+    <div class="tl-item" style="padding-bottom:4px"><span class="dot" style="background:#2e7d4f"></span><span class="d">9 ene 2032</span> <span class="t">— DdPC fase 3 ambiental (indicadores n–s)</span></div>
+  </div>
+  <p style="font-size:11px;color:#94a3b8;margin:8px 0 0;">Color: <span style="color:#1d4ed8;font-weight:700;">DPP</span> &middot; <span style="color:#92400e;font-weight:700;">DdPC</span> &middot; <span style="color:#2e7d4f;font-weight:700;">EPD</span> &middot; gris transversal. El DPP de construcción se activará por acto delegado (fecha aún abierta).</p>
+</div>
+
+<div class="gloss">
+  <details>
+    <summary>&#x1F520; Glosario de siglas</summary>
+    <div class="gg">
+      <div><b>DoPC / DdPC</b> — Declaración de Prestaciones y Conformidad (Anexo V CPR)</div>
+      <div><b>DPP</b> — Pasaporte Digital de Producto</div>
+      <div><b>EPD / DAP</b> — Declaración Ambiental de Producto</div>
+      <div><b>ACV / LCA</b> — Análisis de Ciclo de Vida</div>
+      <div><b>EVCP / AVCP</b> — Evaluación y Verificación de la Constancia de las Prestaciones (sistemas 1+, 1, 2+, 3+, 3, 4 &mdash; Anexo IX)</div>
+      <div><b>hTS</b> — Especificación técnica armonizada</div>
+      <div><b>EAD / ETA</b> — Documento / Evaluación Técnica Europea</div>
+      <div><b>TAB</b> — Organismo de Evaluación Técnica</div>
+      <div><b>ON</b> — Organismo Notificado</div>
+      <div><b>NPD</b> — No Performance Determined (prestación no declarada)</div>
+      <div><b>MND</b> — Module Not Declared (módulo no declarado)</div>
+      <div><b>RSL</b> — Vida útil de referencia</div>
+      <div><b>PCR / c-PCR</b> — Reglas de Categoría de Producto (EPD)</div>
+      <div><b>GPI</b> — Instrucciones Generales del Programa (EPD International)</div>
+      <div><b>LER</b> — Lista Europea de Residuos</div>
+      <div><b>SVHC / SCIP</b> — Sustancias muy preocupantes (REACH) / base de datos ECHA</div>
+      <div><b>QES / QTSP</b> — Firma electrónica cualificada / Prestador cualificado (eIDAS)</div>
+      <div><b>GWP</b> — Potencial de calentamiento global</div>
+    </div>
+  </details>
+</div>
+
+<div class="note">
+  <div class="note-box">
+    <strong>Nota:</strong> material divulgativo, no asesoramiento normativo vinculante. Consulta siempre el texto oficial de las normas, las PCR/c-PCR vigentes y los actos delegados aplicables.
+  </div>
+</div>
+
+<div class="footer">
+  Elaborado por <a href="https://codecontract.io" target="_blank">Code Contract S.L.</a> &middot;
+  <a href="https://web.codecontractplattform.com/" target="_blank">Trackline</a> &middot; actualizado junio 2026
+</div>
+
+</body>
+</html>

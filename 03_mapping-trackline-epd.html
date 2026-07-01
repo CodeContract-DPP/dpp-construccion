@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapping Trackline ↔ EPD Construcción</title>
+<meta name="description" content="Correspondencia entre los datos requeridos habitualmente para una EPD/DAP de construcción (EN 15804+A2, PCR 2019:14) y el flujo de trabajo Trackline de Code Contract: por cada dato, su documento-evidencia, el responsable que lo aporta y la plantilla Trackline que lo recoge. Genérico de construcción con el hormigón como ejemplo trabajado.">
+<meta name="keywords" content="EPD, DAP, EN 15804, PCR 2019:14, ACV, LCA, Trackline, Code Contract, mapping, hormigón, construcción, módulos A1-A5, verificación, trazabilidad">
+<meta name="author" content="Code Contract S.L.">
+<meta property="og:title" content="Mapping Trackline &#x2194; EPD Construcción">
+<meta property="og:description" content="De cada dato de la EPD a su evidencia, responsable y plantilla Trackline. EN 15804+A2 / PCR 2019:14.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F5FA;&#xFE0F;</text></svg>">
+<style>
+:root {
+  --dark: #1a1a2e;
+  --green: #2e7d4f;
+  --green-light: #e8f5ee;
+  --blue: #2563eb;
+  --blue-light: #eff6ff;
+  --amber: #d97706;
+  --amber-light: #fffbeb;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --purple: #7c3aed;
+  --purple-light: #f5f3ff;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f8fafc;
+  --teal: #0d9488;
+  --teal-light: #ccfbf1;
+  --pink: #be185d;
+  --pink-light: #fce7f3;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
+
+.header {
+  background: linear-gradient(135deg, var(--dark) 0%, #16423c 100%);
+  color: white; padding: 40px 20px 32px; text-align: center;
+}
+.header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+.header p { font-size: 14px; opacity: 0.85; max-width: 760px; margin: 0 auto; }
+.header .reg-badge {
+  display: inline-block; margin-top: 16px;
+  background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+}
+.header .back-link { display: inline-block; margin-top: 12px; color: rgba(255,255,255,0.7); font-size: 12px; text-decoration: none; }
+.header .back-link:hover { color: white; }
+
+/* PACK NAV */
+.pack-nav { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; align-items:center;
+  background:#fff; border:1px solid var(--border); border-radius:12px; padding:10px 16px;
+  max-width:760px; margin:-14px auto 22px; box-shadow:0 2px 6px rgba(0,0,0,.07); position:relative; z-index:2; }
+.pack-nav .pn-label { font-size:11px; font-weight:700; color:#94a3b8; letter-spacing:.07em; text-transform:uppercase; margin-right:6px; }
+.pack-nav a { font-size:13px; font-weight:600; color:#475569; text-decoration:none; padding:6px 14px; border-radius:8px; }
+.pack-nav a:hover { background:#f1f5f9; }
+.pack-nav a.active { background:#1a1a2e; color:#fff; }
+
+/* INTRO */
+.intro-bar { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.intro-box {
+  background: white; border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.intro-box h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.intro-box p { font-size: 13px; color: #4b5563; margin-bottom: 8px; }
+.intro-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center; margin: 16px 0 8px; }
+.flow-step { display: flex; align-items: center; gap: 8px; background: var(--green-light); padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; color: var(--green); }
+.flow-arrow { font-size: 16px; color: var(--border); padding: 0 6px; }
+
+/* HOWTO */
+.howto-box { max-width:1100px; margin:18px auto 0; padding:18px 24px; background:#fff;
+  border:1px solid var(--border); border-left:4px solid var(--blue); border-radius:10px; font-size:13px; color:#374151; line-height:1.7; }
+.howto-box h3 { font-size:15px; margin-bottom:8px; color:#1f2937; }
+.howto-box ul { margin:8px 0 8px 18px; }
+.howto-box li { margin-bottom:5px; }
+
+/* STATS */
+.stats-bar { max-width: 1100px; margin: 16px auto 0; padding: 0 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+.stat-card { flex: 1; min-width: 140px; background: white; border-radius: 10px; border: 1px solid var(--border); padding: 14px 16px; text-align: center; }
+.stat-num { font-size: 28px; font-weight: 800; }
+.stat-label { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+/* CONCRETE CALLOUT */
+.example-box { max-width:1100px; margin:16px auto 0; padding:0 20px; }
+.example { background: linear-gradient(135deg,#fffbeb,#f5f3ff); border:1px solid #fde68a; border-radius:12px; padding:16px 20px; }
+.example h3 { font-size:13px; font-weight:700; color:#92400e; margin-bottom:6px; }
+.example p { font-size:12.5px; color:#4b5563; line-height:1.55; }
+
+/* FILTERS */
+.filters-bar { max-width: 1100px; margin: 20px auto 0; padding: 0 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.filter-label { font-size: 12px; font-weight: 700; color: var(--gray); }
+.filter-btn { font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); background: white; cursor: pointer; transition: all 0.15s; }
+.filter-btn:hover { background: #f3f4f6; }
+.filter-btn.active { background: var(--dark); color: white; border-color: var(--dark); }
+.filter-search { margin-left: auto; padding: 6px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; width: 200px; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* SECTION */
+.section { margin-bottom: 24px; background: white; border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.section-header { padding: 16px 20px; display: flex; align-items: center; gap: 14px; cursor: pointer; user-select: none; }
+.section-header:hover { background: #fafbfc; }
+.section-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; flex-shrink: 0; }
+.section-info { flex: 1; }
+.section-info h2 { font-size: 16px; font-weight: 700; }
+.section-info p { font-size: 12px; color: var(--gray); }
+.section-mod { font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 7px; background: var(--dark); color: #fff; letter-spacing: 0.3px; white-space: nowrap; }
+.section-count { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px; background: #f3f4f6; color: var(--gray); }
+.section-chevron { font-size: 14px; color: var(--gray); transition: transform 0.2s; }
+.section-header.collapsed .section-chevron { transform: rotate(-90deg); }
+.section-body { border-top: 1px solid var(--border); overflow-x: auto; }
+.section-body.hidden { display: none; }
+
+/* TABLE */
+.map-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 720px; }
+.map-table th { text-align: left; padding: 8px 12px; font-weight: 700; color: var(--gray); border-bottom: 2px solid var(--border); font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; background: #fafbfc; }
+.map-table td { padding: 10px 12px; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+.map-table tr:last-child td { border-bottom: none; }
+.map-table tr:hover { background: #fafbfc; }
+.field-name { font-weight: 600; color: #1f2937; font-size: 12px; }
+.field-desc { color: var(--gray); font-size: 11px; margin-top: 2px; }
+.field-ex { color: #92400e; font-size: 11px; margin-top: 2px; font-style: italic; }
+
+/* SOURCE BADGES */
+.source-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin: 1px 2px; white-space: nowrap; }
+.src-epd { background: #d1fae5; color: #065f46; }
+.src-datasheet { background: #dbeafe; color: #1d4ed8; }
+.src-internal { background: #ccfbf1; color: #0d9488; }
+.src-db { background: #e9d5ff; color: #6b21a8; }
+.src-scenario { background: #fef3c7; color: #92400e; }
+.src-lab { background: #fce7f3; color: #be185d; }
+
+/* ROLE BADGES */
+.role-badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 6px; margin: 1px 2px; white-space: nowrap; }
+.role-supplier { background: var(--purple-light); color: var(--purple); }
+.role-prod { background: var(--blue-light); color: var(--blue); }
+.role-log { background: var(--teal-light); color: var(--teal); }
+.role-qa { background: var(--pink-light); color: var(--pink); }
+.role-lca { background: var(--green-light); color: var(--green); }
+.role-ext { background: var(--amber-light); color: var(--amber); }
+
+/* TRACKLINE WORKFLOW */
+.tl-plantilla { display:inline-block; font-size:10px; font-weight:700; padding:2px 7px; border-radius:5px; background:var(--dark); color:#fff; margin-bottom:4px; white-space:nowrap; }
+.tl-workflow { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.tl-step { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; background: var(--green-light); color: var(--green); white-space: nowrap; }
+.tl-arrow { font-size: 10px; color: var(--border); }
+
+.legend { max-width: 1100px; margin: 0 auto; padding: 4px 20px 0; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.legend-item { font-size:11px; color:var(--gray); display:flex; align-items:center; gap:5px; }
+
+.footer { text-align: center; padding: 24px 20px 40px; font-size: 12px; color: var(--gray); }
+.footer a { color: var(--blue); text-decoration: none; }
+
+/* FAMILY SELECTOR */
+.fam-selector { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:14px; }
+.fam-sel-label { font-size:11px; font-weight:700; color:#92400e; margin-right:4px; text-transform:uppercase; letter-spacing:.04em; }
+.fam-sel-btn { font-size:12px; font-weight:600; padding:5px 12px; border-radius:8px; border:1px solid #fde68a; background:#fff; color:#92400e; cursor:pointer; transition:all .15s; }
+.fam-sel-btn:hover { background:#fffbeb; }
+.fam-sel-btn.active { background:#92400e; color:#fff; border-color:#92400e; }
+
+@media (max-width: 640px) {
+  .header h1 { font-size: 20px; }
+  .stats-bar { flex-direction: column; }
+  .filters-bar { flex-direction: column; align-items: stretch; }
+  .filter-search { width: 100%; margin-left: 0; }
+  .intro-flow { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Mapping Trackline &#x2194; EPD Construcción</h1>
+  <p>Correspondencia entre los datos requeridos habitualmente para una EPD/DAP de productos de construcción (EN 15804+A2 · PCR 2019:14), conforme al programa, PCR/c-PCR y alcance declarados, y el flujo de trabajo en Trackline: por cada dato, su documento-evidencia, el responsable que lo aporta y la plantilla que lo recoge.</p>
+  <div class="reg-badge">Trackline by Code Contract &middot; EN 15804+A2 &middot; PCR 2019:14 &middot; ISO 14025</div>
+  <br><a class="back-link" href="03_guia-epd-construccion.html">&#x2190; Volver a la Guía EPD Construcción</a>
+</div>
+
+<style>
+.docnav{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:12px 14px;max-width:920px;margin:18px auto 24px;box-shadow:0 2px 6px rgba(0,0,0,.07);position:relative;z-index:5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.docnav .dn-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#fff;background:#1a1a2e;text-decoration:none;padding:0 14px;border-radius:10px;}
+.docnav .dn-home:hover{background:#33334d;}
+.docnav .dn-grp{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:6px 10px 6px 12px;border:1px solid;}
+.docnav .dn-grp .dn-name{font-size:12px;font-weight:700;}
+.docnav .dn-grp a{font-size:12.5px;font-weight:600;background:#fff;text-decoration:none;padding:5px 11px;border-radius:8px;border:1px solid;}
+.docnav .dpp{background:#eff6ff;border-color:#bfdbfe;}
+.docnav .dpp .dn-name{color:#1d4ed8;}
+.docnav .dpp a{color:#1d4ed8;border-color:#bfdbfe;}
+.docnav .dpp a:hover{background:#dbeafe;}
+.docnav .dpp a.active{background:#2563eb;border-color:#2563eb;color:#fff;}
+.docnav .ddpc{background:#fffbeb;border-color:#fde68a;}
+.docnav .ddpc .dn-name{color:#92400e;}
+.docnav .ddpc a{color:#92400e;border-color:#fde68a;}
+.docnav .ddpc a:hover{background:#fef3c7;}
+.docnav .ddpc a.active{background:#d97706;border-color:#d97706;color:#fff;}
+.docnav .epd{background:#e8f5ee;border-color:#b7e0c6;}
+.docnav .epd .dn-name{color:#2e7d4f;}
+.docnav .epd a{color:#2e7d4f;border-color:#b7e0c6;}
+.docnav .epd a:hover{background:#d1ebd9;}
+.docnav .epd a.active{background:#2e7d4f;border-color:#2e7d4f;color:#fff;}
+@media (max-width:640px){.docnav{gap:8px;padding:10px;}}
+</style>
+<div class="docnav">
+  <a href="00_index.html" class="dn-home">&#x1F3E0; Índice</a>
+  <span class="dn-grp dpp">
+    <span class="dn-name">&#x1F3D7;&#xFE0F; DPP</span>
+    <a href="01_guia-construccion.html">Guía</a>
+    <a href="01_mapping-trackline-dpp.html">Mapping</a>
+  </span>
+  <span class="dn-grp ddpc">
+    <span class="dn-name">&#x1F9FE; DdPC</span>
+    <a href="02_guia-ddpc-digital.html">Guía</a>
+    <a href="02_mapping-trackline-ddpc.html">Mapping</a>
+  </span>
+  <span class="dn-grp epd">
+    <span class="dn-name">&#x267B;&#xFE0F; EPD/DAP</span>
+    <a href="03_guia-epd-construccion.html">Guía</a>
+    <a href="03_mapping-trackline-epd.html" class="active">Mapping</a>
+  </span>
+</div>
+
+<div class="intro-bar">
+  <div class="intro-box">
+    <h3>&#x1F465; Mapa de actores: quién aporta cada dato a la EPD</h3>
+    <p>Una EPD coordina 6 roles y Trackline los orquesta a todos: solicita cada documento al responsable correcto (proveedor, producción, logística, calidad, consultor, verificador externo), recoge los datos en plantillas estructuradas, los valida y deja registro trazable de quién aportó qué y cuándo, con sellado temporal y control de versiones.</p>
+    <style>
+    .actors-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;justify-content:center;margin:4px 0 14px;}
+    .actor-card{text-align:center;padding:14px 12px;border-radius:10px;min-width:115px;max-width:160px;flex:1;border:2px solid #e5e7eb;background:#f8fafc;transition:transform .15s;}
+    .actor-card:hover{transform:translateY(-2px);}
+    .actor-card .actor-icon{font-size:24px;margin-bottom:4px;}
+    .actor-card .actor-name{font-size:11px;font-weight:700;line-height:1.3;}
+    .actor-card .actor-role{font-size:10px;color:#6b7280;margin-top:2px;}
+    .actor-card.fab{border-color:#2563eb;background:#eff6ff;} .actor-card.fab .actor-name{color:#1d4ed8;}
+    .actor-card.sup{border-color:#7c3aed;background:#f5f3ff;} .actor-card.sup .actor-name{color:#6d28d9;}
+    .actor-card.lab{border-color:#be185d;background:#fce7f3;} .actor-card.lab .actor-name{color:#be185d;}
+    .actor-card.lca{border-color:#2e7d4f;background:#e8f5ee;} .actor-card.lca .actor-name{color:#2e7d4f;}
+    .actor-card.dap{border-color:#d97706;background:#fffbeb;} .actor-card.dap .actor-name{color:#92400e;}
+    .actor-card.tl{border-color:#0d9488;background:#ccfbf1;} .actor-card.tl .actor-name{color:#0f6e56;}
+    .actor-arrow{display:flex;align-items:center;font-size:18px;color:#cbd5e1;padding:0 4px;flex-shrink:0;}
+    .orch-flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;margin:6px 0 4px;padding:12px;background:#ccfbf1;border-radius:10px;border:1px solid #0d9488;}
+    .orch-flow .orch-label{font-size:11px;font-weight:700;color:#0f6e56;margin-right:8px;}
+    .orch-step{display:flex;align-items:center;gap:6px;background:#fff;padding:6px 10px;border-radius:6px;font-size:11px;font-weight:600;color:#0f6e56;border:1px solid #99e1cb;}
+    .orch-step.out{background:#0f6e56;color:#fff;border-color:#0f6e56;}
+    .orch-arrow{font-size:14px;color:#0d9488;padding:0 4px;}
+    </style>
+    <div class="actors-flow">
+      <div class="actor-card sup"><div class="actor-icon">&#x1F69A;</div><div class="actor-name">Proveedor</div><div class="actor-role">DAPs MP, fichas, reciclado</div></div>
+      <div class="actor-arrow">&#x25B6;</div>
+      <div class="actor-card fab"><div class="actor-icon">&#x1F3ED;</div><div class="actor-name">Producción</div><div class="actor-role">Consumos de planta</div></div>
+      <div class="actor-arrow">&#x25B6;</div>
+      <div class="actor-card tl"><div class="actor-icon">&#x1F69B;</div><div class="actor-name">Logística</div><div class="actor-role">Distancias, transporte</div></div>
+      <div class="actor-arrow">&#x25B6;</div>
+      <div class="actor-card lab"><div class="actor-icon">&#x1F52C;</div><div class="actor-name">Calidad / Lab</div><div class="actor-role">Dosificación, ensayos</div></div>
+      <div class="actor-arrow">&#x25B6;</div>
+      <div class="actor-card lca"><div class="actor-icon">&#x1F33F;</div><div class="actor-name">Consultor LCA</div><div class="actor-role">Modelo ACV, indicadores</div></div>
+      <div class="actor-arrow">&#x25B6;</div>
+      <div class="actor-card dap"><div class="actor-icon">&#x1F4DC;</div><div class="actor-name">Externo</div><div class="actor-role">Verificador, program operator</div></div>
+    </div>
+    <div class="orch-flow">
+      <span class="orch-label">TRACKLINE orquesta:</span>
+      <div class="orch-step">&#x1F4E9; Solicitar</div><span class="orch-arrow">&#x25B6;</span>
+      <div class="orch-step">&#x1F4E5; Recibir</div><span class="orch-arrow">&#x25B6;</span>
+      <div class="orch-step">&#x1F50D; Extraer</div><span class="orch-arrow">&#x25B6;</span>
+      <div class="orch-step">&#x2705; Validar</div><span class="orch-arrow">&#x25B6;</span>
+      <div class="orch-step">&#x1F4BE; Almacenar</div><span class="orch-arrow">&#x25B6;</span>
+      <div class="orch-step out">&#x1F4E4; Entregar al verificador</div>
+    </div>
+    <p style="font-size:11px; color:var(--gray); text-align:center; margin-top:8px;">Cada dato queda con su evidencia y marca temporal (sellado temporal y control de versiones), listo para el expediente del verificador.</p>
+  </div>
+</div>
+
+<div class="howto-box">
+  <h3>&#x1F9ED; Cómo leer este mapping</h3>
+  Mapping operativo entre los datos de una <strong>EPD de construcción</strong> (estructurados según <strong>EN 15804+A2</strong> y la <strong>PCR 2019:14 v2.0.1</strong> de The International EPD System) y su recogida en <strong>Trackline</strong>. Está organizado por <strong>módulos del ciclo de vida</strong> (A1 &rarr; D) más una sección de indicadores y otra de verificación/registro. Cada fila tiene cuatro columnas:
+  <ul>
+    <li><strong>Dato / requisito EPD</strong> &mdash; el dato concreto que pide la norma/PCR, con un ejemplo aplicado al hormigón.</li>
+    <li><strong>Fuente / evidencia</strong> &mdash; el documento del que sale y que queda como soporte (DAP de proveedor, ficha técnica/DoP, factura, base de datos LCA, escenario PCR, ensayo…).</li>
+    <li><strong>Responsable</strong> &mdash; quién lo aporta (proveedor, producción, logística, calidad/lab, consultor LCA, fuente externa).</li>
+    <li><strong>Flujo Trackline</strong> &mdash; la plantilla que lo recoge y los pasos del flujo.</li>
+  </ul>
+  <strong>Enfoque:</strong> genérico de productos de construcción, con un <strong>ejemplo trabajado intercambiable por familia</strong> (usa el selector sobre el ejemplo: hormigón, acero, ventanas, aislamiento o madera; los valores en cursiva ámbar de toda la tabla cambian con él). Sujeto a la PCR y c-PCR aplicables a cada familia de producto.
+  <br><br>&#x1F4D8; Para el contexto normativo completo, ver la <a href="03_guia-epd-construccion.html"><strong>Guía EPD Construcción</strong></a>.
+  <br><br>&#x1F517; <strong>La EPD no sustituye a la DdPC ni al futuro DPP</strong>: aporta parte de la evidencia ambiental que podrá alimentar a ambos.
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card"><div class="stat-num" style="color:var(--dark)">52</div><div class="stat-label">Datos / requisitos EPD</div></div>
+  <div class="stat-card"><div class="stat-num" style="color:var(--green)">11</div><div class="stat-label">Bloques (módulos A1&ndash;D + extra)</div></div>
+  <div class="stat-card"><div class="stat-num" style="color:var(--amber)">6</div><div class="stat-label">Tipos de evidencia</div></div>
+  <div class="stat-card"><div class="stat-num" style="color:var(--purple)">6</div><div class="stat-label">Responsables / roles</div></div>
+</div>
+
+<div class="example-box">
+  <div class="example">
+    <div class="fam-selector">
+      <span class="fam-sel-label">Ver ejemplo para:</span>
+      <button class="fam-sel-btn active" data-fam="h" onclick="selectFamily('h')">&#x1F3D7;&#xFE0F; Hormigón</button>
+      <button class="fam-sel-btn" data-fam="a" onclick="selectFamily('a')">&#x1F529; Acero</button>
+      <button class="fam-sel-btn" data-fam="v" onclick="selectFamily('v')">&#x1FA9F; Ventanas</button>
+      <button class="fam-sel-btn" data-fam="i" onclick="selectFamily('i')">&#x1F9CA; Aislamiento</button>
+      <button class="fam-sel-btn" data-fam="m" onclick="selectFamily('m')">&#x1FAB5; Madera</button>
+    </div>
+    <h3 id="ex-title">&#x1F3D7;&#xFE0F; Ejemplo trabajado: hormigón premezclado &ge;30 MPa (valores ilustrativos)</h3>
+    <p id="ex-body">A lo largo del mapping, las notas en cursiva ámbar muestran cómo se concreta cada dato para una EPD de hormigón premezclado &ge;30 MPa: dosificación por m³, DAP de los cementos, distancias de suministro, consumos de planta, escenario de entrega y fin de vida con reciclaje de RCD.</p>
+  </div>
+</div>
+
+<div class="filters-bar">
+  <span class="filter-label">Filtrar por responsable:</span>
+  <button class="filter-btn active" onclick="filterBy('all')">Todos</button>
+  <button class="filter-btn" onclick="filterBy('supplier')">Proveedor</button>
+  <button class="filter-btn" onclick="filterBy('prod')">Producción</button>
+  <button class="filter-btn" onclick="filterBy('log')">Logística</button>
+  <button class="filter-btn" onclick="filterBy('qa')">Calidad/Lab</button>
+  <button class="filter-btn" onclick="filterBy('lca')">Consultor LCA</button>
+  <button class="filter-btn" onclick="filterBy('ext')">Externo</button>
+  <input type="text" class="filter-search" placeholder="&#x1F50D; Buscar dato..." oninput="searchFields(this.value)">
+</div>
+
+<div class="legend">
+  <span class="legend-item"><span class="source-badge src-epd">DAP/EPD</span> declaración verificada</span>
+  <span class="legend-item"><span class="source-badge src-datasheet">Ficha/DoP</span> ficha técnica</span>
+  <span class="legend-item"><span class="source-badge src-internal">Registro interno</span> factura/albarán</span>
+  <span class="legend-item"><span class="source-badge src-db">Base datos LCA</span> ecoinvent/EF</span>
+  <span class="legend-item"><span class="source-badge src-scenario">Escenario PCR</span> supuesto justificado</span>
+  <span class="legend-item"><span class="source-badge src-lab">Ensayo/medición</span></span>
+</div>
+
+<div class="container">
+
+<!-- ============ 0. PRODUCTO Y ALCANCE ============ -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--dark)">&#x1F4CB;</div>
+    <div class="section-info"><h2>Definición de producto y alcance</h2><p>Unidad declarada, vida útil, módulos cubiertos, representatividad</p></div>
+    <span class="section-mod">Base</span>
+    <span class="section-count">6 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="lca"><td><div class="field-name">Descripción del producto</div><div class="field-desc">Tipo, aplicación prevista, prestaciones genéricas</div><div class="field-ex" data-ex-h="Hormigón preparado ≥30 MPa, densidad 2.400 kg/m³" data-ex-a="Acero corrugado B500SD para armar, ruta EAF" data-ex-v="Ventana abatible/corredera, marco PVC + doble vidrio" data-ex-i="Panel de lana mineral, λ=0,035 W/m·K" data-ex-m="Madera laminada encolada (GL24h), conífera">Hormigón preparado ≥30 MPa, densidad 2.400 kg/m³</div></td><td><span class="source-badge src-datasheet">Ficha técnica</span><span class="source-badge src-internal">DoP</span></td><td><span class="role-badge role-qa">Calidad</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Describir</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Almacenar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Unidad declarada / funcional</div><div class="field-desc">Base de referencia de todos los resultados</div><div class="field-ex" data-ex-h="1 m³ de hormigón fresco" data-ex-a="1 t de acero corrugado" data-ex-v="1 ventana de referencia (1,23 × 1,48 m, EN 14351)" data-ex-i="1 m² con la resistencia térmica RD declarada" data-ex-m="1 m³ de madera laminada">1 m³ de hormigón fresco</div></td><td><span class="source-badge src-scenario">PCR 2019:14</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Definir</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar densidad</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Vida útil de referencia (RSL)</div><div class="field-desc">Necesaria si se declaran módulos B</div><div class="field-ex" data-ex-h="50 años (edificación) / 100 años (infraestructura)" data-ex-a="50 años (edificación) / 100 años (infraestructura)" data-ex-v="30 años (carpintería); declarar si hay módulos B" data-ex-i="≈ vida del edificio (50 años) si va integrado" data-ex-m="50 años con mantenimiento; según uso y clase">50 años (edificación) / 100 años (infraestructura)</div></td><td><span class="source-badge src-scenario">Escenario PCR</span><span class="source-badge src-datasheet">Dato técnico</span></td><td><span class="role-badge role-qa">Calidad</span><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Definir RSL</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Documentar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Módulos declarados</div><div class="field-desc">Cobertura del ciclo de vida (mín. A1&ndash;A3 + C1&ndash;C4 + D)</div><div class="field-ex" data-ex-h="A1–A3, A4, A5, C1–C4, D (B = MND)" data-ex-a="A1–A3, C1–C4, D; A4–A5 opcional" data-ex-v="A1–A3, A4, A5, B, C1–C4, D" data-ex-i="A1–A3, C1–C4, D; B relevante por su efecto en uso" data-ex-m="A1–A3, C1–C4, D; biogénico declarado aparte">A1–A3, A4, A5, C1–C4, D (B = MND)</div></td><td><span class="source-badge src-scenario">PCR / EN 15804+A2</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Definir alcance</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Checklist</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Representatividad geográfica y temporal</div><div class="field-desc">Año base, región, mix eléctrico aplicado</div><div class="field-ex" data-ex-h="España, mix REE año base; datos ≤5–10 años" data-ex-a="España/UE, mix eléctrico año base; datos ≤5–10 años" data-ex-v="España/UE, mix eléctrico año base; datos ≤5–10 años" data-ex-i="España/UE, mix eléctrico año base; datos ≤5–10 años" data-ex-m="España/UE, mix eléctrico año base; datos ≤5–10 años">España, mix REE año base; datos ≤5–10 años</div></td><td><span class="source-badge src-internal">Registro interno</span><span class="source-badge src-db">Mix REE</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P2 Consumos planta</span><div class="tl-workflow"><span class="tl-step">Fijar año base</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Asociar mix</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Software / base de datos LCA y herramienta</div><div class="field-desc">Campo declarado en la EPD: software y BD usados; y si se usó una herramienta pre-verificada (LCA/EPD tool)</div><div class="field-ex" data-ex-h="ecoinvent 3.x + software ACV; o tool pre-verificada" data-ex-a="ecoinvent 3.x + software ACV; o tool pre-verificada" data-ex-v="ecoinvent 3.x + software ACV; o tool pre-verificada" data-ex-i="ecoinvent 3.x + software ACV; o tool pre-verificada" data-ex-m="ecoinvent 3.x + software ACV; o tool pre-verificada">ecoinvent 3.x + software ACV; o tool pre-verificada</div></td><td><span class="source-badge src-db">Base datos LCA</span><span class="source-badge src-scenario">Declaración EPD</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Registrar software/BD</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Declarar en EPD</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ A1. MATERIAS PRIMAS ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--purple)">&#x2697;</div>
+    <div class="section-info"><h2>Materias primas (upstream)</h2><p>Constituyentes del producto desde su origen; datos de proveedores</p></div>
+    <span class="section-mod">A1</span>
+    <span class="section-count">7 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="qa"><td><div class="field-name">Dosificación / receta por unidad</div><div class="field-desc">Cantidad de cada constituyente por unidad declarada</div><div class="field-ex" data-ex-h="kg cemento, áridos, agua, aditivos por m³" data-ex-a="kg de chatarra, arrabio y ferroaleaciones por t" data-ex-v="kg de perfil, vidrio, herrajes y sellante por ventana" data-ex-i="kg de fibra/polímero y ligante por m²" data-ex-m="m³ de madera y kg de adhesivo/resina por unidad">kg cemento, áridos, agua, aditivos por m³</div></td><td><span class="source-badge src-lab">Hoja de dosificación</span></td><td><span class="role-badge role-qa">Calidad / Lab</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Cargar receta</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar suma 100%</span></div></td></tr>
+        <tr data-role="supplier"><td><div class="field-name">EPD/DAP del material principal</div><div class="field-desc">Impactos A1&ndash;A3 verificados del insumo de mayor peso</div><div class="field-ex" data-ex-h="DAP del cemento (por t): GWP, clínker" data-ex-a="DAP del semiproducto de acero (palanquilla/bobina)" data-ex-v="DAP del vidrio y del perfil (PVC/aluminio/madera)" data-ex-i="DAP de la fibra/espuma base (lana, EPS, PUR)" data-ex-m="DAP de la madera aserrada y del adhesivo">DAP del cemento (por t): GWP, clínker</div></td><td><span class="source-badge src-epd">DAP/EPD proveedor</span></td><td><span class="role-badge role-supplier">Proveedor MP</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Solicitar a proveedor</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Cargar PDF</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Extraer GWP</span></div></td></tr>
+        <tr data-role="supplier"><td><div class="field-name">Ficha técnica / DoP del material</div><div class="field-desc">Composición que respalda la EPD aplicada</div><div class="field-ex" data-ex-h="DoP del cemento: % clínker, adiciones, tipo CEM" data-ex-a="DoP/certificado del acero: grado, ruta, % reciclado" data-ex-v="DoP del vidrio y del perfil: prestaciones, espesores" data-ex-i="DoP del aislante: λ, densidad, reacción al fuego" data-ex-m="DoP/certificado: especie, clase resistente, tratamiento">DoP del cemento: % clínker, adiciones, tipo CEM</div></td><td><span class="source-badge src-datasheet">Ficha técnica / DoP</span></td><td><span class="role-badge role-supplier">Proveedor MP</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Verificar coherencia EPD</span></div></td></tr>
+        <tr data-role="supplier"><td><div class="field-name">Datos ambientales de aditivos</div><div class="field-desc">EPD o ficha del aditivo; si no, ficha de seguridad</div><div class="field-ex" data-ex-h="Superplastificante: DAP europea o MSDS" data-ex-a="Recubrimientos/galvanizado: DAP o ficha" data-ex-v="Sellantes y herrajes: DAP o ficha de seguridad" data-ex-i="Aglomerantes/ignífugos: DAP o ficha" data-ex-m="Adhesivos, barnices y sales: DAP/MSDS">Superplastificante: DAP europea o MSDS</div></td><td><span class="source-badge src-epd">DAP aditivo</span><span class="source-badge src-datasheet">MSDS / ficha</span></td><td><span class="role-badge role-supplier">Proveedor aditivo</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Cargar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Mapear a dato equivalente</span></div></td></tr>
+        <tr data-role="supplier"><td><div class="field-name">Datos de áridos</div><div class="field-desc">Consumos por t en cantera o DAP sectorial de áridos</div><div class="field-ex" data-ex-h="Diésel/kWh por t; o DAP sectorial de áridos" data-ex-a="Ferroaleaciones y fundentes: consumo o DAP" data-ex-v="Vidrio float y herrajes metálicos: DAP/consumos" data-ex-i="Materia prima mineral/petroquímica: consumos" data-ex-m="Encolado y secado: consumos de cola y energía">Diésel/kWh por t; o DAP sectorial de áridos</div></td><td><span class="source-badge src-internal">Informe cantera</span><span class="source-badge src-epd">DAP sectorial</span></td><td><span class="role-badge role-supplier">Proveedor áridos</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Extraer</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Almacenar</span></div></td></tr>
+        <tr data-role="supplier"><td><div class="field-name">Contenido reciclado / adiciones</div><div class="field-desc">% de material secundario en el producto o insumos</div><div class="field-ex" data-ex-h="Escoria/ceniza en cemento; árido reciclado" data-ex-a="% de chatarra en carga (alto en ruta EAF)" data-ex-v="PVC reciclado en marco; aluminio reciclado" data-ex-i="Vidrio reciclado (lana); EPS recuperado" data-ex-m="Madera reciclada/subproductos; resina parcialmente bio">Escoria/ceniza en cemento; árido reciclado</div></td><td><span class="source-badge src-epd">Declaración proveedor</span><span class="source-badge src-datasheet">DoP</span></td><td><span class="role-badge role-supplier">Proveedor MP</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Solicitar certificado</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Extraer %</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Datos de fondo LCA (secundarios)</div><div class="field-desc">Procesos genéricos cuando no hay dato primario</div><div class="field-ex" data-ex-h="ecoinvent 3.x para árido sin DAP propia" data-ex-a="ecoinvent 3.x para insumos sin DAP propia" data-ex-v="ecoinvent 3.x para componentes sin DAP propia" data-ex-i="ecoinvent 3.x para insumos sin DAP propia" data-ex-m="ecoinvent 3.x para insumos sin DAP propia">ecoinvent 3.x para árido sin DAP propia</div></td><td><span class="source-badge src-db">Base datos LCA</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Seleccionar proceso</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Justificar</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ DECLARACIÓN DE CONTENIDO ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--pink)">&#x1F9EA;</div>
+    <div class="section-info"><h2>Declaración de contenido</h2><p>Materiales y sustancias del producto (sección obligatoria de la EPD)</p></div>
+    <span class="section-mod">Content</span>
+    <span class="section-count">3 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="qa"><td><div class="field-name">Lista de materiales (% en masa)</div><div class="field-desc">Composición del producto declarada en la EPD</div><div class="field-ex" data-ex-h="% cemento, áridos, agua, aditivos del hormigón" data-ex-a="% acero, recubrimiento y aleantes" data-ex-v="% perfil, vidrio, herrajes, sellante y gas de cámara" data-ex-i="% fibra/polímero, ligante y aditivos" data-ex-m="% madera, adhesivo y acabados">% cemento, áridos, agua, aditivos del hormigón</div></td><td><span class="source-badge src-datasheet">Ficha técnica</span><span class="source-badge src-lab">Dosificación</span></td><td><span class="role-badge role-qa">Calidad</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Cargar composición</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar suma</span></div></td></tr>
+        <tr data-role="supplier"><td><div class="field-name">Sustancias químicas / REACH-SVHC</div><div class="field-desc">Sustancias de la lista de candidatas REACH presentes &gt;0,1% (p/p)</div><div class="field-ex" data-ex-h="Sellantes y aditivos: declaración del proveedor" data-ex-a="Recubrimientos/aleantes: declaración SVHC" data-ex-v="Sellantes y PVC (estabilizantes): SVHC frecuente" data-ex-i="Retardantes de llama y ligantes: SVHC frecuente" data-ex-m="Adhesivos y barnices (formaldehído): SVHC">Sellantes y aditivos: declaración del proveedor</div></td><td><span class="source-badge src-datasheet">Ficha de seguridad</span><span class="source-badge src-epd">Declaración proveedor</span></td><td><span class="role-badge role-supplier">Proveedor MP</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Solicitar declaración</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Cargar SDS</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Registrar &gt;0,1%</span></div></td></tr>
+        <tr data-role="qa"><td><div class="field-name">Contenido reciclado / biogénico declarado</div><div class="field-desc">% reciclado y, si aplica, carbono biogénico del producto</div><div class="field-ex" data-ex-h="Árido reciclado; escoria/ceniza en cemento" data-ex-a="% de chatarra reciclada; sin biogénico" data-ex-v="PVC/aluminio reciclado; biogénico si marco de madera" data-ex-i="Vidrio reciclado; biogénico si fibra natural" data-ex-m="Carbono biogénico almacenado (kg C/unidad)">Árido reciclado; escoria/ceniza en cemento</div></td><td><span class="source-badge src-epd">Declaración proveedor</span><span class="source-badge src-datasheet">DoP</span></td><td><span class="role-badge role-qa">Calidad</span></td><td><span class="tl-plantilla">P1 Materias primas</span><div class="tl-workflow"><span class="tl-step">Consolidar %</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Declarar en EPD</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ A2. TRANSPORTE INSUMOS ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--teal)">&#x1F69B;</div>
+    <div class="section-info"><h2>Transporte de insumos</h2><p>Rutas, distancias y medios desde el origen hasta la planta</p></div>
+    <span class="section-mod">A2</span>
+    <span class="section-count">4 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="log"><td><div class="field-name">Distancia y medio por insumo</div><div class="field-desc">km y modo (camión, tren, barco) de cada materia prima</div><div class="field-ex" data-ex-h="Cemento 50 km camión; árido 20 km; aditivo 500 km" data-ex-a="Chatarra 100 km; palanquilla por tren/barco" data-ex-v="Vidrio 200 km; perfil 300 km; herrajes importados" data-ex-i="Materia prima 100–300 km en camión" data-ex-m="Troncos 80 km; adhesivos 400 km">Cemento 50 km camión; árido 20 km; aditivo 500 km</div></td><td><span class="source-badge src-internal">Cuadro logístico</span></td><td><span class="role-badge role-log">Logística / Compras</span></td><td><span class="tl-plantilla">P3 Transporte</span><div class="tl-workflow"><span class="tl-step">Solicitar origen/km</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Estructurar</span></div></td></tr>
+        <tr data-role="log"><td><div class="field-name">Factor de carga / retorno en vacío</div><div class="field-desc">% de llenado del vehículo y vuelta sin carga</div><div class="field-ex" data-ex-h="Carga útil del vehículo y % de retorno en vacío" data-ex-a="Carga útil del vehículo y % de retorno en vacío" data-ex-v="Carga útil del vehículo y % de retorno en vacío" data-ex-i="Carga útil del vehículo y % de retorno en vacío" data-ex-m="Carga útil del vehículo y % de retorno en vacío">Carga útil del vehículo y % de retorno en vacío</div></td><td><span class="source-badge src-internal">Albarán</span></td><td><span class="role-badge role-log">Logística</span></td><td><span class="tl-plantilla">P3 Transporte</span><div class="tl-workflow"><span class="tl-step">Adjuntar albarán</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Calcular %</span></div></td></tr>
+        <tr data-role="ext"><td><div class="field-name">Factor de emisión de transporte</div><div class="field-desc">kg CO&#x2082;e por t&middot;km o consumo de combustible</div><div class="field-ex" data-ex-h="Camión 40 t diésel: factor oficial/base de datos" data-ex-a="Camión 40 t diésel: factor oficial/base de datos" data-ex-v="Camión 40 t diésel: factor oficial/base de datos" data-ex-i="Camión 40 t diésel: factor oficial/base de datos" data-ex-m="Camión 40 t diésel: factor oficial/base de datos">Camión 40 t diésel: factor oficial/base de datos</div></td><td><span class="source-badge src-db">Base datos LCA</span><span class="source-badge src-scenario">Factor oficial</span></td><td><span class="role-badge role-ext">Externo / LCA</span></td><td><span class="tl-plantilla">P3 Transporte</span><div class="tl-workflow"><span class="tl-step">Asignar factor</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Documentar fuente</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Inventario A2 consolidado</div><div class="field-desc">Resumen t&middot;km por material, validado</div><div class="field-ex" data-ex-h="Hoja con material, cantidad, distancia y modo" data-ex-a="Hoja con material, cantidad, distancia y modo" data-ex-v="Hoja con material, cantidad, distancia y modo" data-ex-i="Hoja con material, cantidad, distancia y modo" data-ex-m="Hoja con material, cantidad, distancia y modo">Hoja con material, cantidad, distancia y modo</div></td><td><span class="source-badge src-internal">Hoja de cálculo</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Consolidar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar t&middot;km</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ A3. FABRICACIÓN ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--blue)">&#x1F3ED;</div>
+    <div class="section-info"><h2>Fabricación en planta</h2><p>Consumos, agua, residuos y emisiones directas de producción</p></div>
+    <span class="section-mod">A3</span>
+    <span class="section-count">6 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="prod"><td><div class="field-name">Consumo eléctrico</div><div class="field-desc">kWh atribuibles a la producción (por unidad o anual)</div><div class="field-ex" data-ex-h="kWh/año de la central de hormigón" data-ex-a="kWh/t del horno de arco eléctrico (alto en EAF)" data-ex-v="kWh/año del taller de corte y ensamblaje" data-ex-i="kWh/año del horno de fusión/curado" data-ex-m="kWh/año de aserradero, prensa y secado">kWh/año de la central de hormigón</div></td><td><span class="source-badge src-internal">Factura eléctrica</span></td><td><span class="role-badge role-prod">Producción</span></td><td><span class="tl-plantilla">P2 Consumos planta</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Adjuntar factura</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Normalizar/unidad</span></div></td></tr>
+        <tr data-role="prod"><td><div class="field-name">Consumo de combustibles</div><div class="field-desc">Diésel/gas de maquinaria y equipos de planta</div><div class="field-ex" data-ex-h="Gasoil de palas y generadores (L/año)" data-ex-a="Gas natural del horno/laminación (ruta BOF)" data-ex-v="Gas/gasoil de procesos auxiliares" data-ex-i="Gas natural del horno (lana de vidrio/roca)" data-ex-m="Biomasa/gas para el secado de la madera">Gasoil de palas y generadores (L/año)</div></td><td><span class="source-badge src-internal">Factura combustible</span></td><td><span class="role-badge role-prod">Producción</span></td><td><span class="tl-plantilla">P2 Consumos planta</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Adjuntar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Almacenar</span></div></td></tr>
+        <tr data-role="prod"><td><div class="field-name">Consumo de agua de proceso</div><div class="field-desc">Agua incorporada vs. agua de limpieza</div><div class="field-ex" data-ex-h="m³/año; distinguir mezcla vs. lavado de cuba" data-ex-a="m³/año de refrigeración y decapado" data-ex-v="m³/año de lavado de vidrio y procesos" data-ex-i="m³/año de proceso y refrigeración" data-ex-m="m³/año de proceso (cocido/encolado)">m³/año; distinguir mezcla vs. lavado de cuba</div></td><td><span class="source-badge src-internal">Lectura contador</span></td><td><span class="role-badge role-prod">Producción</span></td><td><span class="tl-plantilla">P2 Consumos planta</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Desglosar</span></div></td></tr>
+        <tr data-role="qa"><td><div class="field-name">Residuos de planta</div><div class="field-desc">Cantidades y gestión de residuos/subproductos</div><div class="field-ex" data-ex-h="Retornados, lodos de lavado, polvo de cemento" data-ex-a="Escoria, cascarilla y polvo de filtro" data-ex-v="Recortes de perfil y vidrio, sellante" data-ex-i="Recortes y fibras; merma de espuma" data-ex-m="Serrín, virutas y recortes (a menudo valorizados)">Retornados, lodos de lavado, polvo de cemento</div></td><td><span class="source-badge src-internal">Registro de residuos</span></td><td><span class="role-badge role-qa">Calidad / Medio Ambiente</span></td><td><span class="tl-plantilla">P2 Consumos planta</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Clasificar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Almacenar</span></div></td></tr>
+        <tr data-role="qa"><td><div class="field-name">Emisiones directas</div><div class="field-desc">Partículas/COV si se cuantifican (a menudo bajas)</div><div class="field-ex" data-ex-h="Polvo de cemento captado; medición si existe" data-ex-a="Partículas y NOx del horno; medición" data-ex-v="COV de sellantes/lacas; medición si aplica" data-ex-i="Partículas/COV de proceso; medición" data-ex-m="Partículas (lijado) y COV (barniz); medición">Polvo de cemento captado; medición si existe</div></td><td><span class="source-badge src-lab">Medición ambiental</span></td><td><span class="role-badge role-qa">Medio Ambiente</span></td><td><span class="tl-plantilla">P2 Consumos planta</span><div class="tl-workflow"><span class="tl-step">Adjuntar medición</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Registrar</span></div></td></tr>
+        <tr data-role="prod"><td><div class="field-name">Producción anual y regla de asignación</div><div class="field-desc">Volumen producido; reparto de consumos comunes</div><div class="field-ex" data-ex-h="m³/año; asignación por masa si varias líneas" data-ex-a="t/año; asignación por colada/producto" data-ex-v="uds/año; asignación por línea de producto" data-ex-i="m²/año o t/año; asignación por línea" data-ex-m="m³/año; asignación por producto">m³/año; asignación por masa si varias líneas</div></td><td><span class="source-badge src-internal">Informe de producción</span></td><td><span class="role-badge role-prod">Producción</span></td><td><span class="tl-plantilla">P2 Consumos planta</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Calcular por unidad</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ A4-A5. DISTRIBUCIÓN E INSTALACIÓN ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--amber)">&#x1F3D7;</div>
+    <div class="section-info"><h2>Distribución e instalación</h2><p>Transporte a obra y actividades de puesta en obra</p></div>
+    <span class="section-mod">A4&ndash;A5</span>
+    <span class="section-count">5 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="log"><td><div class="field-name">Distancia media a obra (A4)</div><div class="field-desc">Radio de servicio o media de entregas</div><div class="field-ex" data-ex-h="Radio típico ~20–30 km; media GPS" data-ex-a="Radio regional/nacional; media de entregas" data-ex-v="Distribución regional; media de entregas" data-ex-i="Distribución regional/nacional" data-ex-m="Distribución regional/nacional">Radio típico ~20–30 km; media GPS</div></td><td><span class="source-badge src-internal">Listado de entregas</span></td><td><span class="role-badge role-log">Logística</span></td><td><span class="tl-plantilla">P3 Transporte</span><div class="tl-workflow"><span class="tl-step">Solicitar km medio</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Documentar</span></div></td></tr>
+        <tr data-role="log"><td><div class="field-name">Vehículo y consumo (A4)</div><div class="field-desc">Tipo, capacidad y consumo del transporte a obra</div><div class="field-ex" data-ex-h="Camión hormigonera 8 m³, ~30 L/100 km" data-ex-a="Camión plataforma 24 t, ~35 L/100 km" data-ex-v="Furgón/camión con bastidores, ~25 L/100 km" data-ex-i="Camión voluminoso (baja densidad), ~30 L/100 km" data-ex-m="Camión 24 t, ~32 L/100 km">Camión hormigonera 8 m³, ~30 L/100 km</div></td><td><span class="source-badge src-datasheet">Ficha vehículo</span></td><td><span class="role-badge role-log">Logística</span></td><td><span class="tl-plantilla">P3 Transporte</span><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Asignar factor</span></div></td></tr>
+        <tr data-role="log"><td><div class="field-name">Evidencia de entrega (trazabilidad)</div><div class="field-desc">Albarán de recepción firmado en obra</div><div class="field-ex" data-ex-h="Albarán de recepción firmado en obra" data-ex-a="Albarán de recepción firmado en obra" data-ex-v="Albarán de recepción firmado en obra" data-ex-i="Albarán de recepción firmado en obra" data-ex-m="Albarán de recepción firmado en obra">Albarán de recepción firmado en obra</div></td><td><span class="source-badge src-internal">Albarán firmado</span></td><td><span class="role-badge role-log">Logística / Cliente</span></td><td><span class="tl-plantilla">P3 Transporte</span><div class="tl-workflow"><span class="tl-step">Enlace a transportista</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Firma</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Registrar</span></div></td></tr>
+        <tr data-role="qa"><td><div class="field-name">Energía de instalación (A5)</div><div class="field-desc">Bombeo/vibrado: diésel o electricidad por unidad</div><div class="field-ex" data-ex-h="Bomba de hormigón: ~0,5 kWh/m³ (escenario)" data-ex-a="Soldadura/atado y grúa: energía de montaje" data-ex-v="Fijación, espuma y sellado: consumo de obra" data-ex-i="Fijación mecánica/adhesivo: bajo consumo" data-ex-m="Herramienta de montaje y fijaciones">Bomba de hormigón: ~0,5 kWh/m³ (escenario)</div></td><td><span class="source-badge src-scenario">Escenario PCR</span><span class="source-badge src-internal">Registro obra</span></td><td><span class="role-badge role-qa">Calidad / Obra</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Cuestionario obra</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Definir escenario</span></div></td></tr>
+        <tr data-role="qa"><td><div class="field-name">Pérdidas y residuos de obra (A5)</div><div class="field-desc">% de material no aprovechado y su gestión</div><div class="field-ex" data-ex-h="2–3% de pérdida de hormigón a vertedero" data-ex-a="Recortes de armadura (a chatarra/reciclaje)" data-ex-v="Embalaje y recortes; ~1–2%" data-ex-i="Recortes de panel; ~5–10% según ajuste" data-ex-m="Recortes de madera (valorizables); ~5%">2–3% de pérdida de hormigón a vertedero</div></td><td><span class="source-badge src-scenario">Escenario PCR</span></td><td><span class="role-badge role-qa">Calidad / Obra</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Definir %</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Documentar destino</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ B. USO Y MANTENIMIENTO ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--teal)">&#x1F3E0;</div>
+    <div class="section-info"><h2>Uso y mantenimiento</h2><p>Vida en servicio del producto en la construcción</p></div>
+    <span class="section-mod">B1&ndash;B7</span>
+    <span class="section-count">3 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="lca"><td><div class="field-name">B1 &mdash; Carbonatación / emisiones en uso</div><div class="field-desc">Absorción de CO&#x2082; o emisiones durante el uso</div><div class="field-ex" data-ex-h="Recarbonatación del hormigón (EN 16757), exposición" data-ex-a="MND (sin emisiones en uso), salvo recubrimiento" data-ex-v="MND; la estanqueidad influye en el uso del edificio" data-ex-i="MND del material; su efecto está en B6 del edificio" data-ex-m="Almacén de carbono biogénico durante el uso">Recarbonatación del hormigón (EN 16757), exposición</div></td><td><span class="source-badge src-scenario">EN 16757 / escenario</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Definir exposición</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Calcular</span></div></td></tr>
+        <tr data-role="qa"><td><div class="field-name">B2&ndash;B5 &mdash; Mantenimiento / reparación</div><div class="field-desc">Normalmente MND si el producto no requiere mantenimiento</div><div class="field-ex" data-ex-h="Hormigón estructural: MND con justificación" data-ex-a="Repintado/recubrimiento periódico si aplica" data-ex-v="Sustitución de juntas/herrajes dentro de la RSL" data-ex-i="MND si no requiere mantenimiento" data-ex-m="Tratamiento/barnizado periódico">Hormigón estructural: MND con justificación</div></td><td><span class="source-badge src-scenario">Escenario PCR</span></td><td><span class="role-badge role-qa">Calidad</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Confirmar MND</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Justificar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">B6&ndash;B7 &mdash; Energía / agua en operación</div><div class="field-desc">Del producto en servicio (MND en materiales inertes)</div><div class="field-ex" data-ex-h="Hormigón: MND (no consume energía/agua)" data-ex-a="MND (material inerte en uso)" data-ex-v="Aporta a la eficiencia (transmitancia U); MND propio" data-ex-i="Clave: reduce la demanda energética del edificio (B6)" data-ex-m="MND (material inerte en uso)">Hormigón: MND (no consume energía/agua)</div></td><td><span class="source-badge src-scenario">Escenario PCR</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Marcar MND</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Documentar</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ C. FIN DE VIDA ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--red)">&#x267B;</div>
+    <div class="section-info"><h2>Fin de vida</h2><p>Demolición, transporte y gestión de residuos (escenarios)</p></div>
+    <span class="section-mod">C1&ndash;C4</span>
+    <span class="section-count">4 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="ext"><td><div class="field-name">C1 &mdash; Demolición</div><div class="field-desc">Energía de maquinaria de deconstrucción</div><div class="field-ex" data-ex-h="~0,1–0,2 L diésel/t de hormigón demolido" data-ex-a="Corte/desmontaje; energía de deconstrucción" data-ex-v="Desmontaje manual/mecánico de la carpintería" data-ex-i="Retirada manual; baja energía" data-ex-m="Desmontaje; energía de deconstrucción">~0,1–0,2 L diésel/t de hormigón demolido</div></td><td><span class="source-badge src-scenario">Escenario PCR</span><span class="source-badge src-db">Literatura</span></td><td><span class="role-badge role-ext">Externo / LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Definir escenario</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Documentar fuente</span></div></td></tr>
+        <tr data-role="ext"><td><div class="field-name">C2 &mdash; Transporte de residuos</div><div class="field-desc">Distancia al gestor de RCD</div><div class="field-ex" data-ex-h="20–50 km a planta de RCD" data-ex-a="A planta de reciclaje de chatarra" data-ex-v="A planta de separación de materiales" data-ex-i="A vertedero o valorización energética" data-ex-m="A planta de reciclaje o valorización">20–50 km a planta de RCD</div></td><td><span class="source-badge src-scenario">Escenario PCR</span></td><td><span class="role-badge role-ext">Externo / LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Asumir distancia</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Justificar</span></div></td></tr>
+        <tr data-role="ext"><td><div class="field-name">C3 &mdash; Reciclaje / valorización</div><div class="field-desc">Tratamiento (trituración, cribado, separación)</div><div class="field-ex" data-ex-h="~0,5–1 kWh/t triturado para árido reciclado" data-ex-a="Refusión de chatarra (~90% reciclable)" data-ex-v="Separación vidrio/marco/herrajes para reciclar" data-ex-i="Reciclaje (lana/vidrio) o valorización energética" data-ex-m="Astillado; reciclaje o valorización energética">~0,5–1 kWh/t triturado para árido reciclado</div></td><td><span class="source-badge src-scenario">Escenario PCR</span><span class="source-badge src-db">Dato planta RCD</span></td><td><span class="role-badge role-ext">Externo / LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Definir % reciclaje</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Modelar</span></div></td></tr>
+        <tr data-role="ext"><td><div class="field-name">C4 &mdash; Eliminación</div><div class="field-desc">Fracción a vertedero de inertes</div><div class="field-ex" data-ex-h="~20% a vertedero (80% reciclado en ES)" data-ex-a="Fracción mínima a vertedero (acero muy reciclable)" data-ex-v="Fracción no separable a vertedero" data-ex-i="Parte a vertedero según el material" data-ex-m="Fracción a vertedero; resto valorizado">~20% a vertedero (80% reciclado en ES)</div></td><td><span class="source-badge src-scenario">Escenario PCR</span></td><td><span class="role-badge role-ext">Externo / LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Definir fracción</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Modelar vertedero</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ D. BENEFICIOS ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--purple)">&#x267B;</div>
+    <div class="section-info"><h2>Beneficios y cargas más allá del sistema</h2><p>Créditos por reciclaje/reutilización fuera del sistema</p></div>
+    <span class="section-mod">D</span>
+    <span class="section-count">2 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="lca"><td><div class="field-name">Sustitución de material virgen</div><div class="field-desc">Crédito por material reciclado que evita extracción</div><div class="field-ex" data-ex-h="Árido reciclado sustituye árido natural (~1:1)" data-ex-a="La chatarra evita producción de acero primario" data-ex-v="Vidrio/metal reciclado evita material virgen" data-ex-i="Material recuperado evita materia prima virgen" data-ex-m="La valorización energética sustituye combustible">Árido reciclado sustituye árido natural (~1:1)</div></td><td><span class="source-badge src-db">Base datos LCA</span><span class="source-badge src-scenario">Reglas PCR</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Modelar proceso evitado</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar signo (&minus;)</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Recuperación de materiales</div><div class="field-desc">Crédito por reciclaje de otros materiales (si aplica)</div><div class="field-ex" data-ex-h="Acero de armadura (solo si producto armado)" data-ex-a="Crédito por chatarra recuperada (neto de entrada)" data-ex-v="Aluminio/vidrio recuperado (alto valor)" data-ex-i="Reciclado del aislante si existe circuito" data-ex-m="Energía exportada por valorización de la madera">Acero de armadura (solo si producto armado)</div></td><td><span class="source-badge src-db">Base datos LCA</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P4 Escenarios</span><div class="tl-workflow"><span class="tl-step">Evaluar aplicabilidad</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Modelar</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ INDICADORES ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--green)">&#x1F30D;</div>
+    <div class="section-info"><h2>Indicadores ambientales (resultados)</h2><p>Salidas calculadas del ACV según EN 15804+A2</p></div>
+    <span class="section-mod">EN 15804+A2</span>
+    <span class="section-count">7 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="lca"><td><div class="field-name">GWP (cambio climático)</div><div class="field-desc">Total, fósil, biogénico y uso del suelo, por módulo</div><div class="field-ex" data-ex-h="GWP-total A1–A3 en kg CO₂e/m³" data-ex-a="GWP-total A1–A3 en kg CO₂e/t" data-ex-v="GWP-total A1–A3 en kg CO₂e/ventana" data-ex-i="GWP-total A1–A3 en kg CO₂e/m²" data-ex-m="GWP-total y GWP-biogénico en kg CO₂e/m³">GWP-total A1–A3 en kg CO₂e/m³</div></td><td><span class="source-badge src-db">Cálculo ACV</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Calcular</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Otros impactos</div><div class="field-desc">ODP, AP, EP (3), POCP, ADP (min/fósil), WDP</div><div class="field-ex" data-ex-h="13 indicadores de impacto EN 15804+A2" data-ex-a="13 indicadores de impacto EN 15804+A2" data-ex-v="13 indicadores de impacto EN 15804+A2" data-ex-i="13 indicadores de impacto EN 15804+A2" data-ex-m="13 indicadores de impacto EN 15804+A2">13 indicadores de impacto EN 15804+A2</div></td><td><span class="source-badge src-db">Cálculo ACV</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Calcular</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Revisar factores A2</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Uso de recursos</div><div class="field-desc">Energía primaria (PERT/PENRT), agua neta, secundarios</div><div class="field-ex" data-ex-h="MJ renovable/no renovable; m³ agua neta" data-ex-a="MJ renovable/no renovable; m³ agua neta" data-ex-v="MJ renovable/no renovable; m³ agua neta" data-ex-i="MJ renovable/no renovable; m³ agua neta" data-ex-m="MJ renovable/no renovable; m³ agua neta">MJ renovable/no renovable; m³ agua neta</div></td><td><span class="source-badge src-db">Cálculo ACV</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Calcular</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Residuos generados</div><div class="field-desc">Peligrosos, no peligrosos, radiactivos</div><div class="field-ex" data-ex-h="kg por unidad declarada" data-ex-a="kg por unidad declarada" data-ex-v="kg por unidad declarada" data-ex-i="kg por unidad declarada" data-ex-m="kg por unidad declarada">kg por unidad declarada</div></td><td><span class="source-badge src-db">Cálculo ACV</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Calcular</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Flujos de salida</div><div class="field-desc">Reutilización, materiales a reciclaje, energía exportada</div><div class="field-ex" data-ex-h="kg/MJ por unidad" data-ex-a="kg/MJ por unidad" data-ex-v="kg/MJ por unidad" data-ex-i="kg/MJ por unidad" data-ex-m="kg/MJ por unidad">kg/MJ por unidad</div></td><td><span class="source-badge src-db">Cálculo ACV</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Calcular</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Validar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">GWP-GHG (indicador adicional)</div><div class="field-desc">Indicador obligatorio bajo GPI del program operator</div><div class="field-ex" data-ex-h="GWP-GHG según GPI 5.x" data-ex-a="GWP-GHG según GPI 5.x" data-ex-v="GWP-GHG según GPI 5.x" data-ex-i="GWP-GHG según GPI 5.x" data-ex-m="GWP-GHG según GPI 5.x">GWP-GHG según GPI 5.x</div></td><td><span class="source-badge src-scenario">GPI 5.x</span><span class="source-badge src-db">Cálculo ACV</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Calcular</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Incluir</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Cuota de datos primarios (calidad de datos)</div><div class="field-desc">Campo obligatorio: % de datos primarios en los resultados de GWP-GHG para A1&ndash;A3</div><div class="field-ex" data-ex-h="P. ej. '58% de datos primarios en A1–A3'" data-ex-a="P. ej. '58% de datos primarios en A1–A3'" data-ex-v="P. ej. '58% de datos primarios en A1–A3'" data-ex-i="P. ej. '58% de datos primarios en A1–A3'" data-ex-m="P. ej. '58% de datos primarios en A1–A3'">P. ej. '58% de datos primarios en A1–A3'</div></td><td><span class="source-badge src-internal">Registro de datos</span><span class="source-badge src-db">Cálculo ACV</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Calcular %</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Declarar en EPD</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ VERIFICACIÓN Y REGISTRO ============ -->
+<div class="section">
+  <div class="section-header collapsed" onclick="toggleSection(this)">
+    <div class="section-icon" style="background:var(--dark)">&#x2705;</div>
+    <div class="section-info"><h2>Verificación, registro y entrega</h2><p>Control de calidad, verificación independiente y publicación</p></div>
+    <span class="section-mod">QA &middot; ISO 14025</span>
+    <span class="section-count">5 datos</span>
+    <span class="section-chevron">&#x25BE;</span>
+  </div>
+  <div class="section-body hidden">
+    <table class="map-table">
+      <thead><tr><th>Dato / requisito EPD</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
+      <tbody>
+        <tr data-role="lca"><td><div class="field-name">Checklist de cumplimiento PCR</div><div class="field-desc">Repaso de todos los requisitos antes de verificar</div><div class="field-ex" data-ex-h="Cobertura de módulos, indicadores, geografía, corte 95%" data-ex-a="Cobertura de módulos, indicadores, geografía, corte 95%" data-ex-v="Cobertura de módulos, indicadores, geografía, corte 95%" data-ex-i="Cobertura de módulos, indicadores, geografía, corte 95%" data-ex-m="Cobertura de módulos, indicadores, geografía, corte 95%">Cobertura de módulos, indicadores, geografía, corte 95%</div></td><td><span class="source-badge src-internal">Checklist</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">SmartCheck</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Marcar pendientes</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">QA de cálculos</div><div class="field-desc">Balance de masa, unidades, signos, no doble conteo</div><div class="field-ex" data-ex-h="Σ kg materiales = densidad × 1 m³" data-ex-a="Σ kg de insumos = 1 t de producto" data-ex-v="Σ de componentes = masa de la ventana" data-ex-i="Σ de materiales = masa por m²" data-ex-m="Σ kg = densidad × volumen; balance de C biogénico">Σ kg materiales = densidad × 1 m³</div></td><td><span class="source-badge src-internal">Hoja de control</span></td><td><span class="role-badge role-lca">Consultor LCA</span></td><td><span class="tl-plantilla">P5 Validación</span><div class="tl-workflow"><span class="tl-step">Revisar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Corregir</span></div></td></tr>
+        <tr data-role="ext"><td><div class="field-name">Verificación independiente</div><div class="field-desc">Verificador independiente aprobado por el program operator, o entidad de certificación acreditada (según el programa)</div><div class="field-ex" data-ex-h="Informe de verificación (plantilla v2.0.1)" data-ex-a="Informe de verificación (plantilla v2.0.1)" data-ex-v="Informe de verificación (plantilla v2.0.1)" data-ex-i="Informe de verificación (plantilla v2.0.1)" data-ex-m="Informe de verificación (plantilla v2.0.1)">Informe de verificación (plantilla v2.0.1)</div></td><td><span class="source-badge src-epd">Informe de verificación</span></td><td><span class="role-badge role-ext">Verificador externo</span></td><td><span class="tl-plantilla">Entrega</span><div class="tl-workflow"><span class="tl-step">Entregar expediente</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Atender no conformidades</span></div></td></tr>
+        <tr data-role="ext"><td><div class="field-name">Registro y publicación</div><div class="field-desc">Número de registro y publicación en portal</div><div class="field-ex" data-ex-h="EPD-IES-XXXXXXX en environdec.com" data-ex-a="EPD-IES-XXXXXXX en environdec.com" data-ex-v="EPD-IES-XXXXXXX en environdec.com" data-ex-i="EPD-IES-XXXXXXX en environdec.com" data-ex-m="EPD-IES-XXXXXXX en environdec.com">EPD-IES-XXXXXXX en environdec.com</div></td><td><span class="source-badge src-epd">EPD publicada</span></td><td><span class="role-badge role-ext">Program operator</span></td><td><span class="tl-plantilla">Entrega</span><div class="tl-workflow"><span class="tl-step">Enviar a registro</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Publicar</span></div></td></tr>
+        <tr data-role="lca"><td><div class="field-name">Expediente de evidencias</div><div class="field-desc">Registro trazable de todos los datos (sellado temporal y control de versiones) y documentos</div><div class="field-ex" data-ex-h="Trazabilidad con sellado temporal de quién aportó qué y cuándo" data-ex-a="Trazabilidad con sellado temporal de quién aportó qué y cuándo" data-ex-v="Trazabilidad con sellado temporal de quién aportó qué y cuándo" data-ex-i="Trazabilidad con sellado temporal de quién aportó qué y cuándo" data-ex-m="Trazabilidad con sellado temporal de quién aportó qué y cuándo">Trazabilidad con sellado temporal de quién aportó qué y cuándo</div></td><td><span class="source-badge src-internal">Expediente Trackline</span></td><td><span class="role-badge role-lca">Consultor / Code Contract</span></td><td><span class="tl-plantilla">Cierre</span><div class="tl-workflow"><span class="tl-step">Sellar</span><span class="tl-arrow">&#x2192;</span><span class="tl-step">Certificado autenticidad</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>Fuentes oficiales:</strong>
+  <a href="https://www.iso.org/standard/38131.html" target="_blank">ISO 14025</a> &middot;
+  <a href="https://standards.iteh.ai/catalog/standards/cen/c98127b4-8dc2-48a4-9338-3e1366b16669/en-15804-2012a2-2019" target="_blank">EN 15804+A2</a> &middot;
+  <a href="https://www.environdec.com/pcr/the-pcr" target="_blank">PCR 2019:14 (EPD International)</a> &middot;
+  <a href="https://www.environdec.com/" target="_blank">The International EPD System</a><br>
+  <a href="https://web.codecontractplattform.com/" target="_blank">Trackline</a> by <a href="https://codecontract.io" target="_blank">Code Contract S.L.</a> &middot; <strong>Pack DPP Construcción</strong> &middot; jun 2026 &middot; guía v1.3 / mapping v1.4 &middot; <a href="mailto:eduardo@codecontract.io?subject=Demo%20Trackline%20EPD">Solicitar demo (20 min)</a><br>
+  <a href="03_guia-epd-construccion.html">&#x2190; Guía EPD Construcción</a><br>
+  <details style="max-width:640px;margin:10px auto 0;font-size:11px;color:#9ca3af;text-align:left">
+    <summary style="cursor:pointer;color:#6b7280">Registro de cambios</summary>
+    <div style="margin-top:6px;line-height:1.6">
+      <strong>v1.4</strong> (jun 2026): selector de familia (hormigón, acero, ventanas, aislamiento, madera) que intercambia el ejemplo trabajado y los valores ilustrativos de toda la tabla.<br>
+      <strong>v1.3</strong> (jun 2026): ejemplo genérico, sin atribución a una EPD real concreta.<br>
+      <strong>v1.2</strong>: contador corregido a 52 datos.<br>
+      <strong>v1.1</strong>: sección de declaración de contenido (REACH/SVHC), cuota de datos primarios y software/herramienta LCA.
+    </div>
+  </details>
+  <em style="color:#b0b0b0">Documento de referencia técnica, no asesoramiento normativo vinculante. Los datos y escenarios exactos dependen de la PCR / c-PCR aplicable a cada familia de producto y de la versión vigente de la norma. El ejemplo de hormigón es ilustrativo.</em>
+</div>
+
+<script>
+function toggleSection(header) {
+  header.classList.toggle('collapsed');
+  header.nextElementSibling.classList.toggle('hidden');
+}
+function filterBy(role) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.map-table tr[data-role]').forEach(row => {
+    row.style.display = (role === 'all' || row.dataset.role === role) ? '' : 'none';
+  });
+  // abrir todas las secciones al filtrar para que se vean los resultados
+  if (role !== 'all') {
+    document.querySelectorAll('.section-header').forEach(h => h.classList.remove('collapsed'));
+    document.querySelectorAll('.section-body').forEach(b => b.classList.remove('hidden'));
+  }
+}
+function searchFields(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('.map-table tr[data-role]').forEach(row => {
+    row.style.display = (!q || row.textContent.toLowerCase().includes(q)) ? '' : 'none';
+  });
+  if (q) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.section-header').forEach(h => h.classList.remove('collapsed'));
+    document.querySelectorAll('.section-body').forEach(b => b.classList.remove('hidden'));
+  }
+}
+const FAM_EX = {
+  h:{t:"🏗️ Ejemplo trabajado: hormigón premezclado ≥30 MPa (valores ilustrativos)", b:"A lo largo del mapping, las notas en cursiva ámbar muestran cómo se concreta cada dato para una EPD de hormigón premezclado ≥30 MPa: dosificación por m³, DAP de los cementos, distancias de suministro, consumos de planta, escenario de entrega y fin de vida con reciclaje de RCD."},
+  a:{t:"🔩 Ejemplo trabajado: acero corrugado para armar (valores ilustrativos)", b:"El mismo esquema aplicado a acero B500SD: unidad de 1 t, distinción de la ruta de horno alto (BOF) frente a arco eléctrico (EAF) —que cambia mucho el GWP—, % de chatarra, recubrimientos y fin de vida con reciclaje ~90%. Producto cubierto por CBAM en importación."},
+  v:{t:"🪟 Ejemplo trabajado: ventana (producto ensamblado) (valores ilustrativos)", b:"Unidad: 1 ventana de referencia (EN 14351). Requiere datos o EPD de varios componentes —marco (PVC/aluminio/madera), vidrio, herrajes y sellantes—; atención a REACH/SVHC y a la fase de uso (transmitancia)."},
+  i:{t:"🧊 Ejemplo trabajado: aislamiento (valores ilustrativos)", b:"Unidad: 1 m² a la resistencia térmica declarada. Pesa mucho la fase de uso (ahorro energético del edificio) y el fin de vida según el material (lana mineral, EPS, XPS, PUR)."},
+  m:{t:"🪵 Ejemplo trabajado: madera estructural/laminada (valores ilustrativos)", b:"Unidad: 1 m³. Atención al carbono biogénico (GWP-bio) y a las reglas de almacenamiento de carbono; origen certificado FSC/PEFC; adhesivos y barnices con posible SVHC (formaldehído)."}
+};
+function selectFamily(f) {
+  document.querySelectorAll('.fam-sel-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector('.fam-sel-btn[data-fam="' + f + '"]');
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.field-ex').forEach(el => {
+    const v = el.dataset['ex' + f.toUpperCase()];
+    if (v) el.textContent = v;
+  });
+  const ex = FAM_EX[f];
+  if (ex) {
+    document.getElementById('ex-title').textContent = ex.t;
+    document.getElementById('ex-body').textContent = ex.b;
+  }
+}
+</script>
+</body>
+</html>
