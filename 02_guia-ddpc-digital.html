@@ -600,10 +600,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="doc-status-icon" style="background:#e7f4ec">&#x1F7E2;</div>
     <div class="doc-status-text">
       <h3 style="color:#2e7d4f">Estado del documento: VIGENTE — actualizado agosto 2026</h3>
-      <p>Alineada con el CPR 2024/3110, ESPR 2024/1781, Reg. Delegado 2024/2769 (EVCP 3+), eIDAS 2 (UE 2024/1183), el Plan de Trabajo CPR 2026-2029 (COM(2025) 772 final) y la puesta en marcha del registro central del DPP (julio 2026).</p>
+      <p>Alineada con el CPR 2024/3110, ESPR 2024/1781, Reg. Delegado 2024/2769 (EVCP 3+), eIDAS 2 (UE 2024/1183), el Plan de Trabajo CPR 2026-2029 (COM(2025) 772 final) el Reglamento de Ejecución (UE) 2026/1778 del registro central del DPP y el estado real de la normalización a agosto de 2026.</p>
     </div>
     <div class="doc-status-version">
-      <strong>v6.0</strong>
+      <strong>v6.1</strong>
       24 agosto 2026
     </div>
   </div>
@@ -672,6 +672,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <h2><span class="sec-num">0</span> Resumen ejecutivo</h2>
   <p class="lead">El Reglamento (UE) 2024/3110 sustituye al CPR 305/2011 e introduce la <strong>Declaración de Prestaciones y de Conformidad (DdPC)</strong>. El CPR es aplicable desde el <strong>8 de enero de 2026</strong>, pero con régimen transitorio: la DdPC sustituirá progresivamente a la DdP para productos cubiertos por especificaciones técnicas armonizadas (hTS) revisadas bajo el nuevo marco.</p>
   <p>No es un cambio de nombre: cuando aplique, añade indicadores ambientales (GWP), información REACH, formato <em>machine-readable</em> y firma del representante autorizado del fabricante (siendo recomendable la firma electrónica cualificada eIDAS 2 como buena práctica).</p>
+
+  <div class="callout purple"><strong>Cuándo le toca a usted: la regla del art. 95.</strong> La obligación no la dispara una fecha del calendario, la dispara <strong>la norma de su familia</strong>. Las obligaciones de los capítulos I–III solo pasan a ser obligatorias para una familia o categoría de producto <strong>un año después</strong> de que la Comisión adopte, por acto de ejecución (art. 5.8), la especificación técnica armonizada obligatoria correspondiente — salvo que se fije una fecha posterior. Mientras su producto siga cubierto por una hEN heredada del 305/2011, el documento válido sigue siendo la <strong>DdP</strong>.
+    <div style="margin-top:9px;padding:9px 12px;background:rgba(255,255,255,0.6);border-radius:8px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.7">
+      producto &rarr; familia/categoría &rarr; uso previsto &rarr; especificación aplicable<br>&rarr; acto de ejecución &rarr; fecha de aplicación &rarr; <strong>régimen documental</strong>
+    </div>
+    <div style="margin-top:8px">Ninguna regla del tipo <em>«fecha &ge; 8-ene-2026 &rArr; DdPC»</em> es válida. Emitir una DdPC a un producto que sigue legalmente bajo el régimen antiguo produce incoherencias entre evaluación, marcado y declaración — y es tan reprochable como no emitir la que corresponde.</div>
+  </div>
+  <div class="callout blue"><strong>La ventaja voluntaria (art. 95.9).</strong> Un fabricante <em>puede</em> acogerse al nuevo procedimiento antes de que le obligue, durante el periodo de coexistencia. Ahí está la ventana real: llegar preparado en lugar de a contrarreloj, y poder acreditarlo ante prescriptores y licitaciones mientras la competencia sigue emitiendo PDF.</div>
   <div class="callout amber"><strong>Régimen sancionador (art. 92 CPR):</strong> entra en vigor el 8 de enero de 2027. A día de hoy no existe norma sancionadora española específica para el nuevo CPR; como hipótesis de referencia podría apoyarse en la Ley 21/1992 de Industria (hasta 100.000.000 € en infracciones muy graves, cierre de establecimiento y prohibición de contratar con AA.PP. hasta 5 años), hasta que España notifique a la Comisión su régimen sancionador nacional específico, cuyo plazo vence el 8 de diciembre de 2026. El proyecto de real decreto de desarrollo del nuevo CPR sigue en tramitación y no consta publicado en el BOE.</div>
   <div class="callout green"><strong>La clave:</strong> una DdPC digital bien estructurada cubre aproximadamente el <strong>~65%</strong> del contenido del futuro Pasaporte Digital de Producto (DPP). Quien resuelve hoy la DdPC llega al DPP con un último kilómetro, no con una maratón. El ~65% es una <em>estimación funcional propia</em> de Code Contract basada en el solapamiento de datos exigidos por la DdPC y los previstos para el DPP — no es un porcentaje definido por el Reglamento.</div>
   <p><strong>El camino más eficiente:</strong> DdP &rarr; DdPC digital &rarr; DPP. No saltar directamente al DPP cuando llegue la obligación.</p>
@@ -824,6 +832,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <li><strong>Vida útil estimada media y mínima</strong>, <strong>variantes</strong>, e incluso <strong>fecha y lugar de última desinstalación</strong> si el producto ya estuvo instalado en una obra (productos reutilizados).</li>
     <li><strong>Permalinks / data carriers / documentación asociada:</strong> registros del fabricante en bases de datos de la UE, información REACH cuando proceda, información general del producto, instrucciones de uso y seguridad conforme al <strong>Anexo IV</strong>.</li>
   </ul>
+
+  <h3>El marcado CE también cambia — y engancha con la DdPC</h3>
+  <p>Bajo el 305/2011 el marcado CE iba acompañado de una información relativamente escueta. Bajo el CPR 2024/3110 la etiqueta lleva un bloque de datos ampliado que <strong>apunta explícitamente a la declaración</strong>:</p>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th style="width:34%">Elemento del marcado</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Año de colocación</strong></td><td>Las dos últimas cifras del año en que se colocó el marcado</td></tr>
+      <tr><td><strong>Fabricante / representante</strong></td><td>Nombre y datos de contacto del fabricante y, cuando proceda, del representante autorizado</td></tr>
+      <tr><td><strong>Código único del tipo</strong></td><td>Identificador del producto tipo — el mismo que vincula producto y declaración</td></tr>
+      <tr><td><strong>Código de declaración de la DdPC</strong></td><td>La etiqueta lleva la referencia de la declaración concreta. Su esquema de códigos deja de ser un asunto interno</td></tr>
+      <tr><td><strong>Organismo notificado</strong></td><td>Número del ON que intervino, cuando el sistema de evaluación lo requiera</td></tr>
+      <tr><td><strong>Data carrier</strong></td><td>Conectado al DPP cuando exista. Parte de la información anterior puede sustituirse por el data carrier o un permalink a la DdPC si ésta está publicada en web</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout amber"><strong>Por qué importa operativamente:</strong> el marcado deja de ser una etiqueta que se diseña una vez y se imprime. Pasa a depender del código de declaración vigente y, en su caso, de una URL que tiene que resolver. Cualquier cambio de versión de la DdPC obliga a comprobar la coherencia entre <strong>etiqueta, identificador de producto y declaración publicada</strong>. Es un control cruzado que conviene automatizar antes de que haya cientos de referencias.</div>
+  <div class="callout blue"><strong>Solo el CE:</strong> el CPR prohíbe incorporar en la DdPC cualquier distintivo o marcado adicional que no sea el marcado CE. Sellos privados y marcas de calidad nacionales quedan fuera del documento — su sitio es la documentación comercial, no la declaración.</div>
 </div>
 
 <!-- 4. AMBIENTAL ANEXO II -->
@@ -878,9 +904,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   </div>
 
   <div class="callout blue"><strong>Cómo se calculan:</strong> mediante ACV (Análisis de Ciclo de Vida). El art. 15 remite a la metodología que concrete la Comisión; en la práctica, la <strong>EN 15804:2012+A2:2019</strong> es la referencia técnica principal. Módulos habituales: A1-A3 (fabricación) y C1-C4 (fin de vida); el módulo D es informativo.</div>
-  <div class="callout green"><strong>Sistema EVCP 3+ (Reg. Delegado UE 2024/2769):</strong> aplica específicamente a las características ambientales. A diferencia del EVCP 3 clásico, el organismo notificado <em>no realiza ensayos</em>: valida el modelo ACV (datos de entrada, hipótesis, cálculos). El fabricante mantiene FPC y datos primarios. La capacidad de validación en España está en transición (ENAC acreditando laboratorios para EN 15804+A2 y EF 3.1).</div>
+  <div class="callout amber"><strong>El software de cálculo lo pone la Comisión (art. 15.2).</strong> Éste es el punto que más se pasa por alto: el CPR no dice «calcúlelo como quiera y enséñeme el resultado». El art. 15(2) exige que la sostenibilidad ambiental de las características del Anexo II que deban declararse se calcule <strong>con el software gratuito que publique la Comisión</strong>. Sus actualizaciones son de aplicación <strong>voluntaria desde su publicación y obligatoria un año después</strong>. Y el cálculo <strong>incluye el embalaje</strong> usado o probablemente usado con el producto.</div>
+  <div class="callout red"><strong>Consecuencia práctica: tener una DAP/EPD EN 15804+A2 no basta por sí sola.</strong> Una EPD verificada es el mejor punto de partida — sus datos primarios, su modelo y su inventario son exactamente lo que hace falta — pero la DdPC exige además pasar por el software de la Comisión y, en la parte ambiental, contar con la validación de un organismo notificado bajo el sistema EVCP/AVCP 3+. Quien piense que su EPD ya le resuelve la DdPC descubrirá el hueco tarde.</div>
+  <div class="callout green"><strong>Sistema EVCP 3+ (Reg. Delegado UE 2024/2769):</strong> aplica específicamente a las características ambientales. A diferencia del EVCP 3 clásico, el organismo notificado <em>no realiza ensayos</em>: valida el modelo ACV (datos de entrada, hipótesis, cálculos) y el software de modelización empleado. Una vez certificados el software y el procedimiento de cálculo, el fabricante queda habilitado para generar y declarar internamente los indicadores ambientales de su catálogo con plena validez legal. El fabricante mantiene FPC y datos primarios. La capacidad de validación en España está en transición (ENAC acreditando laboratorios para EN 15804+A2 y EF 3.1); el <strong>IETcc-CSIC (Torroja)</strong> actúa como TAB/organismo notificado.</div>
 
-  <h3>Software ACV recomendado</h3>
+  <h3>Software ACV para preparar los datos</h3>
+  <p style="font-size:13px;color:#6b7280;margin:-4px 0 10px">Estas herramientas sirven para construir y mantener el inventario, el modelo y la DAP. <strong>No sustituyen</strong> al software de cálculo de la Comisión para la parte declarable de la DdPC: alimentan sus datos de entrada.</p>
   <div class="cards">
     <div class="icard"><h4>SimaPro</h4><p>Software profesional. Bases de datos ecoinvent, ELCD. Ampliamente usado en DAPs de construcción.</p></div>
     <div class="icard"><h4>GaBi / Sphera</h4><p>Suite completa con bases de datos propias. Fuerte en industria de materiales de construcción.</p></div>
@@ -900,7 +929,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr><td class="tl-date-cell" style="color:#2e7d4f">7 ene 2025</td><td><div class="tl-milestone">Entrada en vigor del CPR 2024/3110</div><div class="tl-publisher">Artículos generales y de desarrollo de normas</div></td><td><span class="tl-status-badge tl-past">En vigor</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#2e7d4f">Dic 2025</td><td><div class="tl-milestone">Plan de Trabajo CPR 2026-2029 (COM(2025) 772 final)</div><div class="tl-publisher">Prioridades de estandarización para las 36 familias del Anexo VII</div></td><td><span class="tl-status-badge tl-past">Publicado</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#d97706">8 ene 2026</td><td><div class="tl-milestone">Aplicación general de la mayoría de disposiciones</div><div class="tl-publisher">La DdPC sustituye progresivamente a la DdP. Fase 1 Anexo II: GWP a-d obligatorios cuando la DdPC sea exigible</div></td><td><span class="tl-status-badge tl-upcoming">En curso</span></td></tr>
-        <tr><td class="tl-date-cell" style="color:#2e7d4f">20 jul 2026</td><td><div class="tl-milestone">El registro central del DPP entra en funcionamiento</div><div class="tl-publisher">Base de datos de la UE que almacena los identificadores únicos y los datos de registro del sistema DPP (ESPR art. 13). La infraestructura ya existe; falta el acto delegado que active la obligación para construcción</div></td><td><span class="tl-status-badge tl-past">Operativo</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#2e7d4f">20 jul 2026</td><td><div class="tl-milestone">El registro central del DPP entra en funcionamiento — Reglamento de Ejecución (UE) 2026/1778</div><div class="tl-publisher">Adoptado el 16-jul-2026, publicado el 17-jul y en vigor desde el 6-ago-2026; el registro se abre a los usuarios el 20-jul-2026. Almacena los identificadores únicos y los datos de registro del sistema DPP (ESPR art. 13). Los productos de construcción están contemplados (art. 76 CPR), pero la <strong>obligación</strong> de registrar aún no existe: depende del acto delegado del art. 75</div></td><td><span class="tl-status-badge tl-past">Operativo</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#d97706">Q4 2026</td><td><div class="tl-milestone">Acto delegado sobre proveedores de servicios DPP (previsto)</div><div class="tl-publisher">Reglas para los operadores que alojarán los pasaportes. A finales de 2026 la Comisión presenta además su primer informe anual del Plan de Trabajo CPR</div></td><td><span class="tl-status-badge tl-upcoming">Previsto</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#dc2626">8 dic 2026</td><td><div class="tl-milestone">Fecha límite para que los Estados miembros notifiquen su régimen sancionador a la Comisión (art. 92)</div><div class="tl-publisher">España aún no ha publicado en el BOE el real decreto de desarrollo del nuevo CPR</div></td><td><span class="tl-status-badge tl-upcoming">Próximo</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#dc2626">8 ene 2027</td><td><div class="tl-milestone">Régimen sancionador activo (art. 92 CPR)</div><div class="tl-publisher">Referencia provisional Ley 21/1992: leves hasta 60.000 €, graves hasta 6.000.000 €, muy graves hasta 100.000.000 €</div></td><td><span class="tl-status-badge tl-future">Crítico</span></td></tr>
@@ -920,17 +949,18 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
 <div class="section">
   <h3>Estado del ecosistema de normas armonizadas (a agosto 2026)</h3>
-  <p>A día de hoy prácticamente todas las normas vigentes son las hEN heredadas del 305/2011. El Plan de Trabajo CPR 2026-2029 organiza la revisión de las 36 familias del Anexo VII en tres fases:</p>
+  <p>A día de hoy prácticamente todas las normas vigentes son las hEN heredadas del 305/2011, y <strong>ninguna familia tiene todavía la DdPC obligatoria</strong>: no se ha citado aún ninguna hTS revisada bajo el nuevo marco. Lo que sí existe es trabajo de normalización en marcha — el paso previo. A agosto de 2026, siete de las 36 familias se han movido:</p>
   <div class="tbl-wrap">
   <table class="data-table">
-    <thead><tr><th>Fase</th><th>Horizonte</th><th>Familias prioritarias</th></tr></thead>
+    <thead><tr><th style="width:22%">Estado</th><th>Familias del Anexo VII</th></tr></thead>
     <tbody>
-      <tr><td><strong>Fase 1 — prioritarias (9)</strong></td><td>2026-2028</td><td>Prefabricados de hormigón, productos metálicos estructurales, acero de armar/pretensar, puertas/ventanas y herrajes, cementos/cales/aglomerantes, aislamiento térmico (SATE/ETICS), vidrio plano/perfilado/bloques</td></tr>
-      <tr><td><strong>Fase 2 — intermedias (6)</strong></td><td>2028-2031</td><td>Áridos, fachadas ligeras (curtain walling), madera estructural y tableros, hormigón/mortero/grout, albañilería</td></tr>
-      <tr><td><strong>Fase 3 — de cola (21)</strong></td><td>2031-2035</td><td>Carreteras, pavimentos, kits prefabricados, yeso, apoyos estructurales, cubiertas (incl. fotovoltaica), aguas residuales, adhesivos y sellantes, cortafuegos, fijaciones, membranas, geotextiles, sanitarios, tuberías, cables, chimeneas, escaleras</td></tr>
+      <tr><td><strong>Solicitud de normalización adoptada</strong><br><span style="color:#6b7280">3 familias · 21 normas armonizadas, 4 de apoyo y 1 informe técnico</span></td><td><strong>Familia 1</strong> — prefabricados de hormigón normal, ligero y celular curado en autoclave · <strong>Familia 20</strong> — productos metálicos estructurales y accesorios · <strong>Familia 15</strong> — cementos, cales de construcción y otros conglomerantes hidráulicos</td></tr>
+      <tr><td><strong>Solicitud en preparación</strong><br><span style="color:#6b7280">4 familias</span></td><td><strong>Familia 16</strong> — acero de armar y pretensar, kits de postesado · <strong>Familia 2</strong> — puertas, ventanas, persianas, portones y herrajes · <strong>Familia 4</strong> — aislamiento térmico y kits compuestos (ETICS) · <strong>Familia 30</strong> — vidrio plano, perfilado y bloques de vidrio</td></tr>
+      <tr><td><strong>En cola</strong><br><span style="color:#6b7280">29 familias</span></td><td>El resto del Anexo VII, en el orden indicativo del Plan de Trabajo 2026-2029. Ese orden dice cuándo se prevé <em>encargar</em> la norma, no cuándo será obligatoria la DdPC</td></tr>
     </tbody>
   </table>
   </div>
+  <div class="callout blue"><strong>Cómo usar esta tabla:</strong> localice su familia. Si está en el primer bloque, su reloj ya corre y la preparación de datos ambientales debería empezar ahora. Si está en el segundo, tiene margen para hacerlo sin prisas. Si está en el tercero, lo sensato es preparar la infraestructura documental sin urgencia — y aprovechar el art. 95.9 si le interesa diferenciarse antes. El Plan de Trabajo se renueva al menos cada tres años y la Comisión informa anualmente, con el primer informe a finales de 2026.</div>
   <div class="callout amber"><strong>Ventana de oportunidad:</strong> entre la publicación de la hTS revisada para una familia y el final del periodo de coexistencia (típicamente ~12 meses) hay un margen estrecho para preparar DdPC digital, EPD/DAP, conexión de cadena y firma. Quien empiece después del DOUE va a contrarreloj. Quien monte la infraestructura ahora tiene margen real.</div>
 </div>
 
@@ -970,6 +1000,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <h3>Arquitectura técnica de firma</h3>
   <p>El flujo completo: captura de datos (ERP/PLM) &rarr; estructuración (machine-readable) &rarr; sellado (hash + timestamp RFC 3161) &rarr; firma cualificada (responsable + sello empresa) &rarr; inmutabilidad (archivo cualificado) &rarr; conservación LTV (renovación automática) &rarr; interoperabilidad (APIs con DPP, BIM, ERP) &rarr; acceso con QR y control de roles.</p>
   <div class="callout amber"><strong>Importante:</strong> el CPR exige que la DdPC esté firmada por una persona facultada del fabricante (Anexo V, campo 12). El uso de firma cualificada (QES), sello, sello de tiempo y archivo cualificado bajo eIDAS 2 <strong>no es obligatorio per se</strong>, pero es <strong>buena práctica recomendable</strong> para reforzar el valor probatorio, la integridad y la conservación a largo plazo, especialmente para validez transfronteriza en los 27 EE.MM.</div>
+
+  <h3>Donde eIDAS 2 ya deja de ser recomendación: el registro del DPP</h3>
+  <p>Hasta julio de 2026 la identidad cualificada era, para la DdPC, una buena práctica. Con el <strong>Reglamento de Ejecución (UE) 2026/1778</strong> deja de serlo en un punto concreto: el registro central del pasaporte digital <strong>solo admite operadores económicos verificados</strong>, y esa verificación se hace con identidad eIDAS.</p>
+  <div class="tbl-wrap">
+  <table class="data-table">
+    <thead><tr><th style="width:32%">Quién</th><th>Qué necesita para operar en el registro</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Persona jurídica (empresa)</strong></td><td><strong>Sello electrónico cualificado</strong> emitido por un prestador de confianza cualificado</td></tr>
+      <tr><td><strong>Empresario individual / autónomo</strong></td><td><strong>Firma electrónica cualificada</strong></td></tr>
+      <tr><td><strong>Vigencia de la verificación</strong></td><td>Hasta <strong>tres años</strong>, renovable</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout green"><strong>Lectura operativa:</strong> el sello cualificado que se recomendaba «por si acaso» para la DdPC es el mismo instrumento que hará falta para existir en el registro europeo del DPP. Resolverlo ahora no es adelantar trabajo: es dejar hecho un trámite que tiene plazos de emisión y una vigencia de tres años. Conviene distinguir además, desde el diseño, cuatro papeles que no son la misma persona ni la misma empresa: <strong>autor jurídico</strong> de la declaración, <strong>firmante</strong> facultado, <strong>operador que publica</strong> y <strong>prestador tecnológico</strong>. La digitalización no traslada la responsabilidad jurídica al proveedor de software: el fabricante sigue siendo quien formula la declaración y responde de su contenido.</div>
 </div>
 
 <!-- 8. FAMILIAS -->
@@ -1359,7 +1403,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <a href="https://eur-lex.europa.eu/eli/reg/2024/1183/oj" target="_blank">eIDAS 2 (UE) 2024/1183</a> &middot;
   <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52025DC0772" target="_blank">Plan de Trabajo COM(2025) 772</a> &middot;
   <a href="https://cirpass2.eu/" target="_blank">CIRPASS-2</a><br>
-  <strong>Guía DdPC Digital</strong> &mdash; v6.0 &middot; act. 24 agosto 2026 &middot; Elaborada por Code Contract S.L.<br>
+  <strong>Guía DdPC Digital</strong> &mdash; v6.1 &middot; act. 24 agosto 2026 &middot; Elaborada por Code Contract S.L.<br>
   <em style="color:#b0b0b0">Nota: este documento no constituye asesoramiento jurídico. Consultar siempre el texto oficial del reglamento y los actos delegados vigentes. El ~65% es una estimación funcional propia de Code Contract, no un porcentaje definido por el Reglamento.</em>
 </div>
 
