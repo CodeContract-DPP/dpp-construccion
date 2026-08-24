@@ -270,6 +270,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .pack-nav a.active { background:#1a1a2e; color:#fff; }
 
 /* NOTAS Y BLOQUE DE RÉGIMEN */
+.section-body .mnote { max-width:none; margin:14px 0 0; }
 .mnote { max-width:1100px; margin:0 auto 18px; padding:14px 18px; border-radius:12px; font-size:13px; line-height:1.55; border-left:4px solid var(--gray); background:#fff; }
 .mnote strong { font-weight:700; }
 .mnote.purple { background:var(--purple-light); border-color:var(--purple); }
@@ -303,7 +304,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <h1>Mapping Trackline &#x2194; DdPC Construcción</h1>
   <p>Correspondencia entre los campos de la Declaración de Prestaciones y Conformidad (Anexo V del CPR 2024/3110) y el flujo de trabajo en Trackline. Cada campo con su documento fuente, proveedor de datos y fase de obligatoriedad. Esta es la vista literal del Anexo V (12 puntos, 54 campos). Para el modelado operativo en 4 bloques temáticos, ver la <a href="02_guia-ddpc-digital.html" style="color:#fff; text-decoration:underline;">Guía DdPC Digital v6.2</a>.</p>
   <div class="reg-badge" style="margin-top:12px;">Trackline by Code Contract &middot; EN 15804+A2 &middot; eIDAS 2</div>
-  <div class="reg-badge" style="margin-top:8px; background:rgba(46,125,79,0.7);">v2.1 &middot; 24 agosto 2026 &middot; alineado con Guía DdPC Digital v6.2 &middot; AVCP 3+ &middot; hTS</div>
+  <div class="reg-badge" style="margin-top:8px; background:rgba(46,125,79,0.7);">v2.2 &middot; 24 agosto 2026 &middot; alineado con Guía DdPC Digital v6.2 &middot; AVCP 3+ &middot; hTS</div>
 </div>
 
 <style>
@@ -482,13 +483,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">1i. Código de declaración, versión y fecha de versión</div><div class="field-desc">Identificador de la propia declaración y su versión. <strong>Va también impreso en el marcado CE</strong>, así que el esquema de códigos deja de ser un asunto interno del fabricante</div></td><td><span class="source-badge src-system">Sistema Trackline</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Generar código</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Versionar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Sincronizar con etiqueta</span></div></td></tr>
       </tbody>
     </table>
+    <div class="mnote amber">
+      <span class="mnote-t">&#x1F3F7;&#xFE0F; El marcado CE también cambia — y apunta a esta declaración</span>
+      Bajo el CPR 2024/3110 la etiqueta lleva: las dos últimas cifras del año de colocación, datos del fabricante y, en su caso, del representante autorizado, el <strong>código único del tipo</strong>, el <strong>código de declaración de la DdPC</strong>, el número del organismo notificado cuando proceda, y un <strong>data carrier conectado al DPP</strong> cuando exista. Parte de esa información puede sustituirse por el data carrier o un permalink a la DdPC si está publicada en web.
+      <div style="margin-top:7px">Consecuencia operativa: el marcado deja de ser una etiqueta que se diseña una vez. Cada cambio de versión de la DdPC obliga a comprobar la coherencia entre <strong>etiqueta, identificador de producto y declaración publicada</strong>. Es el control cruzado que conviene automatizar antes de tener cientos de referencias. Y en la DdPC <strong>solo cabe el marcado CE</strong>: sellos privados y marcas de calidad nacionales quedan fuera del documento.</div>
+    </div>
   </div>
-</div>
-
-<div class="mnote amber">
-  <span class="mnote-t">&#x1F3F7;&#xFE0F; El marcado CE también cambia — y apunta a esta declaración</span>
-  Bajo el CPR 2024/3110 la etiqueta lleva: las dos últimas cifras del año de colocación, datos del fabricante y, en su caso, del representante autorizado, el <strong>código único del tipo</strong>, el <strong>código de declaración de la DdPC</strong>, el número del organismo notificado cuando proceda, y un <strong>data carrier conectado al DPP</strong> cuando exista. Parte de esa información puede sustituirse por el data carrier o un permalink a la DdPC si está publicada en web.
-  <div style="margin-top:7px">Consecuencia operativa: el marcado deja de ser una etiqueta que se diseña una vez. Cada cambio de versión de la DdPC obliga a comprobar la coherencia entre <strong>etiqueta, identificador de producto y declaración publicada</strong>. Es el control cruzado que conviene automatizar antes de tener cientos de referencias. Y en la DdPC <strong>solo cabe el marcado CE</strong>: sellos privados y marcas de calidad nacionales quedan fuera del documento.</div>
 </div>
 
 <!-- ===== PUNTO 2: ENLACES Y DATA CARRIERS ===== -->
@@ -511,17 +511,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">2c. Información general, uso y seguridad</div><div class="field-desc">Instrucciones de uso e información de seguridad conforme al Anexo IV del CPR</div></td><td><span class="source-badge src-datasheet">Ficha técnica</span><span class="source-badge src-system">Manual producto</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Estructurar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Enlazar</span></div></td></tr>
       </tbody>
     </table>
+    <div class="mnote green">
+      <span class="mnote-t">&#x1F510; Para existir en el registro europeo del DPP hace falta identidad eIDAS</span>
+      El Reglamento de Ejecución (UE) 2026/1778 —adoptado el 16-jul-2026, en vigor desde el 6-ago— solo admite <strong>operadores económicos verificados</strong>: <strong>sello electrónico cualificado</strong> para empresas y <strong>firma electrónica cualificada</strong> para empresarios individuales, con verificación válida hasta <strong>tres años</strong>. El sello que se recomendaba «por si acaso» para firmar la DdPC es el mismo que hará falta para registrar pasaportes: resolverlo ahora es adelantar un trámite con plazos de emisión, no trabajo perdido.
+    </div>
+    <div class="mnote blue">
+      <span class="mnote-t">&#x1F465; Cuatro papeles que no son la misma persona</span>
+      Al montar el flujo conviene separar desde el diseño <strong>autor jurídico</strong> de la declaración, <strong>firmante</strong> facultado, <strong>operador que publica</strong> y <strong>prestador tecnológico</strong>. La digitalización no traslada la responsabilidad jurídica al proveedor de software: el fabricante sigue siendo quien formula la declaración y responde de su contenido.
+    </div>
   </div>
-</div>
-
-<div class="mnote green">
-  <span class="mnote-t">&#x1F510; Para existir en el registro europeo del DPP hace falta identidad eIDAS</span>
-  El Reglamento de Ejecución (UE) 2026/1778 —adoptado el 16-jul-2026, en vigor desde el 6-ago— solo admite <strong>operadores económicos verificados</strong>: <strong>sello electrónico cualificado</strong> para empresas y <strong>firma electrónica cualificada</strong> para empresarios individuales, con verificación válida hasta <strong>tres años</strong>. El sello que se recomendaba «por si acaso» para firmar la DdPC es el mismo que hará falta para registrar pasaportes: resolverlo ahora es adelantar un trámite con plazos de emisión, no trabajo perdido.
-</div>
-
-<div class="mnote blue">
-  <span class="mnote-t">&#x1F465; Cuatro papeles que no son la misma persona</span>
-  Al montar el flujo conviene separar desde el diseño <strong>autor jurídico</strong> de la declaración, <strong>firmante</strong> facultado, <strong>operador que publica</strong> y <strong>prestador tecnológico</strong>. La digitalización no traslada la responsabilidad jurídica al proveedor de software: el fabricante sigue siendo quien formula la declaración y responde de su contenido.
 </div>
 
 <!-- ===== PUNTO 3: FABRICANTE ===== -->
@@ -780,7 +778,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ============ FOOTER ============ -->
 <div class="footer">
   <p><strong>Code Contract</strong> &mdash; Certificación digital y servicios de confianza eIDAS</p>
-  <p style="margin-top:6px;">Mapping Trackline &#x2194; DdPC Construcción | Pack DPP Construcción &middot; ago 2026 &middot; mapping v2.1 (alineado con <a href="02_guia-ddpc-digital.html">Guía DdPC Digital v6.2</a>)</p>
+  <p style="margin-top:6px;">Mapping Trackline &#x2194; DdPC Construcción | Pack DPP Construcción &middot; ago 2026 &middot; mapping v2.2 (alineado con <a href="02_guia-ddpc-digital.html">Guía DdPC Digital v6.2</a>)</p>
   <p style="margin-top:4px;"><a href="mailto:eduardo@codecontract.io">eduardo@codecontract.io</a> &middot; <a href="https://codecontract.io">codecontract.io</a> &middot; <a href="https://web.codecontractplattform.com/">Trackline</a></p>
   <p style="margin-top:8px;font-size:11px;opacity:0.6;">Fuentes: CPR (EU) 2024/3110 (Anexo V: DdPC; Anexo IX: sistemas EVCP) &middot; Reg. Delegado 2024/2769 (EVCP 3+, origen) &middot; eIDAS 2 (EU) 2024/1183 &middot; EN 15804+A2<br>Verificado contra: FPS Economy Belgium, EUR-Lex, EPD Guide. Régimen sancionador: lo establecen los Estados miembros (notificación a la Comisión antes del 8-dic-2026) y el art. 92 del CPR aplica desde el 8-ene-2027. El sistema EVCP/AVCP 3+ figura en el Anexo IX del CPR 2024/3110 (sistemas 1+, 1, 2+, 3+, 3, 4); origen histórico en el Reg. Delegado 2024/2769 (que modificó el 305/2011). Primeros actos delegados del 2024/3110 ya publicados: Reg. (UE) 2026/331 (reacción al fuego) y 2026/557 (resistencia al fuego). No constituye asesoramiento jurídico.</p>
 </div>
