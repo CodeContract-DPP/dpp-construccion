@@ -449,6 +449,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .section li { font-size:13.5px; color:#374151; margin:5px 0; }
 .lead { font-size:14.5px !important; color:#4b5563 !important; }
 
+/* Secciones 5, 8 y 13 reconvertidas al patrón común */
+.section .impl-timeline-note { margin-top:14px; padding-top:12px; border-top:1px solid #f3f4f6;
+  font-size:11.5px; color:var(--gray); text-align:left; line-height:1.5; }
+.section .families-grid { margin-top:12px; }
+.faq-flush { border:none !important; box-shadow:none !important; border-radius:0 !important; margin-top:10px; }
+.faq-flush .faq-q { padding:14px 0; }
+.faq-flush .faq-a { padding:0 0 14px 30px; }
+.faq-flush .faq-item:first-child { border-top:1px solid #f3f4f6; }
+
 .data-table { width:100%; border-collapse:collapse; font-size:12px; margin:12px 0; }
 .data-table th { background:#f8fafc; text-align:left; padding:9px 10px; font-weight:700;
   color:var(--gray); border-bottom:2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:.03em; }
@@ -603,7 +612,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <p>Alineada con el CPR 2024/3110, ESPR 2024/1781, Reg. Delegado 2024/2769 (EVCP 3+), eIDAS 2 (UE 2024/1183), el Plan de Trabajo CPR 2026-2029 (COM(2025) 772 final) el Reglamento de Ejecución (UE) 2026/1778 del registro central del DPP, el Reglamento Delegado (UE) 2026/52 (EPBD) y el estado real de la normalización a agosto de 2026.</p>
     </div>
     <div class="doc-status-version">
-      <strong>v6.2</strong>
+      <strong>v6.3</strong>
       24 agosto 2026
     </div>
   </div>
@@ -966,9 +975,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 </div>
 
 <!-- 5. CALENDARIO -->
-<div class="impl-timeline" id="calendario">
-  <div class="impl-timeline-box">
-    <h3>5. Calendario de obligaciones de la DdPC</h3>
+<div class="section" id="calendario">
+  <h2><span class="sec-num">5</span> Calendario de obligaciones de la DdPC</h2>
+  <div class="tbl-wrap">
     <table class="tl-table">
       <thead><tr><th>Fecha</th><th>Hito</th><th>Estado</th></tr></thead>
       <tbody>
@@ -985,18 +994,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr><td class="tl-date-cell" style="color:#7c3aed">1 ene 2028</td><td><div class="tl-milestone">GWP obligatorio en edificios nuevos &gt;1.000 m&#178; en España (CTE DB-HSA)</div><div class="tl-publisher">Factor de corrección fc que premia DAP/EPD verificadas frente a datos genéricos (pendiente texto definitivo)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#7c3aed">9 ene 2030</td><td><div class="tl-milestone">Fase 2 Anexo II: indicadores ambientales e-m obligatorios</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#7c3aed">9 ene 2031</td><td><div class="tl-milestone">Los EAD citados bajo el 305/2011 dejan de poder usarse para emitir ETA</div><div class="tl-publisher">Fecha según análisis de organismos técnicos (DIBt); puede variar en función de la citación en el DOUE</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
-        <tr><td class="tl-date-cell" style="color:#7c3aed">9 ene 2036</td><td><div class="tl-milestone">Una ETA basada en un EAD del 305/2011 deja de servir como base para DdP y marcado CE</div><div class="tl-publisher">Ventana transitoria de unos diez años. La conversión de solicitudes de EAD pendientes al nuevo marco es gratuita (art. 95.6)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#7c3aed">9 ene 2032</td><td><div class="tl-milestone">Fase 3: declaración ambiental completa (19 indicadores a-s)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
+        <tr><td class="tl-date-cell" style="color:#7c3aed">9 ene 2036</td><td><div class="tl-milestone">Una ETA basada en un EAD del 305/2011 deja de servir como base para DdP y marcado CE</div><div class="tl-publisher">Ventana transitoria de unos diez años. La conversión de solicitudes de EAD pendientes al nuevo marco es gratuita (art. 95.6)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
         <tr><td class="tl-date-cell" style="color:#7c3aed">8 ene 2040</td><td><div class="tl-milestone">Fin del periodo de coexistencia: se derogan los últimos artículos del 305/2011 (art. 94)</div></td><td><span class="tl-status-badge tl-future">Futuro</span></td></tr>
       </tbody>
     </table>
-    <div class="impl-timeline-note">
-      Las fechas del Anexo II (fases ambientales) son fijas en el reglamento. La obligación de DPP depende de actos delegados que la Comisión publicará progresivamente.
-    </div>
   </div>
-</div>
+  <div class="impl-timeline-note">
+    Las fechas del Anexo II (fases ambientales) son fijas en el reglamento. La obligación de DPP depende de actos delegados que la Comisión publicará progresivamente.
+  </div>
 
-<div class="section">
   <h3>Estado del ecosistema de normas armonizadas (a agosto 2026)</h3>
   <p>A día de hoy prácticamente todas las normas vigentes son las hEN heredadas del 305/2011, y <strong>ninguna familia tiene todavía la DdPC obligatoria</strong>: no se ha citado aún ninguna hTS revisada bajo el nuevo marco. Lo que sí existe es trabajo de normalización en marcha — el paso previo. A agosto de 2026, siete de las 36 familias se han movido:</p>
   <div class="tbl-wrap">
@@ -1095,9 +1102,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 </div>
 
 <!-- 8. FAMILIAS -->
-<div class="families-box" id="familias">
-  <div class="families">
-    <h3>8. Guía rápida por familia de producto</h3>
+<div class="section" id="familias">
+  <h2><span class="sec-num">8</span> Guía rápida por familia de producto</h2>
     <p>La fase indica cuándo se espera la hTS revisada bajo el nuevo CPR, según el Plan de Trabajo CPR 2026-2029. Haz clic en cada familia para ver el detalle.</p>
     <div class="families-grid">
 
@@ -1259,7 +1265,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="impl-timeline-note">
       <strong>Régimen transitorio:</strong> mientras la Comisión no publique la hTS revisada para una familia, el fabricante sigue operando bajo el 305/2011 con DdP. Pero la DdPC para las familias de Fase 1 es inminente. Quien prepare su infraestructura digital ahora podrá reutilizarla para las fases siguientes.
     </div>
-  </div>
 </div>
 
 <!-- 9. 10 PASOS -->
@@ -1380,9 +1385,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 </div>
 
 <!-- 13. FAQ -->
-<div class="faq-box" id="faq">
-  <div class="faq">
-    <div class="faq-title">&#x2753; Preguntas frecuentes sobre la DdPC</div>
+<div class="section" id="faq">
+  <h2><span class="sec-num">13</span> Preguntas frecuentes sobre la DdPC</h2>
+  <div class="faq faq-flush">
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-icon">&#x1F4AC;</span> &iquest;Es obligatoria ya la DdPC? <span class="faq-chevron">&#x25BE;</span></div>
@@ -1491,7 +1496,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <a href="https://eur-lex.europa.eu/eli/reg/2024/1183/oj" target="_blank">eIDAS 2 (UE) 2024/1183</a> &middot;
   <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52025DC0772" target="_blank">Plan de Trabajo COM(2025) 772</a> &middot;
   <a href="https://cirpass2.eu/" target="_blank">CIRPASS-2</a><br>
-  <strong>Guía DdPC Digital</strong> &mdash; v6.2 &middot; act. 24 agosto 2026 &middot; Elaborada por Code Contract S.L.<br>
+  <strong>Guía DdPC Digital</strong> &mdash; v6.3 &middot; act. 24 agosto 2026 &middot; Elaborada por Code Contract S.L.<br>
   <em style="color:#b0b0b0">Nota: este documento no constituye asesoramiento jurídico. Consultar siempre el texto oficial del reglamento y los actos delegados vigentes. El ~65% es una estimación funcional propia de Code Contract, no un porcentaje definido por el Reglamento.</em>
 </div>
 
