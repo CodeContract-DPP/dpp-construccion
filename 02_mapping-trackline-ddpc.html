@@ -268,19 +268,42 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .pack-nav a { font-size:13px; font-weight:600; color:#475569; text-decoration:none; padding:6px 14px; border-radius:8px; }
 .pack-nav a:hover { background:#f1f5f9; }
 .pack-nav a.active { background:#1a1a2e; color:#fff; }
+
+/* NOTAS Y BLOQUE DE RÉGIMEN */
+.mnote { max-width:1100px; margin:0 auto 18px; padding:14px 18px; border-radius:12px; font-size:13px; line-height:1.55; border-left:4px solid var(--gray); background:#fff; }
+.mnote strong { font-weight:700; }
+.mnote.purple { background:var(--purple-light); border-color:var(--purple); }
+.mnote.amber  { background:var(--amber-light);  border-color:var(--amber); }
+.mnote.blue   { background:var(--blue-light);   border-color:var(--blue); }
+.mnote.green  { background:var(--green-light);  border-color:var(--green); }
+.mnote .mnote-t { display:block; font-weight:800; color:var(--dark); margin-bottom:5px; font-size:13.5px; }
+.regimen { max-width:1100px; margin:0 auto 20px; padding:0 20px; }
+.regimen-box { background:#fff; border:1px solid var(--border); border-radius:14px; padding:18px 20px; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+.regimen-box h3 { font-size:15px; font-weight:800; color:var(--dark); margin-bottom:4px; }
+.regimen-box .sub { font-size:12px; color:var(--gray); margin-bottom:12px; }
+.chain { display:flex; gap:6px; flex-wrap:wrap; align-items:stretch; margin-bottom:12px; }
+.chain-i { flex:1; min-width:150px; border:1.5px solid var(--border); background:#f8fafc; border-radius:10px; padding:8px 10px; }
+.chain-i.on { border-color:var(--amber); background:var(--amber-light); }
+.chain-i.here { border-color:var(--blue); background:var(--blue-light); }
+.chain-i.end { border-color:var(--purple); background:var(--purple-light); }
+.chain-i .k { font-size:9.5px; font-weight:800; letter-spacing:.08em; color:var(--gray); text-transform:uppercase; }
+.chain-i .v { font-size:12px; font-weight:700; color:var(--dark); line-height:1.3; margin-top:2px; }
+.chain-i .w { font-size:10.5px; color:var(--gray); line-height:1.35; margin-top:3px; }
+.chain-code { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:11.5px; background:#0f172a; color:#e2e8f0; padding:9px 12px; border-radius:8px; line-height:1.7; overflow-x:auto; }
+@media (max-width:700px){ .chain { flex-direction:column; } }
 </style>
 </head>
 <body>
 
 <!-- ============ HEADER ============ -->
 <div class="header">
-  <div class="reg-badge urgent-badge">CPR aplicable desde 8 enero 2026</div>
-  <div class="reg-badge">DdPC exigible progresivamente por familia, conforme a las nuevas hTS / especificaciones aplicables</div>
+  <div class="reg-badge urgent-badge">La DdPC se activa familia a familia, no por calendario (art. 95)</div>
+  <div class="reg-badge">A agosto de 2026 ninguna familia la tiene todavía obligatoria &middot; 3 solicitudes de normalización adoptadas y 4 en preparación</div>
   <div class="reg-badge">CPR 2024/3110 &middot; Anexo V</div>
   <h1>Mapping Trackline &#x2194; DdPC Construcción</h1>
-  <p>Correspondencia entre los campos de la Declaración de Prestaciones y Conformidad (Anexo V del CPR 2024/3110) y el flujo de trabajo en Trackline. Cada campo con su documento fuente, proveedor de datos y fase de obligatoriedad. Esta es la vista literal del Anexo V (12 puntos, 53 campos). Para el modelado operativo en 4 bloques temáticos, ver la <a href="02_guia-ddpc-digital.html" style="color:#fff; text-decoration:underline;">Guía DdPC Digital v5</a>.</p>
+  <p>Correspondencia entre los campos de la Declaración de Prestaciones y Conformidad (Anexo V del CPR 2024/3110) y el flujo de trabajo en Trackline. Cada campo con su documento fuente, proveedor de datos y fase de obligatoriedad. Esta es la vista literal del Anexo V (12 puntos, 54 campos). Para el modelado operativo en 4 bloques temáticos, ver la <a href="02_guia-ddpc-digital.html" style="color:#fff; text-decoration:underline;">Guía DdPC Digital v6.2</a>.</p>
   <div class="reg-badge" style="margin-top:12px;">Trackline by Code Contract &middot; EN 15804+A2 &middot; eIDAS 2</div>
-  <div class="reg-badge" style="margin-top:8px; background:rgba(46,125,79,0.7);">v2.0 &middot; alineado con Guía DdPC Digital v5 &middot; EVCP 3+ &middot; hTS</div>
+  <div class="reg-badge" style="margin-top:8px; background:rgba(46,125,79,0.7);">v2.1 &middot; 24 agosto 2026 &middot; alineado con Guía DdPC Digital v6.2 &middot; AVCP 3+ &middot; hTS</div>
 </div>
 
 <style>
@@ -324,6 +347,27 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <a href="03_guia-epd-construccion.html">Guía</a>
     <a href="03_mapping-trackline-epd.html">Mapping</a>
   </span>
+</div>
+
+<!-- ============ RÉGIMEN DOCUMENTAL (art. 95) ============ -->
+<div class="regimen">
+  <div class="regimen-box">
+    <h3>&#x26A0;&#xFE0F; Antes de mapear nada: compruebe qué documento le toca emitir</h3>
+    <div class="sub">Este mapping describe la DdPC. Pero la DdPC no sustituye a la DdP en una fecha: la sustituye <strong>familia a familia</strong>, según el art. 95 del CPR 2024/3110.</div>
+    <div class="chain">
+      <div class="chain-i on"><div class="k">Paso 1</div><div class="v">Solicitud de normalización adoptada</div><div class="w">Familias 1, 20 y 15 están aquí hoy</div></div>
+      <div class="chain-i"><div class="k">Paso 2</div><div class="v">hTS revisada publicada</div><div class="w">CEN elabora y publica</div></div>
+      <div class="chain-i here"><div class="k">Paso 3</div><div class="v">Acto de ejecución la hace obligatoria</div><div class="w">Citación en el DOUE (art. 5.8). Ninguna todavía</div></div>
+      <div class="chain-i"><div class="k">Paso 4</div><div class="v">Coexistencia mínima de 1 año</div><div class="w">Conviven DdP y DdPC</div></div>
+      <div class="chain-i end"><div class="k">Paso 5</div><div class="v">DdPC obligatoria</div><div class="w">Solo para esa familia</div></div>
+    </div>
+    <div class="chain-code">producto &rarr; familia/categoría &rarr; uso previsto &rarr; especificación aplicable &rarr; acto de ejecución &rarr; fecha de aplicación &rarr; <strong style="color:#fbbf24">régimen documental</strong></div>
+  </div>
+</div>
+
+<div class="mnote purple">
+  <span class="mnote-t">Ninguna regla del tipo «fecha &ge; 8-ene-2026 &rArr; DdPC» es válida</span>
+  Mientras el producto siga cubierto por una hEN heredada del 305/2011, el documento legal es la <strong>DdP</strong>. Emitir una DdPC antes de tiempo produce incoherencias entre evaluación, marcado y declaración, y es tan reprochable como no emitir la que corresponde. El <strong>art. 95.9</strong> sí permite adoptarla <strong>voluntariamente y antes</strong> — y ahí está la ventaja: usar este mapping para llegar preparado, no a contrarreloj.
 </div>
 
 <!-- ============ ACTORS MAP ============ -->
@@ -383,7 +427,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
 <!-- ============ STATS ============ -->
 <div class="stats-bar">
-  <div class="stat-card"><div class="stat-num" style="color:var(--dark)">53</div><div class="stat-label">Campos DdPC totales</div></div>
+  <div class="stat-card"><div class="stat-num" style="color:var(--dark)">54</div><div class="stat-label">Campos DdPC totales</div></div>
   <div class="stat-card"><div class="stat-num" style="color:var(--green)">12</div><div class="stat-label">Puntos Anexo V</div></div>
   <div class="stat-card"><div class="stat-num" style="color:var(--amber)">6</div><div class="stat-label">Tipos de proveedor</div></div>
   <div class="stat-card"><div class="stat-num" style="color:var(--red)">3</div><div class="stat-label">Fases ambientales</div></div>
@@ -418,9 +462,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="section-icon" style="background:var(--blue)">&#x1F3F7;</div>
     <div class="section-info">
       <h2>Punto 1 &mdash; Descripción del producto</h2>
-      <p>Identificación única, tipo, uso previsto, dimensiones, partes clave, vida util, variantes</p>
+      <p>Identificación única, tipo, uso previsto, dimensiones, partes clave, vida util, variantes, código de declaración</p>
     </div>
-    <span class="section-count">8 campos</span>
+    <span class="section-count">9 campos</span>
     <span class="section-chevron">&#x25BE;</span>
   </div>
   <div class="section-body">
@@ -435,9 +479,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">1f. Vida util estimada</div><div class="field-desc">Durabilidad estimada para el uso declarado (años)</div></td><td><span class="source-badge src-epd">DAP/EPD</span><span class="source-badge src-datasheet">Ficha técnica</span></td><td><span class="prov-badge prov-fab">Fabricante</span><span class="prov-badge prov-lca">Consultor ACV</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Extraer</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">1g. Variantes</div><div class="field-desc">Variantes del producto y sus descripciones, si las hay</div></td><td><span class="source-badge src-erp">ERP / Catalogo</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Clasificar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">1h. Info de desinstalación</div><div class="field-desc">Si el producto fue previamente instalado: fecha y lugar de desinstalación</div></td><td><span class="source-badge src-system">Acta desinstalación</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Registrar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Verificar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
+        <tr data-prov="fab" data-phase="now"><td><div class="field-name">1i. Código de declaración, versión y fecha de versión</div><div class="field-desc">Identificador de la propia declaración y su versión. <strong>Va también impreso en el marcado CE</strong>, así que el esquema de códigos deja de ser un asunto interno del fabricante</div></td><td><span class="source-badge src-system">Sistema Trackline</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Generar código</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Versionar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Sincronizar con etiqueta</span></div></td></tr>
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="mnote amber">
+  <span class="mnote-t">&#x1F3F7;&#xFE0F; El marcado CE también cambia — y apunta a esta declaración</span>
+  Bajo el CPR 2024/3110 la etiqueta lleva: las dos últimas cifras del año de colocación, datos del fabricante y, en su caso, del representante autorizado, el <strong>código único del tipo</strong>, el <strong>código de declaración de la DdPC</strong>, el número del organismo notificado cuando proceda, y un <strong>data carrier conectado al DPP</strong> cuando exista. Parte de esa información puede sustituirse por el data carrier o un permalink a la DdPC si está publicada en web.
+  <div style="margin-top:7px">Consecuencia operativa: el marcado deja de ser una etiqueta que se diseña una vez. Cada cambio de versión de la DdPC obliga a comprobar la coherencia entre <strong>etiqueta, identificador de producto y declaración publicada</strong>. Es el control cruzado que conviene automatizar antes de tener cientos de referencias. Y en la DdPC <strong>solo cabe el marcado CE</strong>: sellos privados y marcas de calidad nacionales quedan fuera del documento.</div>
 </div>
 
 <!-- ===== PUNTO 2: ENLACES Y DATA CARRIERS ===== -->
@@ -455,12 +506,22 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <table class="map-table">
       <thead><tr><th>Campo DdPC (Anexo V)</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
       <tbody>
-        <tr data-prov="fab" data-phase="now"><td><div class="field-name">2a. Registros en bases de datos UE</div><div class="field-desc">Registros del producto en bases de datos de la UE, si aplica</div></td><td><span class="source-badge src-system">Registros UE</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar registros</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Enlazar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
+        <tr data-prov="fab" data-phase="now"><td><div class="field-name">2a. Registros en bases de datos UE</div><div class="field-desc">Registros del producto en bases de datos de la UE, si aplica. El <strong>registro central del DPP</strong> está operativo desde el 20-jul-2026 (Reg. de Ejecución UE 2026/1778), pero para construcción <strong>aún no hay obligación de registrar</strong>: depende del acto delegado del art. 75</div></td><td><span class="source-badge src-system">Registros UE</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar registros</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Enlazar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
         <tr data-prov="supplier" data-phase="now"><td><div class="field-name">2b. Información REACH</div><div class="field-desc">Información conforme al Reglamento 1907/2006: FDS (art. 31), SVHC (art. 33). Vía enlace permanente</div></td><td><span class="source-badge src-reach">Declaración REACH</span><span class="source-badge src-reach">FDS / SVHC</span></td><td><span class="prov-badge prov-fab">Fabricante</span><span class="prov-badge prov-supplier">Proveedores</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar a proveedores</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Cruzar SVHC</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Enlazar</span></div></td></tr>
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">2c. Información general, uso y seguridad</div><div class="field-desc">Instrucciones de uso e información de seguridad conforme al Anexo IV del CPR</div></td><td><span class="source-badge src-datasheet">Ficha técnica</span><span class="source-badge src-system">Manual producto</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Estructurar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Enlazar</span></div></td></tr>
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="mnote green">
+  <span class="mnote-t">&#x1F510; Para existir en el registro europeo del DPP hace falta identidad eIDAS</span>
+  El Reglamento de Ejecución (UE) 2026/1778 —adoptado el 16-jul-2026, en vigor desde el 6-ago— solo admite <strong>operadores económicos verificados</strong>: <strong>sello electrónico cualificado</strong> para empresas y <strong>firma electrónica cualificada</strong> para empresarios individuales, con verificación válida hasta <strong>tres años</strong>. El sello que se recomendaba «por si acaso» para firmar la DdPC es el mismo que hará falta para registrar pasaportes: resolverlo ahora es adelantar un trámite con plazos de emisión, no trabajo perdido.
+</div>
+
+<div class="mnote blue">
+  <span class="mnote-t">&#x1F465; Cuatro papeles que no son la misma persona</span>
+  Al montar el flujo conviene separar desde el diseño <strong>autor jurídico</strong> de la declaración, <strong>firmante</strong> facultado, <strong>operador que publica</strong> y <strong>prestador tecnológico</strong>. La digitalización no traslada la responsabilidad jurídica al proveedor de software: el fabricante sigue siendo quien formula la declaración y responde de su contenido.
 </div>
 
 <!-- ===== PUNTO 3: FABRICANTE ===== -->
@@ -610,7 +671,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="section-icon" style="background:var(--green)">&#x1F33F;</div>
     <div class="section-info">
       <h2>Punto 9 &mdash; Prestaciones declaradas y sostenibilidad ambiental</h2>
-      <p>Caracteristicas esenciales, valores declarados, indicadores ambientales Anexo II (3 fases), software Comisión</p>
+      <p>Caracteristicas esenciales, valores declarados, indicadores ambientales Anexo II (3 fases), software de la Comisión (art. 15.2)</p>
     </div>
     <span class="section-count">10 campos</span>
     <span class="section-chevron">&#x25BE;</span>
@@ -620,7 +681,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <thead><tr><th>Campo DdPC (Anexo V)</th><th>Fuente / evidencia</th><th>Responsable</th><th>Flujo Trackline</th></tr></thead>
       <tbody>
         <tr data-prov="on" data-phase="now"><td><div class="field-name">9a. Caracteristicas esenciales declaradas</div><div class="field-desc">Lista de características esenciales según hTS/EAD para las que se declara prestación</div></td><td><span class="source-badge src-dopc">hTS / EAD</span><span class="source-badge src-lab">Informes ensayo</span></td><td><span class="prov-badge prov-fab">Fabricante</span><span class="prov-badge prov-on">Lab / ON</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar ensayos</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Extraer valores</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
-        <tr data-prov="on" data-phase="now"><td><div class="field-name">9b. Valores, niveles o clases declarados</div><div class="field-desc">Prestaciones en la propia DdPC (no en documentos aparte). &quot;NPD&quot; si no se declara</div></td><td><span class="source-badge src-lab">Informes ensayo</span><span class="source-badge src-on">Certificado ON</span></td><td><span class="prov-badge prov-on">Lab / ON</span><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Extraer de ensayo</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Validar vs hTS</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Incluir en DdPC</span></div></td></tr>
+        <tr data-prov="on" data-phase="now"><td><div class="field-name">9b. Valores, niveles o clases declarados</div><div class="field-desc">Prestaciones en la propia DdPC (no en documentos aparte). <strong>&quot;NULO&quot; / NPD solo cabe</strong> si la característica no es relevante para el uso previsto y ninguna norma ni umbral obliga a declararla — nunca para tapar un ensayo que falta</div></td><td><span class="source-badge src-lab">Informes ensayo</span><span class="source-badge src-on">Certificado ON</span></td><td><span class="prov-badge prov-on">Lab / ON</span><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Extraer de ensayo</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Validar vs hTS</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Incluir en DdPC</span></div></td></tr>
         <tr data-prov="lca" data-phase="now"><td><div class="field-name">9c-1. GWP-total</div><div class="field-desc">Potencial de calentamiento global total (kg CO2 eq, A1-A3) <span class="phase-badge phase-now">FASE 1 &mdash; 2026</span></div></td><td><span class="source-badge src-epd">DAP/EPD</span><span class="source-badge src-lab">Informe ACV</span></td><td><span class="prov-badge prov-lca">Consultor ACV</span><span class="prov-badge prov-on">ON (EVCP 3+)</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar DAP</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Extraer GWP</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Validar</span></div></td></tr>
         <tr data-prov="lca" data-phase="now"><td><div class="field-name">9c-2. GWP-fossil</div><div class="field-desc">GWP de origen fósil (kg CO2 eq) <span class="phase-badge phase-now">FASE 1 &mdash; 2026</span></div></td><td><span class="source-badge src-epd">DAP/EPD</span></td><td><span class="prov-badge prov-lca">Consultor ACV</span></td><td><div class="tl-workflow"><span class="tl-step">Extraer de DAP</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
         <tr data-prov="lca" data-phase="now"><td><div class="field-name">9c-3. GWP-biogenic</div><div class="field-desc">GWP de origen biogénico (kg CO2 eq) <span class="phase-badge phase-now">FASE 1 &mdash; 2026</span></div></td><td><span class="source-badge src-epd">DAP/EPD</span></td><td><span class="prov-badge prov-lca">Consultor ACV</span></td><td><div class="tl-workflow"><span class="tl-step">Extraer de DAP</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
@@ -628,7 +689,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr data-prov="lca" data-phase="2030"><td><div class="field-name">9c-5. Indicadores Fase 2 (e-m)</div><div class="field-desc">ODP, AP, EP (3), POCP, ADP-min, ADP-fos, WDP <span class="phase-badge phase-2030">FASE 2 &mdash; 2030</span></div></td><td><span class="source-badge src-epd">DAP/EPD</span></td><td><span class="prov-badge prov-lca">Consultor ACV</span><span class="prov-badge prov-on">ON (EVCP 3+)</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar DAP</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Extraer 9 indicadores</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Validar</span></div></td></tr>
         <tr data-prov="lca" data-phase="2032"><td><div class="field-name">9c-6. Indicadores Fase 3 (n-s)</div><div class="field-desc">PM, IRP, ETP-fw, HTP-c, HTP-nc, SQP <span class="phase-badge phase-2032">FASE 3 &mdash; 2032</span></div></td><td><span class="source-badge src-epd">DAP/EPD</span></td><td><span class="prov-badge prov-lca">Consultor ACV</span><span class="prov-badge prov-on">ON (EVCP 3+)</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar DAP</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Extraer 6 indicadores</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Validar</span></div></td></tr>
         <tr data-prov="lca" data-phase="now"><td><div class="field-name">9c-7. Módulos ACV declarados</div><div class="field-desc">Módulos del ciclo de vida cubiertos: A1-A3 (obligatorio), A4, A5, B1-B7, C1-C4, D</div></td><td><span class="source-badge src-epd">DAP/EPD</span></td><td><span class="prov-badge prov-lca">Consultor ACV</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar módulos</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
-        <tr data-prov="fab" data-phase="now"><td><div class="field-name">9d. Software de calculo ambiental</div><div class="field-desc">Referencia al software proporcionado por la Comisión para el calculo de indicadores</div></td><td><span class="source-badge src-system">Comisión Europea</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Registrar referencia</span></div></td></tr>
+        <tr data-prov="fab" data-phase="now"><td><div class="field-name">9d. Software de calculo ambiental (art. 15.2)</div><div class="field-desc">El cálculo debe hacerse <strong>con el software gratuito que publique la Comisión</strong>, e <strong>incluye el embalaje</strong>. Sus actualizaciones son voluntarias desde su publicación y <strong>obligatorias un año después</strong>. Hay que declarar la versión empleada. <strong>Una DAP/EPD EN 15804+A2 no basta por sí sola</strong>: es el insumo, no el resultado</div></td><td><span class="source-badge src-system">Comisión Europea</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Registrar referencia</span></div></td></tr>
       </tbody>
     </table>
   </div>
@@ -652,7 +713,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">10a. Requisitos de producto aplicables</div><div class="field-desc">Requisitos según hTS + sistema EVCP aplicable (1+, 1, 2+, 3, 3+, 4)</div></td><td><span class="source-badge src-dopc">hTS</span><span class="source-badge src-on">Certificado ON</span></td><td><span class="prov-badge prov-fab">Fabricante</span><span class="prov-badge prov-on">Lab / ON</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar sistema</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Verificar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">10b. Normas voluntarias aplicadas</div><div class="field-desc">Referencia a norma armonizada voluntaria o especificación común, con fecha de emisión</div></td><td><span class="source-badge src-dopc">Norma voluntaria</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Registrar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">10c. Prestación en términos de requisitos de producto</div><div class="field-desc">Info adicional sobre cumplimiento de requisitos del art. 7: durabilidad, reciclabilidad, contenido reciclado, reparabilidad</div></td><td><span class="source-badge src-datasheet">Ficha técnica</span><span class="source-badge src-erp">I+D / Producción</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar evidencia</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Estructurar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
-        <tr data-prov="fab" data-phase="now"><td><div class="field-name">10d. Sistema EVCP 3+ aplicable</div><div class="field-desc">Indicación de que las características ambientales se verifican bajo sistema EVCP 3+ (Anexo IX del CPR 2024/3110; origen Reg. Delegado 2024/2769)</div></td><td><span class="source-badge src-on">Informe EVCP 3+</span></td><td><span class="prov-badge prov-on">ON (EVCP 3+)</span></td><td><div class="tl-workflow"><span class="tl-step">Verificar sistema</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Registrar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Enlazar informe</span></div></td></tr>
+        <tr data-prov="fab" data-phase="now"><td><div class="field-name">10d. Sistema EVCP 3+ aplicable</div><div class="field-desc">Las características ambientales se verifican bajo sistema EVCP/AVCP 3+ (Anexo IX del CPR 2024/3110; origen Reg. Delegado 2024/2769). El organismo notificado <strong>no ensaya</strong>: valida el modelo ACV y el <strong>software de modelización</strong>. Certificados software y procedimiento, el fabricante queda habilitado para declarar internamente los indicadores de su catálogo con validez legal</div></td><td><span class="source-badge src-on">Informe EVCP 3+</span></td><td><span class="prov-badge prov-on">ON (EVCP 3+)</span></td><td><div class="tl-workflow"><span class="tl-step">Verificar sistema</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Registrar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Enlazar informe</span></div></td></tr>
       </tbody>
     </table>
   </div>
@@ -699,7 +760,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">12a. Nombre y función del firmante</div><div class="field-desc">Persona responsable que firma en nombre del fabricante</div></td><td><span class="source-badge src-system">Dirección</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Identificar firmante</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Verificar autorización</span></div></td></tr>
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">12b. Lugar y fecha de emisión</div><div class="field-desc">Localidad y fecha de la declaración</div></td><td><span class="source-badge src-system">Sistema Trackline</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Auto-generado</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Timestamp ISO 8601</span></div></td></tr>
         <tr data-prov="fab" data-phase="now"><td><div class="field-name">12c. Firma del representante autorizado</div><div class="field-desc">Firma de persona facultada del fabricante (obligatorio por Anexo V). QES eIDAS 2 + sello electrónico cualificado: buena práctica recomendable, no exigida por el CPR.</div></td><td><span class="source-badge src-system">QTSP eIDAS</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Solicitar firma</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Firmar QES</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Sellar empresa</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Timestamp RFC 3161</span></div></td></tr>
-        <tr data-prov="fab" data-phase="now"><td><div class="field-name">12d. Conservación 10+ años</div><div class="field-desc">El CPR exige conservar la DdPC 10 años. Servicio cualificado de archivo electrónico eIDAS 2 con LTV y SLA 99,9%: buena práctica recomendable.</div></td><td><span class="source-badge src-system">Archivo eIDAS</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Archivar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">LTV automático</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Disponibilidad 99,9%</span></div></td></tr>
+        <tr data-prov="fab" data-phase="now"><td><div class="field-name">12d. Conservación y disponibilidad</div><div class="field-desc"><strong>10 años desde el suministro</strong> (art. 20), con <strong>10 días</strong> para presentar la documentación a la autoridad que la solicite. El sistema del DPP apunta más lejos: lecturas del art. 76 sitúan la disponibilidad en <strong>25 años tras la última comercialización del tipo</strong>. Calcule la retención <strong>por producto tipo y última fecha de suministro</strong>, no «10 años desde que se creó el PDF». Archivo cualificado eIDAS 2 con LTV: buena práctica recomendable.</div></td><td><span class="source-badge src-system">Archivo eIDAS</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Archivar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">LTV automático</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Disponibilidad 99,9%</span></div></td></tr>
       </tbody>
     </table>
   </div>
@@ -710,7 +771,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ============ CTA ============ -->
 <div class="cta-box">
   <div class="cta-inner">
-    <h3>53 campos. 6 actores. 1 plataforma.</h3>
+    <h3>54 campos. 6 actores. 1 plataforma.</h3>
     <p>Trackline orquesta todo el flujo de datos de la DdPC: solicita, recibe, extrae, valida, firma y archiva. Con trazabilidad completa y preparado para el DPP.</p>
     <a class="cta-btn" href="mailto:eduardo@codecontract.io?subject=Demo%20Trackline%20DdPC">Solicitar demo de 20 minutos</a>
   </div>
@@ -719,7 +780,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ============ FOOTER ============ -->
 <div class="footer">
   <p><strong>Code Contract</strong> &mdash; Certificación digital y servicios de confianza eIDAS</p>
-  <p style="margin-top:6px;">Mapping Trackline &#x2194; DdPC Construcción | Pack DPP Construcción &middot; jun 2026 &middot; mapping v2.0 (alineado con <a href="02_guia-ddpc-digital.html">Guía DdPC Digital v5</a>)</p>
+  <p style="margin-top:6px;">Mapping Trackline &#x2194; DdPC Construcción | Pack DPP Construcción &middot; ago 2026 &middot; mapping v2.1 (alineado con <a href="02_guia-ddpc-digital.html">Guía DdPC Digital v6.2</a>)</p>
   <p style="margin-top:4px;"><a href="mailto:eduardo@codecontract.io">eduardo@codecontract.io</a> &middot; <a href="https://codecontract.io">codecontract.io</a> &middot; <a href="https://web.codecontractplattform.com/">Trackline</a></p>
   <p style="margin-top:8px;font-size:11px;opacity:0.6;">Fuentes: CPR (EU) 2024/3110 (Anexo V: DdPC; Anexo IX: sistemas EVCP) &middot; Reg. Delegado 2024/2769 (EVCP 3+, origen) &middot; eIDAS 2 (EU) 2024/1183 &middot; EN 15804+A2<br>Verificado contra: FPS Economy Belgium, EUR-Lex, EPD Guide. Régimen sancionador: lo establecen los Estados miembros (notificación a la Comisión antes del 8-dic-2026) y el art. 92 del CPR aplica desde el 8-ene-2027. El sistema EVCP/AVCP 3+ figura en el Anexo IX del CPR 2024/3110 (sistemas 1+, 1, 2+, 3+, 3, 4); origen histórico en el Reg. Delegado 2024/2769 (que modificó el 305/2011). Primeros actos delegados del 2024/3110 ya publicados: Reg. (UE) 2026/331 (reacción al fuego) y 2026/557 (resistencia al fuego). No constituye asesoramiento jurídico.</p>
 </div>
