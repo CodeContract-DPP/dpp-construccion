@@ -401,7 +401,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="section-icon" style="background:var(--amber)">&#x1F3D7;</div>
     <div class="section-info">
       <h2>Prestaciones CPR (Declaración de Prestaciones)</h2>
-      <p>DoPC, marcado CE, prestaciones declaradas según norma armonizada, organismo notificado</p>
+      <p>DoPC, marcado CE, prestaciones declaradas según norma armonizada, organismo notificado. Hoy casi todos los productos siguen con la DdP del 305/2011: los mismos campos valen para ambas</p>
     </div>
     <span class="section-count">12 campos</span>
     <span class="section-chevron">&#x25BE;</span>
@@ -571,7 +571,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="section-icon" style="background:#94a3b8">&#x1F3DB;</div>
     <div class="section-info">
       <h2>Registro DPP (Art. 79 CPR &middot; Art. 13 ESPR)</h2>
-      <p>El registro y los identificadores del DPP de construcción se regulan en el art. 79 del CPR (el art. 75 crea el sistema de pasaportes; art. 80, uso obligatorio). En paralelo, el ESPR prevé el registro europeo de identificadores para el 19 jul 2026 (art. 13). El formato definitivo se concretará por actos delegados. Campos precargables.</p>
+      <p>El registro y los identificadores del DPP de construcción se regulan en el art. 79 del CPR (el art. 75 crea el sistema de pasaportes; art. 80, uso obligatorio). El registro central (ESPR art. 13, Reg. de Ejecución 2026/1778) está abierto desde el 20-jul-2026 y exige identidad eIDAS al operador; para construcción aún no hay obligación de registrar: depende del acto delegado del art. 75, todavía sin borrador ni fecha. Campos precargables.</p>
     </div>
     <span class="section-count">4 campos</span>
     <span class="section-chevron">&#x25BE;</span>
@@ -583,7 +583,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr data-source="erp"><td><div class="field-name">registry_art13.status</div><div class="field-desc">Estado del registro (PENDING_DELEGATED_ACT, REGISTERED, etc.)</div></td><td><span class="source-badge src-erp">Registro ESPR</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Consultar registro</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Obtener estado</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Almacenar</span></div></td></tr>
         <tr data-source="erp"><td><div class="field-name">registry_art13.label</div><div class="field-desc">Etiqueta legible del estado</div></td><td><span class="source-badge src-erp">Sistema DPP</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Auto-generado</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Traducir estado</span></div></td></tr>
         <tr data-source="erp"><td><div class="field-name">registry_art13.fields_preloaded</div><div class="field-desc">Campos precargados para el registro (dpp_uid, nombre, operador)</div></td><td><span class="source-badge src-erp">Sistema DPP</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Seleccionar campos</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Precargar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Listo para envio</span></div></td></tr>
-        <tr data-source="erp"><td><div class="field-name">registry_art13.note</div><div class="field-desc">Nota de plazos: Registro UE operativo 19 jul 2026 (almacena identificadores únicos); DPP completo por familia según actos delegados (2027-2030+). Primeros ya en el DOUE: Reg. (UE) 2026/331 (reacción al fuego) y 2026/557 (resistencia al fuego). Previsión: siderúrgicos (hierro y acero) entre las primeras familias, ~2028</div></td><td><span class="source-badge src-erp">Análisis normativo</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Monitorizar DOUE</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Actualizar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Alertar</span></div></td></tr>
+        <tr data-source="erp"><td><div class="field-name">registry_art13.note</div><div class="field-desc">Nota de plazos: registro UE abierto desde el 20-jul-2026 (identificadores únicos). El DPP de construcción será obligatorio 18 meses después de la entrada en vigor del acto delegado del art. 75 (sin borrador ni fecha: no antes de 2028-2029). Antes llega la DdPC por familias: cementos ≈ T4 2028; vidrio, ventanas, aceros para hormigón, aislantes y madera ≈ 2030. Actos ya en el DOUE: Reg. Delegados 2026/331 (reacción al fuego), 2026/557 (resistencia al fuego) y 2026/1310 (sistemas EVCP por familia)</div></td><td><span class="source-badge src-erp">Análisis normativo</span></td><td><span class="prov-badge prov-fab">Fabricante</span></td><td><div class="tl-workflow"><span class="tl-step">Monitorizar DOUE</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Actualizar</span><span class="tl-arrow">&#x25B6;</span><span class="tl-step">Alertar</span></div></td></tr>
       </tbody>
     </table>
   </div>
@@ -597,7 +597,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <a href="https://eur-lex.europa.eu/eli/reg/2024/1781/oj" target="_blank">ESPR (UE) 2024/1781</a> &middot;
   <a href="https://eur-lex.europa.eu/eli/reg/2006/1907/oj" target="_blank">REACH 1907/2006</a> &middot;
   <a href="https://www.en-standard.eu/csn-en-15804-a2/" target="_blank">EN 15804+A2</a><br>
-  <a href="https://web.codecontractplattform.com/" target="_blank">Trackline</a> by <a href="https://codecontract.io" target="_blank">Code Contract S.L.</a> &middot; Pack DPP Construcción &middot; jun 2026 &middot; mapping v0.2 &middot; <a href="mailto:eduardo@codecontract.io?subject=Demo%20Trackline%20DPP">Solicitar demo (20 min)</a><br>
+  <a href="https://web.codecontractplattform.com/" target="_blank">Trackline</a> by <a href="https://codecontract.io" target="_blank">Code Contract S.L.</a> &middot; Pack DPP Construcción &middot; oct 2026 &middot; mapping v0.3 &middot; <a href="mailto:eduardo@codecontract.io?subject=Demo%20Trackline%20DPP">Solicitar demo (20 min)</a><br>
   <a href="https://codecontract-dpp.github.io/dpp-construccion-demos/" target="_blank">&#x2190; Visor DPP Construcción</a> &middot;
   <a href="https://codecontract-dpp.github.io/dpp-validator/" target="_blank">Validador DPP</a> &middot;
   <a href="https://codecontract-dpp.github.io/dpp-construccion/" target="_blank">Guía DPP Construcción</a><br>

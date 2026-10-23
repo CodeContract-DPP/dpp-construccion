@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://codecontract-dpp.github.io/dpp-construccion/">
 <meta property="og:title" content="Guía DPP Construcción — Pasaporte Digital de Producto">
-<meta property="og:description" content="Guia practica para implantar el Pasaporte Digital de Producto en construccion. CPR 2024/3110, 4 oleadas del Working Plan, 10 familias de producto, checklist y FAQ.">
+<meta property="og:description" content="Guia practica para implantar el Pasaporte Digital de Producto en construccion. CPR 2024/3110, calendario por familias del Plan de Trabajo, 10 familias de producto, checklist y FAQ.">
 <meta property="og:image" content="https://codecontract-dpp.github.io/dpp-construccion/og-image.png">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Code Contract - DPP">
@@ -381,6 +381,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .fw-2 .fam-wave { background: var(--amber-light); color: var(--amber); }
 .fw-3 .fam-wave { background: var(--blue-light); color: var(--blue); }
 .fw-4 .fam-wave { background: var(--purple-light); color: var(--purple); }
+.fw-0 .fam-wave { background: #f3f4f6; color: #4b5563; }
+.fam-card .fam-ddpc { font-size: 11.5px; color: #1f2937; background: #f0fdf4; border-left: 3px solid #2e7d4f; padding: 3px 7px; margin: 4px 0; border-radius: 4px; }
 
 /* FAQ SECTION */
 .faq-box {
@@ -499,20 +501,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- DOCUMENT STATUS -->
 <div class="doc-status-bar">
   <div class="doc-status">
-    <div class="doc-status-icon">&#x1F7E1;</div>
+    <div class="doc-status-icon">&#x1F7E2;</div>
     <div class="doc-status-text">
-      <h3>Estado del documento: EN REVISION &mdash; actualizado jun 2026</h3>
-      <p>Version de trabajo alineada con el CPR 2024/3110, ESPR 2024/1781 y el Plan de Trabajo COM(2025) 772 (publicado 16 dic 2025) a junio de 2026.</p>
+      <h3 style="color:#2e7d4f">Estado del documento: VIGENTE (actualizado octubre 2026)</h3>
+      <p>Alineada con el CPR 2024/3110, ESPR 2024/1781, el Plan de Trabajo COM(2025) 772 (16 dic 2025), el Reglamento de Ejecución (UE) 2026/1778 del registro DPP, el Reglamento Delegado (UE) 2026/1310 y la Guía DdPC Digital v6.4, con el estado de la normativa a 22 de octubre de 2026.</p>
     </div>
     <div class="doc-status-version">
-      <strong>v1.3</strong>
-      junio 2026
+      <strong>v1.4</strong>
+      23 octubre 2026
     </div>
   </div>
 </div>
 
 <div class="deadline-banner">
-  <span>&#x23F0;</span> Proximo hito: 19 julio 2026 &mdash; la Comision debe tener operativo el Registro DPP de Construccion (almacena al menos los identificadores unicos). Desde 8 enero 2026 ya aplica la mayoria del CPR 2024/3110 y la Fase 1 ambiental (GWP) es obligatoria.
+  <span>&#x23F0;</span> El CPR 2024/3110 se aplica desde el <strong>8 enero 2026</strong>, pero el DPP de construcción todavía no tiene fecha: depende del acto delegado del art. 75, sin borrador a octubre de 2026, y la obligación llega 18 meses después de su entrada en vigor. Antes llega la <strong>DdPC por familias</strong> (cementos hacia finales de 2028). El registro central del DPP está abierto desde el <strong>20 julio 2026</strong>.
 </div>
 
 <!-- HIERARCHY -->
@@ -577,107 +579,163 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <tr>
           <td class="tl-date-cell" style="color:#2e7d4f">Dic 2025</td>
           <td>
-            <div class="tl-milestone">Publicacion del Plan de Trabajo CPR 2026-2029 (COM(2025) 772)</div>
-            <div class="tl-publisher">4 oleadas de estandarizacion para las 36 familias de producto</div>
+            <div class="tl-milestone">Publicación del Plan de Trabajo CPR 2026-2029 (COM(2025) 772)</div>
+            <div class="tl-publisher">Calendario indicativo por familia (cuadro 3). No da fecha al DPP</div>
           </td>
-          <td class="tl-publisher">Comision Europea</td>
-          <td><span class="tl-status-badge tl-past">Publicado</span></td>
-        </tr>
-        <tr>
-          <td class="tl-date-cell" style="color:#d97706">Ene 2026</td>
-          <td>
-            <div class="tl-milestone">Aplicacion de la mayoria de disposiciones CPR (8 enero). Fase 1 Anexo II: GWP obligatorio</div>
-            <div class="tl-publisher">Caracteristicas ambientales a-d (incluye huella de carbono GWP-total, GWP-fossil, GWP-bio, GWP-luluc)</div>
-          </td>
-          <td class="tl-publisher">Fabricantes (declaracion) + Organismos notificados (AVS 3+)</td>
-          <td><span class="tl-status-badge tl-upcoming">Proximo</span></td>
-        </tr>
-        <tr>
-          <td class="tl-date-cell" style="color:#d97706">Jul 2026</td>
-          <td>
-            <div class="tl-milestone">Fecha limite para establecer el Registro DPP de Construccion</div>
-            <div class="tl-publisher">Art. 75 CPR &mdash; Registro de identificadores unicos de producto</div>
-          </td>
-          <td class="tl-publisher">Comision Europea (registro) + Proveedores de servicios DPP</td>
-          <td><span class="tl-status-badge tl-upcoming">Proximo</span>
-            <div class="tl-da-note">Pendiente: acto delegado proveedores DPP (Q4 2026)</div>
+          <td class="tl-publisher">Comisión Europea</td>
+          <td><span class="tl-status-badge tl-past">Publicado</span>
           </td>
         </tr>
         <tr>
-          <td class="tl-date-cell" style="color:#dc2626">2027-2028</td>
+          <td class="tl-date-cell" style="color:#d97706">8 ene 2026</td>
           <td>
-            <div class="tl-milestone">DPP obligatorio para productos Oleada 1 (18 meses tras registro)</div>
-            <div class="tl-publisher">Hormigon prefabricado, acero estructural, acero de refuerzo</div>
-            <div style="font-size:11px; color:#dc2626; font-weight:600; margin-top:4px;">&#x26A0; El DPP debe estar accesible via data carrier Y cargado en el Registro antes de la primera comercializacion</div>
+            <div class="tl-milestone">Aplicación de la mayoría de disposiciones del CPR</div>
+            <div class="tl-publisher">Régimen transitorio: casi todos los productos siguen con la DdP del 305/2011. Los indicadores ambientales a-d (GWP) se exigen a los productos que ya estén en régimen DdPC (hoy, ninguno)</div>
           </td>
-          <td class="tl-publisher">Fabricantes (DPP completo + data carrier) + Comision (actos delegados por familia)</td>
-          <td><span class="tl-status-badge tl-future">Critico</span>
-            <div class="tl-da-note">Pendiente: actos delegados por familia de producto</div>
+          <td class="tl-publisher">Fabricantes + organismos notificados</td>
+          <td><span class="tl-status-badge tl-past">En vigor</span>
           </td>
         </tr>
         <tr>
-          <td class="tl-date-cell" style="color:#7c3aed">Ene 2030</td>
+          <td class="tl-date-cell" style="color:#2e7d4f">20 jul 2026</td>
           <td>
-            <div class="tl-milestone">Fase 2 Anexo II: caracteristicas ambientales e-m obligatorias</div>
-            <div class="tl-publisher">ODP, AP, EP (3 categorias), POCP, ADP (minerales + fossil), WDP</div>
+            <div class="tl-milestone">Abre el registro central del DPP (Reg. de Ejecución 2026/1778)</div>
+            <div class="tl-publisher">ESPR art. 13, aplicable a construcción por el art. 79 del CPR. Exige identidad eIDAS al operador. Para construcción aún no hay obligación de registrar</div>
           </td>
-          <td class="tl-publisher">Fabricantes + Organismos notificados</td>
-          <td><span class="tl-status-badge tl-future">Futuro</span></td>
+          <td class="tl-publisher">Comisión Europea</td>
+          <td><span class="tl-status-badge tl-past">Operativo</span>
+          </td>
         </tr>
         <tr>
-          <td class="tl-date-cell" style="color:#7c3aed">Ene 2031</td>
+          <td class="tl-date-cell" style="color:#2e7d4f">28 ago 2026</td>
           <td>
-            <div class="tl-milestone">Los EADs heredados del CPR 305/2011 dejan de aplicarse</div>
-            <div class="tl-publisher">Transicion completa al nuevo marco</div>
+            <div class="tl-milestone">Reg. Delegado 2026/1310: sistemas EVCP por familia</div>
+            <div class="tl-publisher">Qué certificados del organismo notificado acompañan a la DdPC y al DPP</div>
           </td>
-          <td class="tl-publisher">Comision Europea</td>
-          <td><span class="tl-status-badge tl-future">Futuro</span></td>
+          <td class="tl-publisher">Comisión Europea</td>
+          <td><span class="tl-status-badge tl-past">Publicado</span>
+          </td>
         </tr>
         <tr>
-          <td class="tl-date-cell" style="color:#7c3aed">Ene 2032</td>
+          <td class="tl-date-cell" style="color:#d97706">2026 (sin fecha)</td>
           <td>
-            <div class="tl-milestone">Fase 3: declaracion ambiental completa obligatoria (19 caracteristicas a-s)</div>
-            <div class="tl-publisher">Set completo de indicadores EN 15804+A2 incl. ecotoxicidad, radiacion ionizante, particulas</div>
+            <div class="tl-milestone">Acto delegado del ESPR sobre prestadores de servicios DPP (iniciativa 14382)</div>
+            <div class="tl-publisher">Es del ESPR, no del CPR; el acto del art. 75 lo tomará como base (art. 75.2.g)</div>
           </td>
-          <td class="tl-publisher">Fabricantes + Organismos notificados</td>
-          <td><span class="tl-status-badge tl-future">Futuro</span></td>
+          <td class="tl-publisher">Comisión Europea</td>
+          <td><span class="tl-status-badge tl-upcoming">Previsto</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#d97706">4 dic 2026</td>
+          <td>
+            <div class="tl-milestone">Evento de la Comisión «DPP under the CPR: from concept to reality»</div>
+            <div class="tl-publisher">Bruselas e híbrido. Tratará el desarrollo del acto delegado del art. 75</div>
+          </td>
+          <td class="tl-publisher">Comisión Europea</td>
+          <td><span class="tl-status-badge tl-upcoming">Próximo</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#dc2626">8 ene 2027</td>
+          <td>
+            <div class="tl-milestone">Sanciones del CPR aplicables (art. 92)</div>
+            <div class="tl-publisher">Los Estados notifican su régimen antes del 8-dic-2026; el RD español sigue sin publicarse</div>
+          </td>
+          <td class="tl-publisher">Estados miembros</td>
+          <td><span class="tl-status-badge tl-upcoming">Próximo</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#7c3aed">≈ T4 2028</td>
+          <td>
+            <div class="tl-milestone">Primera DdPC exigible: cementos</div>
+            <div class="tl-publisher">Un año después del acto que hace obligatoria la nueva EN 197-1 (previsto T4 2027). Vidrio, ventanas, aceros para hormigón, aislantes y madera ≈ 2030</div>
+          </td>
+          <td class="tl-publisher">Fabricantes</td>
+          <td><span class="tl-status-badge tl-future">Previsto</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#dc2626">Sin fecha</td>
+          <td>
+            <div class="tl-milestone">Acto delegado del art. 75: sistema DPP de construcción</div>
+            <div class="tl-publisher">Sistema operativo a los 6 meses de su entrada en vigor; <strong>DPP obligatorio a los 18 meses</strong> (arts. 80.1 y 22.7). No antes de 2028-2029</div>
+          </td>
+          <td class="tl-publisher">Comisión (acto) + fabricantes (DPP + data carrier)</td>
+          <td><span class="tl-status-badge tl-future">Crítico</span>
+            <div class="tl-da-note">Sin borrador a 22-oct-2026</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#7c3aed">9 ene 2030</td>
+          <td>
+            <div class="tl-milestone">Fase 2 Anexo II: indicadores ambientales e-m en la DdPC</div>
+            <div class="tl-publisher">ODP, AP, EP (3 categorías), POCP, ADP (minerales + fósiles), WDP. Solo para productos en régimen DdPC</div>
+          </td>
+          <td class="tl-publisher">Fabricantes + organismos notificados</td>
+          <td><span class="tl-status-badge tl-future">Futuro</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#7c3aed">9 ene 2031</td>
+          <td>
+            <div class="tl-milestone">Los EAD citados con el 305/2011 dejan de poder usarse</div>
+            <div class="tl-publisher">Las ETE basadas en ellos sirven para DdP y marcado CE hasta el 9-ene-2036</div>
+          </td>
+          <td class="tl-publisher">Comisión Europea</td>
+          <td><span class="tl-status-badge tl-future">Futuro</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#7c3aed">9 ene 2032</td>
+          <td>
+            <div class="tl-milestone">Fase 3: declaración ambiental completa (19 indicadores a-s)</div>
+            <div class="tl-publisher">Ecotoxicidad, radiación ionizante, partículas, etc.</div>
+          </td>
+          <td class="tl-publisher">Fabricantes + organismos notificados</td>
+          <td><span class="tl-status-badge tl-future">Futuro</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell" style="color:#7c3aed">8 ene 2040</td>
+          <td>
+            <div class="tl-milestone">Fin de las DdP del 305/2011 (art. 94)</div>
+            <div class="tl-publisher">Último plazo de coexistencia de los dos regímenes</div>
+          </td>
+          <td class="tl-publisher">Comisión Europea</td>
+          <td><span class="tl-status-badge tl-future">Futuro</span>
+          </td>
         </tr>
       </tbody>
     </table>
     <div class="impl-timeline-note">
-      Las fechas de las oleadas dependen de actos delegados que la Comision publicara progresivamente. Las fechas del Anexo II (fases ambientales) son fijas en el reglamento.
+      Las fechas del Anexo II (fases ambientales) son fijas en el reglamento, pero solo afectan a productos en régimen DdPC. Las fechas por familia son indicativas (Plan de Trabajo). El DPP depende del acto delegado del art. 75, todavía sin borrador.
     </div>
   </div>
 </div>
 
-<!-- 4 WAVES -->
+<!-- CALENDARIO POR FAMILIAS (sustituye a las antiguas «4 oleadas», v1.4) -->
 <div class="waves-box">
   <div class="waves">
-    <h3>Las 4 oleadas del Plan de Trabajo 2026-2029 (COM(2025) 772)</h3>
-    <div class="waves-grid">
-      <div class="wave-card wave-1">
-        <h4>Oleada 1</h4>
-        <div class="wave-year">2026</div>
-        <p><strong>Hormigon prefabricado, acero estructural, acero de refuerzo.</strong> Mayor volumen y huella de carbono. Prioridad maxima.</p>
-      </div>
-      <div class="wave-card wave-2">
-        <h4>Oleada 2</h4>
-        <div class="wave-year">2027</div>
-        <p><strong>Cemento</strong> (acto delegado previsto ~Q4 2027; input critico para hormigon). <strong>Ventanas y puertas</strong>, segun el plan, con plazos posteriores (~2028-2029).</p>
-      </div>
-      <div class="wave-card wave-3">
-        <h4>Oleada 3</h4>
-        <div class="wave-year">2028-2029</div>
-        <p><strong>Aislamiento, fachadas, ventanas y puertas, revestimientos.</strong> Prioridad para la Oleada de Renovacion UE. Revision normas de fuego.</p>
-      </div>
-      <div class="wave-card wave-4">
-        <h4>Oleada 4</h4>
-        <div class="wave-year">2029</div>
-        <p><strong>Suelos, ceramica, plasticos, cubiertas, yeso, sanitarios, cables, fijaciones...</strong> La oleada mas amplia.</p>
-      </div>
-    </div>
+    <h3>Cuándo llega cada familia (Plan de Trabajo 2026-2029, cuadro 3)</h3>
+    <table class="tl-table">
+      <thead><tr><th>Familia</th><th>Productos</th><th>Solicitud de normalización</th><th>Norma obligatoria</th><th>DdPC exigible (≈)</th></tr></thead>
+      <tbody>
+          <tr><td><strong>15</strong></td><td>Cementos, cales y conglomerantes</td><td>T3 2025 · C(2025) 4828</td><td>T4 2027</td><td><strong>≈ T4 2028 (la primera)</strong></td></tr>
+          <tr><td><strong>30</strong></td><td>Vidrio plano, conformado y bloques</td><td>T1 2026</td><td>2029</td><td>≈ 2030</td></tr>
+          <tr><td><strong>2</strong></td><td>Puertas, ventanas, persianas y herrajes</td><td>T1 2026</td><td>2029</td><td>≈ 2030</td></tr>
+          <tr><td><strong>16</strong></td><td>Aceros para hormigón armado y pretensado</td><td>T2 2026</td><td>2029</td><td>≈ 2030</td></tr>
+          <tr><td><strong>4</strong></td><td>Aislantes térmicos y kits compuestos</td><td>T3 2026</td><td>2029</td><td>≈ 2030</td></tr>
+          <tr><td><strong>13</strong></td><td>Madera estructural</td><td>T3 2026</td><td>2029</td><td>≈ 2030</td></tr>
+          <tr><td><strong>6</strong></td><td>Chimeneas y conductos</td><td>T3 2026</td><td>2028</td><td>≈ 2029</td></tr>
+          <tr><td><strong>26</strong></td><td>Productos relacionados con hormigón, mortero y lechadas</td><td>T4 2026</td><td>sin fecha</td><td>Después de 2029</td></tr>
+          <tr><td><strong>23 · 19</strong></td><td>Carreteras · pavimentos</td><td>2027</td><td>sin fecha</td><td>Después de 2029</td></tr>
+          <tr><td><strong>1 · 20</strong></td><td>Prefabricados de hormigón · productos metálicos estructurales</td><td>T2-T3 2025</td><td>T4 2025 / T2 2026 (cita con el RPC 2011)</td><td>Siguen con DdP</td></tr>
+      </tbody>
+    </table>
     <div class="impl-timeline-note">
-      Estas oleadas son una sintesis orientativa. El Plan de Trabajo COM(2025) 772 no fija &laquo;oleadas&raquo; cerradas, sino plazos <strong>indicativos por familia de producto</strong> (Anexo VII): cada familia tiene su propio calendario de norma armonizada + acto delegado, que es el disparador real de la obligacion de DPP. Ej.: cemento (Familia 15) ~Q4 2027; ventanas y puertas (Familia 2) ~2028-2029.
+      El Plan de Trabajo COM(2025) 772 no organiza las familias en «oleadas» ni da fechas al DPP: da, por familia, cuándo se encarga, se entrega y se hace obligatoria la nueva norma. La DdPC se exige un año después (art. 95.9). El DPP llegará a cada producto 18 meses después del acto delegado del art. 75, que no tiene fecha. «Prioridad alta» no significa «pronto»: prefabricados y metálicos fueron los primeros en tener solicitud y por eso sus normas se citan con el reglamento de 2011 y siguen con DdP. Fechas indicativas según la propia Comisión.
     </div>
   </div>
 </div>
@@ -686,53 +744,28 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <div class="families-box">
   <div class="families">
     <h3>Guia rapida por familia de producto</h3>
-    <p>Haz clic en cada familia para ver detalle. La oleada indica cuando se espera la especificacion armonizada bajo el nuevo CPR.</p>
+    <p>Cada tarjeta indica cuándo prevé el Plan de Trabajo la solicitud de normalización y <strong>cuándo será exigible la DdPC</strong>, que es el primer escalón del DPP. Ordenadas por esa fecha: <span style="color:var(--red);font-weight:700">rojo</span> primera DdPC · <span style="color:var(--amber);font-weight:700">ámbar</span> ≈ 2030 · <span style="color:#4b5563;font-weight:700">gris</span> sigue con DdP · <span style="color:var(--blue);font-weight:700">azul</span> sin fecha. Haz clic para ver el detalle.</p>
     <div class="families-grid">
 
       <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
-        <h4>&#x1F3D7;&#xFE0F; Hormigon preparado</h4>
-        <span class="fam-wave">Oleada 1</span>
-        <div class="fam-norm">UNE-EN 206 + RD 163/2019</div>
-        <div class="fam-risk">&#x26A0; Variabilidad planta/receta/suministro</div>
+        <h4>&#x1F9F1; Cemento</h4>
+        <span class="fam-wave">Solicitud T3 2025 · C(2025) 4828</span>
+        <div class="fam-norm">UNE-EN 197-1 (DdP en XML: UNE 80000)</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>≈ T4 2028 (la primera)</strong></div>
+        <div class="fam-risk">&#x26A0; Alto impacto CO2; posible intervencion ESPR</div>
         <div class="fam-expand">&#x25BC; Ver detalle</div>
         <div class="fam-detail">
-          <strong>PCR ambiental:</strong> UNE-EN 16757:2023<br>
-          <strong>Enfoque DPP:</strong> Tres capas de datos &mdash; (1) Fija: familia de mezcla, uso previsto, clase, exposiciones. (2) Semivariable: componentes de receta, origen de cemento, aridos, aditivos. (3) Dinamica: suministro, planta, camion, remesa, control.<br>
-          <strong>Dato maestro:</strong> Relacion familia de mezcla &rarr; planta &rarr; componentes &rarr; amasada &rarr; entrega.<br>
-          <strong>Riesgo:</strong> Publicar informacion demasiado agregada para clientes que piden trazabilidad por obra o planta.
-        </div>
-      </div>
-
-      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
-        <h4>&#x1F529; Acero estructural</h4>
-        <span class="fam-wave">Oleada 1</span>
-        <div class="fam-norm">Serie EN 1090</div>
-        <div class="fam-risk">&#x26A0; Integracion aceria/transformador/taller</div>
-        <div class="fam-expand">&#x25BC; Ver detalle</div>
-        <div class="fam-detail">
-          <strong>PCR ambiental:</strong> PCR sectoriales / prEN 17662<br>
-          <strong>Enfoque DPP:</strong> Certificados de colada/lote, propiedades mecanicas, soldadura, recubrimientos, clase de ejecucion y trazabilidad metalurgica.<br>
-          <strong>Clave:</strong> Estructurar DPP por niveles de acceso, distinguiendo datos publicos de certificados restringidos.
-        </div>
-      </div>
-
-      <div class="fam-card fw-1" onclick="this.classList.toggle('expanded')">
-        <h4>&#x1F3D7;&#xFE0F; Prefabricados de hormigon</h4>
-        <span class="fam-wave">Oleada 1</span>
-        <div class="fam-norm">UNE-EN 13225 / EN 13369</div>
-        <div class="fam-risk">&#x26A0; Separar datos familia vs pieza/lote</div>
-        <div class="fam-expand">&#x25BC; Ver detalle</div>
-        <div class="fam-detail">
-          <strong>PCR ambiental:</strong> UNE-EN 16757:2023<br>
-          <strong>Enfoque DPP:</strong> Geometria, armado/pretensado, curado, control dimensional, trazabilidad de prefabricacion. Roles criticos: ingenieria, fabrica, laboratorio, logistica.<br>
-          <strong>Clave:</strong> No mezclar modelo de hormigon in-situ con prefabricado; compartir gobernanza pero cambiar campos por tipologia.
+          <strong>PCR ambiental:</strong> EN 16908<br>
+          <strong>Enfoque DPP:</strong> Tipo y clase, composicion, planta, lote, ensayos de conformidad. La capa ambiental es especialmente critica dado el alto impacto de CO2 del sector.<br>
+          <strong>Clave:</strong> El ESPR preve intervenir si el CPR no cubre suficientemente los objetivos de sostenibilidad para cemento.
         </div>
       </div>
 
       <div class="fam-card fw-2" onclick="this.classList.toggle('expanded')">
         <h4>&#x1FA9F; Ventanas y puertas</h4>
-        <span class="fam-wave">Oleada 2</span>
+        <span class="fam-wave">Solicitud T1 2026</span>
         <div class="fam-norm">UNE-EN 14351-1</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>≈ 2030</strong></div>
         <div class="fam-risk">&#x26A0; Explosion de variantes por configuracion</div>
         <div class="fam-expand">&#x25BC; Ver detalle</div>
         <div class="fam-detail">
@@ -744,35 +777,84 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       </div>
 
       <div class="fam-card fw-2" onclick="this.classList.toggle('expanded')">
-        <h4>&#x1F9F1; Cemento</h4>
-        <span class="fam-wave">Oleada 2</span>
-        <div class="fam-norm">UNE-EN 197-1</div>
-        <div class="fam-risk">&#x26A0; Alto impacto CO2; posible intervencion ESPR</div>
-        <div class="fam-expand">&#x25BC; Ver detalle</div>
-        <div class="fam-detail">
-          <strong>PCR ambiental:</strong> EN 16908<br>
-          <strong>Enfoque DPP:</strong> Tipo y clase, composicion, planta, lote, ensayos de conformidad. La capa ambiental es especialmente critica dado el alto impacto de CO2 del sector.<br>
-          <strong>Clave:</strong> El ESPR preve intervenir si el CPR no cubre suficientemente los objetivos de sostenibilidad para cemento.
-        </div>
-      </div>
-
-      <div class="fam-card fw-2" onclick="this.classList.toggle('expanded')">
         <h4>&#x1F9CA; Aislamiento termico</h4>
-        <span class="fam-wave">Oleada 2</span>
-        <div class="fam-norm">EN 13162 a EN 13171</div>
+        <span class="fam-wave">Solicitud T3 2026</span>
+        <div class="fam-norm">EN 13162 a EN 13171 (aislantes fabricados)</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>≈ 2030</strong></div>
         <div class="fam-risk">&#x26A0; Diversidad de materiales (EPS, XPS, lana, PUR)</div>
         <div class="fam-expand">&#x25BC; Ver detalle</div>
         <div class="fam-detail">
+          <strong>SATE/ETICS:</strong> va por evaluación técnica europea (DEE/ETE, EAD 040083), no por estas normas.<br>
           <strong>PCR ambiental:</strong> PCR sectoriales<br>
           <strong>Enfoque DPP:</strong> Conductividad termica, reaccion al fuego, resistencia a compresion, composicion. La norma de producto cambia segun material base.<br>
           <strong>Clave:</strong> La capa ambiental es especialmente relevante dado el peso energetico del aislamiento en el ciclo de vida del edificio.
         </div>
       </div>
 
+      <div class="fam-card fw-2" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F332; Madera estructural</h4>
+        <span class="fam-wave">Solicitud T3 2026</span>
+        <div class="fam-norm">EN 14081-1 / EN 14080</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>≈ 2030</strong></div>
+        <div class="fam-risk">&#x26A0; Trazabilidad de origen y cadena de custodia</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>PCR ambiental:</strong> EN 16485<br>
+          <strong>Enfoque DPP:</strong> Clase resistente, especie, origen, tratamiento, certificacion forestal (FSC, PEFC). Potencial de almacenamiento de carbono.<br>
+          <strong>Clave:</strong> El DPP de madera es especialmente valioso para prescripcion en proyectos con objetivos de sostenibilidad.
+        </div>
+      </div>
+
+      <div class="fam-card fw-0" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F3D7;&#xFE0F; Prefabricados de hormigon</h4>
+        <span class="fam-wave">Solicitud T2 2025 · cita con el RPC 2011</span>
+        <div class="fam-norm">La norma de cada producto (EN 13225, EN 1168…). La EN 13369 son reglas comunes, no armonizada</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>Sigue con DdP</strong></div>
+        <div class="fam-risk">&#x26A0; Separar datos familia vs pieza/lote</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Por qué sigue con DdP:</strong> sus nuevas normas se citan con el reglamento de 2011. Para un piloto, elegir un producto concreto (p. ej. placas alveolares EN 1168), no la familia.<br>
+          <strong>PCR ambiental:</strong> UNE-EN 16757:2023<br>
+          <strong>Enfoque DPP:</strong> Geometria, armado/pretensado, curado, control dimensional, trazabilidad de prefabricacion. Roles criticos: ingenieria, fabrica, laboratorio, logistica.<br>
+          <strong>Clave:</strong> No mezclar modelo de hormigon in-situ con prefabricado; compartir gobernanza pero cambiar campos por tipologia.
+        </div>
+      </div>
+
+      <div class="fam-card fw-0" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F529; Acero estructural</h4>
+        <span class="fam-wave">Solicitud T3 2025 · cita con el RPC 2011</span>
+        <div class="fam-norm">EN 1090-1</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>Sigue con DdP (nueva solicitud con el CPR en T2 2026)</strong></div>
+        <div class="fam-risk">&#x26A0; Integracion aceria/transformador/taller</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>PCR ambiental:</strong> PCR sectoriales / prEN 17662<br>
+          <strong>Enfoque DPP:</strong> Certificados de colada/lote, propiedades mecanicas, soldadura, recubrimientos, clase de ejecucion y trazabilidad metalurgica.<br>
+          <strong>Clave:</strong> Estructurar DPP por niveles de acceso, distinguiendo datos publicos de certificados restringidos.
+        </div>
+      </div>
+
+      <div class="fam-card fw-3" onclick="this.classList.toggle('expanded')">
+        <h4>&#x1F3D7;&#xFE0F; Hormigon preparado</h4>
+        <span class="fam-wave">Familia 26 · solicitud T4 2026</span>
+        <div class="fam-norm">UNE-EN 206 (no armonizada: hoy sin marcado CE) + RD 163/2019 y Código Estructural</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>Sin fecha (después de 2029)</strong></div>
+        <div class="fam-risk">&#x26A0; Variabilidad planta/receta/suministro</div>
+        <div class="fam-expand">&#x25BC; Ver detalle</div>
+        <div class="fam-detail">
+          <strong>Ojo:</strong> el hormigón preparado no lleva hoy marcado CE. Que entre en el CPR depende de cómo se defina la familia 26 (productos relacionados con el hormigón, el mortero y las lechadas), sin fecha de norma obligatoria.<br>
+          <strong>PCR ambiental:</strong> UNE-EN 16757:2023<br>
+          <strong>Enfoque DPP:</strong> Tres capas de datos &mdash; (1) Fija: familia de mezcla, uso previsto, clase, exposiciones. (2) Semivariable: componentes de receta, origen de cemento, aridos, aditivos. (3) Dinamica: suministro, planta, camion, remesa, control.<br>
+          <strong>Dato maestro:</strong> Relacion familia de mezcla &rarr; planta &rarr; componentes &rarr; amasada &rarr; entrega.<br>
+          <strong>Riesgo:</strong> Publicar informacion demasiado agregada para clientes que piden trazabilidad por obra o planta.
+        </div>
+      </div>
+
       <div class="fam-card fw-3" onclick="this.classList.toggle('expanded')">
         <h4>&#x1F4A0; Suelos resilientes/laminados</h4>
-        <span class="fam-wave">Oleada 3</span>
+        <span class="fam-wave">Familia 19 · solicitud 2027</span>
         <div class="fam-norm">UNE-EN 14041</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>Después de 2029</strong></div>
         <div class="fam-risk">&#x26A0; Quimica compleja + sistema de instalacion</div>
         <div class="fam-expand">&#x25BC; Ver detalle</div>
         <div class="fam-detail">
@@ -784,37 +866,28 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
       <div class="fam-card fw-3" onclick="this.classList.toggle('expanded')">
         <h4>&#x1F3DA;&#xFE0F; Ceramica y azulejos</h4>
-        <span class="fam-wave">Oleada 3</span>
-        <div class="fam-norm">Reglas sectoriales propias</div>
+        <span class="fam-wave">Sin familia propia (familias 19 y 21)</span>
+        <div class="fam-norm">UNE-EN 14411</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>Sin fecha en el plan</strong></div>
         <div class="fam-risk">&#x26A0; Demasiados SKUs con pobre disciplina de datos</div>
         <div class="fam-expand">&#x25BC; Ver detalle</div>
         <div class="fam-detail">
+          <strong>Ojo:</strong> el plan no tiene familia «cerámica»: las baldosas van por pavimentos (19) y acabados de paredes y techos (21).<br>
           <strong>PCR ambiental:</strong> UNE-EN 17160<br>
           <strong>Enfoque DPP:</strong> Serie, formato, acabado, absorcion, deslizamiento, resistencia. Perfil ambiental muy dependiente del proceso termico.<br>
           <strong>Clave:</strong> Gobernar el DPP por familia industrial y solo bajar a SKU cuando cambia prestacion o parametro ambiental relevante.
         </div>
       </div>
 
-      <div class="fam-card fw-4" onclick="this.classList.toggle('expanded')">
-        <h4>&#x1F332; Madera estructural</h4>
-        <span class="fam-wave">Oleada 4</span>
-        <div class="fam-norm">EN 14081 / EN 14080</div>
-        <div class="fam-risk">&#x26A0; Trazabilidad de origen y cadena de custodia</div>
-        <div class="fam-expand">&#x25BC; Ver detalle</div>
-        <div class="fam-detail">
-          <strong>PCR ambiental:</strong> EN 16485<br>
-          <strong>Enfoque DPP:</strong> Clase resistente, especie, origen, tratamiento, certificacion forestal (FSC, PEFC). Potencial de almacenamiento de carbono.<br>
-          <strong>Clave:</strong> El DPP de madera es especialmente valioso para prescripcion en proyectos con objetivos de sostenibilidad.
-        </div>
-      </div>
-
-      <div class="fam-card fw-4" onclick="this.classList.toggle('expanded')">
+      <div class="fam-card fw-3" onclick="this.classList.toggle('expanded')">
         <h4>&#x1F6A0; Plasticos y polimeros</h4>
-        <span class="fam-wave">Oleada 4</span>
-        <div class="fam-norm">Normas sectoriales especificas</div>
+        <span class="fam-wave">Sin familia propia (repartidos)</span>
+        <div class="fam-norm">Normas de cada producto (tuberías, láminas, perfiles)</div>
+        <div class="fam-ddpc">DdPC exigible: <strong>Sin fecha en el plan</strong></div>
         <div class="fam-risk">&#x26A0; Gestion quimica compleja + REACH/SCIP</div>
         <div class="fam-expand">&#x25BC; Ver detalle</div>
         <div class="fam-detail">
+          <strong>Ojo:</strong> «plásticos» no es una familia del plan; cada producto va por la suya (tuberías 28, láminas 3, etc.).<br>
           <strong>PCR ambiental:</strong> PCR sectoriales<br>
           <strong>Enfoque DPP:</strong> Composicion detallada, reciclabilidad, durabilidad, emisiones. Atencion a cadena de suministro de compuestos y masterbatch.<br>
           <strong>Clave:</strong> Aditivos, plastificantes y retardantes de llama pueden activar obligaciones REACH/SCIP.
@@ -843,7 +916,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="phase-number">1</div>
     <div class="phase-info">
       <h2>Entender el marco regulatorio</h2>
-      <p>Conocer que exige el CPR 2024/3110, que familias de producto estan afectadas, oleadas y plazos</p>
+      <p>Conocer que exige el CPR 2024/3110, que familias de producto estan afectadas y cuándo le llega a cada una</p>
     </div>
     <span class="phase-deadline">Conocimiento base</span>
     <span class="phase-chevron">&#x25BE;</span>
@@ -879,8 +952,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="step">
       <div class="step-icon">&#x1F4CB;</div>
       <div class="step-content">
-        <h3>Identificar tu oleada en el Plan de Trabajo 2026-2029</h3>
-        <p>La Comision publico el primer Plan de Trabajo (COM(2025) 772) que organiza las 36 familias del Anexo VII en 4 oleadas de estandarizacion. Identifica en que oleada estan tus productos para planificar plazos.</p>
+        <h3>Identificar tu familia en el Plan de Trabajo 2026-2029</h3>
+        <p>La Comision publico el primer Plan de Trabajo (COM(2025) 772) con un calendario indicativo para las 36 familias del Anexo VII: cuándo se encarga, se entrega y se hace obligatoria la nueva norma. Identifica tu familia: la DdPC llega un año después de que su norma sea obligatoria (cementos hacia finales de 2028; el grueso de las prioritarias hacia 2030). El plan no da fecha al DPP.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-ley">LEY:</div>
           <div class="doc-group-links">
@@ -893,7 +966,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x1F3D7;&#xFE0F;</div>
       <div class="step-content">
         <h3>Entender la arquitectura tecnica del DPP de Construccion</h3>
-        <p>Como funciona el sistema: data carrier (QR, Data Matrix, NFC) &rarr; identificador unico (GS1 Digital Link) &rarr; acceso al DPP &rarr; Registro central EU. La Comision estudio tres modelos (centralizado, federado, descentralizado); el modelo de proveedor autorizado fue recomendado.</p>
+        <p>Como funciona el sistema: data carrier (QR, Data Matrix, NFC) &rarr; identificador unico (GS1 Digital Link) &rarr; acceso al DPP &rarr; Registro central EU. El estudio de viabilidad de la Comisión (Tecnalia, Cobuilder y UNE, mayo 2025) comparó tres modelos: base central de la Comisión, red de prestadores de servicios licenciados y bases propias de los fabricantes con copia de seguridad, y ve más escalables los descentralizados. La decisión llegará con el acto delegado del art. 75, todavía sin borrador.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
           <div class="doc-group-links">
@@ -915,7 +988,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x1F4A1;</div>
       <div class="step-content">
         <h3>Entender el valor de negocio</h3>
-        <p>No solo es cumplimiento: el DPP aporta ventaja competitiva (transparencia ambiental), acceso al mercado UE, compatibilidad con certificaciones verdes (BREEAM, LEED, DGNB) y preparacion para la economia circular. Los productos sin DPP conforme no podran comercializarse en la UE. Ademas, el marco europeo de calculo de huella de carbono a nivel de edificio (GWP de ciclo de vida) se aplicara a <strong>todos los edificios nuevos desde 2030</strong> y se apoyara en los datos ambientales de producto: el fabricante con datos verificados sera el preferido por proyectistas y constructoras.</p>
+        <p>No solo es cumplimiento: el DPP aporta ventaja competitiva (transparencia ambiental), acceso al mercado UE, compatibilidad con certificaciones verdes (BREEAM, LEED, DGNB) y preparacion para la economia circular. Cuando la obligación llegue a su familia, los productos sin DPP conforme no podrán comercializarse en la UE. Y antes de eso, la EPBD exige la huella de carbono (PCG) del ciclo de vida del edificio en el certificado energético desde el <strong>1-ene-2028 en edificios nuevos de más de 1.000 m²</strong> y desde el <strong>1-ene-2030 en todos los nuevos</strong>; el cálculo (Reg. Delegado 2026/52) usará primero los datos de cambio climático de la DdP o DdPC del producto y, sin ellos, valores genéricos. El fabricante con datos verificados será el preferido por proyectistas y constructoras.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
           <div class="doc-group-links">
@@ -1040,22 +1113,22 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ============================================================ -->
 <div class="timeline-section" style="margin-top:28px;">
   <h3 style="font-size:17px;margin-bottom:6px;">&#x1F4D1; Documentos obligatorios por ley &mdash; checklist regulatorio</h3>
-  <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Antes de poblar el DPP, conoce que documentos exige el marco. <strong>Sin varios de estos documentos no podras comercializar el producto en la UE.</strong> Marco: CPR 2024/3110 + ESPR 2024/1781 + REACH + Ley 7/2022.</p>
+  <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Antes de poblar el DPP, conoce que documentos exige el marco. <strong>Hoy casi todos los productos siguen con la DdP del 305/2011; la tabla indica cuándo pasa a ser exigible cada pieza.</strong> Marco: CPR 2024/3110 + ESPR 2024/1781 + REACH + Ley 7/2022.</p>
   <div style="overflow-x:auto;">
   <table class="timeline-table">
     <thead><tr><th>#</th><th>Documento</th><th>Base regulatoria</th><th>Deadline / vigencia</th><th>Obligatoriedad</th><th>Origen (quien lo genera)</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td><strong>DoPC (Declaracion de Prestaciones y Conformidad)</strong></td><td>CPR Arts. 13, 15 + Anexo V</td><td>Desde 8 ene 2026 (sustituye a la DoP)</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante</td></tr>
+      <tr><td>1</td><td><strong>DoPC (Declaracion de Prestaciones y Conformidad)</strong></td><td>CPR Arts. 13, 15 + Anexo V</td><td>Cuando la familia pase a DdPC (cementos ≈ T4 2028; hoy, DdP del 305/2011)</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante</td></tr>
       <tr><td>2</td><td><strong>Ficha tecnica del producto</strong></td><td>CPR (documentacion tecnica)</td><td>Ya exigida para marcado CE</td><td>&#x1F534; OBLIGATORIO</td><td>Ingenieria del fabricante</td></tr>
-      <tr><td>3</td><td><strong>Informe ACV segun EN 15804+A2</strong></td><td>CPR Anexo II (fases 2026 / 2030 / 2032)</td><td>Fase 1 (GWP) desde ene 2026</td><td>&#x1F534; OBLIGATORIO</td><td>Consultor ACV</td></tr>
-      <tr><td>4</td><td><strong>DAP/EPD verificada por programa reconocido</strong></td><td>Anexo II + ISO 14025</td><td>Vehiculo de la capa ambiental del DPP; renovacion cada 5 anos</td><td>&#x1F534; OBLIGATORIO</td><td>Programa DAP + verificador</td></tr>
+      <tr><td>3</td><td><strong>Informe ACV segun EN 15804+A2</strong></td><td>CPR art. 15.2 y Anexo II (fases 2026 / 2030 / 2032)</td><td>Cuando la familia pase a DdPC; el cálculo declarable se hará con el software gratuito de la Comisión (aún no publicado)</td><td>&#x1F534; OBLIGATORIO</td><td>Consultor ACV</td></tr>
+      <tr><td>4</td><td><strong>DAP/EPD verificada por programa reconocido</strong></td><td>Anexo II + ISO 14025</td><td>Fuente de datos y contraste; no sustituye al cálculo del art. 15.2. Renovación cada 5 años</td><td>&#x1F535; RECOMENDADO</td><td>Programa DAP + verificador</td></tr>
       <tr><td>5</td><td><strong>Informes de ensayo (ITT) segun norma armonizada</strong></td><td>Norma hEN aplicable a la familia</td><td>Base de las prestaciones declaradas</td><td>&#x1F534; OBLIGATORIO</td><td>Laboratorio / Organismo notificado</td></tr>
       <tr><td>6</td><td><strong>Plan FPC (control de produccion en fabrica)</strong></td><td>Sistemas AVS del CPR</td><td>Permanente</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante</td></tr>
-      <tr><td>7</td><td><strong>Dossier de verificacion AVS 3+ (caracteristicas ambientales)</strong></td><td>Sistema AVS 3+ del CPR 2024/3110</td><td>Sanciones aplicables desde ene 2027</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante + Organismo notificado</td></tr>
+      <tr><td>7</td><td><strong>Dossier de verificacion AVS 3+ (caracteristicas ambientales)</strong></td><td>Reg. Delegado 2024/2769 (ya con DdP) y Reg. Delegado 2026/1310 (CPR 2024/3110)</td><td>Cuando se declaren características ambientales; ya puede exigirse con DdP</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante + Organismo notificado</td></tr>
       <tr><td>8</td><td><strong>Declaracion REACH art. 33 / notificacion SCIP</strong></td><td>REACH 1907/2006 + base SCIP (ECHA)</td><td>En vigor (si SVHC &gt; 0,1% p/p)</td><td>&#x1F7E0; OBLIGATORIO (REACH)</td><td>Fabricante / proveedores</td></tr>
       <tr><td>9</td><td><strong>Instrucciones de uso e informacion de seguridad</strong></td><td>CPR 2024/3110 (informacion general de producto)</td><td>Con la comercializacion</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante</td></tr>
-      <tr><td>10</td><td><strong>Identificador unico + GTIN (GS1)</strong></td><td>CPR Arts. 75-79 + GS1 Digital Link</td><td>Antes de la primera comercializacion con DPP</td><td>&#x1F7E0; OBLIGATORIO (GS1)</td><td>AECOC (GS1 Espana)</td></tr>
-      <tr><td>11</td><td><strong>Inscripcion en el Registro DPP de Construccion</strong></td><td>CPR Art. 75</td><td>Antes de comercializar (registro operativo jul 2026)</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante via sistema DPP</td></tr>
+      <tr><td>10</td><td><strong>Identificador unico + GTIN (GS1)</strong></td><td>CPR Arts. 75-79 + GS1 Digital Link</td><td>Antes de la primera comercialización con DPP</td><td>&#x1F535; RECOMENDADO (GS1)</td><td>AECOC (GS1 Espana)</td></tr>
+      <tr><td>11</td><td><strong>Inscripcion en el Registro DPP de Construccion</strong></td><td>CPR art. 79 + Reg. de Ejecución 2026/1778</td><td>Registro abierto desde el 20-jul-2026; obligatorio para construcción cuando lo active el acto del art. 75</td><td>&#x1F534; OBLIGATORIO</td><td>Fabricante via sistema DPP</td></tr>
       <tr><td>12</td><td><strong>Plan de gestion de residuos / codigos LER</strong></td><td>Ley 7/2022 + normativa RCD</td><td>En vigor</td><td>&#x1F7E0; OBLIGATORIO (residuos)</td><td>Fabricante + gestor autorizado</td></tr>
       <tr><td>13</td><td><strong>Sello de tiempo cualificado eIDAS 2.0</strong></td><td>Reg. (UE) 2024/1183 Arts. 35-41</td><td>EUDI Wallet operativa antes de fin de 2026</td><td>&#x1F535; OBLIGACION FUNCIONAL</td><td>Trust Service Provider cualificado</td></tr>
       <tr><td>14</td><td><strong>Hash de integridad criptografica</strong></td><td>ISO/IEC 27001 &middot; buenas practicas</td><td>Operativo hoy</td><td>&#x1F535; OBLIGACION FUNCIONAL</td><td>Sistema de gestion documental</td></tr>
@@ -1106,7 +1179,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x1F4C4;</div>
       <div class="step-content">
         <h3>Obtener Declaraciones Ambientales de Producto (DAP/EPD)</h3>
-        <p>Producir DAPs verificadas por un programa reconocido. La DAP es el vehiculo para declarar los indicadores ambientales del Anexo II en el DPP. Seleccionar programa DAP (EPD International, IBU, INIES, BRE). Verificacion independiente obligatoria.</p>
+        <p>Producir DAPs verificadas por un programa reconocido. La DAP es la mejor fuente de datos para los indicadores ambientales del Anexo II, pero en régimen DdPC el valor declarable se calcula con el software gratuito de la Comisión (art. 15.2) y lo valida un organismo notificado en sistema 3+. Seleccionar programa DAP (EPD International, IBU, INIES, BRE). Verificacion independiente obligatoria.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
           <div class="doc-group-links">
@@ -1135,7 +1208,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x2696;&#xFE0F;</div>
       <div class="step-content">
         <h3>Preparar la DoPC (Declaracion de Prestaciones y Conformidad)</h3>
-        <p>La DoPC sustituye a la antigua DoP desde enero 2026. Incluye prestaciones tecnicas + datos de seguridad + datos ambientales + datos climaticos. Formato electronico no editable obligatorio. La DoPC es el puente hacia el DPP: el mismo dataset alimenta ambos.</p>
+        <p>La DoPC sustituirá a la DoP familia por familia, un año después de que la nueva norma de cada familia sea obligatoria (cementos hacia finales de 2028; hoy casi todos los productos siguen con DdP). Incluye prestaciones técnicas + datos de seguridad + datos ambientales + datos climáticos. Se entrega en formato electrónico por defecto (art. 16), legible por personas y máquinas. La DoPC es el puente hacia el DPP: el mismo dataset alimenta ambos.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-ley">LEY:</div>
           <div class="doc-group-links">
@@ -1167,7 +1240,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x2705;</div>
       <div class="step-content">
         <h3>Verificacion AVS 3+ (caracteristicas ambientales)</h3>
-        <p>El sistema AVS 3+ es nuevo en el CPR 2024/3110, especifico para caracteristicas ambientales predeterminadas. El fabricante recopila datos y realiza el ACV/DAP; un organismo notificado UE valida las declaraciones. Documentar: informe ACV, DAP, plan FPC, trazabilidad BOM, informes de ensayo, DoPC.</p>
+        <p>El sistema AVS 3+ es específico para las características ambientales: el Reg. Delegado 2024/2769 lo añadió ya al 305/2011 (puede exigirse hoy con DdP) y el Reg. Delegado 2026/1310 fija los sistemas por familia bajo el nuevo CPR. El fabricante recopila datos y realiza el ACV/DAP; un organismo notificado UE valida las declaraciones. Documentar: informe ACV, DAP, plan FPC, trazabilidad BOM, informes de ensayo, DoPC.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-ley">LEY:</div>
           <div class="doc-group-links">
@@ -1282,7 +1355,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x2601;&#xFE0F;</div>
       <div class="step-content">
         <h3>Seleccionar plataforma DPP</h3>
-        <p>Tres opciones de arquitectura: <strong>Centralizada (PaaS):</strong> plataforma especializada como Trackline (Code Contract) &mdash; menor inversion IT, mas rapido. <strong>Descentralizada (self-hosted):</strong> mayor control, mayor esfuerzo IT. <strong>Hibrida (recomendada por CIRPASS-2):</strong> metadatos en Registro EU, datos completos en plataforma propia o proveedor. Para PYMEs se recomienda PaaS.</p>
+        <p>Tres opciones de arquitectura: <strong>Centralizada (PaaS):</strong> plataforma especializada como Trackline (Code Contract) &mdash; menor inversion IT, mas rapido. <strong>Descentralizada (self-hosted):</strong> mayor control, mayor esfuerzo IT. <strong>Hibrida (recomendada por CIRPASS-2):</strong> metadatos en Registro EU, datos completos en plataforma propia o proveedor. Para PYMEs se recomienda PaaS. El estudio de viabilidad de la Comisión ve más escalables los modelos descentralizados (prestadores licenciados o bases del fabricante con copia), y el art. 75.2.g prevé requisitos y posible certificación de los prestadores de servicios.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-guia">GUIA TECNICA:</div>
           <div class="doc-group-links">
@@ -1345,7 +1418,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="step-icon">&#x1F3DB;&#xFE0F;</div>
       <div class="step-content">
         <h3>Cargar en el Registro DPP de Construccion</h3>
-        <p>El Art. 75 CPR obliga a la Comision a crear el Registro antes de julio 2026. El fabricante debe cargar los <strong>identificadores unicos</strong> y metadatos del DPP en el Registro <strong>antes de la primera comercializacion</strong>. El contenido completo se aloja en el sistema del fabricante o proveedor autorizado, accesible via data carrier.</p>
+        <p>El registro central del DPP (ESPR art. 13, Reg. de Ejecución 2026/1778) está abierto desde el 20-jul-2026 y se aplica a construcción por el art. 79 del CPR; exige identidad eIDAS al operador. Cuando el acto del art. 75 active la obligación, el fabricante deberá cargar los <strong>identificadores unicos</strong> y metadatos del DPP en el Registro <strong>antes de la primera comercializacion</strong>. El contenido completo se aloja en el sistema del fabricante o proveedor autorizado, accesible via data carrier.</p>
         <div class="doc-group">
           <div class="doc-group-label dg-ley">LEY:</div>
           <div class="doc-group-links">
@@ -1400,7 +1473,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <tr><td><strong>Trazabilidad</strong></td><td>Registrar quien aporto cada dato, cuando y con que documento soporte (Arts. 75 y 77)</td><td><strong>&#x2713;</strong> Cadena de eventos verificable + <strong>hash interno del dataset</strong> como prueba de integridad propia (no es sello cualificado eIDAS).</td></tr>
       <tr><td><strong>Vista previa</strong></td><td>Revision de la informacion antes de su puesta a disposicion</td><td><strong>&#x2713;</strong> Vista previa pre-publicacion. <strong>&#x2699;</strong> Segmentacion completa por audiencia en construccion.</td></tr>
       <tr><td><strong>Accesos por rol</strong></td><td>Datos publicos / cadena de suministro / confidenciales (Art. 77)</td><td><strong>&#x2699;</strong> Diseno de roles listo; permisos granulares backend en desarrollo.</td></tr>
-      <tr><td><strong>QR / publicacion</strong></td><td>Data carrier + identificador unico cargado en el Registro antes de la primera comercializacion (Arts. 75-79)</td><td><strong>&#x1F52E;</strong> Pendiente del ecosistema: Registro DPP (jul 2026) + actos delegados por familia de producto.</td></tr>
+      <tr><td><strong>QR / publicacion</strong></td><td>Data carrier + identificador unico cargado en el Registro antes de la primera comercializacion (Arts. 75-79)</td><td><strong>&#x1F52E;</strong> Pendiente del ecosistema: registro DPP abierto (20-jul-2026), falta el acto delegado del art. 75.</td></tr>
       <tr><td><strong>Actualizacion</strong></td><td>Documento vivo: renovacion de DAPs (cada 5 anos), cambios de produccion, nuevos actos delegados</td><td><strong>&#x2713;</strong> Actualizacion documental con historial fechado. <strong>&#x1F52E;</strong> Integraciones automaticas en roadmap.</td></tr>
       <tr><td><strong>Capa eIDAS cualificada</strong></td><td>No exigida por el CPR, pero aporta valor probatorio reforzado (inspecciones, garantias, litigios)</td><td><strong>&#x1F52E;</strong> Roadmap: firma (Art. 25), sello (Art. 35) y sello de tiempo (Art. 41) cualificados via eIDAS 2.0.</td></tr>
     </tbody>
@@ -1419,7 +1492,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <span class="faq-chevron">&#x25BE;</span>
       </div>
       <div class="faq-a">
-        El marco juridico ya existe en el CPR 2024/3110, pero la transicion es paulatina por familia de producto. La obligacion operativa depende de las especificaciones tecnicas armonizadas y los actos delegados que la Comision publicara progresivamente. A junio de 2026 todavia no se ha adoptado ningun acto delegado que active la obligacion de DPP por familia: el acto delegado sobre proveedores de servicios DPP esta en consulta publica (previsto Q4 2026) y la Comision debe tener operativo el Registro DPP el 19 julio 2026. La recomendacion es prepararse ahora con una arquitectura DPP-ready.
+        El marco juridico ya existe en el CPR 2024/3110, pero la transicion es paulatina por familia de producto. La obligacion operativa depende de las especificaciones tecnicas armonizadas y los actos delegados que la Comision publicara progresivamente. A 22 de octubre de 2026 no hay ni borrador del acto delegado del art. 75, que es el que crea el sistema DPP de construcción; cuando entre en vigor, la obligación del fabricante llega a los 18 meses, así que no antes de 2028-2029. El registro central ya está abierto (20-jul-2026) y el acto sobre prestadores de servicios es del ESPR (previsto en 2026). Antes del DPP llega la DdPC por familias (cementos hacia finales de 2028). La recomendación es prepararse ahora con una arquitectura DPP-ready, empezando por publicar bien la DdP actual.
       </div>
     </div>
 
@@ -1507,7 +1580,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="cta-step">
         <div class="cta-step-num">Roadmap &#x1F52E;</div>
         <h4>Publicacion y registro</h4>
-        <p>Generar data carrier (QR/NFC con GS1 Digital Link), publicar el visor web del DPP y cargar identificadores en el Registro DPP de Construccion cuando este operativo.</p>
+        <p>Generar data carrier (QR/NFC con GS1 Digital Link), publicar el visor web del DPP y cargar identificadores en el registro DPP (abierto desde julio de 2026) cuando la obligación llegue a construcción.</p>
       </div>
     </div>
     <div class="cta-links">
@@ -1528,7 +1601,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52025DC0772" target="_blank">Plan de Trabajo COM(2025) 772</a> &middot;
   <a href="https://cirpass2.eu/" target="_blank">CIRPASS-2</a> &middot;
   <a href="https://epd.guide/" target="_blank">EPD Guide</a><br>
-  <strong>Pack DPP Construccion</strong> &mdash; Guia v1.3 &middot; Mapping v0.2 &middot; act. 10 junio 2026 &middot; Elaborado por Code Contract S.L.<br>
+  <strong>Pack DPP Construccion</strong> &mdash; Guía v1.4 &middot; Mapping v0.3 &middot; act. 23 octubre 2026 &middot; Elaborado por Code Contract S.L.<br>
   <em style="color:#b0b0b0">Nota: este documento no constituye asesoramiento juridico. Consultar siempre el texto oficial del reglamento y los actos delegados vigentes.</em>
 </div>
 
